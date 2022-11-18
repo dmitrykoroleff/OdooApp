@@ -8,20 +8,20 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>odoo.miem</string>
+			<string>odoo.miem.ios</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>odoo.miem.ios</string>
+				<string>https</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>odoo.miem.ios</string>
+			<string>odoo.miem</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>https</string>
+				<string>odoo.miem.ios</string>
 			</array>
 		</dict>
 	</array>

@@ -2,21 +2,17 @@
 //  odooappApp.swift
 //  odooapp
 //
-//  Created by Melanie Kofman on 10.10.2022.
+//  Created by Melanie Kofman on 11.11.2022.
 //
 
 import SwiftUI
-
+// MARK: remove available
+// @available(iOS 15.0, *)
 @main
-struct odooappApp: App {
-    @StateObject var viewRouter = ViewRouter()
+struct OdooappApp: App {
     var body: some Scene {
         WindowGroup {
-//            AuthView()
-            AuthView()
-                .onOpenURL { url in
-                                    print(url.absoluteString)
-                                }
+            AppView()
         }
     }
 }

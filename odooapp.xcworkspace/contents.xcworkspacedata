@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:AuthOdoo/AuthOdoo/AuthOdoo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AuthHSE/AuthHSE/AuthHSE.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:odooapp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
