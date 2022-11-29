@@ -1,7 +1,6 @@
 import SwiftUI
 import Combine
 
-
 struct UnauthenticatedView: View {
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     @ObservedObject private var model: UnauthenticatedViewModel
@@ -73,10 +72,10 @@ struct UnauthenticatedView: View {
 //                                                      database: "crm",
 //                                                      username: "admin",
 //                                                      password: "admin")
-                       self.model.logInOdoo(serverURL: "https://odoo.miem.tv/ru",
+                       self.model.logInOdoo(serverURL: loginModel.server,
                                             database: "crm",
-                                            username: "admin",
-                                            password: "admin")
+                                            username: loginModel.email,
+                                            password: loginModel.password)
                    } label: {
                        
                        ZStack {

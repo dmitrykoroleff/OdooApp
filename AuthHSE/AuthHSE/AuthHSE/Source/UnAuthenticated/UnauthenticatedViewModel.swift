@@ -94,9 +94,13 @@ class UnauthenticatedViewModel: ObservableObject {
                                              database: database,
                                              username: username,
                                              password: password))
+        
+        
+        
     }
 
     private func getViewController() -> UIViewController {
         return UIApplication.shared.windows.first!.rootViewController!
     }
 }
+

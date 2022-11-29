@@ -45,7 +45,7 @@ struct UserView: View {
     }
 }
 
-@available(iOS 15.0, *)
+// @available(iOS 15.0, *)
 struct ModulesView: View {
     var body: some View {
         NavigationView {
@@ -62,3 +62,10 @@ struct ModulesView: View {
         }
     }
 }
+
+
+//struct preview_AuthView: PreviewProvider {
+//    static var previews: some View {
+//        AuthView()
+//    }
+//}
