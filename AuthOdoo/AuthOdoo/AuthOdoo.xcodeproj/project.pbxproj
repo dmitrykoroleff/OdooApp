@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1421938E293B402F00812218 /* Auth_new.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421938D293B402F00812218 /* Auth_new.swift */; };
 		6190B48629256C5E009CD969 /* AuthOdoo.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6190B48529256C5E009CD969 /* AuthOdoo.docc */; };
 		6190B48C29256C5E009CD969 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B48129256C5E009CD969 /* AuthOdoo.framework */; };
 		6190B49129256C5E009CD969 /* AuthOdooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6190B49029256C5E009CD969 /* AuthOdooTests.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1421938D293B402F00812218 /* Auth_new.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth_new.swift; sourceTree = "<group>"; };
 		6190B48129256C5E009CD969 /* AuthOdoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthOdoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6190B48429256C5E009CD969 /* AuthOdoo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthOdoo.h; sourceTree = "<group>"; };
 		6190B48529256C5E009CD969 /* AuthOdoo.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AuthOdoo.docc; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				6190B4C22926426B009CD969 /* Auth.swift */,
 				6190B4C029257657009CD969 /* Main.swift */,
+				1421938D293B402F00812218 /* Auth_new.swift */,
 				6190B4B329257356009CD969 /* Repositories */,
 				6190B4AC29257289009CD969 /* Interactor */,
 				6190B4A1292570B9009CD969 /* Utilities */,
@@ -296,6 +299,7 @@
 				6190B4C32926426B009CD969 /* Auth.swift in Sources */,
 				6190B4A7292571EF009CD969 /* User.swift in Sources */,
 				6190B49D29256DC1009CD969 /* Login.swift in Sources */,
+				1421938E293B402F00812218 /* Auth_new.swift in Sources */,
 				6190B4B52925736B009CD969 /* AuthenticateWebRepositoryProtocol.swift in Sources */,
 				6190B4A029257069009CD969 /* DI.swift in Sources */,
 				6190B4A3292570C7009CD969 /* Store.swift in Sources */,

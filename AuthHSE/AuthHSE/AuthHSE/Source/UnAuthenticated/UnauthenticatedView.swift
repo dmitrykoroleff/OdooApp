@@ -72,10 +72,13 @@ struct UnauthenticatedView: View {
 //                                                      database: "crm",
 //                                                      username: "admin",
 //                                                      password: "admin")
-                       self.model.logInOdoo(serverURL: loginModel.server,
-                                            database: "crm",
-                                            username: loginModel.email,
-                                            password: loginModel.password)
+//                       self.model.logInOdoo(serverURL: loginModel.server,
+//                                            database: "crm",
+//                                            username: loginModel.email,
+//                                            password: loginModel.password)
+                       self.model.logInOdooNew(serverURL: loginModel.server,
+                                               username: loginModel.email,
+                                               password: loginModel.password)
                    } label: {
                        
                        ZStack {
