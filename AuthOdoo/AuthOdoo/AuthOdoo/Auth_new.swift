@@ -16,10 +16,21 @@ public class AuthNew {
     }
     
     @discardableResult
-    public func authenticate(server: Any, login: Any, password: Any, completion: @escaping (Result<[String: Any], Error>) -> Void) -> URLSessionTask? {
+    public func authenticate(server: String, login: String, password: String, completion: @escaping (Result<[String: Any], Error>) -> Void) -> URLSessionTask? {
         
+        var parsed = server.split(separator: ".")[0]
+        var db: String
+        
+        switch parsed.lowercased() {
+        case "odoo":
+            db = "crm"
+        default:
+            db = String(parsed)
+        }
+        
+        //demo_150_1670688842
         var parameters: [String: Any] = [
-            "db": "demo_150_1670055421",
+            "db": db,
             "login": login,
             "password": password
         ]
@@ -76,7 +87,7 @@ public class AuthNew {
     }
     
 //    server: "demo3.odoo.com", login: "admin", password: "admin"
-    public func testAuthenticate(server: Any, login: Any, password: Any) {
+    public func testAuthenticate(server: String, login: String, password: String) {
         authenticate(server: server, login: login, password: password) { result in
             
             switch result {

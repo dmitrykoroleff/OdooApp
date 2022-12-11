@@ -56,9 +56,12 @@ struct UnauthenticatedView: View {
                    
                    CustomTextField(hint: "Server", text: $loginModel.server)
                        .keyboardType(.URL)
+                       .autocapitalization(.none)
                    CustomTextField(hint: "Email", text: $loginModel.email)
                        .keyboardType(.emailAddress)
+                       .autocapitalization(.none)
                    CustomSecureTextField(hint: "Password", text: $loginModel.password)
+                       .autocapitalization(.none)
 
                }
                .padding(.top)
