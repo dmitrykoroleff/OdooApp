@@ -17,6 +17,23 @@
 		EDEEE6F3FB5F517A5424A4D8 /* Pods_odooapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0765863D5609C847FD13CD /* Pods_odooapp.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7E1A451C29476AC400FC55DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E1A451429476AC400FC55DE /* AuthHSE.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6162A8C6291EA0B1008B32A6;
+			remoteInfo = AuthHSE;
+		};
+		7E1A451E29476AC400FC55DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E1A451429476AC400FC55DE /* AuthHSE.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6162A8D0291EA0B2008B32A6;
+			remoteInfo = AuthHSETests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		6162A8E8291EC3F1008B32A6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -42,6 +59,27 @@
 		6162A92A291EF597008B32A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		61946CA1291FBB0500BE2004 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C0765863D5609C847FD13CD /* Pods_odooapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_odooapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1A44FC29476AC400FC55DE /* AuthHSE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthHSE.h; sourceTree = "<group>"; };
+		7E1A44FF29476AC400FC55DE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		7E1A450129476AC400FC55DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7E1A450329476AC400FC55DE /* ApplicationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConfig.swift; sourceTree = "<group>"; };
+		7E1A450429476AC400FC55DE /* ApplicationConfigLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConfigLoader.swift; sourceTree = "<group>"; };
+		7E1A450529476AC400FC55DE /* ApplicationStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationStateManager.swift; sourceTree = "<group>"; };
+		7E1A450629476AC400FC55DE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		7E1A450829476AC400FC55DE /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		7E1A450929476AC400FC55DE /* AuthenticatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedViewModel.swift; sourceTree = "<group>"; };
+		7E1A450A29476AC400FC55DE /* ApplicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
+		7E1A450C29476AC400FC55DE /* UnauthenticatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedViewModel.swift; sourceTree = "<group>"; };
+		7E1A450D29476AC400FC55DE /* UnauthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedView.swift; sourceTree = "<group>"; };
+		7E1A450E29476AC400FC55DE /* AppAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAuthHandler.swift; sourceTree = "<group>"; };
+		7E1A450F29476AC400FC55DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E1A451029476AC400FC55DE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		7E1A451129476AC400FC55DE /* ObservedAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedAuthView.swift; sourceTree = "<group>"; };
+		7E1A451229476AC400FC55DE /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		7E1A451329476AC400FC55DE /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		7E1A451429476AC400FC55DE /* AuthHSE.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AuthHSE.xcodeproj; sourceTree = "<group>"; };
+		7E1A451729476AC400FC55DE /* AuthHSE.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AuthHSE.docc; sourceTree = "<group>"; };
+		7E1A451929476AC400FC55DE /* AuthHSETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHSETests.swift; sourceTree = "<group>"; };
 		F58682DA8DDE1CFEDC3F8BAD /* Pods-odooapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-odooapp.debug.xcconfig"; path = "Target Support Files/Pods-odooapp/Pods-odooapp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +99,7 @@
 		6162A87E291E9A2D008B32A6 = {
 			isa = PBXGroup;
 			children = (
+				7E1A44FA29476AC400FC55DE /* AuthHSE */,
 				6162A889291E9A2D008B32A6 /* odooapp */,
 				6162A888291E9A2D008B32A6 /* Products */,
 				6162A8E4291EC3F1008B32A6 /* Frameworks */,
@@ -104,6 +143,107 @@
 				7C0765863D5609C847FD13CD /* Pods_odooapp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E1A44FA29476AC400FC55DE /* AuthHSE */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A44FB29476AC400FC55DE /* AuthHSE */,
+			);
+			path = AuthHSE;
+			sourceTree = "<group>";
+		};
+		7E1A44FB29476AC400FC55DE /* AuthHSE */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A44FC29476AC400FC55DE /* AuthHSE.h */,
+				7E1A44FD29476AC400FC55DE /* AuthHSE */,
+				7E1A451429476AC400FC55DE /* AuthHSE.xcodeproj */,
+				7E1A451729476AC400FC55DE /* AuthHSE.docc */,
+				7E1A451829476AC400FC55DE /* AuthHSETests */,
+			);
+			path = AuthHSE;
+			sourceTree = "<group>";
+		};
+		7E1A44FD29476AC400FC55DE /* AuthHSE */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A44FE29476AC400FC55DE /* Appearance */,
+				7E1A450029476AC400FC55DE /* Source */,
+				7E1A450F29476AC400FC55DE /* Assets.xcassets */,
+				7E1A451029476AC400FC55DE /* AuthView.swift */,
+				7E1A451129476AC400FC55DE /* ObservedAuthView.swift */,
+				7E1A451229476AC400FC55DE /* ViewRouter.swift */,
+				7E1A451329476AC400FC55DE /* Page.swift */,
+			);
+			path = AuthHSE;
+			sourceTree = "<group>";
+		};
+		7E1A44FE29476AC400FC55DE /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A44FF29476AC400FC55DE /* CustomTextField.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		7E1A450029476AC400FC55DE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A450129476AC400FC55DE /* LoginViewModel.swift */,
+				7E1A450229476AC400FC55DE /* Configuration */,
+				7E1A450529476AC400FC55DE /* ApplicationStateManager.swift */,
+				7E1A450629476AC400FC55DE /* Logger.swift */,
+				7E1A450729476AC400FC55DE /* Authenticated */,
+				7E1A450A29476AC400FC55DE /* ApplicationError.swift */,
+				7E1A450B29476AC400FC55DE /* UnAuthenticated */,
+				7E1A450E29476AC400FC55DE /* AppAuthHandler.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		7E1A450229476AC400FC55DE /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A450329476AC400FC55DE /* ApplicationConfig.swift */,
+				7E1A450429476AC400FC55DE /* ApplicationConfigLoader.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		7E1A450729476AC400FC55DE /* Authenticated */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A450829476AC400FC55DE /* AuthenticatedView.swift */,
+				7E1A450929476AC400FC55DE /* AuthenticatedViewModel.swift */,
+			);
+			path = Authenticated;
+			sourceTree = "<group>";
+		};
+		7E1A450B29476AC400FC55DE /* UnAuthenticated */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A450C29476AC400FC55DE /* UnauthenticatedViewModel.swift */,
+				7E1A450D29476AC400FC55DE /* UnauthenticatedView.swift */,
+			);
+			path = UnAuthenticated;
+			sourceTree = "<group>";
+		};
+		7E1A451529476AC400FC55DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A451D29476AC400FC55DE /* AuthHSE.framework */,
+				7E1A451F29476AC400FC55DE /* AuthHSETests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E1A451829476AC400FC55DE /* AuthHSETests */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A451929476AC400FC55DE /* AuthHSETests.swift */,
+			);
+			path = AuthHSETests;
 			sourceTree = "<group>";
 		};
 		A9B45AA36D92DDB9052605E3 /* Pods */ = {
@@ -164,12 +304,35 @@
 			mainGroup = 6162A87E291E9A2D008B32A6;
 			productRefGroup = 6162A888291E9A2D008B32A6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7E1A451529476AC400FC55DE /* Products */;
+					ProjectRef = 7E1A451429476AC400FC55DE /* AuthHSE.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6162A886291E9A2D008B32A6 /* odooapp */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7E1A451D29476AC400FC55DE /* AuthHSE.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AuthHSE.framework;
+			remoteRef = 7E1A451C29476AC400FC55DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E1A451F29476AC400FC55DE /* AuthHSETests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AuthHSETests.xctest;
+			remoteRef = 7E1A451E29476AC400FC55DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6162A885291E9A2D008B32A6 /* Resources */ = {
@@ -364,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"odooapp/Preview Content\"";
-				DEVELOPMENT_TEAM = YN4CY38HR3;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = odooapp/Info.plist;
@@ -397,7 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"odooapp/Preview Content\"";
-				DEVELOPMENT_TEAM = YN4CY38HR3;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = odooapp/Info.plist;

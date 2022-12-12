@@ -16,6 +16,7 @@ class AppAuthHandler {
     init(config: ApplicationConfig) {
         self.config = config
         self.userAgentSession = nil
+
     }
 
     /*
@@ -115,7 +116,8 @@ class AppAuthHandler {
                         let accessToken = tokenResponse!.accessToken == nil ? "" : tokenResponse!.accessToken!
                         let refreshToken = tokenResponse!.refreshToken == nil ? "" : tokenResponse!.refreshToken!
                         let idToken = tokenResponse!.idToken == nil ? "" : tokenResponse!.idToken!
-                        Logger.debug(data: "AT: \(accessToken), RT: \(refreshToken), IDT: \(idToken)" )
+                        print("AT:", accessToken)
+                        print("session_state:", DecodeToken().decode(jwtToken: accessToken)["session_state"] ?? "")
 
                         promise.success(tokenResponse!)
                     } else {
@@ -123,6 +125,7 @@ class AppAuthHandler {
                         let error = self.createAuthorizationError(title: "Authorization Response Error", err: err)
                         promise.fail(error)
                     }
+                    
                 }
             return promise
         }

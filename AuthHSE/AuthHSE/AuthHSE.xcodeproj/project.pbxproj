@@ -33,6 +33,7 @@
 		6162A92E291EFE71008B32A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162A92D291EFE71008B32A6 /* Assets.xcassets */; };
 		6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; };
 		6190B4C729265AB1009CD969 /* AuthOdoo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E1A452429476F4E00FC55DE /* DecodeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A452329476F4E00FC55DE /* DecodeToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		6162A911291ED877008B32A6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6162A92D291EFE71008B32A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6190B4C529265AB1009CD969 /* AuthOdoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthOdoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1A452329476F4E00FC55DE /* DecodeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				6162A902291ED2A4008B32A6 /* AppAuthHandler.swift */,
 				6162A90C291ED4C5008B32A6 /* Logger.swift */,
 				6162A911291ED877008B32A6 /* LoginViewModel.swift */,
+				7E1A452329476F4E00FC55DE /* DecodeToken.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				6162A8F0291EC49E008B32A6 /* ApplicationConfigLoader.swift in Sources */,
 				6162A8EA291EC42D008B32A6 /* ViewRouter.swift in Sources */,
 				6162A912291ED877008B32A6 /* LoginViewModel.swift in Sources */,
+				7E1A452429476F4E00FC55DE /* DecodeToken.swift in Sources */,
 				6162A8EC291EC451008B32A6 /* Page.swift in Sources */,
 				6162A90D291ED4C5008B32A6 /* Logger.swift in Sources */,
 				6162A903291ED2A4008B32A6 /* AppAuthHandler.swift in Sources */,
