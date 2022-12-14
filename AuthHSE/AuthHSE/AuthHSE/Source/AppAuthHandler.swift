@@ -117,7 +117,12 @@ class AppAuthHandler {
                         let refreshToken = tokenResponse!.refreshToken == nil ? "" : tokenResponse!.refreshToken!
                         let idToken = tokenResponse!.idToken == nil ? "" : tokenResponse!.idToken!
                         print("AT:", accessToken)
-                        print("session_state:", DecodeToken().decode(jwtToken: accessToken)["session_state"] ?? "")
+                        let sessionState = DecodeToken().decode(jwtToken: accessToken)["session_state"] ?? ""
+//                        print("session_state:", DecodeToken().decode(jwtToken: accessToken)["session_state"] ?? "")
+                        print("session state \(sessionState)")
+                        let sessionStateStr = String(describing: sessionState)
+                        let token = Token()
+                        token.tokenHSEtoOdoo(accessToken: accessToken, sessionState: sessionStateStr)
 
                         promise.success(tokenResponse!)
                     } else {
@@ -125,7 +130,7 @@ class AppAuthHandler {
                         let error = self.createAuthorizationError(title: "Authorization Response Error", err: err)
                         promise.fail(error)
                     }
-                    
+
                 }
             return promise
         }

@@ -18,13 +18,10 @@ struct ApplicationConfig: Decodable {
     init() {
 
         self.issuer = "https://profile.miem.hse.ru/auth/realms/MIEM"
-//        self.clientID = "odoo-mobileapp"
         self.clientID = "odoo-mobile-app"
         self.redirectUri = "odoo.miem.ios://auth.hse.ru/odoo.miem.ios/callback"
-//        self.postLogoutRedirectUri = ""
         self.postLogoutRedirectUri = "odoo.miem.ios://auth.hse.ru/odoo.miem.ios/logoutcallback"
         self.scope = "openid profile"
-//        self.scope = ""
 
     }
 
@@ -32,7 +29,8 @@ struct ApplicationConfig: Decodable {
 
         guard let url = URL(string: self.issuer) else {
 
-            let error = ApplicationError(title: "Invalid Configuration Error", description: "The issuer URI could not be parsed")
+            let error = ApplicationError(title: "Invalid Configuration Error",
+                                         description: "The issuer URI could not be parsed")
             return (nil, error)
         }
 
@@ -41,7 +39,8 @@ struct ApplicationConfig: Decodable {
 
     func getRedirectUri() -> (URL?, Error?) {
         guard let url = URL(string: self.redirectUri) else {
-            let error = ApplicationError(title: "Invalid Configuration Error", description: "The redirect URI could not be parsed")
+            let error = ApplicationError(title: "Invalid Configuration Error",
+                                         description: "The redirect URI could not be parsed")
             return (nil, error)
         }
 
@@ -52,7 +51,8 @@ struct ApplicationConfig: Decodable {
 
         guard let url = URL(string: self.postLogoutRedirectUri) else {
 
-            let error = ApplicationError(title: "Invalid Configuration Error", description: "The post logout redirect URI could not be parsed")
+            let error = ApplicationError(title: "Invalid Configuration Error",
+                                         description: "The post logout redirect URI could not be parsed")
             return (nil, error)
         }
 

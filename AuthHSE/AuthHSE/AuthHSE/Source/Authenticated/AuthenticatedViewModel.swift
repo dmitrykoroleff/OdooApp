@@ -70,7 +70,8 @@ class AuthenticatedViewModel: ObservableObject {
 
             } catch {
 
-                let appError = ApplicationError(title: "Failed to parse ID Token", description: error.localizedDescription)
+                let appError = ApplicationError(title: "Failed to parse ID Token",
+                                                description: error.localizedDescription)
 //                Logger.error(data: appError.description)
                 self.error = appError
             }

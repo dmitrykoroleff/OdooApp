@@ -6,24 +6,24 @@ struct UnauthenticatedView: View {
     @ObservedObject private var model: UnauthenticatedViewModel
     @StateObject private var loginModel: LoginViewModel = .init()
     private var height = UIApplication.shared.keyWindow?.frame.height
-    
+
     init(model: UnauthenticatedViewModel) {
         self.model = model
     }
-    
+
     var body: some View {
-        
+
         ScrollView {
-            
+
             VStack {
                 Image("logo", bundle: bundle)
                     .resizable()
                     .frame(width: 64, height: 22)
                     .padding(.top)
                     .padding(.bottom, 40)
-                
+
                 VStack(spacing: CGFloat(height!) / 46.6) {
-                    
+
                     HStack {
                         Text("Welcome back,")
                             .foregroundColor(Color("Headings", bundle: bundle))
@@ -31,11 +31,11 @@ struct UnauthenticatedView: View {
                             .fontWeight(.semibold)
                             .frame(height: CGFloat(height!) / 46.6)
                             .padding(.leading, 28)
-                        
+
                         Spacer()
-                        
+
                     }
-                    
+
                     HStack {
                         Text("We're happy to see you here again. Enter your server url, email and password.")
                             .foregroundColor(Color("Body", bundle: bundle))
@@ -43,15 +43,15 @@ struct UnauthenticatedView: View {
                             .fontWeight(.light)
                             .padding(.leading, 28)
                             .padding(.trailing, 48)
-                        
+
                         Spacer()
-                        
+
                     }
-                    
+
                 }
-                
+
                 VStack(spacing: CGFloat(height!) / 18) {
-                    
+
                     CustomTextField(hint: "Server", text: $loginModel.server)
                         .keyboardType(.URL)
                         .autocapitalization(.none)
@@ -60,33 +60,33 @@ struct UnauthenticatedView: View {
                         .autocapitalization(.none)
                     CustomSecureTextField(hint: "Password", text: $loginModel.password)
                         .autocapitalization(.none)
-                    
+
                 }
                 .padding(.top)
                 .padding(.bottom, 25)
-                
+
                 VStack(spacing: CGFloat(height!) / 40.5) {
-                    
+
                     Button {
-                        
+
                         self.model.logInOdooNew(serverURL: loginModel.server,
                                                 username: loginModel.email,
                                                 password: loginModel.password)
                     } label: {
-                        
+
                         ZStack {
-                            
+
                             RoundedRectangle(cornerRadius: 20)
-                                .fill(!loginModel.server.isEmpty && !loginModel.email.isEmpty && !loginModel.password.isEmpty ? Color("Primary Dark", bundle: bundle) : Color("Muted", bundle: bundle))
+                                .fill(!loginModel.server.isEmpty && !loginModel.email.isEmpty && !loginModel.password.isEmpty ? Color("MainColor", bundle: bundle) : Color("Muted", bundle: bundle))
                                 .frame(height: CGFloat(height!) / 15.5)
-                            
+
                             Text("Log in")
                                 .foregroundColor(!loginModel.server.isEmpty && !loginModel.email.isEmpty && !loginModel.password.isEmpty ? .white : Color("Dark Gray", bundle: bundle))
                                 .font(.title2)
                                 .fontWeight(.medium)
-                            
+
                         }
-                        
+
                     }
                     .disabled(loginModel.server.isEmpty || loginModel.email.isEmpty || loginModel.password.isEmpty)
                     Button {
@@ -98,52 +98,60 @@ struct UnauthenticatedView: View {
                             .fontWeight(.medium)
                             .foregroundColor(.black)
                     }
-                    
+
                     HStack {
                         VStack {
                             Divider()
                                 .overlay(.black)
                         }
                         .padding(.leading, 12)
-                        
+
                         Text("or")
                             .font(.footnote)
                             .fontWeight(.light)
                             .foregroundColor(.gray)
-                        
+
                         VStack {
                             Divider()
                                 .overlay(.black)
                         }
                         .padding(.trailing, 12)
                     }
-                    
+
                     Button {
                         model.startLogin()
                     } label: {
-                        
+
                         ZStack {
-                            
+
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color("Dark Blue", bundle: bundle))
                                 .frame(height: CGFloat(height!) / 15.5)
-                            
-                            Text("Login with HSE")
-                                .foregroundColor(.white)
-                                .font(.title2)
+
+                            HStack(spacing: 10) {
+
+                                Image("HSELogo", bundle: bundle)
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+
+                                Text("Login with HSE")
+                                    .foregroundColor(.white)
+                                    .font(.title2)
                                 .fontWeight(.medium)
-                            
+
+                            }
+
                         }
                     }
                 }
                 .padding(.horizontal, 28)
-                
+
                 Spacer()
             }
         }
         .ignoresSafeArea(.keyboard)
         .transition(.offset(x: 0, y: 850))
-        
+
     }
-    
+
 }

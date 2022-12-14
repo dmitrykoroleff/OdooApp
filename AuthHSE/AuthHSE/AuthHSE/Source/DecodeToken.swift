@@ -8,7 +8,6 @@
 import Foundation
 import SwiftJWT
 
-
 class DecodeToken {
     func decode(jwtToken jwt: String) -> [String: Any] {
       let segments = jwt.components(separatedBy: ".")
@@ -32,7 +31,8 @@ class DecodeToken {
 
     func decodeJWTPart(_ value: String) -> [String: Any]? {
       guard let bodyData = base64UrlDecode(value),
-        let json = try? JSONSerialization.jsonObject(with: bodyData, options: []), let payload = json as? [String: Any] else {
+        let json = try? JSONSerialization.jsonObject(with: bodyData, options: []),
+                let payload = json as? [String: Any] else {
           return nil
       }
 
