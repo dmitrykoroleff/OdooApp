@@ -37,7 +37,7 @@ struct UnauthenticatedView: View {
                     }
 
                     HStack {
-                        Text("We're happy to see you here again. Enter your server url, email and password.")
+                        Text("We are happy to see you here again. Enter your server url, email and password.")
                             .foregroundColor(Color("Body", bundle: bundle))
                             .font(.subheadline)
                             .fontWeight(.light)
@@ -89,15 +89,6 @@ struct UnauthenticatedView: View {
 
                     }
                     .disabled(loginModel.server.isEmpty || loginModel.email.isEmpty || loginModel.password.isEmpty)
-                    Button {
-                        // restore password
-                    } label: {
-                        Text("Forgot password?")
-                            .foregroundColor(Color("Body", bundle: bundle))
-                            .font(.body)
-                            .fontWeight(.medium)
-                            .foregroundColor(.black)
-                    }
 
                     HStack {
                         VStack {
