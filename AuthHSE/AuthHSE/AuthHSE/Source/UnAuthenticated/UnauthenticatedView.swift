@@ -6,6 +6,8 @@ struct UnauthenticatedView: View {
     @ObservedObject private var model: UnauthenticatedViewModel
     @StateObject private var loginModel: LoginViewModel = .init()
     private var height = UIApplication.shared.keyWindow?.frame.height
+    
+    @State private var showingAlert = false
 
     init(model: UnauthenticatedViewModel) {
         self.model = model
@@ -147,6 +149,10 @@ struct UnauthenticatedView: View {
                 .padding(.horizontal, 28)
 
                 Spacer()
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Wrong email or password"),
+                              message: Text("Try again."), dismissButton: .default(Text("Ok")))
+                    }
             }
         }
         .ignoresSafeArea(.keyboard)
