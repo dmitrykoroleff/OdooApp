@@ -13,15 +13,24 @@ public class Auth {
 
     @discardableResult
     public func authenticate(server: String, login: String, password: String, completion: @escaping (Result<[String: Any], Error>) -> Void) -> URLSessionTask? {
-
-        let parsed = server.split(separator: ".")[0]
+        
+        var parsedServer = server.components(separatedBy: "://")
+        var serverUrl: String
+        
+        if parsedServer.indices.contains(1) {
+            serverUrl = String(parsedServer[1])
+        } else {
+            serverUrl = server
+        }
+        
+        let parsedUrl = serverUrl.split(separator: ".")[0]
         var database: String
 
-        switch parsed.lowercased() {
+        switch parsedUrl.lowercased() {
         case "odoo":
             database = "crm"
         default:
-            database = String(parsed)
+            database = String(parsedUrl)
         }
         let parameters: [String: Any] = [
             "db": database,
@@ -30,7 +39,7 @@ public class Auth {
         ]
 
         let session = URLSession.shared
-        let url = URL(string: "https://\(server)/web/session/authenticate")!
+        let url = URL(string: "https://\(serverUrl)/web/session/authenticate")!
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
