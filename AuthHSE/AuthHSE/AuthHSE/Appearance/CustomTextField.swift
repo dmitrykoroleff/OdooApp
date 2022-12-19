@@ -25,6 +25,7 @@ struct CustomTextField: View {
                         colored = tap
                     }
                 })
+                .autocorrectionDisabled(true)
                         .padding(.leading, 20)
                         .background {
 
@@ -55,6 +56,7 @@ struct CustomSecureTextField: View {
     @Binding var text: String
     @State var tapped: Bool = false
     @State var colored: Bool = false
+    @State var showPassword = false
     var height = UIApplication.shared.keyWindow?.frame.height
 
     var body: some View {
@@ -62,26 +64,58 @@ struct CustomSecureTextField: View {
         VStack {
 
             ZStack {
-
-                SecureField(hint, text: $text, onCommit: {
-                    colored = false
-                    if text.isEmpty {
-                        tapped = false
+                
+                HStack {
+                    
+                    if !showPassword {
+                        SecureField(hint, text: $text, onCommit: {
+                            colored = false
+                            if text.isEmpty {
+                                tapped = false
+                            }
+                        })
+                    } else {
+                        
+                        TextField(hint, text: $text, onEditingChanged: { tap in
+                            if !text.isEmpty {
+                                tapped = true
+                                colored = tap
+                            } else {
+                                tapped = tap
+                                colored = tap
+                            }
+                        })
+                        .autocorrectionDisabled(true)
                     }
-                })
-                    .padding(.leading, 20)
-                    .background {
+                    
+                    Spacer()
+                    
+                    if tapped || !text.isEmpty {
+                        Button {
+                            withAnimation(.default) {
+                                showPassword.toggle()
+                            }
+                        } label: {
+                            Image(systemName: showPassword ? "eye.slash" : "eye")
+                                .frame(width: 20, height: 14)
+                                .foregroundColor(.black)
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+                            .padding(.leading, 20)
+                            .background {
 
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(!tapped ? .gray : Color("MainColor", bundle: bundle))
-                                .frame(height: CGFloat(height!) / 18.64)
-                                .shadow(color: Color("MainColor", bundle: bundle), radius: !colored ? 0 : 2)
+                                    ZStack {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(!tapped ? .gray : Color("MainColor", bundle: bundle))
+                                                .frame(height: CGFloat(height!) / 18.64)
+                                            .shadow(color: Color("MainColor", bundle: bundle), radius: !colored ? 0 : 2)
+                                    }
+                                    .foregroundColor(.white)
 
                         }
-                        .foregroundColor(.white)
 
-                    }
 
             }
             .onTapGesture {
