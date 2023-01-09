@@ -25,7 +25,7 @@ struct CustomTextField: View {
                         colored = tap
                     }
                 })
-                .autocorrectionDisabled(true)
+                .disableAutocorrection(true)
                         .padding(.leading, 20)
                         .background {
 
