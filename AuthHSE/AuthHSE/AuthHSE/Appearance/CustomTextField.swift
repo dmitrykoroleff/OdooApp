@@ -8,7 +8,7 @@ struct CustomTextField: View {
     @Binding var text: String
     @State var tapped: Bool = false
     @State var colored: Bool = false
-    var height = UIApplication.shared.keyWindow?.frame.height
+    var height = UIScreen.main.bounds.height
 
     var body: some View {
 
@@ -33,7 +33,7 @@ struct CustomTextField: View {
 
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(!tapped ? .gray : Color("MainColor", bundle: bundle))
-                                    .frame(height: CGFloat(height!) / 18.64)
+                                    .frame(height: CGFloat(height) / 18.64)
                                     .shadow(color: Color("MainColor", bundle: bundle), radius: !colored ? 0 : 2)
 
                             }
@@ -57,7 +57,7 @@ struct CustomSecureTextField: View {
     @State var tapped: Bool = false
     @State var colored: Bool = false
     @State var showPassword = false
-    var height = UIApplication.shared.keyWindow?.frame.height
+    var height = UIScreen.main.bounds.height
 
     var body: some View {
 
@@ -85,7 +85,7 @@ struct CustomSecureTextField: View {
                                 colored = tap
                             }
                         })
-                        .autocorrectionDisabled(true)
+                        .disableAutocorrection(true)
                     }
                     
                     Spacer()
@@ -109,7 +109,7 @@ struct CustomSecureTextField: View {
                                     ZStack {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .stroke(!tapped ? .gray : Color("MainColor", bundle: bundle))
-                                                .frame(height: CGFloat(height!) / 18.64)
+                                                .frame(height: CGFloat(height) / 18.64)
                                             .shadow(color: Color("MainColor", bundle: bundle), radius: !colored ? 0 : 2)
                                     }
                                     .foregroundColor(.white)
