@@ -25,7 +25,7 @@ struct UnauthenticatedView: View {
                 VStack(spacing: CGFloat(height!) / 46.6) {
 
                     HStack {
-                        Text("Welcome back,")
+                        Text("welcome-string")
                             .foregroundColor(Color("Headings", bundle: bundle))
                             .font(.title)
                             .fontWeight(.semibold)
@@ -37,7 +37,7 @@ struct UnauthenticatedView: View {
                     }
 
                     HStack {
-                        Text("We are happy to see you here again. Enter your server url, email and password.")
+                        Text("introduction-string")
                             .foregroundColor(Color("Body", bundle: bundle))
                             .font(.subheadline)
                             .fontWeight(.light)
@@ -52,13 +52,13 @@ struct UnauthenticatedView: View {
 
                 VStack(spacing: CGFloat(height!) / 18) {
 
-                    CustomTextField(hint: "Server", text: $loginModel.server)
+                    CustomTextField(hint: NSLocalizedString("server-string", comment: ""), text: $loginModel.server)
                         .keyboardType(.URL)
                         .autocapitalization(.none)
-                    CustomTextField(hint: "Email", text: $loginModel.email)
+                    CustomTextField(hint: NSLocalizedString("email-string", comment: ""), text: $loginModel.email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
-                    CustomSecureTextField(hint: "Password", text: $loginModel.password)
+                    CustomSecureTextField(hint: NSLocalizedString("password-string", comment: ""), text: $loginModel.password)
                         .autocapitalization(.none)
 
                 }
@@ -80,7 +80,7 @@ struct UnauthenticatedView: View {
                                 .fill(!loginModel.server.isEmpty && !loginModel.email.isEmpty && !loginModel.password.isEmpty ? Color("MainColor", bundle: bundle) : Color("Muted", bundle: bundle))
                                 .frame(height: CGFloat(height!) / 15.5)
 
-                            Text("Log in")
+                            Text("log-in-string")
                                 .foregroundColor(!loginModel.server.isEmpty && !loginModel.email.isEmpty && !loginModel.password.isEmpty ? .white : Color("Dark Gray", bundle: bundle))
                                 .font(.title2)
                                 .fontWeight(.medium)
@@ -125,7 +125,7 @@ struct UnauthenticatedView: View {
                                     .resizable()
                                     .frame(width: 30, height: 30)
 
-                                Text("Login with HSE")
+                                Text("log-in-with-hse-string")
                                     .foregroundColor(.white)
                                     .font(.title2)
                                 .fontWeight(.medium)
@@ -142,6 +142,7 @@ struct UnauthenticatedView: View {
         }
         .ignoresSafeArea(.keyboard)
         .transition(.offset(x: 0, y: 850))
+        .background(Color("Background", bundle: bundle))
 
     }
 
