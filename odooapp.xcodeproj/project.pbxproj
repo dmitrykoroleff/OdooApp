@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14415272295CB7AE00EC03D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14415274295CB7AE00EC03D5 /* Localizable.strings */; };
 		6162A88B291E9A2D008B32A6 /* OdooappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A88A291E9A2D008B32A6 /* OdooappApp.swift */; };
 		6162A88D291E9A2D008B32A6 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A88C291E9A2D008B32A6 /* AppView.swift */; };
 		6162A88F291E9A2F008B32A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162A88E291E9A2F008B32A6 /* Assets.xcassets */; };
@@ -49,6 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14415273295CB7AE00EC03D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		14415275295CB7B400EC03D5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D4FE62816C50CB2D4D17E51 /* Pods-odooapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-odooapp.release.xcconfig"; path = "Target Support Files/Pods-odooapp/Pods-odooapp.release.xcconfig"; sourceTree = "<group>"; };
 		6162A887291E9A2D008B32A6 /* odooapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = odooapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6162A88A291E9A2D008B32A6 /* OdooappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdooappApp.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 				6162A88C291E9A2D008B32A6 /* AppView.swift */,
 				6162A88E291E9A2F008B32A6 /* Assets.xcassets */,
 				6162A890291E9A2F008B32A6 /* Preview Content */,
+				14415274295CB7AE00EC03D5 /* Localizable.strings */,
 			);
 			path = odooapp;
 			sourceTree = "<group>";
@@ -300,6 +304,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 6162A87E291E9A2D008B32A6;
 			productRefGroup = 6162A888291E9A2D008B32A6 /* Products */;
@@ -340,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61946CA2291FBB0500BE2004 /* LaunchScreen.storyboard in Resources */,
+				14415272295CB7AE00EC03D5 /* Localizable.strings in Resources */,
 				6162A892291E9A2F008B32A6 /* Preview Assets.xcassets in Resources */,
 				6162A88F291E9A2F008B32A6 /* Assets.xcassets in Resources */,
 			);
@@ -400,6 +406,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		14415274295CB7AE00EC03D5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14415273295CB7AE00EC03D5 /* en */,
+				14415275295CB7B400EC03D5 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6162A893291E9A2F008B32A6 /* Debug */ = {

@@ -1,0 +1,9 @@
+"welcome-string" = "Welcome back,";
+"introduction-string" = "We are happy to see you here again. Enter your server url, email and password.";
+"server-string" = "Server";
+"email-string" = "Email";
+"password-string" = "Password";
+"log-in-string" = "Log in";
+"log-in-with-hse-string" = "Login with HSE";
+
+

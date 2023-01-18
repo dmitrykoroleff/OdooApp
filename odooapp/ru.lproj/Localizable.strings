@@ -1,0 +1,9 @@
+"welcome-string" = "Добро пожаловать,";
+"introduction-string" = "Мы рады видеть вас здесь снова. Введите адрес вашего сервера, адрес электронной почты и пароль.";
+"server-string" = "URL сервера Odoo";
+"email-string" = "Почта";
+"password-string" = "Пароль";
+"log-in-string" = "Войти";
+"log-in-with-hse-string" = "Войти через ЕЛК ВШЭ";
+
+
