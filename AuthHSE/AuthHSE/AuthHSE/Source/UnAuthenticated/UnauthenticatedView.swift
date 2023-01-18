@@ -5,7 +5,7 @@ struct UnauthenticatedView: View {
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     @ObservedObject private var model: UnauthenticatedViewModel
     @StateObject private var loginModel: LoginViewModel = .init()
-    private var height = UIApplication.shared.keyWindow?.frame.height
+    private var height = UIScreen.main.bounds.height
 
     init(model: UnauthenticatedViewModel) {
         self.model = model
@@ -22,14 +22,14 @@ struct UnauthenticatedView: View {
                     .padding(.top)
                     .padding(.bottom, 40)
 
-                VStack(spacing: CGFloat(height!) / 46.6) {
+                VStack(spacing: CGFloat(height) / 46.6) {
 
                     HStack {
                         Text("welcome-string")
                             .foregroundColor(Color("Headings", bundle: bundle))
                             .font(.title)
                             .fontWeight(.semibold)
-                            .frame(height: CGFloat(height!) / 46.6)
+                            .frame(height: CGFloat(height) / 46.6)
                             .padding(.leading, 28)
 
                         Spacer()
@@ -50,7 +50,7 @@ struct UnauthenticatedView: View {
 
                 }
 
-                VStack(spacing: CGFloat(height!) / 18) {
+                VStack(spacing: CGFloat(height) / 18) {
 
                     CustomTextField(hint: NSLocalizedString("server-string", comment: ""), text: $loginModel.server)
                         .keyboardType(.URL)
@@ -65,7 +65,7 @@ struct UnauthenticatedView: View {
                 .padding(.top)
                 .padding(.bottom, 25)
 
-                VStack(spacing: CGFloat(height!) / 40.5) {
+                VStack(spacing: CGFloat(height) / 40.5) {
 
                     Button {
 
@@ -78,7 +78,7 @@ struct UnauthenticatedView: View {
 
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(!loginModel.server.isEmpty && !loginModel.email.isEmpty && !loginModel.password.isEmpty ? Color("MainColor", bundle: bundle) : Color("Muted", bundle: bundle))
-                                .frame(height: CGFloat(height!) / 15.5)
+                                .frame(height: CGFloat(height) / 15.5)
 
                             Text("log-in-string")
                                 .foregroundColor(!loginModel.server.isEmpty && !loginModel.email.isEmpty && !loginModel.password.isEmpty ? .white : Color("Dark Gray", bundle: bundle))
@@ -117,7 +117,7 @@ struct UnauthenticatedView: View {
 
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color("Dark Blue", bundle: bundle))
-                                .frame(height: CGFloat(height!) / 15.5)
+                                .frame(height: CGFloat(height) / 15.5)
 
                             HStack(spacing: 10) {
 
