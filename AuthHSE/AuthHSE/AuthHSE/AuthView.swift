@@ -25,7 +25,7 @@ public struct AuthView: View {
 }
 
 struct UserView: View {
-
+    @StateObject var auth = CookieFile()
     var logOut: () -> Void
 
     init(logOut: @escaping () -> Void) {
@@ -37,7 +37,7 @@ struct UserView: View {
             ZStack {
                 Color.yellow
                 VStack {
-                    Button("Выход", action: logOut)
+                    Button("Выход", action: auth.logOut)
                 }
             }
             .navigationTitle("Профиль")

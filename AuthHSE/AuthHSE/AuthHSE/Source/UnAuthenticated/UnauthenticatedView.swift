@@ -4,8 +4,12 @@ import Combine
 struct UnauthenticatedView: View {
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     @ObservedObject private var model: UnauthenticatedViewModel
+    @ObservedObject private var modelCookie = CookieFile()
     @StateObject private var loginModel: LoginViewModel = .init()
     private var height = UIScreen.main.bounds.height
+    var str1: String = "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?"
+    var str2: String = "response_type=token&client_id=odoo.miem.tv&redirect_uri=https://odoo.miem.tv/auth_oauth/"
+    var str3: String = "signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Fodoo.miem.tv%252Fweb%22%7D"
 
     init(model: UnauthenticatedViewModel) {
         self.model = model
@@ -110,7 +114,8 @@ struct UnauthenticatedView: View {
                     }
 
                     Button {
-                        model.startLogin()
+//                        model.startLogin()
+                        modelCookie.show()
                     } label: {
 
                         ZStack {
@@ -133,6 +138,8 @@ struct UnauthenticatedView: View {
                             }
 
                         }
+                    }.sheet(isPresented: $modelCookie.isPresent) {
+                        Webview(url: URL(string:"\(str1)\(str2)\(str3)")!, modelCookie: modelCookie)
                     }
                 }
                 .padding(.horizontal, 28)
