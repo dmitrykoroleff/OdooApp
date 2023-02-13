@@ -14,7 +14,7 @@ public class Auth {
     @discardableResult
     public func authenticate(server: String, login: String, password: String, completion: @escaping (Result<[String: Any], Error>) -> Void) -> URLSessionTask? {
         
-        var parsedServer = server.components(separatedBy: "://")
+        let parsedServer = server.components(separatedBy: "://")
         var serverUrl: String
         
         if parsedServer.indices.contains(1) {
