@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import ChooseModule
 
 struct UnauthenticatedView: View {
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
@@ -72,10 +73,14 @@ struct UnauthenticatedView: View {
                 VStack(spacing: CGFloat(height) / 40.5) {
 
                     Button {
-
-                        self.model.logInOdooNew(serverURL: loginModel.server,
-                                                username: loginModel.email,
-                                                password: loginModel.password)
+                        
+                        if (self.model.logInOdooNew(serverURL: loginModel.server,
+                                                    username: loginModel.email,
+                                                    password: loginModel.password) != false)  {
+                            //MARK: show here choose module
+                            //check bool return
+                            ChooseModule.ChooseModuleView()
+                        }
                     } label: {
 
                         ZStack {
@@ -139,7 +144,7 @@ struct UnauthenticatedView: View {
 
                         }
                     }.sheet(isPresented: $modelCookie.isPresent) {
-                        Webview(url: URL(string:"\(str1)\(str2)\(str3)")!, modelCookie: modelCookie)
+                        Webview(url: URL(string: "\(str1)\(str2)\(str3)")!, modelCookie: modelCookie)
                     }
                 }
                 .padding(.horizontal, 28)

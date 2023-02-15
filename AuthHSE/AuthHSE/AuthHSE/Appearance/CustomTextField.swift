@@ -116,7 +116,6 @@ struct CustomSecureTextField: View {
 
                         }
 
-
             }
             .onTapGesture {
                 tapped.toggle()

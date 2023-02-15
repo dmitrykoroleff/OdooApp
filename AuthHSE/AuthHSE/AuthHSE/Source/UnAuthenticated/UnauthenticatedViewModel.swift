@@ -86,8 +86,8 @@ class UnauthenticatedViewModel: ObservableObject {
         }
     }
 
-    func logInOdooNew(serverURL: String, username: String, password: String) {
-        AuthOdoo.Auth().testAuthenticate(server: serverURL, login: username, password: password)
+    func logInOdooNew(serverURL: String, username: String, password: String) -> Bool{
+        return AuthOdoo.Auth().testAuthenticate(server: serverURL, login: username, password: password)
     }
 
     private func getViewController() -> UIViewController {

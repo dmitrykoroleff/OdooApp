@@ -5,7 +5,6 @@
 //  Created by Данила on 29.01.2023.
 //
 
-
 import Foundation
 import SwiftUI
 import WebKit
@@ -58,7 +57,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
             self.webview.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.webview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             self.webview.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.webview.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.webview.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
 
         self.webview.addSubview(self.progressbar)
@@ -70,7 +69,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
         webview.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
     }
 
-    func URLWeb(webView: WKWebView) -> String{
+    func URLWeb(webView: WKWebView) -> String {
         if (webView.url?.host)! == "odoo.miem.tv" && modelCookie.sessionID.isEmpty {
             webView
             let aString = webview.url!.absoluteString
@@ -88,14 +87,14 @@ class WebviewController: UIViewController, WKNavigationDelegate {
             
             let jsonData = try? JSONSerialization.data(withJSONObject: json)
             executeURLRequest(url: url!) { result in
-                if case .success (let data) = result {
-                    let session = URLSession.shared
+                if case .success(_) = result {
+                    _ = URLSession.shared
                     var request = URLRequest(url: url!)
                     request.httpMethod = "POST"
                     request.httpBody = jsonData
                     let ur1 = "https://odoo.miem.tv/"
                     let ur2 = "web/dataset/search_read"
-                    AF.request("\(ur1)\(ur2)" ,method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
+                    AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
                         switch response.result {
                             case .success(let data):
                                 do {
@@ -108,7 +107,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                                         print("Error: Cannot convert JSON object to Pretty JSON data")
                                         return
                                     }
-                                    guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
+                                    guard String(data: prettyJsonData, encoding: .utf8) != nil else {
                                         print("Error: Could print JSON in String")
                                         return
                                     }
@@ -127,7 +126,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                             if !cookie.value.isEmpty {
                                 self.modelCookie.setSessionID(sid: cookie.value)
                                 self.modelCookie.dismiss()
-                                self.deleteCookies(forURL: URL(string:self.str1+self.str2+self.str3)!)
+                                self.deleteCookies(forURL: URL(string: self.str1+self.str2+self.str3)!)
                                 
                             }
                         }
@@ -190,18 +189,20 @@ class WebviewController: UIViewController, WKNavigationDelegate {
         self.webview.addConstraints([
             self.progressbar.topAnchor.constraint(equalTo: self.webview.topAnchor, constant: self.webview.scrollView.contentOffset.y * -1),
             self.progressbar.leadingAnchor.constraint(equalTo: self.webview.leadingAnchor),
-            self.progressbar.trailingAnchor.constraint(equalTo: self.webview.trailingAnchor),
+            self.progressbar.trailingAnchor.constraint(equalTo: self.webview.trailingAnchor)
         ])
     }
 
     // MARK: - Web view progress
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?, change: [NSKeyValueChangeKey: Any]?,
+                               context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "estimatedProgress":
             if self.webview.estimatedProgress >= 1.0 {
                 UIView.animate(withDuration: 0.3, animations: { () in
                     self.progressbar.alpha = 0.0
-                }, completion: { finished in
+                }, completion: { _ in
                     self.progressbar.setProgress(0.0, animated: false)
                 })
             } else {
@@ -218,5 +219,3 @@ class WebviewController: UIViewController, WKNavigationDelegate {
         }
     }
 }
-
-

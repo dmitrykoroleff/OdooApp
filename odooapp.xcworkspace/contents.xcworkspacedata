@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../ChooseModule">
+   </FileRef>
+   <FileRef
       location = "group:AuthOdoo/AuthOdoo/AuthOdoo.xcodeproj">
    </FileRef>
    <FileRef

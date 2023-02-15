@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-
-
 class CookieFile: ObservableObject {
     
     @AppStorage("auth") var authenticated = false {
@@ -43,5 +41,3 @@ class CookieFile: ObservableObject {
     }
     
 }
-
-

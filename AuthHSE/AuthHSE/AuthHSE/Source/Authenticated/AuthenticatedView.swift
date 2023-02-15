@@ -6,27 +6,29 @@
 //
 
 import SwiftUI
+import ChooseModule
 
-// MARK: remove available
-// @available(iOS 15.0, *)
 struct AuthenticatedView: View {
     @ObservedObject private var model: AuthenticatedViewModel
-
+    
     init(model: AuthenticatedViewModel) {
         self.model = model
     }
-
+    
     var body: some View {
+        
         TabView {
+            // MARK: insert here choose module
+            ChooseModule.ChooseModuleView()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("module")
+                }
+            //MARK: remove dev
             UserView(logOut: self.model.startLogout)
                 .tabItem {
                     Image(systemName: "person")
-                    Text("Профиль")
-                }
-            ModulesView()
-                .tabItem {
-                    Image(systemName: "ellipsis")
-                    Text("Меню")
+                    Text("dev logout")
                 }
         }
     }

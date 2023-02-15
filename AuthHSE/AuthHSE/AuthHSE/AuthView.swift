@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// MARK: remove available
-// @available(iOS 15.0, *)
 public struct AuthView: View {
     @StateObject private var observed = Observed()
     @EnvironmentObject var viewRouter: ViewRouter

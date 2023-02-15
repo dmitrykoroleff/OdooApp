@@ -34,6 +34,7 @@
 		6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; };
 		6190B4C729265AB1009CD969 /* AuthOdoo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61A735352947774C008E3A3E /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A735342947774C008E3A3E /* Token.swift */; };
+		61C45C3B299B7E630019AA77 /* ChooseModule in Frameworks */ = {isa = PBXBuildFile; productRef = 61C45C3A299B7E630019AA77 /* ChooseModule */; };
 		7E1A452429476F4E00FC55DE /* DecodeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A452329476F4E00FC55DE /* DecodeToken.swift */; };
 		7E6E8F712986AB5900710224 /* CookieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E8F702986AB5900710224 /* CookieFile.swift */; };
 		7E6E8F732986AB5F00710224 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E8F722986AB5F00710224 /* WebView.swift */; };
@@ -102,6 +103,7 @@
 				7E6E8F772986AC6600710224 /* Alamofire in Frameworks */,
 				6162A8F9291ECE31008B32A6 /* AppAuth in Frameworks */,
 				6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */,
+				61C45C3B299B7E630019AA77 /* ChooseModule in Frameworks */,
 				6162A901291ED27A008B32A6 /* SwiftCoroutine in Frameworks */,
 				6162A90B291ED3E8008B32A6 /* SwiftJWT in Frameworks */,
 			);
@@ -265,6 +267,7 @@
 				6162A900291ED27A008B32A6 /* SwiftCoroutine */,
 				6162A90A291ED3E8008B32A6 /* SwiftJWT */,
 				7E6E8F762986AC6600710224 /* Alamofire */,
+				61C45C3A299B7E630019AA77 /* ChooseModule */,
 			);
 			productName = AuthHSE;
 			productReference = 6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */;
@@ -700,6 +703,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6162A909291ED3E8008B32A6 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
 			productName = SwiftJWT;
+		};
+		61C45C3A299B7E630019AA77 /* ChooseModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ChooseModule;
 		};
 		7E6E8F762986AC6600710224 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

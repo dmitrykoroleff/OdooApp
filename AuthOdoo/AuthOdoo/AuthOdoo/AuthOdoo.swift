@@ -84,23 +84,29 @@ public class Auth {
     }
 
     //    server: "demo3.odoo.com", login: "admin", password: "admin"
-    public func testAuthenticate(server: String, login: String, password: String) {
+    public func testAuthenticate(server: String, login: String, password: String) -> Bool {
+        var resultLogIn: Bool = false
         authenticate(server: server, login: login, password: password) { result in
 
             switch result {
             case .failure(let error):
                 print("error = \(error)")
+                resultLogIn = false
 
             case .success(let value):
                 if let errorDictionary = value["error"] as? [String: Any] {
                     print("error logging in (bad userid/password?): \(errorDictionary)")
+                    resultLogIn = false
                 } else if let resultDictionary = value["result"] as? [String: Any] {
                     print("successfully logged in, refer to resultDictionary for details: \(resultDictionary)")
+                    resultLogIn = true
                 } else {
                     print("we should never get here")
                     print("responseObject = \(value)")
                 }
             }
         }
+        
+        return resultLogIn
     }
 }
