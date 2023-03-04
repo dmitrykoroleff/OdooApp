@@ -93,6 +93,7 @@
 		7E1A452329476F4E00FC55DE /* DecodeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeToken.swift; sourceTree = "<group>"; };
 		7E6E8F702986AB5900710224 /* CookieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieFile.swift; sourceTree = "<group>"; };
 		7E6E8F722986AB5F00710224 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		7ED8EA2A29B32D9900537363 /* ChooseModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ChooseModule; path = ../../ChooseModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +220,7 @@
 		6190B4C429265AB1009CD969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ED8EA2A29B32D9900537363 /* ChooseModule */,
 				6190B4C529265AB1009CD969 /* AuthOdoo.framework */,
 			);
 			name = Frameworks;
