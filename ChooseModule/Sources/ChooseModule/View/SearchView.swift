@@ -206,7 +206,7 @@ struct SearchView: View {
                    .padding()
                 }
         }
-        .background(Color.white)
+        .background(Color("Background"))
     }
 }
 

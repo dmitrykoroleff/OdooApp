@@ -9,6 +9,7 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct BottomSheetView: View {
+    @Environment(\.colorScheme) var colorScheme
     
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @State var liked = false
@@ -24,7 +25,7 @@ struct BottomSheetView: View {
                 RoundedRectangle(cornerRadius: 35)
                     .stroke(Color("MainColor").opacity(0.5))
                     .frame(height: UIScreen.main.bounds.height)
-                    .background(Color.white)
+                    .background(Color("BottomSheet"))
                     .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
                     .cornerRadius(35)
                 
@@ -34,7 +35,7 @@ struct BottomSheetView: View {
                         .resizable()
                         .imageScale(.large)
                         .frame(width: 34, height: 3)
-                        .foregroundColor(Color("MainColor"))
+                        .foregroundColor(colorScheme == .light ? Color("MainColor"): Color(.white))
                     
                     ScrollView {
                         Text("All modules")

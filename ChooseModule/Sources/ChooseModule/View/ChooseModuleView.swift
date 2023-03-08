@@ -7,6 +7,7 @@
 
 import SwiftUI
 public struct ChooseModuleView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
@@ -41,10 +42,10 @@ public struct ChooseModuleView: View {
                             Text("Hello, ")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
-                                .foregroundColor(Color.gray)
+                                .foregroundColor(Color("Body"))
                             
                             Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
-                                .foregroundColor(Color("Headings"))
+                                .foregroundColor(Color("Body"))
                                 .font(.headline)
                                 .fontWeight(.semibold)
                             
@@ -97,11 +98,12 @@ public struct ChooseModuleView: View {
                     }
                     .background {
                         ZStack {
-                            Color.white
+                            Color("Background")
                             HStack(spacing: 20) {
                                 RoundedRectangle(cornerRadius: 16)
                                     .stroke()
                                     .frame(width: !searchIsActive ? width - 60 : width - 100, height: 50)
+                                    .foregroundColor(colorScheme == .light ? .black : .white)
                                 
                                 if searchIsActive {
                                     
@@ -113,12 +115,13 @@ public struct ChooseModuleView: View {
                                         }
                                         
                                     } label: {
-                                        Image("delete")
+                                        Image(systemName: "xmark")
                                             .resizable()
+                                            .foregroundColor(colorScheme == .light ? .black : .white)
                                         
                                     }
                                     .frame(width: 20, height: 20)
-                                    .foregroundColor(.black)
+                                    
                                     
                                 }
                                 
@@ -223,6 +226,7 @@ public struct ChooseModuleView: View {
                 }
                 .padding()
                 .padding(.top, height < 800 ? height < 700 ? 0 : 30 : 40)
+                .background(Color("Background"))
                 
                 // поднимающийся лист со всеми модулями
                 VStack {
