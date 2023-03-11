@@ -179,8 +179,8 @@ struct AnimatableGradientModifier: AnimatableModifier {
             gradientColors.append(colorMixer(fromColor: fromColor, toColor: toColor, progress: progress))
         }
         
-        return RoundedRectangle(cornerRadius: 20).
-        stroke(AngularGradient(gradient: Gradient(
+        return RoundedRectangle(cornerRadius: 20)
+            .stroke(AngularGradient(gradient: Gradient(
             colors: gradientColors), center:
         .bottomLeading, startAngle: Angle(degrees: 0.0),
         endAngle: Angle(degrees: 360.0)), lineWidth: 3)
@@ -194,7 +194,7 @@ struct AnimatableGradientModifier: AnimatableModifier {
         let green = fromColor[1] + (toColor[1] - fromColor[1]) * progress
         let blue = fromColor[2] + (toColor[2] - fromColor[2]) * progress
         
-        return Color(red: Double(r), green: Double(g), blue: Double(b))
+        return Color(red: Double(red), green: Double(green), blue: Double(blue))
         
     }
     
