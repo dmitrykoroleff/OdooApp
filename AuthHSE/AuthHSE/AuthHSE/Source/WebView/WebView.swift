@@ -74,6 +74,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
             webView
             let aString = webview.url!.absoluteString
             let newUrl = aString.replacingOccurrences(of: "#", with: "?", options: .literal, range: nil)
+            self.modelCookie.getUrl(url: newUrl)
             webview.stopLoading()
             let url = URL(string: newUrl)
             var cookies = readCookie(forURL: url!)
@@ -82,8 +83,8 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                                        "method": "call",
                                        "params": [
                                             "domain": [],
-                                            "fields": ["id"],
-                                            "model": "hr.employee.public"]]
+                                            "fields": ["id", "user_id", "x_favourite_modules"],
+                                            "model": "res.users.settings"]]
             
             let jsonData = try? JSONSerialization.data(withJSONObject: json)
             executeURLRequest(url: url!) { result in
@@ -111,7 +112,9 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                                         print("Error: Could print JSON in String")
                                         return
                                     }
-                                    print("RESULT: ", jsonObject)
+                                    print("RESULT: ", jsonObject["error"])
+                                    print("RESULT2: ", jsonObject["result"])
+                                    print("RESULT3: ", jsonObject)
                                 } catch {
                                     print("Error: Trying to convert JSON data to string")
                                     return
@@ -124,10 +127,10 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                     for cookie in cookies {
                         if cookie.name == "session_id" {
                             if !cookie.value.isEmpty {
+//                                self.modelCookie.authenticated.toggle()
                                 self.modelCookie.setSessionID(sid: cookie.value)
-                                self.modelCookie.dismiss()
                                 self.deleteCookies(forURL: URL(string: self.str1+self.str2+self.str3)!)
-                                
+                                self.modelCookie.dismiss()
                             }
                         }
                     }

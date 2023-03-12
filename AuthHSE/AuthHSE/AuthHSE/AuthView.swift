@@ -9,15 +9,18 @@ import SwiftUI
 
 public struct AuthView: View {
     @StateObject private var observed = Observed()
+    @StateObject private var auth = CookieFile()
     @EnvironmentObject var viewRouter: ViewRouter
-
+    var bool = CookieFile().getError()
     public init() { }
     public var body: some View {
-
-        if !observed.authenticated {
+        if !auth.authenticated && !auth.validUrl {
             UnauthenticatedView(model: observed.getUnauthenticatedViewModel())
+            
         } else {
-            AuthenticatedView(model: observed.getAuthenticatedViewModel())
+            AuthenticatedView(model: observed.getAuthenticatedViewModel()).onAppear {
+                auth.getError()
+            }
         }
     }
 }
@@ -60,6 +63,7 @@ struct ModulesView: View {
         }
     }
 }
+
 
 // struct preview_AuthView: PreviewProvider {
 //    static var previews: some View {
