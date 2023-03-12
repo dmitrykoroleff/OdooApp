@@ -80,7 +80,6 @@ struct UnauthenticatedView: View {
                                                     password: loginModel.password) != false)  {
                             //MARK: show here choose module
                             //check bool return
-//                            ChooseModule.ChooseModuleView()
                             ChooseModules.ChooseModuleView()
                         }
                     } label: {
