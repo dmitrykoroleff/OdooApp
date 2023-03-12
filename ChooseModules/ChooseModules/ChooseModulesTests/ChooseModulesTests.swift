@@ -1,14 +1,14 @@
 //
-//  Choose_ModuleTests.swift
-//  Choose ModuleTests
+//  ChooseModulesTests.swift
+//  ChooseModulesTests
 //
-//  Created by Dmitry Korolev on 9/1/2023.
+//  Created by Melanie Kofman on 12.03.2023.
 //
 
 import XCTest
-@testable import ChooseModule
+@testable import ChooseModules
 
-final class ChooseModuleTests: XCTestCase {
+final class ChooseModulesTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

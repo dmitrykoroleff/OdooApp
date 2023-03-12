@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NoResultsView: View {
     @Binding var searchQuery: String
+    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
     var body: some View {
         ZStack {
             Color.white
@@ -17,12 +18,12 @@ struct NoResultsView: View {
                 ZStack {
                     
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color("MainColor"))
+                        .foregroundColor(Color("MainColor", bundle: bundle))
                         .frame(width: 60, height: 60)
                     
-                    Image("noResultsIcon")
+                    Image("noResultsIcon", bundle: bundle)
                         .resizable()
-                        .frame(width: 6, height: 35)
+                        .frame(width: 6 ,height: 35)
                 }
                 .padding(5)
                 
@@ -33,12 +34,12 @@ struct NoResultsView: View {
                 Text("There were no results for \"\(searchQuery)\".")
                     .font(.body)
                     .fontWeight(.regular)
-                    .foregroundColor(Color("Dark Gray"))
+                    .foregroundColor(Color("Dark Gray", bundle: bundle))
                 
                 Text("Try a new search.")
                     .font(.body)
                     .fontWeight(.regular)
-                    .foregroundColor(Color("Dark Gray"))
+                    .foregroundColor(Color("Dark Gray", bundle: bundle))
                 
                 Spacer()
             }

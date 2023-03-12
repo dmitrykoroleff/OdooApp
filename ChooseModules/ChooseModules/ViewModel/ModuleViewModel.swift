@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
 func generateColorFor(text: String, colors: [Color]) -> Int {
     let num = Int(((text.first?.asciiValue ?? Character("A").asciiValue)!)) % colors.count
     return num
 }
+
 
 func search(modules: [Modules], searchQuery: String) -> [Modules] {
     let results = modules.filter { $0.name.lowercased().contains(searchQuery.lowercased())

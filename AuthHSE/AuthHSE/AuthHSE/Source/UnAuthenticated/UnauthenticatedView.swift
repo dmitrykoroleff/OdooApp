@@ -1,6 +1,7 @@
 import SwiftUI
 import Combine
-import ChooseModule
+//import ChooseModule
+import ChooseModules
 
 struct UnauthenticatedView: View {
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
@@ -79,7 +80,8 @@ struct UnauthenticatedView: View {
                                                     password: loginModel.password) != false)  {
                             //MARK: show here choose module
                             //check bool return
-                            ChooseModule.ChooseModuleView()
+//                            ChooseModule.ChooseModuleView()
+                            ChooseModules.ChooseModuleView()
                         }
                     } label: {
 

@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import ChooseModule
+//import ChooseModule
+import ChooseModules
 
 struct AuthenticatedView: View {
     @ObservedObject private var model: AuthenticatedViewModel
@@ -19,7 +20,8 @@ struct AuthenticatedView: View {
         
         TabView {
             // MARK: insert here choose module
-            ChooseModule.ChooseModuleView()
+//            ChooseModule.ChooseModuleView()
+            ChooseModules.ChooseModuleView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("module")

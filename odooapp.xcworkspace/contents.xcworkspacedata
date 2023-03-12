@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../ChooseModule">
+      location = "group:ChooseModules/ChooseModules/ChooseModules.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:AuthOdoo/AuthOdoo/AuthOdoo.xcodeproj">

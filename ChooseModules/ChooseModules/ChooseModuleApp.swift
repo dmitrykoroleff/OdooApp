@@ -9,7 +9,9 @@ import SwiftUI
 
 @main
 public struct ChooseModuleApp: App {
-    public init() { }
+    public init() {
+        
+    }
     public var body: some Scene {
         WindowGroup {
 //            ChooseModuleView(modules: Modules.sampleData)

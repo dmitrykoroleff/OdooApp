@@ -5,27 +5,29 @@
 //  Created by Dmitry Korolev on 9/1/2023.
 //
 import SwiftUI
-
-@available(iOS 13.0, *)
+let bundle = Bundle(identifier: "chooseModules.ChooseModules")
 struct SearchView: View {
+    
     var modules: [Modules]
     @Binding var searchQuery: String
-    @available(iOS 13.0, *)
-    let colors: [Color] = [Color("CardColor1"), Color("CardColor2"), Color("CardColor3"), Color("CardColor4"), Color("CardColor5"), Color("CardColor6"), Color("CardColor7")]
-    @available(iOS 13.0.0, *)
+    var colors: [Color] = [Color("CardColor1", bundle: bundle),
+                           Color("CardColor2", bundle: bundle),
+                           Color("CardColor3", bundle: bundle),
+                           Color("CardColor4", bundle: bundle),
+                           Color("CardColor5", bundle: bundle),
+                           Color("CardColor6", bundle: bundle),
+                           Color("CardColor7", bundle: bundle)]
     var body: some View {
-        GeometryReader {_ in
+        GeometryReader {geometry in
                 if searchQuery == "" {
                     VStack {
                         
                         HStack {
-                            if #available(iOS 14.0, *) {
+                            
                                 Text("Favourite modules")
                                     .font(.title3)
                                     .fontWeight(.medium)
-                            } else {
-                                // Fallback on earlier versions
-                            }
+                          
                             
                             Spacer()
                         }
@@ -58,9 +60,11 @@ struct SearchView: View {
                                             .padding(.top)
                                             .padding(7)
                                             
+                                            
                                             ZStack {
                                                 
-                                                Image("icon")
+                                                
+                                                Image("icon", bundle: bundle)
                                                     .resizable()
                                                     .frame(width: 50, height: 27)
                                             }
@@ -71,6 +75,8 @@ struct SearchView: View {
                                                 .offset(y: -30)
                                             
                                         }
+                                        
+                                        
                                         
                                     }
                                     .frame(width: 160, height: 90)
@@ -83,13 +89,9 @@ struct SearchView: View {
                         }
                         
                         HStack {
-                            if #available(iOS 14.0, *) {
                                 Text("All modules")
                                     .font(.title3)
                                     .fontWeight(.medium)
-                            } else {
-                                // Fallback on earlier versions
-                            }
                             
                             Spacer()
                         }
@@ -122,9 +124,10 @@ struct SearchView: View {
                                             .padding(.top)
                                             .padding(7)
                                             
+                                            
                                             ZStack {
 
-                                                Image("icon")
+                                                Image("icon", bundle: bundle)
                                                     .resizable()
                                                     .frame(width: 50, height: 27)
                                             }
@@ -135,6 +138,8 @@ struct SearchView: View {
                                                 .offset(y: -30)
                                             
                                         }
+                                        
+                                        
                                         
                                     }
                                     .frame(width: 160, height: 90)
@@ -176,6 +181,7 @@ struct SearchView: View {
                                             }
                                             .padding()
                                             
+                                            
                                             Text(module.name).font(.title) // Хардкод
                                                 .fontWeight(.bold)
                                                 .padding(.horizontal, 15)
@@ -211,8 +217,8 @@ struct SearchView: View {
 }
 
 struct SearchView_Previews: PreviewProvider {
-    @available(iOS 13.0.0, *)
     static var previews: some View {
         SearchView(modules: Modules.sampleData, searchQuery: .constant(""))
     }
 }
+

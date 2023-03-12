@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
-
 struct ModuleCardView: View {
-    let module: Modules
-    let colors: [Color] = [Color("CardColor1"), Color("CardColor2"), Color("CardColor3"), Color("CardColor4"), Color("CardColor5"), Color("CardColor6"), Color("CardColor7")]
+    var module: Modules
+    
+    let colors: [Color] = [Color("CardColor1", bundle: bundle),
+                           Color("CardColor2", bundle: bundle),
+                           Color("CardColor3", bundle: bundle),
+                           Color("CardColor4", bundle: bundle),
+                           Color("CardColor5", bundle: bundle),
+                           Color("CardColor6", bundle: bundle),
+                           Color("CardColor7", bundle: bundle)]
     @State var liked = false
     var body: some View {
         VStack {
@@ -37,6 +43,7 @@ struct ModuleCardView: View {
                                 .onTapGesture {
                                     liked.toggle()
                                     
+                                    
                                 }
                             
                             Spacer()
@@ -46,9 +53,10 @@ struct ModuleCardView: View {
                     }
                     .padding(10)
                     
+                    
                     ZStack {
                         
-                        Image("icon") // Хардкод
+                        Image("icon", bundle: bundle) // Хардкод
                             .resizable()
                             .frame(width: 50, height: 30)
                     }
@@ -65,7 +73,9 @@ struct ModuleCardView: View {
             .frame(width: 150, height: 100)
             .padding(.horizontal, 28)
             
+            
         }
+        
         
         .edgesIgnoringSafeArea(.bottom)
     }

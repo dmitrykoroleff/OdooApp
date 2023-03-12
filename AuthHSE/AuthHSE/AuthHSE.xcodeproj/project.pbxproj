@@ -34,7 +34,8 @@
 		6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; };
 		6190B4C729265AB1009CD969 /* AuthOdoo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61A735352947774C008E3A3E /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A735342947774C008E3A3E /* Token.swift */; };
-		61C45C3B299B7E630019AA77 /* ChooseModule in Frameworks */ = {isa = PBXBuildFile; productRef = 61C45C3A299B7E630019AA77 /* ChooseModule */; };
+		61BB927129BDE4C0006AFDF4 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BB927029BDE4C0006AFDF4 /* ChooseModules.framework */; };
+		61BB927229BDE4C0006AFDF4 /* ChooseModules.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61BB927029BDE4C0006AFDF4 /* ChooseModules.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E1A452429476F4E00FC55DE /* DecodeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A452329476F4E00FC55DE /* DecodeToken.swift */; };
 		7E6E8F712986AB5900710224 /* CookieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E8F702986AB5900710224 /* CookieFile.swift */; };
 		7E6E8F732986AB5F00710224 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E8F722986AB5F00710224 /* WebView.swift */; };
@@ -59,6 +60,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6190B4C729265AB1009CD969 /* AuthOdoo.framework in Embed Frameworks */,
+				61BB927229BDE4C0006AFDF4 /* ChooseModules.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +92,7 @@
 		6162A92D291EFE71008B32A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6190B4C529265AB1009CD969 /* AuthOdoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthOdoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A735342947774C008E3A3E /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		61BB927029BDE4C0006AFDF4 /* ChooseModules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChooseModules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1A452329476F4E00FC55DE /* DecodeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeToken.swift; sourceTree = "<group>"; };
 		7E6E8F702986AB5900710224 /* CookieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieFile.swift; sourceTree = "<group>"; };
 		7E6E8F722986AB5F00710224 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -101,9 +104,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6E8F772986AC6600710224 /* Alamofire in Frameworks */,
+				61BB927129BDE4C0006AFDF4 /* ChooseModules.framework in Frameworks */,
 				6162A8F9291ECE31008B32A6 /* AppAuth in Frameworks */,
 				6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */,
-				61C45C3B299B7E630019AA77 /* ChooseModule in Frameworks */,
 				6162A901291ED27A008B32A6 /* SwiftCoroutine in Frameworks */,
 				6162A90B291ED3E8008B32A6 /* SwiftJWT in Frameworks */,
 			);
@@ -219,6 +222,7 @@
 		6190B4C429265AB1009CD969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61BB927029BDE4C0006AFDF4 /* ChooseModules.framework */,
 				6190B4C529265AB1009CD969 /* AuthOdoo.framework */,
 			);
 			name = Frameworks;
@@ -267,7 +271,6 @@
 				6162A900291ED27A008B32A6 /* SwiftCoroutine */,
 				6162A90A291ED3E8008B32A6 /* SwiftJWT */,
 				7E6E8F762986AC6600710224 /* Alamofire */,
-				61C45C3A299B7E630019AA77 /* ChooseModule */,
 			);
 			productName = AuthHSE;
 			productReference = 6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */;
@@ -703,10 +706,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6162A909291ED3E8008B32A6 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
 			productName = SwiftJWT;
-		};
-		61C45C3A299B7E630019AA77 /* ChooseModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ChooseModule;
 		};
 		7E6E8F762986AC6600710224 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

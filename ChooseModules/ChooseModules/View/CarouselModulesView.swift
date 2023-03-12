@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct CarouselModulesView <Content: View, T: Identifiable>: View {
-
+    
     @State private var progress: CGFloat = 0
     @State private var progression: CGFloat = 0
     @Binding var currentOffset: CGFloat
     @Binding var addFavModule: Bool
+    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
     
-    var gradient1 = Gradient(colors: [Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4"), Color("GradientColor1")])
+    var gradient1: Gradient
     
-    var gradient2 = Gradient(colors: [Color("GradientColor4"), Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4")])
+    var gradient2: Gradient
     var content: (T) -> Content
     var list: [T]
     
@@ -36,6 +37,19 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
         self._currentOffset = currentOffset
         self._addFavModule = addFavModule
         self.content = content
+        
+        
+        self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
+                                          Color("GradientColor2", bundle: bundle),
+                                          Color("GradientColor3", bundle: bundle),
+                                          Color("GradientColor4", bundle: bundle),
+                                          Color("GradientColor1", bundle: bundle)])
+        self.gradient2 = Gradient(colors:[Color("GradientColor4", bundle: bundle),
+                                          Color("GradientColor1", bundle: bundle),
+                                          Color("GradientColor2", bundle: bundle),
+                                          Color("GradientColor3", bundle: bundle),
+                                          Color("GradientColor4", bundle: bundle)])
+        
     }
     
     @GestureState var offset: CGFloat = 0
@@ -57,13 +71,13 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
                         .imageScale(.large)
                 }
                 .padding(.top, 20)
-                .frame(width: proxy.size.width - 30, height: getHeight2())
-                .foregroundColor(Color("MainColor"))
+                .frame(width: proxy.size.width - 30 , height: getHeight2())
+                .foregroundColor(Color("MainColor", bundle: bundle))
                 .background(
                     animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
                         .padding(.top, 20)
-                        .onAppear {
-                            withAnimation(.timingCurve(0.14, 0.4, 0.65, 0.78, duration: 2.0).repeatForever(autoreverses: true)) {
+                        .onAppear{
+                            withAnimation(.timingCurve(0.14, 0.4, 0.65, 0.78, duration: 2.0).repeatForever(autoreverses:true)) {
                                 self.progression = 1.0
                             }
                         }
@@ -109,7 +123,7 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
         .animation(.easeOut, value: offset == 0)
     }
     
-    func getHeight(item: T, width: CGFloat) -> CGFloat {
+    func getHeight(item: T, width: CGFloat)->CGFloat{
 
         let previous = getIndex(item: item) + 1 == currentIndex ? height / 3.8 : height / 3.8
         
@@ -120,7 +134,7 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
         return getIndex(item: item) == currentIndex ? height / 3.5 : checkBetween
     }
     
-    func getHeight2() -> CGFloat {
+    func getHeight2()->CGFloat{
         
         let previous = list.count == currentIndex ? (offset < 0 ? height / 4 : height / 4) : height / 4
         
@@ -131,7 +145,7 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
         return list.count == currentIndex ? height / 3.5 : checkBetween
     }
     
-    func getIndex(item: T) -> Int {
+    func getIndex(item: T)->Int{
         let index = list.firstIndex { currentModule in
             return currentModule.id == item.id
         } ?? 0
@@ -141,7 +155,7 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
 
 struct CarouselModulesView_Previews: PreviewProvider {
     static var previews: some View {
-// ChooseModuleView(modules: Modules.sampleData)
+//ChooseModuleView(modules: Modules.sampleData)
         ChooseModuleView()
     }
 }
@@ -172,18 +186,17 @@ struct AnimatableGradientModifier: AnimatableModifier {
     func body(content: Content) -> some View {
         var gradientColors = [Color]()
         
-        for iterator in 0..<fromGradient.stops.count {
-            let fromColor =  UIColor(fromGradient.stops[iterator].color)
-            let toColor = UIColor(toGradient.stops[iterator].color)
+        for ind in 0..<fromGradient.stops.count {
+            let fromColor =  UIColor(fromGradient.stops[ind].color)
+            let toColor = UIColor(toGradient.stops[ind].color)
             
             gradientColors.append(colorMixer(fromColor: fromColor, toColor: toColor, progress: progress))
         }
         
-        return RoundedRectangle(cornerRadius: 20).
-        stroke(AngularGradient(gradient: Gradient(
-            colors: gradientColors), center:
-        .bottomLeading, startAngle: Angle(degrees: 0.0),
-        endAngle: Angle(degrees: 360.0)), lineWidth: 3)
+        return RoundedRectangle(cornerRadius: 20).stroke(
+            AngularGradient(gradient: Gradient(colors: gradientColors),
+                            center: .bottomLeading, startAngle: Angle(degrees: 0.0),
+                            endAngle: Angle(degrees: 360.0)), lineWidth: 3)
     }
     
     func colorMixer(fromColor: UIColor, toColor: UIColor, progress: CGFloat) -> Color {
@@ -194,7 +207,7 @@ struct AnimatableGradientModifier: AnimatableModifier {
         let green = fromColor[1] + (toColor[1] - fromColor[1]) * progress
         let blue = fromColor[2] + (toColor[2] - fromColor[2]) * progress
         
-        return Color(red: Double(r), green: Double(g), blue: Double(b))
+        return Color(red: Double(red), green: Double(green), blue: Double(blue))
         
     }
     
