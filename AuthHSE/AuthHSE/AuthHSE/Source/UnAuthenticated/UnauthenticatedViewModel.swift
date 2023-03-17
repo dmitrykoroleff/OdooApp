@@ -86,8 +86,24 @@ class UnauthenticatedViewModel: ObservableObject {
         }
     }
 
-    func logInOdooNew(serverURL: String, username: String, password: String) -> Bool{
-        return AuthOdoo.Auth().testAuthenticate(server: serverURL, login: username, password: password)
+    func logInOdooNew(serverURL: String, username: String, password: String) -> String {
+        let model = AuthOdoo.Auth()
+        let cookie = model.authenticate(server: serverURL, login: username, password: password)
+        print("Cookie is \(model.sessionCookie)")
+        return model.getSessionCookie(server: serverURL, login: username, password: password)
+//        return AuthOdoo.Auth().testAuthenticate(server: serverURL, login: username, password: password)
+    }
+    
+    func logInAsync(serverURL: String, username: String, password: String) async -> String {
+        var cookie = "not working"
+        let model = TestAsync()
+        do {
+            cookie = try await model.testAuth(server: serverURL, login: username, password: password)
+        } catch {
+            return "error"
+        }
+        print("Cookie is \(cookie)")
+        return cookie
     }
 
     private func getViewController() -> UIViewController {

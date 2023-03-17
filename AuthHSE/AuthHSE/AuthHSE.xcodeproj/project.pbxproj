@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1496B4DC29BCADF500F82114 /* GetModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496B4DB29BCADF500F82114 /* GetModules.swift */; };
+		14CBCD0429C0FDF000FE1A65 /* TestAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBCD0329C0FDF000FE1A65 /* TestAsync.swift */; };
 		6162A8CB291EA0B1008B32A6 /* AuthHSE.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6162A8CA291EA0B1008B32A6 /* AuthHSE.docc */; };
 		6162A8D1291EA0B2008B32A6 /* AuthHSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */; };
 		6162A8D6291EA0B2008B32A6 /* AuthHSETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A8D5291EA0B2008B32A6 /* AuthHSETests.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		1496B4DB29BCADF500F82114 /* GetModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModules.swift; sourceTree = "<group>"; };
+		14CBCD0329C0FDF000FE1A65 /* TestAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAsync.swift; sourceTree = "<group>"; };
 		6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthHSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6162A8C9291EA0B1008B32A6 /* AuthHSE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthHSE.h; sourceTree = "<group>"; };
 		6162A8CA291EA0B1008B32A6 /* AuthHSE.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AuthHSE.docc; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				6162A8EB291EC451008B32A6 /* Page.swift */,
 				6162A8E2291EC345008B32A6 /* ObservedAuthView.swift */,
 				1496B4DB29BCADF500F82114 /* GetModules.swift */,
+				14CBCD0329C0FDF000FE1A65 /* TestAsync.swift */,
 			);
 			path = AuthHSE;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				6162A8E3291EC345008B32A6 /* ObservedAuthView.swift in Sources */,
 				6162A8FD291ECEE7008B32A6 /* UnauthenticatedViewModel.swift in Sources */,
 				6162A8F6291EC52F008B32A6 /* ApplicationStateManager.swift in Sources */,
+				14CBCD0429C0FDF000FE1A65 /* TestAsync.swift in Sources */,
 				6162A90F291ED65A008B32A6 /* CustomTextField.swift in Sources */,
 				7E6E8F732986AB5F00710224 /* WebView.swift in Sources */,
 				6162A8CB291EA0B1008B32A6 /* AuthHSE.docc in Sources */,

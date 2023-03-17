@@ -11,7 +11,8 @@ struct UnauthenticatedView: View {
     var str1: String = "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?"
     var str2: String = "response_type=token&client_id=odoo.miem.tv&redirect_uri=https://odoo.miem.tv/auth_oauth/"
     var str3: String = "signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Fodoo.miem.tv%252Fweb%22%7D"
-
+    @State var cookie = ""
+    
     init(model: UnauthenticatedViewModel) {
         self.model = model
     }
@@ -73,13 +74,28 @@ struct UnauthenticatedView: View {
                 VStack(spacing: CGFloat(height) / 40.5) {
 
                     Button {
-                        
-                        if (self.model.logInOdooNew(serverURL: loginModel.server,
-                                                    username: loginModel.email,
-                                                    password: loginModel.password) != false)  {
+                        Task {
+                            cookie = await self.model.logInAsync(serverURL: loginModel.server,
+                                                               username: loginModel.email,
+                                                               password: loginModel.password)
+                        }
+//                        if (self.model.logInOdooNew(serverURL: loginModel.server,
+//                                                    username: loginModel.email,
+//                                                    password: loginModel.password) != false)
+                        print("Function is working")
+                        print(cookie)
+//                        print(self.model.logInOdooNew(serverURL: loginModel.server,
+//                                                      username: loginModel.email,
+//                                                      password: loginModel.password))
+                        print(cookie)
+                        if cookie != "" {
                             //MARK: show here choose module
                             //check bool return
+                            @StateObject var getModulesModel: AppModel = .init(cookie: cookie)
+                            print(getModulesModel.hanldingResult())
                             ChooseModule.ChooseModuleView()
+                        } else {
+                            print("Something went wrong")
                         }
                     } label: {
 
@@ -155,6 +171,9 @@ struct UnauthenticatedView: View {
         .ignoresSafeArea(.keyboard)
         .transition(.offset(x: 0, y: 850))
         .background(Color("Background", bundle: bundle))
+        .onAppear {
+            
+        }
 
     }
 

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class AppModel {
+class AppModel: ObservableObject {
     
     var cookie: String
     
@@ -23,7 +23,7 @@ class AppModel {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json-rpc", forHTTPHeaderField: "Content-Type")
-        request.setValue(self.cookie, forHTTPHeaderField: "Cookie")
+        request.setValue("session_id=\(self.cookie)", forHTTPHeaderField: "Cookie")
         
         var params: [String: Any] = [
             "fields": [
