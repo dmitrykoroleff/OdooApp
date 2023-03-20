@@ -10,7 +10,7 @@ import SwiftCoroutine
 import AppAuth
 import AuthOdoo
 
-class UnauthenticatedViewModel: ObservableObject {
+@MainActor class UnauthenticatedViewModel: ObservableObject {
 
     private let config: ApplicationConfig
     private let state: ApplicationStateManager
@@ -86,11 +86,17 @@ class UnauthenticatedViewModel: ObservableObject {
         }
     }
 
-    func logInOdooNew(serverURL: String, username: String, password: String) -> String {
-        let model = AuthOdoo.Auth()
-        let cookie = model.authenticate(server: serverURL, login: username, password: password)
-        print("Cookie is \(model.sessionCookie)")
-        return model.getSessionCookie(server: serverURL, login: username, password: password)
+    @MainActor func logInOdooNew(serverURL: String, username: String, password: String) -> String {
+        var cookie = ""
+        
+        DispatchQueue.main.async {
+            let model = AuthOdoo.Auth()
+            cookie = model.authenticate(server: serverURL, login: username, password: password)
+        }
+        
+//        print("Cookie is \(model.sessionCookie)")
+        return cookie
+//        return model.getSessionCookie(server: serverURL, login: username, password: password)
 //        return AuthOdoo.Auth().testAuthenticate(server: serverURL, login: username, password: password)
     }
     

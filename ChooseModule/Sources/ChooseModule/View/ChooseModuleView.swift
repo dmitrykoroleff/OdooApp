@@ -6,7 +6,12 @@
 //
 
 import SwiftUI
+import AuthOdoo //будет работать только с odoo auth
+
 public struct ChooseModuleView: View {
+    @State var cookie: String
+    @StateObject private var loginModel: AuthOdoo.Auth = .init()
+    
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
@@ -15,28 +20,41 @@ public struct ChooseModuleView: View {
     @State var searchQuery = ""
     @State var currentIndex: Int = 0
     @State var liked = false
-    let colors: [Color] = [Color("CardColor1"), Color("CardColor2"), Color("CardColor3"), Color("CardColor4"), Color("CardColor5"), Color("CardColor6"), Color("CardColor7")]
+    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
+    let colors: [Color]
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     let modules: [Modules]
-    public init() {
+    public init(cookie: String = "Default") {
         modules = Modules.sampleData
+        self.cookie = cookie
+        self.colors = [Color("CardColor1", bundle: bundle),
+                       Color("CardColor2", bundle: bundle),
+                       Color("CardColor3", bundle: bundle),
+                       Color("CardColor4", bundle: bundle),
+                       Color("CardColor5", bundle: bundle),
+                       Color("CardColor6", bundle: bundle),
+                       Color("CardColor7", bundle: bundle)]
     }
+    
+    
     public var body: some View {
         
-        GeometryReader { _ in
+        GeometryReader { geometry in
             ZStack {
                 
                 VStack {
-                    Image("logo")
+                    Image("logo", bundle: bundle)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 64, height: 22)
                         .offset(y: height < 700 ? 24 : 0)
                     
+                        
+                    
                     HStack {
                         
-                        VStack(alignment: .leading, spacing: 5) {
+                        VStack(alignment: .leading, spacing: 5){
                             
                             Text("Hello, ")
                                 .font(.subheadline)
@@ -44,7 +62,7 @@ public struct ChooseModuleView: View {
                                 .foregroundColor(Color.gray)
                             
                             Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
-                                .foregroundColor(Color("Headings"))
+                                .foregroundColor(Color("Headings", bundle: bundle))
                                 .font(.headline)
                                 .fontWeight(.semibold)
                             
@@ -58,7 +76,7 @@ public struct ChooseModuleView: View {
                             ZStack {
                                 
                                 Circle()
-                                    .foregroundColor(Color("MainColor"))
+                                    .foregroundColor(Color("MainColor", bundle: bundle))
                                     .frame(width: 40, height: 40)
                                 
                                 Text("A") // Хардкод
@@ -77,7 +95,7 @@ public struct ChooseModuleView: View {
                         Text("Choose module")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(Color("Headings"))
+                            .foregroundColor(Color("Headings", bundle: bundle))
                         Spacer()
                     }
                     .padding(.horizontal)
@@ -113,7 +131,7 @@ public struct ChooseModuleView: View {
                                         }
                                         
                                     } label: {
-                                        Image("delete")
+                                        Image("delete", bundle: bundle)
                                             .resizable()
                                         
                                     }
@@ -127,24 +145,23 @@ public struct ChooseModuleView: View {
                     }
                     .padding(.vertical)
                     .padding(.horizontal, 30)
-                    .offset(y: searchIsActive ? height > 600 && height < 700
-                            ? -(height / 6) : height > 700 && height < 800 ?
-                            -(height / 7) : height > 800 && height < 850 ?
-                            -(height / 7.3) : height > 850 && height < 900 ?
+                    .offset(y: searchIsActive ? height > 600
+                            && height < 700 ? -(height / 6)
+                            : height > 700 && height < 800
+                            ? -(height / 7) : height > 800
+                            && height < 850 ? -(height / 7.3)
+                            : height > 850 && height < 900 ?
                             -(height / 8) : -(height / 9) : 0)
                     
                     // каруселька
-                        CarouselModulesView(spacing: 15, trailingSpace: 30,
-                                            index: $currentIndex, items: modules,
-                                            currentOffset: $curruntOffset,
-                                            addFavModule: $addFavModule) { module in
+                        CarouselModulesView(spacing: 15, trailingSpace: 30, index: $currentIndex, items: modules, currentOffset: $curruntOffset, addFavModule: $addFavModule) { module in
                                 GeometryReader { proxy in
                                     let size = proxy.size
                                     ZStack {
                                         
                                         Rectangle()
-                                            .foregroundColor(colors[Int(generateColorFor(text:
-                                            module.name, colors: colors))]) // Хардкод
+                                            .foregroundColor(colors[Int(generateColorFor(text: module.name, colors: colors))]) // Хардкод
+                                        
                                         
                                         HStack {
                                             
@@ -158,22 +175,19 @@ public struct ChooseModuleView: View {
                                                         .resizable()
                                                         .imageScale(.large)
                                                         .foregroundColor(.white)
-                                                        .frame(width: height > 600 && height < 700
-                                                               ? 20 : height > 700 && height < 800
-                                                               ? 21 : height > 800 && height < 900
-                                                               ? 22 : 25, height: height > 600 &&
-                                                               height < 700 ? 20 : height > 700 &&
-                                                               height < 800 ? 21 : height > 800 &&
-                                                               height < 900 ? 22 : 25)
+                                                        .frame(width: height > 600 && height < 700 ? 20
+                                                               : height > 700 && height < 800 ? 21 :
+                                                                height > 800 && height < 900 ? 22 :
+                                                                25, height: height > 600 && height
+                                                               < 700 ? 20 : height > 700 && height
+                                                               < 800 ? 21 : height > 800 && height
+                                                               < 900 ? 22 : 25)
                                                     
                                                 }
                                                 .padding()
-                                                .padding(.top, height > 600 && height < 700 ? 2 :
-                                                        height > 700 && height < 800 ? 2 : height
-                                                        > 800 && height < 900 ? 3 : 5)
-                                                .padding(.trailing, height > 600 && height < 700
-                                                         ? 2 : height > 700 && height < 800 ? 2
-                                                         : height > 800 && height < 900 ? 3 : 5)
+                                                .padding(.top, height > 600 && height < 700 ? 2 : height > 700 && height < 800 ? 2 : height > 800 && height < 900 ? 3 : 5)
+                                                .padding(.trailing, height > 600 && height < 700 ? 2 : height > 700 && height < 800 ? 2 : height > 800 && height < 900 ? 3 : 5)
+                                                
                                                 
                                                 Text(module.name).font(.title) /// Хардкод
                                                     .fontWeight(.bold)
@@ -191,7 +205,9 @@ public struct ChooseModuleView: View {
                                                 
                                                 Spacer()
                                                 
+                                                
                                             }
+                                            
                                             
                                         }
                                     }
@@ -202,7 +218,7 @@ public struct ChooseModuleView: View {
           
                         // индикаторы пролистывания карусельки
                         HStack(spacing: 10) {
-                            ForEach(modules.indices, id: \.self) { index in
+                            ForEach(modules.indices , id: \.self) { index in
                                 Circle()
                                     .fill(Color.black.opacity(currentIndex == index ? 1 : 0.1))
                                     .frame(width: 8, height: 8)
@@ -216,7 +232,9 @@ public struct ChooseModuleView: View {
                         .offset(y: height > 600 && height < 700 ? -(height / 3.4)
                                 : height > 700 && height < 800 ? -(height / 3.2)
                                 : height > 800 && height < 850 ? -(height / 3.1)
-                                : height > 850 && height < 900 ? -(height / 3) : -(height / 2.7))
+                                : height > 850 && height < 900 ? -(height / 3)
+                                : -(height / 2.7))
+                    
                     
                     Spacer()
                     
@@ -228,12 +246,11 @@ public struct ChooseModuleView: View {
                 VStack {
                     BottomSheetView()
                         .offset(y: height / 1.4)
-                        .offset(y: -curruntOffset > 0 ? -curruntOffset <= (height / 1.5)
-                                ? curruntOffset : -(height / 1.5) : 0)
+                        .offset(y: -curruntOffset > 0 ? -curruntOffset <= (height / 1.5) ? curruntOffset : -(height / 1.5) : 0)
                         .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
                             out = value.translation.height
                             onChange()
-                        }).onEnded({ _ in
+                        }).onEnded({ value in
                             let maxHeight = height
                             withAnimation {
                                 addFavModule = false
@@ -242,7 +259,7 @@ public struct ChooseModuleView: View {
                                         curruntOffset = -maxHeight / 3
                                     } else if height < 800 && height > 700 {
                                         curruntOffset = -maxHeight / 2.9
-                                    } else if height > 800 && height < 900 {
+                                    } else if height > 800 && height < 900{
                                         curruntOffset = -maxHeight / 2.75
                                     } else {
                                         curruntOffset = -maxHeight / 2.5
@@ -250,7 +267,8 @@ public struct ChooseModuleView: View {
                                 } else if -curruntOffset > maxHeight / 2.4 {
                                     
                                     curruntOffset = -maxHeight + 190
-                                } else {
+                                }
+                                else {
                                     curruntOffset = 0
                                 }
                             }
@@ -258,24 +276,27 @@ public struct ChooseModuleView: View {
                         }))
                 }
                 // UI для поиска
-                if search(modules: modules, searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty {
+                if search(modules: modules, searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
                     SearchView(modules: modules, searchQuery: $searchQuery)
-                        .offset(y: searchIsActive ? height > 600 && height
-                                < 700 ? (height / 4.8) : height > 700 && height
-                                < 800 ? (height / 4.6) : height > 800 && height
-                                < 900 ? (height / 4.6) : (height / 5) : height)
+                        .offset(y: searchIsActive ? height > 600 && height < 700
+                                ? (height / 4.8) : height > 700 && height < 800
+                                ? (height / 4.6) : height > 800 && height < 900
+                                ? (height / 4.6) : (height / 5) : height)
                 } else if !searchQuery.isEmpty {
                     NoResultsView(searchQuery: $searchQuery)
-                        .offset(y: searchIsActive ? height > 600 && height
-                                < 700 ? (height / 4) : height > 700 && height
-                                < 800 ? (height / 4.3) : height > 800 && height
-                                < 900 ? (height / 4.6) : (height / 5) : height)
+                        .offset(y: searchIsActive ? height > 600 && height < 700
+                                ? (height / 4) : height > 700 && height < 800 ?
+                                (height / 4.3) : height > 800 && height < 900 ?
+                                (height / 4.6) : (height / 5) : height)
                 }
             }
             .offset(y: -height/22.25)
         }
         .ignoresSafeArea(.keyboard)
-     
+        .onAppear {
+            cookie = self.loginModel.authenticate(server: "odoo.miem.tv", login: "admin", password: "admin")
+            print("We are in Choose modules, cookie is \(cookie)")
+        }
     }
     
     func onChange() {
@@ -284,7 +305,7 @@ public struct ChooseModuleView: View {
             if addFavModule {
                 if height > 500 && height < 700 {
                     curruntOffset = -(height / 3) + gestureOffset + lastOffset
-                } else if height < 800 && height > 700 {
+                } else if height < 800 && height > 700{
                     curruntOffset = -(height / 2.9) + gestureOffset + lastOffset
                 } else if height > 800 && height < 900 {
                     curruntOffset = -(height / 2.75) + gestureOffset + lastOffset
@@ -297,8 +318,12 @@ public struct ChooseModuleView: View {
 }
 
 struct ChooseModuleView_Previews: PreviewProvider {
+    
     static var previews: some View {
 //        ChooseModuleView(modules: Modules.sampleData)
         ChooseModuleView()
     }
 }
+
+
+

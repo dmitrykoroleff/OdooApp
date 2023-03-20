@@ -37,7 +37,7 @@ extension AuthView {
             }
         }
 
-        func getUnauthenticatedViewModel() -> UnauthenticatedViewModel {
+        @MainActor func getUnauthenticatedViewModel() -> UnauthenticatedViewModel {
 
             if self.unauthenticatedModel == nil {
                 self.unauthenticatedModel = UnauthenticatedViewModel(

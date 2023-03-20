@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public class Auth: ObservableObject {
+@MainActor public class Auth: ObservableObject {
     
     public var sessionCookie: String
     
@@ -147,11 +147,7 @@ public class Auth: ObservableObject {
         } catch {
             print(error)
         }
-        let task = session.dataTask(with: request, completionHandler: handler)
-        task.resume()
-
-        
-        func handler(data: Data?, response: URLResponse?, error: Error?) {
+        let task = session.dataTask(with: request) { data, response, error in
             
             guard error == nil, let data = data else {
 //                completion(.failure(error ?? URLError(.badServerResponse)))
@@ -174,12 +170,15 @@ public class Auth: ObservableObject {
 
             for cookies in newCookies {
                 if cookies.name == "session_id" {
-                    self.sessionCookie = cookies.value
+                    DispatchQueue.main.async {
+                        self.sessionCookie = cookies.value
+                    }
                     print("\(cookies.name) is \(cookies.value)")
                 }
             }
-            print("Here we have cookie: \(self.sessionCookie)")
-            
+            DispatchQueue.main.async {                
+                print("Here we have cookie: \(self.sessionCookie)")
+            }
 //            do {
 //                guard let responseObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
 //                    throw URLError(.badServerResponse)
@@ -189,6 +188,47 @@ public class Auth: ObservableObject {
 ////                completion(.failure(parseError))
 //            }
         }
+        task.resume()
+
+        
+//        func handler(data: Data?, response: URLResponse?, error: Error?) {
+//
+//            guard error == nil, let data = data else {
+////                completion(.failure(error ?? URLError(.badServerResponse)))
+//                return
+//            }
+//
+//            guard
+//                let httpResponse = response as? HTTPURLResponse,
+//                200 ..< 300 ~= httpResponse.statusCode
+//            else {
+////                completion(.failure(URLError(.badServerResponse)))
+//                return
+//            }
+//
+//
+//
+//            let fields = httpResponse.allHeaderFields as? [String: String]
+//
+//            var newCookies = HTTPCookie.cookies(withResponseHeaderFields: fields!, for: (response?.url)!)
+//
+//            for cookies in newCookies {
+//                if cookies.name == "session_id" {
+//                    self.sessionCookie = cookies.value
+//                    print("\(cookies.name) is \(cookies.value)")
+//                }
+//            }
+//            print("Here we have cookie: \(self.sessionCookie)")
+//
+////            do {
+////                guard let responseObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+////                    throw URLError(.badServerResponse)
+////                }
+//////                completion(.success(responseObject))
+////            } catch let parseError {
+//////                completion(.failure(parseError))
+////            }
+//        }
 //        return task
         return self.sessionCookie
     }

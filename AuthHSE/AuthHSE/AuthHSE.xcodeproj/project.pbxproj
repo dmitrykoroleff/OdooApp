@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141BA02329C4A33E0012609A /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141BA02229C4A33E0012609A /* CustomURLSession.swift */; };
 		1496B4DC29BCADF500F82114 /* GetModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496B4DB29BCADF500F82114 /* GetModules.swift */; };
 		14CBCD0429C0FDF000FE1A65 /* TestAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBCD0329C0FDF000FE1A65 /* TestAsync.swift */; };
 		6162A8CB291EA0B1008B32A6 /* AuthHSE.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6162A8CA291EA0B1008B32A6 /* AuthHSE.docc */; };
@@ -68,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		141BA02229C4A33E0012609A /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
 		1496B4DB29BCADF500F82114 /* GetModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModules.swift; sourceTree = "<group>"; };
 		14CBCD0329C0FDF000FE1A65 /* TestAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAsync.swift; sourceTree = "<group>"; };
 		6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthHSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				6162A8E2291EC345008B32A6 /* ObservedAuthView.swift */,
 				1496B4DB29BCADF500F82114 /* GetModules.swift */,
 				14CBCD0329C0FDF000FE1A65 /* TestAsync.swift */,
+				141BA02229C4A33E0012609A /* CustomURLSession.swift */,
 			);
 			path = AuthHSE;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				6162A8EC291EC451008B32A6 /* Page.swift in Sources */,
 				6162A90D291ED4C5008B32A6 /* Logger.swift in Sources */,
 				6162A903291ED2A4008B32A6 /* AppAuthHandler.swift in Sources */,
+				141BA02329C4A33E0012609A /* CustomURLSession.swift in Sources */,
 				61A735352947774C008E3A3E /* Token.swift in Sources */,
 				6162A8FB291ECEB5008B32A6 /* UnauthenticatedView.swift in Sources */,
 				6162A8F2291EC4BE008B32A6 /* ApplicationConfig.swift in Sources */,
