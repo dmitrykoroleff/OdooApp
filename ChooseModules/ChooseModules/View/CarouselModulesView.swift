@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct CarouselModulesView <Content: View, T: Identifiable>: View {
-    
+
     @State private var progress: CGFloat = 0
     @State private var progression: CGFloat = 0
     @Binding var currentOffset: CGFloat
     @Binding var addFavModule: Bool
     let bundle = Bundle(identifier: "chooseModules.ChooseModules")
-    
     var gradient1: Gradient
     
     var gradient2: Gradient
@@ -26,19 +25,8 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
     var height: CGFloat = UIScreen.main.bounds.height
     @Binding var index: Int
     
-    init(spacing: CGFloat = 15, trailingSpace: CGFloat = 16,
-         index: Binding<Int>, items: [T], currentOffset: Binding<CGFloat>,
-         addFavModule: Binding<Bool>,
-         @ViewBuilder content: @escaping (T) -> Content) {
-        self.list = items
-        self.spacing = spacing
-        self.trailingSpace = trailingSpace
-        self._index = index
-        self._currentOffset = currentOffset
-        self._addFavModule = addFavModule
-        self.content = content
-        
-        
+    init(spacing: CGFloat = 15, trailingSpace: CGFloat = 16, index: Binding<Int>,
+         items: [T], currentOffset: Binding<CGFloat>, addFavModule: Binding<Bool>, @ViewBuilder content: @escaping (T) -> Content) {
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
                                           Color("GradientColor2", bundle: bundle),
                                           Color("GradientColor3", bundle: bundle),
@@ -49,7 +37,13 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
                                           Color("GradientColor2", bundle: bundle),
                                           Color("GradientColor3", bundle: bundle),
                                           Color("GradientColor4", bundle: bundle)])
-        
+        self.list = items
+        self.spacing = spacing
+        self.trailingSpace = trailingSpace
+        self._index = index
+        self._currentOffset = currentOffset
+        self._addFavModule = addFavModule
+        self.content = content
     }
     
     @GestureState var offset: CGFloat = 0
@@ -66,21 +60,27 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
                 }
                 
                 VStack(spacing: 10) {
+                    
                     Text("Add favourite module")
+                        .fixedSize()
+                    
                     Image(systemName: "plus")
                         .imageScale(.large)
                 }
+                .fixedSize()
                 .padding(.top, 20)
-                .frame(width: proxy.size.width - 30 , height: getHeight2())
+                .frame(width: proxy.size.width - 30, height: getHeight2())
                 .foregroundColor(Color("MainColor", bundle: bundle))
                 .background(
                     animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
-                        .padding(.top, 20)
                         .onAppear{
-                            withAnimation(.timingCurve(0.14, 0.4, 0.65, 0.78, duration: 2.0).repeatForever(autoreverses:true)) {
-                                self.progression = 1.0
+                            
+                            withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
+                                self.progression = 1
                             }
+                            
                         }
+                        .padding(.top, 20)
                 )
                 .onTapGesture {
                     withAnimation {
@@ -129,7 +129,8 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
         
         let next = getIndex(item: item) - 1 == currentIndex ? height / 3.8 : height / 3.8
         
-        let checkBetween = currentIndex >= 0 && currentIndex <= list.count ? (getIndex(item: item) - 1 == currentIndex ? previous: next) : height / 3.8
+        let checkBetween = currentIndex >= 0 && currentIndex <= list.count ?
+        (getIndex(item: item) - 1 == currentIndex ? previous: next) : height / 3.8
         
         return getIndex(item: item) == currentIndex ? height / 3.5 : checkBetween
     }
@@ -140,7 +141,8 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
         
         let next = list.count - 1 == currentIndex ? (offset < 0 ? height / 4 : height / 3.8) : height / 3.8
         
-        let checkBetween = currentIndex >= 0 && currentIndex <= list.count ? (list.count - 1 == currentIndex ? previous: next) : height / 3.8
+        let checkBetween = currentIndex >= 0 && currentIndex <= list.count
+        ? (list.count - 1 == currentIndex ? previous: next) : height / 3.8
         
         return list.count == currentIndex ? height / 3.5 : checkBetween
     }
@@ -155,7 +157,7 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
 
 struct CarouselModulesView_Previews: PreviewProvider {
     static var previews: some View {
-//ChooseModuleView(modules: Modules.sampleData)
+//        ChooseModuleView(modules: Modules.sampleData)
         ChooseModuleView()
     }
 }
@@ -193,10 +195,9 @@ struct AnimatableGradientModifier: AnimatableModifier {
             gradientColors.append(colorMixer(fromColor: fromColor, toColor: toColor, progress: progress))
         }
         
-        return RoundedRectangle(cornerRadius: 20).stroke(
-            AngularGradient(gradient: Gradient(colors: gradientColors),
-                            center: .bottomLeading, startAngle: Angle(degrees: 0.0),
-                            endAngle: Angle(degrees: 360.0)), lineWidth: 3)
+        return RoundedRectangle(cornerRadius: 20).stroke(AngularGradient(
+            gradient: Gradient(colors: gradientColors), center: .bottomLeading,
+            startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 360.0)), lineWidth: 3)
     }
     
     func colorMixer(fromColor: UIColor, toColor: UIColor, progress: CGFloat) -> Color {

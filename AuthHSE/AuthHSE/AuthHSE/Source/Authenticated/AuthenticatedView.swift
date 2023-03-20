@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-//import ChooseModule
 import ChooseModules
 
 struct AuthenticatedView: View {
@@ -20,7 +19,6 @@ struct AuthenticatedView: View {
         
         TabView {
             // MARK: insert here choose module
-//            ChooseModule.ChooseModuleView()
             ChooseModules.ChooseModuleView()
                 .tabItem {
                     Image(systemName: "person")

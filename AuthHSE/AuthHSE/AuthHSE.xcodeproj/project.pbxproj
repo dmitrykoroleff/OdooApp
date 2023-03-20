@@ -31,12 +31,12 @@
 		6162A90F291ED65A008B32A6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A90E291ED65A008B32A6 /* CustomTextField.swift */; };
 		6162A912291ED877008B32A6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A911291ED877008B32A6 /* LoginViewModel.swift */; };
 		6162A92E291EFE71008B32A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162A92D291EFE71008B32A6 /* Assets.xcassets */; };
+		617FDEA429C7454800B89D68 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617FDEA329C7454800B89D68 /* ChooseModules.framework */; };
+		617FDEA529C7454800B89D68 /* ChooseModules.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 617FDEA329C7454800B89D68 /* ChooseModules.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6183891129BE51E100FF2157 /* GetModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183891029BE51E100FF2157 /* GetModules.swift */; };
 		6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; };
 		6190B4C729265AB1009CD969 /* AuthOdoo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61A735352947774C008E3A3E /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A735342947774C008E3A3E /* Token.swift */; };
-		61BB927129BDE4C0006AFDF4 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BB927029BDE4C0006AFDF4 /* ChooseModules.framework */; };
-		61BB927229BDE4C0006AFDF4 /* ChooseModules.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61BB927029BDE4C0006AFDF4 /* ChooseModules.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E1A452429476F4E00FC55DE /* DecodeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A452329476F4E00FC55DE /* DecodeToken.swift */; };
 		7E6E8F712986AB5900710224 /* CookieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E8F702986AB5900710224 /* CookieFile.swift */; };
 		7E6E8F732986AB5F00710224 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E8F722986AB5F00710224 /* WebView.swift */; };
@@ -61,7 +61,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6190B4C729265AB1009CD969 /* AuthOdoo.framework in Embed Frameworks */,
-				61BB927229BDE4C0006AFDF4 /* ChooseModules.framework in Embed Frameworks */,
+				617FDEA529C7454800B89D68 /* ChooseModules.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +91,7 @@
 		6162A90E291ED65A008B32A6 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		6162A911291ED877008B32A6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6162A92D291EFE71008B32A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		617FDEA329C7454800B89D68 /* ChooseModules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChooseModules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6183891029BE51E100FF2157 /* GetModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModules.swift; sourceTree = "<group>"; };
 		6190B4C529265AB1009CD969 /* AuthOdoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthOdoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A735342947774C008E3A3E /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -106,11 +107,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6E8F772986AC6600710224 /* Alamofire in Frameworks */,
-				61BB927129BDE4C0006AFDF4 /* ChooseModules.framework in Frameworks */,
 				6162A8F9291ECE31008B32A6 /* AppAuth in Frameworks */,
 				6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */,
 				6162A901291ED27A008B32A6 /* SwiftCoroutine in Frameworks */,
 				6162A90B291ED3E8008B32A6 /* SwiftJWT in Frameworks */,
+				617FDEA429C7454800B89D68 /* ChooseModules.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +226,7 @@
 		6190B4C429265AB1009CD969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				617FDEA329C7454800B89D68 /* ChooseModules.framework */,
 				61BB927029BDE4C0006AFDF4 /* ChooseModules.framework */,
 				6190B4C529265AB1009CD969 /* AuthOdoo.framework */,
 			);

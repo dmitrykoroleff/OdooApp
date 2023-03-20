@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//let bundle = Bundle(identifier: "chooseModules.ChooseModules")
 public struct ChooseModuleView: View {
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
@@ -16,22 +16,25 @@ public struct ChooseModuleView: View {
     @State var searchQuery = ""
     @State var currentIndex: Int = 0
     @State var liked = false
-    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
-    let colors: [Color]
+    
+    let colors: [Color] = [Color("CardColor1", bundle: bundle),
+                           Color("CardColor2", bundle: bundle),
+                           Color("CardColor3", bundle: bundle),
+                           Color("CardColor4", bundle: bundle),
+                           Color("CardColor5", bundle: bundle),
+                           Color("CardColor6", bundle: bundle),
+                           Color("CardColor7", bundle: bundle)]
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
+//    let modules: [Modules]
     let modules: [Modules]
+    
     public init() {
-        modules = Modules.sampleData
-        self.colors = [Color("CardColor1", bundle: bundle),
-                       Color("CardColor2", bundle: bundle),
-                       Color("CardColor3", bundle: bundle),
-                       Color("CardColor4", bundle: bundle),
-                       Color("CardColor5", bundle: bundle),
-                       Color("CardColor6", bundle: bundle),
-                       Color("CardColor7", bundle: bundle)]
-    }
-    public var body: some View {
+            modules = Modules.sampleData
+
+        }
+
+   public var body: some View {
         
         GeometryReader { geometry in
             ZStack {
@@ -42,8 +45,6 @@ public struct ChooseModuleView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 64, height: 22)
                         .offset(y: height < 700 ? 24 : 0)
-                    
-                        
                     
                     HStack {
                         
@@ -138,25 +139,26 @@ public struct ChooseModuleView: View {
                     }
                     .padding(.vertical)
                     .padding(.horizontal, 30)
-                    .offset(y: searchIsActive ? height > 600
-                            && height < 700 ? -(height / 6)
-                            : height > 700 && height < 800
-                            ? -(height / 7) : height > 800
-                            && height < 850 ? -(height / 7.3)
-                            : height > 850 && height < 900 ?
-                            -(height / 8) : -(height / 9) : 0)
+                    .offset(y: searchIsActive ? height > 600 &&
+                            height < 700 ? -(height / 6) : height > 700
+                            && height < 800 ? -(height / 7) : height > 800
+                            && height < 850 ? -(height / 7.3) : height > 850
+                            && height < 900 ? -(height / 8) : -(height / 9) : 0)
                     
                     // каруселька
-                        CarouselModulesView(spacing: 15, trailingSpace: 30, index: $currentIndex, items: modules, currentOffset: $curruntOffset, addFavModule: $addFavModule) { module in
+                        CarouselModulesView(spacing: 15, trailingSpace: 30,
+                                            index: $currentIndex, items: modules,
+                                            currentOffset: $curruntOffset, addFavModule: $addFavModule)
+                    { module in
                                 GeometryReader { proxy in
                                     let size = proxy.size
                                     ZStack {
                                         
                                         Rectangle()
-                                            .foregroundColor(colors[Int(generateColorFor(text: module.name, colors: colors))]) // Хардкод
+                                            .foregroundColor(colors[Int(generateColorFor(text: module.name,
+                                                                                         colors: colors))]) // Хардкод
                                         
                                         
-                                        HStack {
                                             
                                             VStack(alignment: .leading, spacing: 15) {
                                                 
@@ -168,27 +170,31 @@ public struct ChooseModuleView: View {
                                                         .resizable()
                                                         .imageScale(.large)
                                                         .foregroundColor(.white)
-                                                        .frame(width: height > 600 && height < 700 ? 20
-                                                               : height > 700 && height < 800 ? 21 :
-                                                                height > 800 && height < 900 ? 22 :
-                                                                25, height: height > 600 && height
-                                                               < 700 ? 20 : height > 700 && height
-                                                               < 800 ? 21 : height > 800 && height
-                                                               < 900 ? 22 : 25)
+                                                        .frame(width: height > 600 && height < 700 ?
+                                                               20 : height > 700 && height < 800 ?
+                                                               21 : height > 800 && height < 900 ?
+                                                               22 : 25, height: height > 600 && height < 700
+                                                               ? 20 : height > 700 && height < 800 ? 21 : height > 800
+                                                               && height < 900 ? 22 : 25)
                                                     
                                                 }
                                                 .padding()
-                                                .padding(.top, height > 600 && height < 700 ? 2 : height > 700 && height < 800 ? 2 : height > 800 && height < 900 ? 3 : 5)
-                                                .padding(.trailing, height > 600 && height < 700 ? 2 : height > 700 && height < 800 ? 2 : height > 800 && height < 900 ? 3 : 5)
+                                                .padding(.top, height > 600 && height < 700 ? 2 : height > 700
+                                                         && height < 800 ? 2 : height > 800 && height < 900 ? 3 : 5)
+                                                .padding(.trailing, height > 600 && height < 700 ? 2 : height > 700
+                                                         && height < 800 ? 2 : height > 800 && height < 900 ? 3 : 5)
                                                 
                                                 
                                                 Text(module.name).font(.title) /// Хардкод
                                                     .fontWeight(.bold)
                                                     .padding(.horizontal, 30).foregroundColor(.white)
                                                 
-                                                Text("\(module.notifications) New Notifications") // Хардкод
-                                                    .padding(.horizontal, 30)
+//
+                                                Text(String(module.notifications) + " New Notifications") // Хардкод
+                                                    .font(.body)
+                                                    .fontWeight(.regular)
                                                     .foregroundColor(.white)
+                                                    .padding(.horizontal, 30)
                                                     .background(
                                                         Color.white
                                                             .frame(height: 1)
@@ -202,7 +208,7 @@ public struct ChooseModuleView: View {
                                             }
                                             
                                             
-                                        }
+                                        
                                     }
                                     .cornerRadius(20)
                                 }
@@ -222,10 +228,9 @@ public struct ChooseModuleView: View {
                                 .frame(width: 8, height: 8)
                                 .animation(.spring(), value: currentIndex == modules.count)
                         }
-                        .offset(y: height > 600 && height < 700 ? -(height / 3.4)
-                                : height > 700 && height < 800 ? -(height / 3.2)
-                                : height > 800 && height < 850 ? -(height / 3.1)
-                                : height > 850 && height < 900 ? -(height / 3)
+                        .offset(y: height > 600 && height < 700 ? -(height / 3.4) : height > 700
+                                && height < 800 ? -(height / 3.2) : height > 800 && height < 850
+                                ? -(height / 3.1) : height > 850 && height < 900 ? -(height / 3)
                                 : -(height / 2.7))
                     
                     
@@ -239,7 +244,8 @@ public struct ChooseModuleView: View {
                 VStack {
                     BottomSheetView()
                         .offset(y: height / 1.4)
-                        .offset(y: -curruntOffset > 0 ? -curruntOffset <= (height / 1.5) ? curruntOffset : -(height / 1.5) : 0)
+                        .offset(y: -curruntOffset > 0 ? -curruntOffset <= (height / 1.5) ?
+                                curruntOffset : -(height / 1.5) : 0)
                         .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
                             out = value.translation.height
                             onChange()
@@ -273,14 +279,13 @@ public struct ChooseModuleView: View {
                     SearchView(modules: modules, searchQuery: $searchQuery)
                         .offset(y: searchIsActive ? height > 600 && height < 700
                                 ? (height / 4.8) : height > 700 && height < 800
-                                ? (height / 4.6) : height > 800 && height < 900
-                                ? (height / 4.6) : (height / 5) : height)
+                                ? (height / 4.6) : height > 800 && height < 900 ? (height / 4.6) : (height / 5) : height)
                 } else if !searchQuery.isEmpty {
                     NoResultsView(searchQuery: $searchQuery)
                         .offset(y: searchIsActive ? height > 600 && height < 700
-                                ? (height / 4) : height > 700 && height < 800 ?
-                                (height / 4.3) : height > 800 && height < 900 ?
-                                (height / 4.6) : (height / 5) : height)
+                                ? (height / 4) : height > 700 && height < 800
+                                ? (height / 4.3) : height > 800 && height < 900
+                                ? (height / 4.6) : (height / 5) : height)
                 }
             }
             .offset(y: -height/22.25)

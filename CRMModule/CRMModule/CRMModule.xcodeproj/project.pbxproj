@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		617FDEA729C74B1400B89D68 /* CRMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEA629C74B1400B89D68 /* CRMApp.swift */; };
+		617FDEAC29C74B6F00B89D68 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEAB29C74B6F00B89D68 /* StatusView.swift */; };
+		617FDEBD29C74B9E00B89D68 /* GeneralInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEAD29C74B9B00B89D68 /* GeneralInformationView.swift */; };
+		617FDEBE29C74B9E00B89D68 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEAE29C74B9B00B89D68 /* NoteView.swift */; };
+		617FDEBF29C74B9E00B89D68 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEAF29C74B9C00B89D68 /* BottomSheetView.swift */; };
+		617FDEC029C74B9E00B89D68 /* CustomBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB029C74B9C00B89D68 /* CustomBottomButton.swift */; };
+		617FDEC129C74B9E00B89D68 /* AddStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB129C74B9C00B89D68 /* AddStatusView.swift */; };
+		617FDEC229C74B9E00B89D68 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB229C74B9C00B89D68 /* DropdownView.swift */; };
+		617FDEC329C74B9E00B89D68 /* CustomProgressbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB329C74B9C00B89D68 /* CustomProgressbarView.swift */; };
+		617FDEC429C74B9E00B89D68 /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB429C74B9C00B89D68 /* TaskCardView.swift */; };
+		617FDEC529C74B9E00B89D68 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB529C74B9D00B89D68 /* ScheduleView.swift */; };
+		617FDEC629C74B9F00B89D68 /* CarouselModulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB629C74B9D00B89D68 /* CarouselModulesView.swift */; };
+		617FDEC729C74B9F00B89D68 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB729C74B9D00B89D68 /* TaskView.swift */; };
+		617FDEC829C74B9F00B89D68 /* NoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB829C74B9E00B89D68 /* NoSearchView.swift */; };
+		617FDEC929C74B9F00B89D68 /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEB929C74B9E00B89D68 /* ScheduleListView.swift */; };
+		617FDECA29C74B9F00B89D68 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEBA29C74B9E00B89D68 /* SummaryView.swift */; };
+		617FDECB29C74B9F00B89D68 /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEBB29C74B9E00B89D68 /* AddScheduleView.swift */; };
+		617FDECC29C74B9F00B89D68 /* LogNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEBC29C74B9E00B89D68 /* LogNoteView.swift */; };
+		617FDED329C74BB400B89D68 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDECD29C74BB300B89D68 /* TaskModel.swift */; };
+		617FDED429C74BB400B89D68 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDECE29C74BB300B89D68 /* UserModel.swift */; };
+		617FDED529C74BB400B89D68 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDECF29C74BB300B89D68 /* NoteModel.swift */; };
+		617FDED629C74BB400B89D68 /* DropDownOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDED029C74BB300B89D68 /* DropDownOptionsModel.swift */; };
+		617FDED729C74BB400B89D68 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDED129C74BB300B89D68 /* StatusModel.swift */; };
+		617FDED829C74BB400B89D68 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDED229C74BB300B89D68 /* CardModel.swift */; };
+		617FDEDA29C74BBE00B89D68 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDED929C74BBE00B89D68 /* StatusViewModel.swift */; };
+		617FDEDC29C74BC700B89D68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 617FDEDB29C74BC600B89D68 /* Assets.xcassets */; };
 		6183890129BE515800FF2157 /* CRMModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618388F829BE515800FF2157 /* CRMModule.framework */; };
 		6183890629BE515800FF2157 /* CRMModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183890529BE515800FF2157 /* CRMModuleTests.swift */; };
 		6183890729BE515800FF2157 /* CRMModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 618388FB29BE515800FF2157 /* CRMModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +49,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		617FDEA629C74B1400B89D68 /* CRMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMApp.swift; sourceTree = "<group>"; };
+		617FDEAB29C74B6F00B89D68 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		617FDEAD29C74B9B00B89D68 /* GeneralInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInformationView.swift; sourceTree = "<group>"; };
+		617FDEAE29C74B9B00B89D68 /* NoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		617FDEAF29C74B9C00B89D68 /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		617FDEB029C74B9C00B89D68 /* CustomBottomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBottomButton.swift; sourceTree = "<group>"; };
+		617FDEB129C74B9C00B89D68 /* AddStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStatusView.swift; sourceTree = "<group>"; };
+		617FDEB229C74B9C00B89D68 /* DropdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
+		617FDEB329C74B9C00B89D68 /* CustomProgressbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressbarView.swift; sourceTree = "<group>"; };
+		617FDEB429C74B9C00B89D68 /* TaskCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
+		617FDEB529C74B9D00B89D68 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		617FDEB629C74B9D00B89D68 /* CarouselModulesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselModulesView.swift; sourceTree = "<group>"; };
+		617FDEB729C74B9D00B89D68 /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		617FDEB829C74B9E00B89D68 /* NoSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSearchView.swift; sourceTree = "<group>"; };
+		617FDEB929C74B9E00B89D68 /* ScheduleListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListView.swift; sourceTree = "<group>"; };
+		617FDEBA29C74B9E00B89D68 /* SummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		617FDEBB29C74B9E00B89D68 /* AddScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
+		617FDEBC29C74B9E00B89D68 /* LogNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogNoteView.swift; sourceTree = "<group>"; };
+		617FDECD29C74BB300B89D68 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		617FDECE29C74BB300B89D68 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		617FDECF29C74BB300B89D68 /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		617FDED029C74BB300B89D68 /* DropDownOptionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownOptionsModel.swift; sourceTree = "<group>"; };
+		617FDED129C74BB300B89D68 /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		617FDED229C74BB300B89D68 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		617FDED929C74BBE00B89D68 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		617FDEDB29C74BC600B89D68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618388F829BE515800FF2157 /* CRMModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CRMModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		618388FB29BE515800FF2157 /* CRMModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMModule.h; sourceTree = "<group>"; };
 		6183890029BE515800FF2157 /* CRMModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRMModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,9 +100,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		617FDEA829C74B2100B89D68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				617FDEAB29C74B6F00B89D68 /* StatusView.swift */,
+				617FDEBB29C74B9E00B89D68 /* AddScheduleView.swift */,
+				617FDEB129C74B9C00B89D68 /* AddStatusView.swift */,
+				617FDEAF29C74B9C00B89D68 /* BottomSheetView.swift */,
+				617FDEB629C74B9D00B89D68 /* CarouselModulesView.swift */,
+				617FDEB029C74B9C00B89D68 /* CustomBottomButton.swift */,
+				617FDEB329C74B9C00B89D68 /* CustomProgressbarView.swift */,
+				617FDEB229C74B9C00B89D68 /* DropdownView.swift */,
+				617FDEAD29C74B9B00B89D68 /* GeneralInformationView.swift */,
+				617FDEBC29C74B9E00B89D68 /* LogNoteView.swift */,
+				617FDEB829C74B9E00B89D68 /* NoSearchView.swift */,
+				617FDEAE29C74B9B00B89D68 /* NoteView.swift */,
+				617FDEB929C74B9E00B89D68 /* ScheduleListView.swift */,
+				617FDEB529C74B9D00B89D68 /* ScheduleView.swift */,
+				617FDEBA29C74B9E00B89D68 /* SummaryView.swift */,
+				617FDEB429C74B9C00B89D68 /* TaskCardView.swift */,
+				617FDEB729C74B9D00B89D68 /* TaskView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		617FDEA929C74B3800B89D68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				617FDED229C74BB300B89D68 /* CardModel.swift */,
+				617FDED029C74BB300B89D68 /* DropDownOptionsModel.swift */,
+				617FDECF29C74BB300B89D68 /* NoteModel.swift */,
+				617FDED129C74BB300B89D68 /* StatusModel.swift */,
+				617FDECD29C74BB300B89D68 /* TaskModel.swift */,
+				617FDECE29C74BB300B89D68 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		617FDEAA29C74B3F00B89D68 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				617FDED929C74BBE00B89D68 /* StatusViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		618388EE29BE515800FF2157 = {
 			isa = PBXGroup;
 			children = (
+				617FDEDB29C74BC600B89D68 /* Assets.xcassets */,
+				617FDEAA29C74B3F00B89D68 /* ViewModel */,
+				617FDEA929C74B3800B89D68 /* Model */,
+				617FDEA829C74B2100B89D68 /* View */,
+				617FDEA629C74B1400B89D68 /* CRMApp.swift */,
 				618388FA29BE515800FF2157 /* CRMModule */,
 				6183890429BE515800FF2157 /* CRMModuleTests */,
 				618388F929BE515800FF2157 /* Products */,
@@ -144,6 +246,7 @@
 				TargetAttributes = {
 					618388F729BE515800FF2157 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					618388FF29BE515800FF2157 = {
 						CreatedOnToolsVersion = 14.2;
@@ -174,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617FDEDC29C74BC700B89D68 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +295,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617FDEC929C74B9F00B89D68 /* ScheduleListView.swift in Sources */,
+				617FDEBD29C74B9E00B89D68 /* GeneralInformationView.swift in Sources */,
+				617FDEC829C74B9F00B89D68 /* NoSearchView.swift in Sources */,
+				617FDED629C74BB400B89D68 /* DropDownOptionsModel.swift in Sources */,
+				617FDEC329C74B9E00B89D68 /* CustomProgressbarView.swift in Sources */,
+				617FDED829C74BB400B89D68 /* CardModel.swift in Sources */,
+				617FDEBF29C74B9E00B89D68 /* BottomSheetView.swift in Sources */,
+				617FDED329C74BB400B89D68 /* TaskModel.swift in Sources */,
+				617FDECA29C74B9F00B89D68 /* SummaryView.swift in Sources */,
+				617FDEAC29C74B6F00B89D68 /* StatusView.swift in Sources */,
+				617FDEBE29C74B9E00B89D68 /* NoteView.swift in Sources */,
+				617FDECB29C74B9F00B89D68 /* AddScheduleView.swift in Sources */,
+				617FDED529C74BB400B89D68 /* NoteModel.swift in Sources */,
+				617FDEC429C74B9E00B89D68 /* TaskCardView.swift in Sources */,
+				617FDEC629C74B9F00B89D68 /* CarouselModulesView.swift in Sources */,
+				617FDECC29C74B9F00B89D68 /* LogNoteView.swift in Sources */,
+				617FDEC729C74B9F00B89D68 /* TaskView.swift in Sources */,
+				617FDEA729C74B1400B89D68 /* CRMApp.swift in Sources */,
+				617FDEC229C74B9E00B89D68 /* DropdownView.swift in Sources */,
+				617FDEC129C74B9E00B89D68 /* AddStatusView.swift in Sources */,
+				617FDEC529C74B9E00B89D68 /* ScheduleView.swift in Sources */,
+				617FDEDA29C74BBE00B89D68 /* StatusViewModel.swift in Sources */,
+				617FDED429C74BB400B89D68 /* UserModel.swift in Sources */,
+				617FDED729C74BB400B89D68 /* StatusModel.swift in Sources */,
+				617FDEC029C74B9E00B89D68 /* CustomBottomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +465,7 @@
 		6183890B29BE515800FF2157 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -360,6 +490,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -368,6 +499,7 @@
 		6183890C29BE515800FF2157 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -400,6 +532,7 @@
 		6183890E29BE515800FF2157 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YN4CY38HR3;
@@ -416,6 +549,7 @@
 		6183890F29BE515800FF2157 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YN4CY38HR3;

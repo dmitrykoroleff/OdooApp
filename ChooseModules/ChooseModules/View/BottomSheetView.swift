@@ -13,7 +13,8 @@ struct BottomSheetView: View {
     @State var liked = false
     
     var body: some View {
-    
+        
+        
         VStack {
             
             Spacer()
@@ -45,19 +46,22 @@ struct BottomSheetView: View {
                             
                         }
                     }
-
+                    
+                    
                 }
                 .padding()
                 
             }
         }
         .edgesIgnoringSafeArea(.bottom)
+        
     }
+    
 }
 
 struct BottomSheetView_Previews: PreviewProvider {
     static var previews: some View {
-            BottomSheetView()
+        BottomSheetView()
     }
 }
 

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NoResultsView: View {
     @Binding var searchQuery: String
-    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
     var body: some View {
         ZStack {
             Color.white

@@ -16,6 +16,7 @@ public struct ChooseModuleApp: App {
         WindowGroup {
 //            ChooseModuleView(modules: Modules.sampleData)
             ChooseModuleView()
+            
         }
     }
 }

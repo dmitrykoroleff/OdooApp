@@ -12,6 +12,18 @@ func generateColorFor(text: String, colors: [Color]) -> Int {
     return num
 }
 
+func generateIcon(text: String) -> Image {
+    switch text{
+    case "CRM":
+        return Image("CRMIcon", bundle: bundle)
+    case "Recruitment":
+        return Image("RecruitmentIcon", bundle: bundle)
+    default:
+        return Image("noResultsIcon", bundle: bundle)
+    }
+    
+    
+}
 
 func search(modules: [Modules], searchQuery: String) -> [Modules] {
     let results = modules.filter { $0.name.lowercased().contains(searchQuery.lowercased())
@@ -19,6 +31,8 @@ func search(modules: [Modules], searchQuery: String) -> [Modules] {
 
     return results
 }
+
+
 
 extension UIApplication {
     func endEditing() {

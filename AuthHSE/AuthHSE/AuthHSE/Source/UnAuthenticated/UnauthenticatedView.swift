@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
-//import ChooseModule
 import ChooseModules
+
 
 struct UnauthenticatedView: View {
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")

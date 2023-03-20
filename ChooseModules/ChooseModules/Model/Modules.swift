@@ -27,8 +27,6 @@ extension Modules { // Хардкор
     static let sampleData: [Modules] = [
         Modules(name: "CRM", notifications: 0),
         Modules(name: "Recruitment", notifications: 1),
-        Modules(name: "P", notifications: 0),
-        Modules(name: "QQ", notifications: 1)
     ]
     
 }

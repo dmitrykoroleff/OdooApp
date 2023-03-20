@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
+
 struct ModuleCardView: View {
-    var module: Modules
-    
+    let module: Modules
     let colors: [Color] = [Color("CardColor1", bundle: bundle),
                            Color("CardColor2", bundle: bundle),
                            Color("CardColor3", bundle: bundle),
@@ -53,15 +53,12 @@ struct ModuleCardView: View {
                     }
                     .padding(10)
                     
-                    
-                    ZStack {
+                   
                         
-                        Image("icon", bundle: bundle) // Хардкод
+                        generateIcon(text: module.name) // Хардкод
                             .resizable()
-                            .frame(width: 50, height: 30)
-                    }
-                    .frame(width: 40, height: 40)
-                    .offset(y: -40)
+                            .frame(width: module.name == "CRM" ? 50 : 35, height: 35)
+                            .offset(y: -36)
                     
                     Text(module.name) // Хардкод
                         .foregroundColor(.white)

@@ -7,10 +7,9 @@
 import SwiftUI
 let bundle = Bundle(identifier: "chooseModules.ChooseModules")
 struct SearchView: View {
-    
     var modules: [Modules]
     @Binding var searchQuery: String
-    var colors: [Color] = [Color("CardColor1", bundle: bundle),
+    let colors: [Color] = [Color("CardColor1", bundle: bundle),
                            Color("CardColor2", bundle: bundle),
                            Color("CardColor3", bundle: bundle),
                            Color("CardColor4", bundle: bundle),
@@ -23,11 +22,9 @@ struct SearchView: View {
                     VStack {
                         
                         HStack {
-                            
-                                Text("Favourite modules")
-                                    .font(.title3)
-                                    .fontWeight(.medium)
-                          
+                            Text("Favourite modules")
+                                .font(.title3)
+                                .fontWeight(.medium)
                             
                             Spacer()
                         }
@@ -61,14 +58,10 @@ struct SearchView: View {
                                             .padding(7)
                                             
                                             
-                                            ZStack {
-                                                
-                                                
-                                                Image("icon", bundle: bundle)
-                                                    .resizable()
-                                                    .frame(width: 50, height: 27)
-                                            }
-                                            .offset(y: -30)
+                                            generateIcon(text: likedModule.name) // Хардкод
+                                                .resizable()
+                                                .frame(width: likedModule.name == "CRM" ? 50 : 35, height: 35)
+                                                .offset(y: -30)
                                             
                                             Text(likedModule.name)
                                                 .foregroundColor(.white)
@@ -89,9 +82,9 @@ struct SearchView: View {
                         }
                         
                         HStack {
-                                Text("All modules")
-                                    .font(.title3)
-                                    .fontWeight(.medium)
+                            Text("All modules")
+                                .font(.title3)
+                                .fontWeight(.medium)
                             
                             Spacer()
                         }
@@ -125,13 +118,10 @@ struct SearchView: View {
                                             .padding(7)
                                             
                                             
-                                            ZStack {
-
-                                                Image("icon", bundle: bundle)
+                                                generateIcon(text: module.name) // Хардкод
                                                     .resizable()
-                                                    .frame(width: 50, height: 27)
-                                            }
-                                            .offset(y: -30)
+                                                    .frame(width: module.name == "CRM" ? 50 : 35, height: 35)
+                                                    .offset(y: -30)
                                             
                                             Text(module.name)
                                                 .foregroundColor(.white)
