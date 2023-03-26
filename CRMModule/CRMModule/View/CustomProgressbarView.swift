@@ -16,7 +16,7 @@ struct CustomProgressBarView: View {
         HStack(spacing: 15) {
             
             ProgressView(value: CGFloat(value), total: 100)
-                .accentColor(Color("ProgressBarColor"))
+                .accentColor(Color("ProgressBarColor", bundle: bundle))
                 .scaleEffect(x: 1, y: 2, anchor: .center)
             
             

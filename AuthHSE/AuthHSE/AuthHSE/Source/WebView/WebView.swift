@@ -82,9 +82,9 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                                        "jsonrpc": "2.0",
                                        "method": "call",
                                        "params": [
-                                            "domain": [],
-                                            "fields": ["id", "user_id", "x_favourite_modules"],
-                                            "model": "res.users.settings"]]
+                                       "domain": [],
+                                       "fields": ["id", "name", "child_id", "parent_id", "groups_id"],
+                                       "model": "ir.ui.menu"]]
             
             let jsonData = try? JSONSerialization.data(withJSONObject: json)
             executeURLRequest(url: url!) { result in

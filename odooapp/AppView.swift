@@ -7,20 +7,23 @@
 
 import SwiftUI
 import AuthHSE
+import YandexMobileMetrica
 
-// MARK: remove available
-// @available(iOS 15.0, *)
 struct AppView: View {
+    init() {
+//        metricaStart()
+    }
     var body: some View {
-//        Text("Hello, world!")
-//            .padding()
         AuthHSE.AuthView()
+    }
+    
+    func metricaStart() {
+        let configuration = YMMYandexMetricaConfiguration.init(apiKey: "ecbc98ca-f03d-4409-a73a-fd6f48d2dc33")
+            YMMYandexMetrica.activate(with: configuration!)
     }
 
 }
 
-// MARK: remove available
-// @available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         AppView()

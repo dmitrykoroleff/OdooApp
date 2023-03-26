@@ -16,7 +16,7 @@ struct GeneralInformationView: View {
 
             Text("General Information")
                 .font(.system(size: 14))
-                .foregroundColor(Color("MainColor"))
+                .foregroundColor(Color("MainColor", bundle: bundle))
             VStack(alignment: .leading) {
                 HStack() {
                     VStack(alignment: .leading, spacing: 10) {

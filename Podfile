@@ -6,5 +6,6 @@ target 'odooapp' do
   use_frameworks!
 
   pod 'SwiftLint'
+  pod 'YandexMobileMetrica/Dynamic', '4.5.0'
 
 end

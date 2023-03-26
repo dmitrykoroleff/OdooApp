@@ -15,19 +15,19 @@ struct CustomBottomButton: View {
                     Rectangle()
                         .frame(width: 16.5, height: 16.5)
                         .cornerRadius(3)
-                        .foregroundColor(Color("MainColor"))
+                        .foregroundColor(Color("MainColor", bundle: bundle))
                 }
             }
             VStack {
                 Rectangle()
                     .frame(width: 16.5, height: 16.5)
                     .cornerRadius(3)
-                    .foregroundColor(Color("MainColor"))
+                    .foregroundColor(Color("MainColor", bundle: bundle))
                     .rotationEffect(.degrees(45))
                 Rectangle()
                     .frame(width: 16.5, height: 16.5)
                     .cornerRadius(3)
-                    .foregroundColor(Color("MainColor"))
+                    .foregroundColor(Color("MainColor", bundle: bundle))
             }
         }
         .background(

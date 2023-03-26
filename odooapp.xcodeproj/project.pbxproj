@@ -132,6 +132,7 @@
 				6162A884291E9A2D008B32A6 /* Frameworks */,
 				6162A885291E9A2D008B32A6 /* Resources */,
 				6162A8E8291EC3F1008B32A6 /* Embed Frameworks */,
+				6AE3FD756E11E5946287925E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,6 +208,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		6AE3FD756E11E5946287925E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-odooapp/Pods-odooapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-odooapp/Pods-odooapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-odooapp/Pods-odooapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		AA02CFA6F77E712CF71A6FE9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

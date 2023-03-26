@@ -35,7 +35,7 @@ public struct StatusView: View {
                 ZStack {
                     
                     VStack {
-                        Image("logo")
+                        Image("logo", bundle: bundle)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 64, height: 22)
@@ -65,7 +65,7 @@ public struct StatusView: View {
                                 ZStack {
                                     
                                     Circle()
-                                        .foregroundColor(Color("MainColor"))
+                                        .foregroundColor(Color("MainColor", bundle: bundle))
                                         .frame(width: 40, height: 40)
                                     
                                     Text("A") // Хардкод
@@ -84,7 +84,7 @@ public struct StatusView: View {
                             Text(currentStatus.name)
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .foregroundColor(Color("Headings"))
+                                .foregroundColor(Color("Headings", bundle: bundle))
                             Spacer()
                         }
                         .padding(.horizontal)
@@ -120,7 +120,7 @@ public struct StatusView: View {
                                             }
                                             
                                         } label: {
-                                            Image("delete")
+                                            Image("delete", bundle: bundle)
                                                 .resizable()
                                             
                                         }

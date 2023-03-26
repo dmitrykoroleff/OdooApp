@@ -17,19 +17,14 @@ struct AuthenticatedView: View {
     
     var body: some View {
         
-        TabView {
+//        TabView {
             // MARK: insert here choose module
             ChooseModules.ChooseModuleView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("module")
                 }
-            //MARK: remove dev
-            UserView(logOut: self.model.startLogout)
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("dev logout")
-                }
-        }
+            
+//        }
     }
 }

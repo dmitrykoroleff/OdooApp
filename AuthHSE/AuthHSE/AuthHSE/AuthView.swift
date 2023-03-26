@@ -18,9 +18,7 @@ public struct AuthView: View {
             UnauthenticatedView(model: observed.getUnauthenticatedViewModel())
             
         } else {
-            AuthenticatedView(model: observed.getAuthenticatedViewModel()).onAppear {
-                auth.getError()
-            }
+            AuthenticatedView(model: observed.getAuthenticatedViewModel())
         }
     }
 }

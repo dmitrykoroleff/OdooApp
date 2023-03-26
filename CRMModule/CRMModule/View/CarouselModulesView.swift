@@ -16,9 +16,17 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
     @Binding var currentStatus: Status
     var addNewStatus = Status(id: UUID(), image: "", name: "Add new status")
     
-    var gradient1 = Gradient(colors:[Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4"), Color("GradientColor1")])
+    var gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
+                                     Color("GradientColor2", bundle: bundle),
+                                     Color("GradientColor3", bundle: bundle),
+                                     Color("GradientColor4", bundle: bundle),
+                                     Color("GradientColor1", bundle: bundle)])
     
-    var gradient2 = Gradient(colors:[Color("GradientColor4"), Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4")])
+    var gradient2 = Gradient(colors:[Color("GradientColor4", bundle: bundle),
+                                     Color("GradientColor1", bundle: bundle),
+                                     Color("GradientColor2", bundle: bundle),
+                                     Color("GradientColor3", bundle: bundle),
+                                     Color("GradientColor4", bundle: bundle)])
     var content: (T) -> Content
     var list: [T]
     
@@ -67,7 +75,7 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
                             
                         }
                         .frame(width: width / 1.05, height: height / 15)
-                        .foregroundColor(Color("MainColor"))
+                        .foregroundColor(Color("MainColor", bundle: bundle))
                         Spacer()
                     }
                 }

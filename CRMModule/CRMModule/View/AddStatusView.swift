@@ -19,10 +19,10 @@ struct AddStatusView: View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 35)
-                    .stroke(Color("MainColor").opacity(0.5))
+                    .stroke(Color("MainColor", bundle: bundle).opacity(0.5))
                     .frame(height: UIScreen.main.bounds.height)
                     .background(Color.white)
-                    .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
+                    .shadow(color: Color("MainColor", bundle: bundle).opacity(0.5), radius: 5)
                     .cornerRadius(35)
                 VStack {
                     HStack {
@@ -33,7 +33,7 @@ struct AddStatusView: View {
                         }, label: {
                             Text("Cancel")
                                 .fontWeight(.semibold)
-                                .foregroundColor(Color("MainColor"))
+                                .foregroundColor(Color("MainColor", bundle: bundle))
                                 
                         })
                         Spacer()

@@ -76,7 +76,8 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
                         .onAppear{
                             
                             withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
-                                self.progression = 1
+                                //MARK: animation turn off
+//                                self.progression = 1
                             }
                             
                         }
