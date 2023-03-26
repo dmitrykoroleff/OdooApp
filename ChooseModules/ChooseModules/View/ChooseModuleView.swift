@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CRMModule
+import RecruitmentModule
 //let bundle = Bundle(identifier: "chooseModules.ChooseModules")
 public struct ChooseModuleView: View {
     @State var curruntOffset: CGFloat = 0
@@ -211,6 +213,19 @@ public struct ChooseModuleView: View {
                                         
                                     }
                                     .cornerRadius(20)
+                                    .onTapGesture {
+                                        //MARK: CRM added CHECK
+                                        
+                                        switch module.name {
+                                        case "CRM":
+                                            CRMModule.StatusView()
+                                        //MARK: Recruitment to add
+                                        case "Recruitment":
+                                            print("open Recruitment")
+                                        default:
+                                            print("no")
+                                        }
+                                    }
                                 }
                                 .padding(.top, 20)
                         }

@@ -7,7 +7,10 @@
 
 import SwiftUI
 let bundle = Bundle(identifier: "CRM.CRMModule")
-struct StatusView: View {
+public struct StatusView: View {
+    public init() {
+        
+    }
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
@@ -22,10 +25,10 @@ struct StatusView: View {
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     @State var currentStatus: Status = statuses[0]
-    let taskCards: [TaskCard]
+    let taskCards = TaskCard.sampleWebsiteRequest
     @State var showBottomBar = false
     @State var showAdditionalStatuses = false
-    var body: some View {
+    public var body: some View {
         
         NavigationView {
             GeometryReader {_ in 
@@ -344,6 +347,7 @@ struct StatusView: View {
 
 struct StatusView_Previews: PreviewProvider {
     static var previews: some View {
-        StatusView(taskCards: TaskCard.sampleWebsiteRequest)
+//        StatusView(taskCards: TaskCard.sampleWebsiteRequest)
+        StatusView()
     }
 }

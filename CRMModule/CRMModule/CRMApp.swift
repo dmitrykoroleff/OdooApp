@@ -8,10 +8,14 @@
 import SwiftUI
 
 @main
-struct CRMApp: App {
-    var body: some Scene {
+public struct CRMApp: App {
+    public init() {
+        
+    }
+    public var body: some Scene {
         WindowGroup {
-            StatusView(taskCards: TaskCard.sampleWebsiteRequest)
+//            StatusView(taskCards: TaskCard.sampleWebsiteRequest)
+            StatusView()
         }
     }
 }

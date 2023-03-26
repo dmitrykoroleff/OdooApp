@@ -125,7 +125,8 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
 
 struct CarouselModulesView_Previews: PreviewProvider {
     static var previews: some View {
-        StatusView(taskCards: TaskCard.sampleWebsiteRequest)
+//        StatusView(taskCards: TaskCard.sampleWebsiteRequest)
+        StatusView()
     }
 }
 
