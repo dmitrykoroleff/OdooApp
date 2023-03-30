@@ -21,275 +21,230 @@ struct TasksView: View {
     @State var searchQuery = ""
     @State var currentStatus: Status = statuses[0]
     @State var showEditView = false
+    @State var curruntOffset: CGFloat = 0
+    @State var lastOffset: CGFloat = 0
+    @GestureState var gestureOffset: CGFloat = 0
+    @State var curruntAddStatusOffset: CGFloat = 0
+    @State var lastAddStatusOffset: CGFloat = 0
+    @GestureState var gestureAddStatusOffset: CGFloat = 0
+    @State var currentIndex: Int = 0
     
     @State var currentTask: Int = 0
     var body: some View {
         NavigationView {
-            ZStack(alignment: .bottomTrailing) {
-                VStack(alignment: .center) {
-                    
-                    HStack {
+            GeometryReader {_ in
+                ZStack(alignment: .bottomTrailing) {
+                    VStack(alignment: .center) {
                         
-                        VStack(alignment: .leading, spacing: 5){
+                        HStack {
                             
-                            Text("Hello, ")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.gray)
-                            
-                            Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
-                                .foregroundColor(Color("Headings"))
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                            
-                        }
-                        
-                        Spacer()
-                        
-                        Button {
-                            
-                        } label: {
-                            ZStack {
+                            VStack(alignment: .leading, spacing: 5){
                                 
-                                Circle()
-                                    .foregroundColor(Color("MainColor"))
-                                    .frame(width: 40, height: 40)
-                                
-                                Text("A") // Хардкод
-                                    .font(.title3)
+                                Text("Hello, ")
+                                    .font(.subheadline)
                                     .fontWeight(.semibold)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color.gray)
+                                
+                                Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
+                                    .foregroundColor(Color("Headings"))
+                                    .font(.headline)
+                                    .fontWeight(.semibold)
                                 
                             }
-                        }
-                    }
-                    .padding()
-                    .offset(y: searchIsActive ? -(height / 2) : 0)
-                    HStack {
-                        Text(currentStatus.name) //hardcode
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("Headings"))
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    .offset(y: searchIsActive ? -(height / 2) : 0)
-                    HStack(spacing: 15) {
-                        Spacer()
-                        Image(systemName: "magnifyingglass")
-                            .imageScale(.large)
-                        
-                        TextField("Enter student name...", text: $searchQuery, onEditingChanged: { search in
-                            withAnimation {
-                                searchIsActive = search
-                            }
-                        })
-                        
-                    }
-                    .frame(width: !searchIsActive ? width - 60 : width - 100, height: 50)
-                    .background {
-                        ZStack {
-                            Color.white
-                            HStack(spacing: 20) {
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke()
-                                    .frame(width: !searchIsActive ? width - 60 : width - 100, height: 50)
+                            
+                            Spacer()
+                            
+                            Button {
                                 
-                                if searchIsActive {
+                            } label: {
+                                ZStack {
                                     
-                                    Button {
-                                        withAnimation {
-                                            searchQuery = ""
-                                            searchIsActive = false
-                                            UIApplication.shared.endEditing()
-                                        }
-                                        
-                                    } label: {
-                                        Image("delete")
-                                            .resizable()
-                                        
-                                    }
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.black)
+                                    Circle()
+                                        .foregroundColor(Color("MainColor"))
+                                        .frame(width: 40, height: 40)
+                                    
+                                    Text("A") // Хардкод
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
                                     
                                 }
-                                
                             }
                         }
-                    }
-                    .padding(.vertical)
-                    .padding(.horizontal, 30)
-                    .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) : height > 700 && height < 800 ? -(height / 7) : height > 800 && height < 850 ? -(height / 7.3) : height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
-                    
-                    //
-                    VStack {
-
-                        ScrollView(.vertical, showsIndicators: false) {
-                            ForEach(project.tasks[currentStatus.name] ?? []) { task in
-                                NavigationLink(
-                                    destination:
-                                        TaskManagmentView(), isActive: $isActive) {
-                                        TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
-                                }
-                                .foregroundColor(.black)
-                            }
+                        .padding()
+                        .offset(y: searchIsActive ? -(height / 2) : 0)
+                        HStack {
+                            Text(currentStatus.name) //hardcode
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("Headings"))
+                            Spacer()
                         }
-                        .edgesIgnoringSafeArea(.bottom)
-                        
-                    }
-                    .offset(y: searchIsActive ? -(height / 8) : 0)
-                    .edgesIgnoringSafeArea(.bottom)
-                }
-                .frame(width: width)
-                .offset(y: showBottomBar ? height*0.045: 0)
-
-                
-               
-                    
-                if !showBottomBar && !searchIsActive && !showAdditionalStatuses && !showAddTaskView {
-                    
-                    HStack {
-                        
-                        Button(action: {
-                            withAnimation(Animation.easeIn(duration: 0.2)){
-                                showAddTaskView.toggle()
-                                
-                            }
+                        .padding(.horizontal)
+                        .offset(y: searchIsActive ? -(height / 2) : 0)
+                        HStack(spacing: 15) {
+                            Spacer()
+                            Image(systemName: "magnifyingglass")
+                                .imageScale(.large)
                             
-                        }, label: {
-                            CustomAddButton()
-                        })
-                        .offset(x: -(width/1.5), y: (height / 5000))
-                    
-                        Button(action: {
-                            withAnimation(Animation.easeIn(duration: 0.2)){
-                                showBottomBar.toggle()
-                                
-                            }
-                            
-                        }, label: {
-                            CustomBottomButton()
-                        })
-                        .offset(x: -(width / 8), y: (height / 5000))
-                        
-                    }
-                } else if  showBottomBar {
-                    //Bottom bar
-                    VStack {
-                        ZStack {
-                            
-                            RoundedRectangle(cornerRadius: 35)
-                                .stroke(Color("MainColor").opacity(0.5))
-                                .frame(height: UIScreen.main.bounds.height)
-                                .background(Color.white)
-                                .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
-                                .cornerRadius(35)
-                            
-                            Button(action: {
-                                withAnimation(Animation.easeOut(duration: 0.2)){
-                                    showBottomBar.toggle()
+                            TextField("Enter student name...", text: $searchQuery, onEditingChanged: { search in
+                                withAnimation {
+                                    searchIsActive = search
                                 }
-                            }, label: {})
-                                .buttonStyle(.plain)
-                                .frame(width: width, height: height)
-                            VStack(spacing: 20) {
-                                
-                                Image(systemName: "minus")
-                                    .resizable()
-                                    .imageScale(.large)
-                                    .frame(width: 34, height: 3)
-                                    .foregroundColor(Color("MainColor"))
-                                
-                                
-                                HStack {
-                                    Text("Change status")
-                                        .font(.system(size: 20, weight: .bold))
-                                    Spacer()
-                                }
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack {
+                            })
+                            
+                        }
+                        .frame(width: !searchIsActive ? width - 60 : width - 100, height: 50)
+                        .background {
+                            ZStack {
+                                Color.white
+                                HStack(spacing: 20) {
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke()
+                                        .frame(width: !searchIsActive ? width - 60 : width - 100, height: 50)
+                                    
+                                    if searchIsActive {
                                         
-                                        ForEach(statuses) { status in
-                                            Button(action: {
-                                                withAnimation(Animation.easeIn(duration: 0.2)) {
-                                                    currentStatus = status
-                                                }
-                                            }, label: {
-                                                VStack {
-                                                    if status.image == "globe" {
-                                                        ZStack {
-                                                            Circle()
-                                                                .stroke(.black, lineWidth: 1)
-                                                                .frame(width: 30, height: 30)
-                                                            Image(systemName: status.image)
-                                                        }
-                                                    } else {
-                                                        Image(systemName: status.image)
-                                                            .font(.system(size:25))
-                                                            .frame(width: 50, height: 50)
-                                                    }
-                                                    Text(status.name)
-                                                        .font(.system(size: 14))
-                                                }
-                                                .foregroundColor(.black)
-                                            })
+                                        Button {
+                                            withAnimation {
+                                                searchQuery = ""
+                                                searchIsActive = false
+                                                UIApplication.shared.endEditing()
+                                            }
+                                            
+                                        } label: {
+                                            Image("delete")
+                                                .resizable()
                                             
                                         }
-                                        Button(action: {
-                                            withAnimation(Animation.easeIn(duration: 0.2)) {
-                                                showAdditionalStatuses.toggle()
-                                                showBottomBar.toggle()
-                                            }
-                                        }, label: {
-                                            VStack {
-                                                Image(systemName: "plus")
-                                                    .font(.system(size: 25))
-                                                    .fontWeight(.light)
-                                                    .frame(width: 50, height: 50)
-                                                Text("Add status")
-                                                    .font(.system(size: 14))
-                                            }
-                                            .foregroundColor(.black)
-                                        })
+                                        .frame(width: 20, height: 20)
+                                        .foregroundColor(.black)
                                         
                                     }
+                                    
                                 }
-                                Spacer()
                             }
-                            .padding()
+                        }
+                        .padding(.vertical)
+                        .padding(.horizontal, 30)
+                        .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) : height > 700 && height < 800 ? -(height / 7) : height > 800 && height < 850 ? -(height / 7.3) : height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
+                        
+                        //
+                        VStack {
+                            
+                            ScrollView(.vertical, showsIndicators: false) {
+                                ForEach(project.tasks[currentStatus.name] ?? []) { task in
+                                    NavigationLink(
+                                        destination:
+                                            TaskManagmentView(), isActive: $isActive) {
+                                                TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                            }
+                                            .foregroundColor(.black)
+                                }
+                            }
+                            .edgesIgnoringSafeArea(.bottom)
                             
                         }
+                        .offset(y: searchIsActive ? -(height / 8) : 0)
+                        .edgesIgnoringSafeArea(.bottom)
                     }
-                    .edgesIgnoringSafeArea(.bottom)
-                    .offset(y: offSet)
-                    .offset(y: height*0.75)
-                    .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnded(value:)))
-                } else if showAdditionalStatuses {
-                    //Status Sheet
-                    AddStatusView(showView: $showAdditionalStatuses, currentStatus: $currentStatus)
-                        .edgesIgnoringSafeArea(.bottom)
-                        .offset(y: offSet)
-                        .offset(y: height*0.05)
-                    //                    .offset(y: showBottomBar ? 0: height)
-                        .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnded(value:)))
-                } else if showAddTaskView {
-                    AddTaskView()
-                    .edgesIgnoringSafeArea(.bottom)
-                    .offset(y: offSet)
-                    .offset(y: height*0.05)
-                    //                .offset(y: showBottomSheet ? 0: height)
-                    .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnded(value:)))
-                }
-                if showEditView {
-                    EditTaskView()
-                        .edgesIgnoringSafeArea(.bottom)
-                        .offset(y: offSet)
-                        .offset(y: height*0.05)
-                        //                .offset(y: showBottomSheet ? 0: height)
-                        .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnded(value:)))
+                    .frame(width: width)
+                    
+                        
+                        HStack {
+                            
+                            Button(action: {
+                                withAnimation(Animation.easeIn(duration: 0.2)){
+                                    showAddTaskView.toggle()
+                                    
+                                }
+                                
+                            }, label: {
+                                CustomAddButton()
+                            })
+                            .offset(x: -(width/1.5), y: (height / 5000))
+                            
+                            Button(action: {
+                                withAnimation(Animation.easeIn(duration: 0.2)){
+                                    if statuses.count + 1 <= 5 {
+                                        if height > 500 && height < 700 {
+                                            curruntOffset = -(height / 3)
+                                        } else if height < 800 && height > 700 {
+                                            curruntOffset = -(height / 2.9)
+                                        } else if height > 800 && height < 900 {
+                                            curruntOffset = -(height / 3.6)
+                                        } else {
+                                            curruntOffset = -(height / 3.5)
+                                        }
+                                    } else {
+                                        if height > 500 && height < 700 {
+                                            curruntOffset = -(height / 3)
+                                        } else if height < 800 && height > 700 {
+                                            curruntOffset = -(height / 2.9)
+                                        } else if height > 800 && height < 900 {
+                                            curruntOffset = -(height / 2.6)
+                                        } else {
+                                            curruntOffset = -(height / 2.6)
+                                        }
+                                    }
+                                    showBottomBar = true
+                                    
+                                }
+                                
+                            }, label: {
+                                CustomBottomButton()
+                            })
+                            .offset(x: -(width / 8), y: (-height/5))
+                            
+                        }
+                    
+                    
+                    VStack {
+                        BottomSheetView(curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
+                            .offset(y: height)
+                            .offset(y: statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 3.5) ? curruntOffset : -(height / 3.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0))
+                            .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
+                                out = value.translation.height
+                                onChange()
+                            }).onEnded({ value in
+                                let maxHeight = height
+                                withAnimation {
+                                    showBottomBar = false
+                                    if -curruntOffset > 150 && -curruntOffset < maxHeight / 1.5 {
+                                        if statuses.count + 1 <= 5 {
+                                            if height > 600 && height < 700 {
+                                                curruntOffset = -maxHeight / 3.6
+                                            } else if height < 800 && height > 700 {
+                                                curruntOffset = -maxHeight / 3.6
+                                            } else if height > 800 && height < 900{
+                                                curruntOffset = -maxHeight / 3.6
+                                            } else {
+                                                curruntOffset = -maxHeight / 3.6
+                                            }
+                                        } else {
+                                            if height > 600 && height < 700 {
+                                                curruntOffset = -maxHeight / 3
+                                            } else if height < 800 && height > 700 {
+                                                curruntOffset = -maxHeight / 1.5
+                                            } else if height > 800 && height < 900{
+                                                curruntOffset = -maxHeight / 2.6
+                                            } else {
+                                                curruntOffset = -maxHeight / 2.6
+                                            }
+                                        }
+                                    }
+                                    else {
+                                        curruntOffset = 0
+                                    }
+                                }
+                                lastOffset = curruntOffset
+                            }))
+                    }
+                    
                 }
                 
             }
+            .ignoresSafeArea(.keyboard)
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {
@@ -308,24 +263,40 @@ struct TasksView: View {
                     .frame(width: 64, height: 22)
             }
         }
-        .navigationBarHidden((isActive || searchIsActive || showAdditionalStatuses || showAddTaskView || showEditView) ? true : false)
     
 }
 
-func onChanged(value: DragGesture.Value) {
-    if value.translation.height > 0 {
-        offSet = value.translation.height
-    }
-}
-
-func onEnded(value: DragGesture.Value) {
-    if value.translation.height > 0 {
-        withAnimation(Animation.easeIn(duration: 0.2)) {
-            showBottomBar.toggle()
-            offSet = 0
+    func onChange(){
+        DispatchQueue.main.async {
+            self.curruntOffset = gestureOffset + lastOffset
+            if showBottomBar {
+                if statuses.count + 1 <= 5 {
+                    if height > 500 && height < 700 {
+                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
+                    } else if height < 800 && height > 700{
+                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
+                    } else if height > 800 && height < 900 {
+                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
+                    } else {
+                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
+                    }
+                } else {
+                    if height > 500 && height < 700 {
+                        curruntOffset = -(height / 3) + gestureOffset + lastOffset
+                    } else if height < 800 && height > 700{
+                        curruntOffset = -(height / 1.5) + gestureOffset + lastOffset
+                    } else if height > 800 && height < 900 {
+                        curruntOffset = -(height / 2.6) + gestureOffset + lastOffset
+                    } else {
+                        curruntOffset = -(height / 2.6) + gestureOffset + lastOffset
+                    }
+                }
+            }
+            self.curruntAddStatusOffset = gestureAddStatusOffset + lastAddStatusOffset
+            if showAdditionalStatuses {
+                curruntAddStatusOffset = -height + gestureAddStatusOffset + lastAddStatusOffset
+            }
         }
-        
-    }
     }
 }
 

@@ -55,3 +55,12 @@ func searchTask(tasks: [ProjectTask], searchQuery: String) -> [ProjectTask] {
     return results
 }
 
+func find(value searchValue: Status, in array: [Status]) -> Int? {
+    for (index, value) in array.enumerated() {
+        if value == searchValue {
+            return index
+        }
+    }
+ 
+    return nil
+}
