@@ -28,125 +28,128 @@ public struct ChooseModuleView: View {
                            Color("CardColor7", bundle: bundle)]
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
-//    let modules: [Modules]
+    //    let modules: [Modules]
     let modules: [Modules]
     
     public init() {
-            modules = Modules.sampleData
-
-        }
-
+        modules = Modules.sampleData
+        
+    }
+    
     public var body: some View {
         NavigationView{
-        GeometryReader { geometry in
-            ZStack {
-                
-                VStack {
-                    Image("logo", bundle: bundle)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 64, height: 22)
-                        .offset(y: height < 700 ? 24 : 0)
+            GeometryReader { geometry in
+                ZStack {
                     
-                    HStack {
+                    VStack {
+                        Image("logo", bundle: bundle)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 64, height: 22)
+                            .offset(y: height < 700 ? 24 : 0)
                         
-                        VStack(alignment: .leading, spacing: 5){
+                        HStack {
                             
-                            Text("Hello, ")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.gray)
-                            
-                            Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
-                                .foregroundColor(Color("Headings", bundle: bundle))
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                            
-                        }
-                        
-                        Spacer()
-                        
-                        Button {
-                            
-                        } label: {
-                            ZStack {
+                            VStack(alignment: .leading, spacing: 5){
                                 
-                                Circle()
-                                    .foregroundColor(Color("MainColor", bundle: bundle))
-                                    .frame(width: 40, height: 40)
-                                
-                                Text("A") // Хардкод
-                                    .font(.title3)
+                                Text("Hello, ")
+                                    .font(.subheadline)
                                     .fontWeight(.semibold)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color.gray)
+                                
+                                Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
+                                    .foregroundColor(Color("Headings", bundle: bundle))
+                                    .font(.headline)
+                                    .fontWeight(.semibold)
                                 
                             }
-                        }
-                        
-                    }
-                    .padding()
-                    .offset(y: searchIsActive ? -(height / 2) : 0)
-                    
-                    HStack {
-                        Text("Choose module")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("Headings", bundle: bundle))
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    .offset(y: searchIsActive ? -(height / 2) : 0)
-                    
-                    HStack(spacing: 15) {
-                        
-                        Image(systemName: "magnifyingglass")
-                            .imageScale(.large)
-                        
-                        TextField("Enter module name...", text: $searchQuery, onEditingChanged: { search in
-                            withAnimation {
-                                searchIsActive = search
-                            }
-                        })
-                        
-                    }
-                    .background {
-                        ZStack {
-                            Color.white
-                            HStack(spacing: 20) {
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke()
-                                    .frame(width: !searchIsActive ? width - 60 : width - 100, height: 50)
+                            
+                            Spacer()
+                            
+                            Button {
                                 
-                                if searchIsActive {
+                            } label: {
+                                ZStack {
                                     
-                                    Button {
-                                        withAnimation {
-                                            searchQuery = ""
-                                            searchIsActive = false
-                                            UIApplication.shared.endEditing()
-                                        }
-                                        
-                                    } label: {
-                                        Image("delete", bundle: bundle)
-                                            .resizable()
-                                        
-                                    }
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.black)
+                                    Circle()
+                                        .foregroundColor(Color("MainColor", bundle: bundle))
+                                        .frame(width: 40, height: 40)
+                                    
+                                    Text("A") // Хардкод
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
                                     
                                 }
-                                
+                            }
+                            
+                        }
+                        .padding()
+                        .offset(y: searchIsActive ? -(height / 2) : 0)
+                        
+                        HStack {
+                            Text("Choose module")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("Headings", bundle: bundle))
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        .offset(y: searchIsActive ? -(height / 2) : 0)
+                        
+                        HStack(spacing: 15) {
+                            
+                            Image(systemName: "magnifyingglass")
+                                .imageScale(.large)
+                            
+                            TextField("Enter module name...", text: $searchQuery, onEditingChanged: { search in
+                                withAnimation {
+                                    searchIsActive = search
+                                }
+                            })
+                            
+                        }
+                        .background {
+                            ZStack {
+                                Color.white
+                                HStack(spacing: 20) {
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke()
+                                        .frame(width: !searchIsActive ? width - 60 : width - 100, height: 50)
+                                    
+                                    if searchIsActive {
+                                        
+                                        Button {
+                                            withAnimation {
+                                                searchQuery = ""
+                                                searchIsActive = false
+                                                UIApplication.shared.endEditing()
+                                            }
+                                            
+                                        } label: {
+                                            Image("delete", bundle: bundle)
+                                                .resizable()
+                                            
+                                        }
+                                        .frame(width: 20, height: 20)
+                                        .foregroundColor(.black)
+                                        
+                                    }
+                                    
+                                }
                             }
                         }
+                        .padding(.vertical)
+                        .padding(.horizontal, 30)
+                        .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) : height
+                                > 700 && height < 800 ? -(height / 7) : height > 800 && height < 850 ?
+                                -(height / 7.3) : height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
+                        
+                        // каруселька
+                        
                     }
-                    .padding(.vertical)
-                    .padding(.horizontal, 30)
-                    .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) : height
-                            > 700 && height < 800 ? -(height / 7) : height > 800 && height < 850 ?
-                            -(height / 7.3) : height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
-                    
-                    // каруселька
-                    NavigationLink(destination: CRMModule.StatusView(), label: {
+                    //                    NavigationLink(destination: CRMModule.StatusView(), label: {
+                    NavigationLink(destination: RecruitmentModule.RecruitmentView(), label: {
                         CarouselModulesView(spacing: 15, trailingSpace: 30, index: $currentIndex, items: modules, currentOffset: $curruntOffset, addFavModule: $addFavModule) { module in
                             GeometryReader { proxy in
                                 let size = proxy.size
@@ -303,7 +306,7 @@ public struct ChooseModuleView: View {
         }
         .ignoresSafeArea(.keyboard)
     } //end of NavView
-    }
+    
     
     func onChange() {
         DispatchQueue.main.async {
@@ -321,14 +324,14 @@ public struct ChooseModuleView: View {
             }
         }
     }
-}
-
-struct ChooseModuleView_Previews: PreviewProvider {
-    static var previews: some View {
-//        ChooseModuleView(modules: Modules.sampleData)
-        ChooseModuleView()
+    
+    
+    struct ChooseModuleView_Previews: PreviewProvider {
+        static var previews: some View {
+            //        ChooseModuleView(modules: Modules.sampleData)
+            ChooseModuleView()
+        }
     }
+    
+    
 }
-
-
-

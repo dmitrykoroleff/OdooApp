@@ -7,6 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6114230729D5968300DDE6E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 611422E029D5968200DDE6E0 /* Assets.xcassets */; };
+		6114230829D5968300DDE6E0 /* RecruitmentModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422E129D5968200DDE6E0 /* RecruitmentModuleApp.swift */; };
+		6114230929D5968300DDE6E0 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422E429D5968300DDE6E0 /* SummaryView.swift */; };
+		6114230A29D5968300DDE6E0 /* LogNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422E529D5968300DDE6E0 /* LogNoteView.swift */; };
+		6114230B29D5968300DDE6E0 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422E629D5968300DDE6E0 /* DropdownView.swift */; };
+		6114230C29D5968300DDE6E0 /* CustomDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422E729D5968300DDE6E0 /* CustomDots.swift */; };
+		6114230D29D5968300DDE6E0 /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422E829D5968300DDE6E0 /* JobView.swift */; };
+		6114230E29D5968300DDE6E0 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422E929D5968300DDE6E0 /* NoteView.swift */; };
+		6114230F29D5968300DDE6E0 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422EA29D5968300DDE6E0 /* UserView.swift */; };
+		6114231029D5968300DDE6E0 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422EB29D5968300DDE6E0 /* ScheduleView.swift */; };
+		6114231129D5968300DDE6E0 /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422EC29D5968300DDE6E0 /* AddScheduleView.swift */; };
+		6114231229D5968300DDE6E0 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422ED29D5968300DDE6E0 /* TaskView.swift */; };
+		6114231329D5968300DDE6E0 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422EE29D5968300DDE6E0 /* BottomBarView.swift */; };
+		6114231429D5968300DDE6E0 /* AddStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F029D5968300DDE6E0 /* AddStatusView.swift */; };
+		6114231529D5968300DDE6E0 /* TestingPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F229D5968300DDE6E0 /* TestingPeriodView.swift */; };
+		6114231629D5968300DDE6E0 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F329D5968300DDE6E0 /* StudentView.swift */; };
+		6114231729D5968300DDE6E0 /* RecruitmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F429D5968300DDE6E0 /* RecruitmentView.swift */; };
+		6114231829D5968300DDE6E0 /* InCommunicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F529D5968300DDE6E0 /* InCommunicationView.swift */; };
+		6114231929D5968300DDE6E0 /* UserCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F629D5968300DDE6E0 /* UserCardView.swift */; };
+		6114231A29D5968300DDE6E0 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F729D5968300DDE6E0 /* BottomSheetView.swift */; };
+		6114231B29D5968300DDE6E0 /* UserCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F829D5968300DDE6E0 /* UserCardList.swift */; };
+		6114231C29D5968300DDE6E0 /* UserCardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422F929D5968300DDE6E0 /* UserCardScrollView.swift */; };
+		6114231D29D5968300DDE6E0 /* CustomProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422FA29D5968300DDE6E0 /* CustomProgressBarView.swift */; };
+		6114231E29D5968300DDE6E0 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422FB29D5968300DDE6E0 /* CustomBackButton.swift */; };
+		6114231F29D5968300DDE6E0 /* CustomBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422FC29D5968300DDE6E0 /* CustomBottomButton.swift */; };
+		6114232029D5968300DDE6E0 /* WebsiteRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422FD29D5968300DDE6E0 /* WebsiteRequestView.swift */; };
+		6114232129D5968300DDE6E0 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611422FF29D5968300DDE6E0 /* StatusModel.swift */; };
+		6114232229D5968300DDE6E0 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6114230029D5968300DDE6E0 /* NoteModel.swift */; };
+		6114232329D5968300DDE6E0 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6114230129D5968300DDE6E0 /* CardModel.swift */; };
+		6114232429D5968300DDE6E0 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6114230229D5968300DDE6E0 /* TaskModel.swift */; };
+		6114232529D5968300DDE6E0 /* DropDownOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6114230329D5968300DDE6E0 /* DropDownOptionsModel.swift */; };
+		6114232629D5968300DDE6E0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6114230429D5968300DDE6E0 /* UserModel.swift */; };
+		6114232729D5968300DDE6E0 /* RecruitmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6114230629D5968300DDE6E0 /* RecruitmentViewModel.swift */; };
 		618388DF29BE512E00FF2157 /* RecruitmentModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618388D629BE512E00FF2157 /* RecruitmentModule.framework */; };
 		618388E429BE512E00FF2157 /* RecruitmentModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618388E329BE512E00FF2157 /* RecruitmentModuleTests.swift */; };
 		618388E529BE512E00FF2157 /* RecruitmentModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 618388D929BE512E00FF2157 /* RecruitmentModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +56,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		611422E029D5968200DDE6E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		611422E129D5968200DDE6E0 /* RecruitmentModuleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentModuleApp.swift; sourceTree = "<group>"; };
+		611422E429D5968300DDE6E0 /* SummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		611422E529D5968300DDE6E0 /* LogNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogNoteView.swift; sourceTree = "<group>"; };
+		611422E629D5968300DDE6E0 /* DropdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
+		611422E729D5968300DDE6E0 /* CustomDots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDots.swift; sourceTree = "<group>"; };
+		611422E829D5968300DDE6E0 /* JobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
+		611422E929D5968300DDE6E0 /* NoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		611422EA29D5968300DDE6E0 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		611422EB29D5968300DDE6E0 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		611422EC29D5968300DDE6E0 /* AddScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
+		611422ED29D5968300DDE6E0 /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		611422EE29D5968300DDE6E0 /* BottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
+		611422F029D5968300DDE6E0 /* AddStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStatusView.swift; sourceTree = "<group>"; };
+		611422F229D5968300DDE6E0 /* TestingPeriodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingPeriodView.swift; sourceTree = "<group>"; };
+		611422F329D5968300DDE6E0 /* StudentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		611422F429D5968300DDE6E0 /* RecruitmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentView.swift; sourceTree = "<group>"; };
+		611422F529D5968300DDE6E0 /* InCommunicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InCommunicationView.swift; sourceTree = "<group>"; };
+		611422F629D5968300DDE6E0 /* UserCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardView.swift; sourceTree = "<group>"; };
+		611422F729D5968300DDE6E0 /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		611422F829D5968300DDE6E0 /* UserCardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardList.swift; sourceTree = "<group>"; };
+		611422F929D5968300DDE6E0 /* UserCardScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardScrollView.swift; sourceTree = "<group>"; };
+		611422FA29D5968300DDE6E0 /* CustomProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressBarView.swift; sourceTree = "<group>"; };
+		611422FB29D5968300DDE6E0 /* CustomBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		611422FC29D5968300DDE6E0 /* CustomBottomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBottomButton.swift; sourceTree = "<group>"; };
+		611422FD29D5968300DDE6E0 /* WebsiteRequestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteRequestView.swift; sourceTree = "<group>"; };
+		611422FF29D5968300DDE6E0 /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		6114230029D5968300DDE6E0 /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		6114230129D5968300DDE6E0 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		6114230229D5968300DDE6E0 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		6114230329D5968300DDE6E0 /* DropDownOptionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownOptionsModel.swift; sourceTree = "<group>"; };
+		6114230429D5968300DDE6E0 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		6114230629D5968300DDE6E0 /* RecruitmentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitmentViewModel.swift; sourceTree = "<group>"; };
 		618388D629BE512E00FF2157 /* RecruitmentModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RecruitmentModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		618388D929BE512E00FF2157 /* RecruitmentModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecruitmentModule.h; sourceTree = "<group>"; };
 		618388DE29BE512E00FF2157 /* RecruitmentModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecruitmentModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +114,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		611422E229D5968300DDE6E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				611422E329D5968300DDE6E0 /* UserViews */,
+				611422EF29D5968300DDE6E0 /* MainView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		611422E329D5968300DDE6E0 /* UserViews */ = {
+			isa = PBXGroup;
+			children = (
+				611422E429D5968300DDE6E0 /* SummaryView.swift */,
+				611422E529D5968300DDE6E0 /* LogNoteView.swift */,
+				611422E629D5968300DDE6E0 /* DropdownView.swift */,
+				611422E729D5968300DDE6E0 /* CustomDots.swift */,
+				611422E829D5968300DDE6E0 /* JobView.swift */,
+				611422E929D5968300DDE6E0 /* NoteView.swift */,
+				611422EA29D5968300DDE6E0 /* UserView.swift */,
+				611422EB29D5968300DDE6E0 /* ScheduleView.swift */,
+				611422EC29D5968300DDE6E0 /* AddScheduleView.swift */,
+				611422ED29D5968300DDE6E0 /* TaskView.swift */,
+				611422EE29D5968300DDE6E0 /* BottomBarView.swift */,
+			);
+			path = UserViews;
+			sourceTree = "<group>";
+		};
+		611422EF29D5968300DDE6E0 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				611422F029D5968300DDE6E0 /* AddStatusView.swift */,
+				611422F129D5968300DDE6E0 /* SubViews */,
+				611422FD29D5968300DDE6E0 /* WebsiteRequestView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		611422F129D5968300DDE6E0 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				611422F229D5968300DDE6E0 /* TestingPeriodView.swift */,
+				611422F329D5968300DDE6E0 /* StudentView.swift */,
+				611422F429D5968300DDE6E0 /* RecruitmentView.swift */,
+				611422F529D5968300DDE6E0 /* InCommunicationView.swift */,
+				611422F629D5968300DDE6E0 /* UserCardView.swift */,
+				611422F729D5968300DDE6E0 /* BottomSheetView.swift */,
+				611422F829D5968300DDE6E0 /* UserCardList.swift */,
+				611422F929D5968300DDE6E0 /* UserCardScrollView.swift */,
+				611422FA29D5968300DDE6E0 /* CustomProgressBarView.swift */,
+				611422FB29D5968300DDE6E0 /* CustomBackButton.swift */,
+				611422FC29D5968300DDE6E0 /* CustomBottomButton.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		611422FE29D5968300DDE6E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				611422FF29D5968300DDE6E0 /* StatusModel.swift */,
+				6114230029D5968300DDE6E0 /* NoteModel.swift */,
+				6114230129D5968300DDE6E0 /* CardModel.swift */,
+				6114230229D5968300DDE6E0 /* TaskModel.swift */,
+				6114230329D5968300DDE6E0 /* DropDownOptionsModel.swift */,
+				6114230429D5968300DDE6E0 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6114230529D5968300DDE6E0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6114230629D5968300DDE6E0 /* RecruitmentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		618388CC29BE512E00FF2157 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +211,11 @@
 		618388D829BE512E00FF2157 /* RecruitmentModule */ = {
 			isa = PBXGroup;
 			children = (
+				611422E129D5968200DDE6E0 /* RecruitmentModuleApp.swift */,
+				611422E029D5968200DDE6E0 /* Assets.xcassets */,
+				611422FE29D5968300DDE6E0 /* Model */,
+				611422E229D5968300DDE6E0 /* View */,
+				6114230529D5968300DDE6E0 /* ViewModel */,
 				618388D929BE512E00FF2157 /* RecruitmentModule.h */,
 			);
 			path = RecruitmentModule;
@@ -144,6 +291,7 @@
 				TargetAttributes = {
 					618388D529BE512E00FF2157 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					618388DD29BE512E00FF2157 = {
 						CreatedOnToolsVersion = 14.2;
@@ -174,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6114230729D5968300DDE6E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +340,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6114230D29D5968300DDE6E0 /* JobView.swift in Sources */,
+				6114232129D5968300DDE6E0 /* StatusModel.swift in Sources */,
+				6114230829D5968300DDE6E0 /* RecruitmentModuleApp.swift in Sources */,
+				6114231529D5968300DDE6E0 /* TestingPeriodView.swift in Sources */,
+				6114231929D5968300DDE6E0 /* UserCardView.swift in Sources */,
+				6114230C29D5968300DDE6E0 /* CustomDots.swift in Sources */,
+				6114231329D5968300DDE6E0 /* BottomBarView.swift in Sources */,
+				6114231B29D5968300DDE6E0 /* UserCardList.swift in Sources */,
+				6114231129D5968300DDE6E0 /* AddScheduleView.swift in Sources */,
+				6114230F29D5968300DDE6E0 /* UserView.swift in Sources */,
+				6114232229D5968300DDE6E0 /* NoteModel.swift in Sources */,
+				6114232529D5968300DDE6E0 /* DropDownOptionsModel.swift in Sources */,
+				6114231829D5968300DDE6E0 /* InCommunicationView.swift in Sources */,
+				6114230B29D5968300DDE6E0 /* DropdownView.swift in Sources */,
+				6114231E29D5968300DDE6E0 /* CustomBackButton.swift in Sources */,
+				6114232429D5968300DDE6E0 /* TaskModel.swift in Sources */,
+				6114231A29D5968300DDE6E0 /* BottomSheetView.swift in Sources */,
+				6114231029D5968300DDE6E0 /* ScheduleView.swift in Sources */,
+				6114230929D5968300DDE6E0 /* SummaryView.swift in Sources */,
+				6114232729D5968300DDE6E0 /* RecruitmentViewModel.swift in Sources */,
+				6114232329D5968300DDE6E0 /* CardModel.swift in Sources */,
+				6114232629D5968300DDE6E0 /* UserModel.swift in Sources */,
+				6114231429D5968300DDE6E0 /* AddStatusView.swift in Sources */,
+				6114230E29D5968300DDE6E0 /* NoteView.swift in Sources */,
+				6114231229D5968300DDE6E0 /* TaskView.swift in Sources */,
+				6114231729D5968300DDE6E0 /* RecruitmentView.swift in Sources */,
+				6114231D29D5968300DDE6E0 /* CustomProgressBarView.swift in Sources */,
+				6114231629D5968300DDE6E0 /* StudentView.swift in Sources */,
+				6114231C29D5968300DDE6E0 /* UserCardScrollView.swift in Sources */,
+				6114230A29D5968300DDE6E0 /* LogNoteView.swift in Sources */,
+				6114232029D5968300DDE6E0 /* WebsiteRequestView.swift in Sources */,
+				6114231F29D5968300DDE6E0 /* CustomBottomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +517,7 @@
 		618388E929BE512E00FF2157 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -360,6 +542,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -368,6 +551,7 @@
 		618388EA29BE512E00FF2157 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -400,6 +584,7 @@
 		618388EC29BE512E00FF2157 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YN4CY38HR3;
@@ -416,6 +601,7 @@
 		618388ED29BE512E00FF2157 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YN4CY38HR3;

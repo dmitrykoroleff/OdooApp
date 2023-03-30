@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6114232D29D5986D00DDE6E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6114232C29D5986D00DDE6E0 /* Assets.xcassets */; };
 		617FDEA729C74B1400B89D68 /* CRMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEA629C74B1400B89D68 /* CRMApp.swift */; };
 		617FDEAC29C74B6F00B89D68 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEAB29C74B6F00B89D68 /* StatusView.swift */; };
 		617FDEBD29C74B9E00B89D68 /* GeneralInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDEAD29C74B9B00B89D68 /* GeneralInformationView.swift */; };
@@ -32,7 +33,6 @@
 		617FDED729C74BB400B89D68 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDED129C74BB300B89D68 /* StatusModel.swift */; };
 		617FDED829C74BB400B89D68 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDED229C74BB300B89D68 /* CardModel.swift */; };
 		617FDEDA29C74BBE00B89D68 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FDED929C74BBE00B89D68 /* StatusViewModel.swift */; };
-		617FDEDC29C74BC700B89D68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 617FDEDB29C74BC600B89D68 /* Assets.xcassets */; };
 		6183890129BE515800FF2157 /* CRMModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618388F829BE515800FF2157 /* CRMModule.framework */; };
 		6183890629BE515800FF2157 /* CRMModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183890529BE515800FF2157 /* CRMModuleTests.swift */; };
 		6183890729BE515800FF2157 /* CRMModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 618388FB29BE515800FF2157 /* CRMModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6114232C29D5986D00DDE6E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		617FDEA629C74B1400B89D68 /* CRMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMApp.swift; sourceTree = "<group>"; };
 		617FDEAB29C74B6F00B89D68 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		617FDEAD29C74B9B00B89D68 /* GeneralInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInformationView.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		617FDED129C74BB300B89D68 /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		617FDED229C74BB300B89D68 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		617FDED929C74BBE00B89D68 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
-		617FDEDB29C74BC600B89D68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618388F829BE515800FF2157 /* CRMModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CRMModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		618388FB29BE515800FF2157 /* CRMModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMModule.h; sourceTree = "<group>"; };
 		6183890029BE515800FF2157 /* CRMModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRMModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +148,7 @@
 		618388EE29BE515800FF2157 = {
 			isa = PBXGroup;
 			children = (
-				617FDEDB29C74BC600B89D68 /* Assets.xcassets */,
+				6114232C29D5986D00DDE6E0 /* Assets.xcassets */,
 				617FDEAA29C74B3F00B89D68 /* ViewModel */,
 				617FDEA929C74B3800B89D68 /* Model */,
 				617FDEA829C74B2100B89D68 /* View */,
@@ -277,7 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				617FDEDC29C74BC700B89D68 /* Assets.xcassets in Resources */,
+				6114232D29D5986D00DDE6E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
