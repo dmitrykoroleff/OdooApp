@@ -49,8 +49,7 @@ struct BottomSheetView: View {
                             ForEach(statuses) { status in
                                 Button(action: {
                                     withAnimation(Animation.easeIn(duration: 0.2)) {
-                                        index = find(value: status, in: statuses)!
-                                        currentStatus = statuses[index]
+                                        currentStatus = status
                                     }
                                 }, label: {
                                     VStack(spacing: 10) {

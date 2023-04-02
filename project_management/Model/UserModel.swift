@@ -5,41 +5,37 @@
 //  Created by Dmitry Korolev on 30/3/2023.
 //
 
-import SwiftUI
 import Foundation
 
-struct User: Identifiable {
-    var id: UUID
-    var name: String
-    var email: String
-    var phone: String
-    var jobs: [String: String]
-    var rating: Int
+struct Task: Indexable, Identifiable {
+    var id = UUID()
+    var idx: Int?
+    var text: String
+    var company: String
+    var tags: [String]?
+    var dueTime: String?
+    var subTasks: [Task]?
+    var isFavorite: Bool = false
+    var status: Status
     
+    init(id: UUID = UUID(),  idx: Int? = nil, text: String, company: String = "", tags: [String]? = nil, dueTime: String? = nil, subTasks: [Task]? = nil, isFavorite: Bool = false, status: Status) {
+        self.id = id
+        self.text = text
+        self.company = company
+        self.tags = tags
+        self.dueTime = dueTime
+        self.subTasks = subTasks
+        self.isFavorite = isFavorite
+        self.status = status
+        
+        if idx == nil {
+            if self.status.tasks.isEmpty {
+                self.idx = 0
+            } else {
+                self.idx = self.status.tasks.count
+            }
+        } else {
+            self.idx = idx
+        }
+    }
 }
-
-let jobs = [
-    "Applied job",
-    "Department",
-    "Recruter's project",
-    "Person's group",
-    "Tags",
-    "Recruter",
-    "Hire date",
-    "Appecietion",
-    "Source",
-    "Test task"
-]
-
-var testUser = User(id: UUID(),name: "Arina Shoshina", email: "aashoshina@miem.hse.ru", phone: "+79013686745",
-                    jobs: [
-    "Applied job" : "УЛ СВТ",
-    "Department" : "",
-    "Recruter's project" : "",
-    "Person's group" : "",
-    "Tags" : "",
-    "Recruter" : "Королев Денис Александрович", //
-    "Hire date" : "10/06/2022 19:33:34",
-    "Source" : "",
-    "Test task" : ""
-], rating: 2)

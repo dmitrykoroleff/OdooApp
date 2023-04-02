@@ -25,6 +25,8 @@
 		57362D0529D6167E003E79D6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57362D0429D6167E003E79D6 /* UserModel.swift */; };
 		576B1B9729D636AB000BDB11 /* SwipeBackExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B1B9629D636AB000BDB11 /* SwipeBackExtension.swift */; };
 		576B1B9929D63A0C000BDB11 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B1B9829D63A0C000BDB11 /* BottomSheetView.swift */; };
+		57828D4429D973E4009CD83F /* someFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57828D4329D973E4009CD83F /* someFuncs.swift */; };
+		57AAEBF129D8407F0044DA70 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AAEBF029D8407F0044DA70 /* ProfileView.swift */; };
 		57F73A4429D61837001B6F88 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73A4329D61837001B6F88 /* SearchView.swift */; };
 		57F73A4629D6184C001B6F88 /* NoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73A4529D6184C001B6F88 /* NoSearchView.swift */; };
 		57F73A4829D6187E001B6F88 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73A4729D6187E001B6F88 /* AddProjectView.swift */; };
@@ -75,6 +77,8 @@
 		57362D0429D6167E003E79D6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		576B1B9629D636AB000BDB11 /* SwipeBackExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackExtension.swift; sourceTree = "<group>"; };
 		576B1B9829D63A0C000BDB11 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		57828D4329D973E4009CD83F /* someFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = someFuncs.swift; sourceTree = "<group>"; };
+		57AAEBF029D8407F0044DA70 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		57F73A4329D61837001B6F88 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		57F73A4529D6184C001B6F88 /* NoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSearchView.swift; sourceTree = "<group>"; };
 		57F73A4729D6187E001B6F88 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				57F73A4329D61837001B6F88 /* SearchView.swift */,
 				57F73A4F29D619A4001B6F88 /* SearchTaskView.swift */,
 				57F73A4529D6184C001B6F88 /* NoSearchView.swift */,
+				57AAEBF029D8407F0044DA70 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				57362CFE29D615E6003E79D6 /* ProjectModel.swift */,
 				57362D0029D615F9003E79D6 /* StatusModel.swift */,
 				57362D0429D6167E003E79D6 /* UserModel.swift */,
+				57828D4329D973E4009CD83F /* someFuncs.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				57362CF729D600D7003E79D6 /* TaskCardView.swift in Sources */,
 				57F73A5229D61A2F001B6F88 /* EditTaskView.swift in Sources */,
 				57362CFD29D60187003E79D6 /* CustomAddButtonView.swift in Sources */,
+				57AAEBF129D8407F0044DA70 /* ProfileView.swift in Sources */,
 				57362CF329D600A7003E79D6 /* ProjectsView.swift in Sources */,
 				57F73A4E29D61917001B6F88 /* TaskManagmentView.swift in Sources */,
 				57362CC529D5FFB7003E79D6 /* project_managementApp.swift in Sources */,
@@ -361,6 +368,7 @@
 				57362CFB29D60178003E79D6 /* CustomButtonView.swift in Sources */,
 				57F73A5029D619A4001B6F88 /* SearchTaskView.swift in Sources */,
 				57F73A5429D61A4A001B6F88 /* AddTaskView.swift in Sources */,
+				57828D4429D973E4009CD83F /* someFuncs.swift in Sources */,
 				57F73A4A29D61891001B6F88 /* EditProjectView.swift in Sources */,
 				57362CFF29D615E6003E79D6 /* ProjectModel.swift in Sources */,
 				57362D0129D615F9003E79D6 /* StatusModel.swift in Sources */,

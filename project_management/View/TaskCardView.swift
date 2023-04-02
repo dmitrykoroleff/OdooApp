@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskCardView: View {
     
-    var task: ProjectTask
+    var task: Task
     @Binding var showEditView: Bool
     @Binding var currentTask: Int
     @Binding var currentStatus: Status
@@ -88,7 +88,7 @@ struct TaskCardView: View {
             HStack {
                 Button(action: {
                     withAnimation(Animation.linear(duration: 0.2)) {
-                        task.isFavorite.toggle()
+                        
                     }
                 }, label: {
                     Image(systemName: task.isFavorite ? "star.fill": "star")
@@ -123,12 +123,9 @@ struct TaskCardView: View {
     }
 }
 
-struct TaskCardView_Previews: PreviewProvider {
-    @State static var task = projects[0].tasks["New"]![0]
-    @State static var show = false
-    @State static var curr = 0
-    @State static var stat = statuses[0]
-    static var previews: some View {
-        TaskCardView(task: projectTasks[1], showEditView: $show, currentTask: $curr, currentStatus: $stat)
-    }
-}
+//struct TaskCardView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        TaskCardView(task: projects[0].statuses[0].tasks[0], showEditView: $show, currentTask: $curr, currentStatus: $stat)
+//    }
+//}

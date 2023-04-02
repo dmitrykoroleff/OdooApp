@@ -8,10 +8,12 @@
 import SwiftUI
 import Foundation
 
-struct Status: Identifiable, Equatable {
+struct Status: Identifiable {
     var id: UUID
     var image: String
     var name: String
+    
+    var tasks: [Task] = []
 }
 
 var statuses: [Status] = [

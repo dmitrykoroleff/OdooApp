@@ -53,22 +53,22 @@ struct ProjectsView: View {
                             
                             Spacer()
                             
-                            Button {
-                                
-                            } label: {
+                           
+                            NavigationLink(destination: ProfileView()) {
                                 ZStack {
-                                    
-                                    Circle()
-                                        .foregroundColor(Color("MainColor"))
-                                        .frame(width: 40, height: 40)
-                                    
-                                    Text("A") // Хардкод
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.white)
-                                    
+                                        
+                                        Circle()
+                                            .foregroundColor(Color("MainColor"))
+                                            .frame(width: 40, height: 40)
+                                        
+                                        Text("A") // Хардкод
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.white)
+                                        
                                 }
                             }
+                            
                         }
                         .padding()
                         .offset(y: searchIsActive ? -(height / 2) : 0)
@@ -140,6 +140,9 @@ struct ProjectsView: View {
                             }
                             
                         }
+                        .onAppear{
+                            createTestData()
+                        }
                         .offset(y: searchIsActive ? -(height / 8) : 0)
                     }
                     .frame(width: width)
@@ -148,13 +151,13 @@ struct ProjectsView: View {
                         Label("No internet connection", systemImage: "icloud.slash")
                     }
                     
-                    if searchProject(projects: projects, searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
-                        SearchView(projects: projects, searchQuery: $searchQuery)
-                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.6) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
-                    } else if !searchQuery.isEmpty {
-                        NoResultsView(searchQuery: $searchQuery)
-                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4) : height > 700 && height < 800 ? (height / 4.3) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
-                    }
+//                    if searchProject(projects: projects, searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
+////                        SearchView(projects: projects, searchQuery: $searchQuery)
+////                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.6) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
+//                    } else if !searchQuery.isEmpty {
+//                        NoResultsView(searchQuery: $searchQuery)
+//                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4) : height > 700 && height < 800 ? (height / 4.3) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
+//                    }
                     
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){

@@ -90,8 +90,8 @@ struct ProjectCardView: View {
                 }
             }
             HStack {
-                Text("\(countTasks(tasks: project.tasks)) Tasks")
-                    .foregroundColor(Color("MainColor"))
+//                Text("\(countTasks(tasks: project.statuses.tasks)) Tasks")
+//                    .foregroundColor(Color("MainColor"))
                 Image(systemName: "clock")
                     .opacity(0.4)
                 Spacer()
@@ -120,7 +120,7 @@ struct ProjectCardView: View {
         .padding(1)
     }
     
-    func countTasks(tasks: [String: [ProjectTask]]) -> Int {
+    func countTasks(tasks: [String: [Task]]) -> Int {
         var res = 0
         for key in tasks.keys {
             res += tasks[key]!.count

@@ -48,19 +48,19 @@ func searchProject(projects: [Project], searchQuery: String) -> [Project] {
     return results
 }
 
-func searchTask(tasks: [ProjectTask], searchQuery: String) -> [ProjectTask] {
+func searchTask(tasks: [Task], searchQuery: String) -> [Task] {
     let results = tasks.filter { $0.text.lowercased().contains(searchQuery.lowercased())
     }
 
     return results
 }
 
-func find(value searchValue: Status, in array: [Status]) -> Int? {
-    for (index, value) in array.enumerated() {
-        if value == searchValue {
-            return index
-        }
-    }
- 
-    return nil
-}
+//func find(value searchValue: Status, in array: [Status]) -> Int? {
+//    for (index, value) in array.enumerated() {
+//        if value == searchValue {
+//            return index
+//        }
+//    }
+// 
+//    return nil
+//}
