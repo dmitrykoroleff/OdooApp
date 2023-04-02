@@ -14,7 +14,7 @@ struct SearchView: View {
     @State var currentProject: Int = 0
     var body: some View {
         
-        ScrollView {
+        ScrollView(.vertical, showsIndicators: false) {
             ForEach(searchProject(projects: projects, searchQuery: searchQuery)) { project in
                 NavigationLink(destination: TasksView(project: project)) {
                     ProjectCardView(showEditView: $showEditView, currentProject: $currentProject, project: project)
@@ -23,6 +23,7 @@ struct SearchView: View {
             }
         }
         .background(Color.white)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

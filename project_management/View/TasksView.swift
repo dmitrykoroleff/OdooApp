@@ -162,10 +162,9 @@ struct TasksView: View {
                     }
                     .frame(width: width)
                     
-                    if searchTask(tasks: getAllTasks(project: project), searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
+                    if searchTask(tasks: getAllTasks(project: project), searchQuery: searchQuery) != [] || (searchIsActive && searchQuery.isEmpty){
                         SearchTaskView(projectTasks: getAllTasks(project: project), searchQuery: $searchQuery, currentStatus: currentStatus)
-                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.6) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
-                            .offset(x: -38)
+                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.4) : height > 800 && height < 900 ? (height / 7) : (height / 5) : height)
                         
                     } else if !searchQuery.isEmpty {
                         NoResultsView(searchQuery: $searchQuery)

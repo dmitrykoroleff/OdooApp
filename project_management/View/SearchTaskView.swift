@@ -15,17 +15,33 @@ struct SearchTaskView: View {
     @State var currentStatus: Status
     var body: some View {
         
-        ScrollView {
-            ForEach(searchTask(tasks: projectTasks, searchQuery: searchQuery)) { task in
-                NavigationLink(
-                    destination:
-                        TaskManagmentView()) {
-                            TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
-                        }
-                        .foregroundColor(.black)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.white)
+                .edgesIgnoringSafeArea(.all)
+            ScrollView(.vertical, showsIndicators: false) {
+                if searchQuery.isEmpty {
+                    ForEach(projectTasks) { task in
+                        NavigationLink(
+                            destination:
+                                TaskManagmentView()) {
+                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                }
+                                .foregroundColor(.black)
+                    }
+                } else {
+                    ForEach(searchTask(tasks: projectTasks, searchQuery: searchQuery)) { task in
+                        NavigationLink(
+                            destination:
+                                TaskManagmentView()) {
+                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                }
+                                .foregroundColor(.black)
+                    }
+                }
             }
+
         }
-        .background(Color.white)
     }
 }
 
