@@ -11,7 +11,7 @@ struct Task: Indexable, Identifiable {
     var id = UUID()
     var idx: Int?
     var text: String
-    var company: String
+    var company: String?
     var tags: [String]?
     var dueTime: String?
     var subTasks: [Task]?

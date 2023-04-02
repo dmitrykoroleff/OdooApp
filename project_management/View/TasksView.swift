@@ -74,7 +74,7 @@ struct TasksView: View {
                         .padding()
                         .offset(y: searchIsActive ? -(height / 2) : 0)
                         HStack {
-                            Text(currentStatus.name) //hardcode
+                            Text("\(statuses[currentIndex].name)") //hardcode
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("Headings"))
@@ -128,32 +128,122 @@ struct TasksView: View {
                         .padding(.vertical)
                         .padding(.horizontal, 30)
                         .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) : height > 700 && height < 800 ? -(height / 7) : height > 800 && height < 850 ? -(height / 7.3) : height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
-                        
-                        
-                        TabView {
-        
-                            ForEach(projects[project.idx!].statuses.indices, id: \.self) { index in
-                                ScrollView(.vertical, showsIndicators: false) {
-                                    if projects[project.idx!].statuses[index].tasks.isEmpty {
-                                        Text("Задач в данном статусе нет")
-                                            .font(.body)
-                                            .fontWeight(.light)
-                                            .foregroundColor(Color.gray)
-                                    } else {
-                                        ForEach(projects[project.idx!].statuses[index].tasks) { task in
-                                            NavigationLink(
-                                                destination:
-                                                    TaskManagmentView(), isActive: $isActive) {
-                                                        TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
-                                                    }
-                                                    .foregroundColor(.black)
-                                        }
-                                    }
-                                    }
-                                .edgesIgnoringSafeArea(.bottom)
+                        HStack {
+                            ForEach(Array(statuses.enumerated()), id: \.offset) { offset, element in
+                                Circle()
+                                    .frame(width: 6, height: 6)
+                                    .foregroundColor(offset == currentIndex ? Color.black : Color.gray)
+
                             }
-                            
                         }
+                        .padding(.bottom)
+                        
+                        TabView(selection: $currentIndex) {
+                            ScrollView(.vertical, showsIndicators: false) {
+                                if projects[project.idx!].statuses[0].tasks.isEmpty {
+                                    Text("Задач в данном статусе нет")
+                                        .font(.body)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color.gray)
+                                } else {
+                                    ForEach(projects[project.idx!].statuses[0].tasks) { task in
+                                        NavigationLink(
+                                            destination:
+                                                TaskManagmentView(), isActive: $isActive) {
+                                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                                }
+                                                .foregroundColor(.black)
+                                    }
+                                }
+                            }
+                            .tag(0)
+                            
+                            ScrollView(.vertical, showsIndicators: false) {
+                                if projects[project.idx!].statuses[1].tasks.isEmpty {
+                                    Text("Задач в данном статусе нет")
+                                        .font(.body)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color.gray)
+                                } else {
+                                    ForEach(projects[project.idx!].statuses[1].tasks) { task in
+                                        NavigationLink(
+                                            destination:
+                                                TaskManagmentView(), isActive: $isActive) {
+                                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                                }
+                                                .foregroundColor(.black)
+                                    }
+                                }
+                            }
+                            .tag(1)
+                            
+                            ScrollView(.vertical, showsIndicators: false) {
+                                if projects[project.idx!].statuses[2].tasks.isEmpty {
+                                    Text("Задач в данном статусе нет")
+                                        .font(.body)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color.gray)
+                                } else {
+                                    ForEach(projects[project.idx!].statuses[2].tasks) { task in
+                                        NavigationLink(
+                                            destination:
+                                                TaskManagmentView(), isActive: $isActive) {
+                                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                                }
+                                                .foregroundColor(.black)
+                                    }
+                                }
+                            }
+                            .tag(2)
+                            
+                            ScrollView(.vertical, showsIndicators: false) {
+                                if projects[project.idx!].statuses[3].tasks.isEmpty {
+                                    Text("Задач в данном статусе нет")
+                                        .font(.body)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color.gray)
+                                } else {
+                                    ForEach(projects[project.idx!].statuses[3].tasks) { task in
+                                        NavigationLink(
+                                            destination:
+                                                TaskManagmentView(), isActive: $isActive) {
+                                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                                }
+                                                .foregroundColor(.black)
+                                    }
+                                }
+                            }
+                            .tag(3)
+                            
+                            Text("Add new")
+                                .tag(4)
+                        }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                        
+//                        TabView {
+//
+//                            ForEach(projects[project.idx!].statuses.indices, id: \.self) { index in
+//                                ScrollView(.vertical, showsIndicators: false) {
+//                                    if projects[project.idx!].statuses[index].tasks.isEmpty {
+//                                        Text("Задач в данном статусе нет")
+//                                            .font(.body)
+//                                            .fontWeight(.light)
+//                                            .foregroundColor(Color.gray)
+//                                    } else {
+//                                        ForEach(projects[project.idx!].statuses[index].tasks) { task in
+//                                            NavigationLink(
+//                                                destination:
+//                                                    TaskManagmentView(), isActive: $isActive) {
+//                                                        TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+//                                                    }
+//                                                    .foregroundColor(.black)
+//                                        }
+//                                    }
+//                                    }
+//                                .edgesIgnoringSafeArea(.bottom)
+//                            }
+//
+//                        }
                         .tabViewStyle(.page)
                         .offset(y: searchIsActive ? -(height / 8) : 0)
                         .edgesIgnoringSafeArea(.bottom)

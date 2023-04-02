@@ -46,9 +46,10 @@ struct BottomSheetView: View {
                     }
                     LazyVGrid(columns: columns, spacing: 20)  {
                             
-                            ForEach(statuses) { status in
+                        ForEach(Array(statuses.enumerated()), id: \.offset) { offset, status in
                                 Button(action: {
                                     withAnimation(Animation.easeIn(duration: 0.2)) {
+                                        index = offset
                                         currentStatus = status
                                     }
                                 }, label: {
