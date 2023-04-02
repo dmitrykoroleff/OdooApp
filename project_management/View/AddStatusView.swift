@@ -12,6 +12,7 @@ struct AddStatusView: View {
     @State var activeStatus: String = "plus"
     @Binding var showView: Bool
     @Binding var currentStatus: Status
+    @Binding var currentOffset: CGFloat
     
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
@@ -28,24 +29,29 @@ struct AddStatusView: View {
                     HStack {
                         Button(action: {
                             withAnimation(Animation.easeIn(duration: 0.2)) {
-                                showView.toggle()
+                                showView = false
+                                currentOffset = 0
                             }
                         }, label: {
                             Text("Cancel")
+                                .fontWeight(.semibold)
                                 .foregroundColor(Color("MainColor"))
-                                .font(.system(size: 14))
                         })
                         Spacer()
                         Button(action: {
                             withAnimation(Animation.easeIn(duration: 0.2)) {
                                 statuses.append(Status(id: UUID(), image: activeStatus, name: text))
                                 currentStatus = statuses[statuses.count - 1]
-                                showView.toggle()
+                                showView = false
+                                text = ""
+                                activeStatus = "plus"
+                                currentOffset = 0
                             }
                         }, label: {
                             Text("Done")
+                                .fontWeight(.medium)
                                 .foregroundColor(.gray)
-                                .font(.system(size: 14))
+                                .font(.system(size: 16))
                         })
                     }
                     Spacer()
@@ -157,6 +163,6 @@ struct AddStatusView: View {
 
 struct AddStatusView_Previews: PreviewProvider {
     static var previews: some View {
-        AddStatusView(showView: .constant(false), currentStatus: .constant(statuses[0]))
+        AddStatusView(showView: .constant(false), currentStatus: .constant(statuses[0]), currentOffset: .constant(0))
     }
 }

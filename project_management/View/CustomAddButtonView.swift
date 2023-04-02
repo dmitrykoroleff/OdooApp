@@ -13,7 +13,7 @@ struct CustomAddButton: View {
             Circle()
                 .frame(width: 55, height: 55)
                 .foregroundColor(.white)
-                .shadow(radius: 4)
+                .shadow(color: (Color("MainColor")), radius: 4)
             Image(systemName: "plus")
                 .resizable()
                 .frame(width: 30, height: 30)

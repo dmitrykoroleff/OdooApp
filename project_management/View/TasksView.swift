@@ -28,8 +28,15 @@ struct TasksView: View {
     @State var lastAddStatusOffset: CGFloat = 0
     @GestureState var gestureAddStatusOffset: CGFloat = 0
     @State var currentIndex: Int = 0
-    
+    @State var curruntAddTaskOffset: CGFloat = 0
+    @State var lastAddTaskOffset: CGFloat = 0
+    @GestureState var gestureAddTaskOffset: CGFloat = 0
     @State var currentTask: Int = 0
+    var gradient1 = Gradient(colors:[Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4"), Color("GradientColor1")])
+    
+    var gradient2 = Gradient(colors:[Color("GradientColor4"), Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4")])
+
+    @State private var progression: CGFloat = 0
     var body: some View {
         NavigationView {
             GeometryReader {_ in
@@ -45,7 +52,7 @@ struct TasksView: View {
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color.gray)
                                 
-                                Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
+                                Text(verbatim: "awesomeuser@edu.hse.ru") // Хардкод
                                     .foregroundColor(Color("Headings"))
                                     .font(.headline)
                                     .fontWeight(.semibold)
@@ -54,9 +61,7 @@ struct TasksView: View {
                             
                             Spacer()
                             
-                            Button {
-                                
-                            } label: {
+                            NavigationLink(destination: ProfileView()) {
                                 ZStack {
                                     
                                     Circle()
@@ -69,9 +74,11 @@ struct TasksView: View {
                                         .foregroundColor(.white)
                                     
                                 }
+                                
                             }
                         }
                         .padding()
+                        .padding(.horizontal, 15)
                         .offset(y: searchIsActive ? -(height / 2) : 0)
                         HStack {
                             Text("\(statuses[currentIndex].name)") //hardcode
@@ -80,14 +87,14 @@ struct TasksView: View {
                                 .foregroundColor(Color("Headings"))
                             Spacer()
                         }
-                        .padding(.horizontal)
+                        .padding(.horizontal, 30)
                         .offset(y: searchIsActive ? -(height / 2) : 0)
                         HStack(spacing: 15) {
                             Spacer()
                             Image(systemName: "magnifyingglass")
                                 .imageScale(.large)
                             
-                            TextField("Enter student name...", text: $searchQuery, onEditingChanged: { search in
+                            TextField("Enter the task name...", text: $searchQuery, onEditingChanged: { search in
                                 withAnimation {
                                     searchIsActive = search
                                 }
@@ -135,6 +142,9 @@ struct TasksView: View {
                                     .foregroundColor(offset == currentIndex ? Color.black : Color.gray)
 
                             }
+                            Circle()
+                                .frame(width: 6, height: 6)
+                                .foregroundColor(project.statuses.count == currentIndex ? Color.black : Color.gray)
                         }
                         .padding(.bottom)
                         
@@ -142,10 +152,11 @@ struct TasksView: View {
                             ForEach(Array(project.statuses.enumerated()), id: \.offset) { offset, element in
                                 ScrollView(.vertical, showsIndicators: false) {
                                     if projects[project.idx!].statuses[currentIndex].tasks.isEmpty {
-                                        Text("Задач в данном статусе нет")
+                                        Text("There are no tasks in this status yet")
                                             .font(.body)
                                             .fontWeight(.light)
                                             .foregroundColor(Color.gray)
+                                            .italic()
                                     } else {
                                         ForEach(projects[project.idx!].statuses[currentIndex].tasks) { task in
                                             NavigationLink(
@@ -157,6 +168,7 @@ struct TasksView: View {
                                         }
                                     }
                                 }
+                                
                                 
                             }
                             
@@ -217,7 +229,36 @@ struct TasksView: View {
 //                            }
 //                            .tag(3)
                             
-                            Text("Add new")
+                            HStack {
+                                VStack {
+                                    ZStack {
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .font(Font.title.weight(.ultraLight))
+                                            .frame(width: 60, height: 60)
+                                        
+                                        animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
+                                            .onAppear{
+                                                
+                                                withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
+                                                    self.progression = 1
+                                                }
+                                                
+                                            }
+                                           
+                                        
+                                    }
+                                    .frame(width: width / 1.05, height: height / 2)
+                                    .foregroundColor(Color("MainColor"))
+                                    Spacer()
+                                }
+                            }
+                            .onTapGesture {
+                                withAnimation {
+                                    curruntAddStatusOffset = -(height)
+                                    showAdditionalStatuses = true
+                                }
+                            }
                                 .tag(project.statuses.count)
                         }
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -254,11 +295,11 @@ struct TasksView: View {
                     
                     if searchTask(tasks: getAllTasks(project: project), searchQuery: searchQuery) != [] || (searchIsActive && searchQuery.isEmpty){
                         SearchTaskView(projectTasks: getAllTasks(project: project), searchQuery: $searchQuery, currentStatus: currentStatus)
-                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.4) : height > 800 && height < 900 ? (height / 7) : (height / 5) : height)
+                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 5) : height > 700 && height < 800 ? (height / 5.7) : height > 800 && height < 900 ? (height / 7) : (height / 7) : height)
                         
                     } else if !searchQuery.isEmpty {
                         NoResultsView(searchQuery: $searchQuery)
-                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4) : height > 700 && height < 800 ? (height / 4.3) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
+                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 5) : height > 700 && height < 800 ? (height / 5.7) : height > 800 && height < 900 ? (height / 7) : (height / 7) : height)
                     }
                     
                         
@@ -266,14 +307,15 @@ struct TasksView: View {
                             
                             Button(action: {
                                 withAnimation(Animation.easeIn(duration: 0.2)){
-                                    showAddTaskView.toggle()
+                                    showAddTaskView = true
+                                    curruntAddTaskOffset = -height
                                     
                                 }
                                 
                             }, label: {
                                 CustomAddButton()
                             })
-                            .offset(x: -(width/1.5), y: (height / 5000))
+                            .offset(x: customAddButtonOffset(height: height)[0], y: customAddButtonOffset(height: height)[1])
                             
                             Button(action: {
                                 withAnimation(Animation.easeIn(duration: 0.2)){
@@ -285,7 +327,7 @@ struct TasksView: View {
                                         } else if height > 800 && height < 900 {
                                             curruntOffset = -(height / 3.6)
                                         } else {
-                                            curruntOffset = -(height / 3.5)
+                                            curruntOffset = -(height / 3.2)
                                         }
                                     } else {
                                         if height > 500 && height < 700 {
@@ -305,7 +347,7 @@ struct TasksView: View {
                             }, label: {
                                 CustomBottomButton()
                             })
-                            .offset(x: -(width / 8), y: (-height/5))
+                            .offset(x: customBottomButtonOffset(height: height)[0], y: customBottomButtonOffset(height: height)[1])
                             
                         }
                     
@@ -313,7 +355,7 @@ struct TasksView: View {
                     VStack {
                         BottomSheetView(curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
                             .offset(y: height)
-                            .offset(y: statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 3.5) ? curruntOffset : -(height / 3.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0))
+                            .offset(y: statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 3.1) ? curruntOffset : -(height / 3.1) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0))
                             .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
                                 out = value.translation.height
                                 onChange()
@@ -321,7 +363,7 @@ struct TasksView: View {
                                 let maxHeight = height
                                 withAnimation {
                                     showBottomBar = false
-                                    if -curruntOffset > 150 && -curruntOffset < maxHeight / 1.5 {
+                                    if -curruntOffset > 200 && -curruntOffset < maxHeight / 1.5 {
                                         if statuses.count + 1 <= 5 {
                                             if height > 600 && height < 700 {
                                                 curruntOffset = -maxHeight / 3.6
@@ -330,7 +372,7 @@ struct TasksView: View {
                                             } else if height > 800 && height < 900{
                                                 curruntOffset = -maxHeight / 3.6
                                             } else {
-                                                curruntOffset = -maxHeight / 3.6
+                                                curruntOffset = -maxHeight / 3.2
                                             }
                                         } else {
                                             if height > 600 && height < 700 {
@@ -351,6 +393,46 @@ struct TasksView: View {
                                 lastOffset = curruntOffset
                             }))
                     }
+                    
+                    AddStatusView(showView: $showAdditionalStatuses, currentStatus: $currentStatus, currentOffset: $curruntAddStatusOffset)
+                        .offset(y: height)
+                        .offset(y: -curruntAddStatusOffset > 0 ? -curruntAddStatusOffset <= (height + 10) ? curruntAddStatusOffset : -(height + 10) : 0)
+                        .gesture(DragGesture().updating($gestureAddStatusOffset, body: { value, out, _ in
+                            out = value.translation.height
+                            onChange()
+                        }).onEnded({ value in
+                            let maxHeight = height
+                            withAnimation {
+                                showAdditionalStatuses = false
+                                if -curruntAddStatusOffset > height / 1.4 && -curruntAddStatusOffset < maxHeight + height / 1.3 {
+                                    curruntAddStatusOffset = -maxHeight
+                                }
+                                else {
+                                    curruntAddStatusOffset = 0
+                                }
+                            }
+                            lastAddStatusOffset = curruntAddStatusOffset
+                        }))
+                    
+                    AddTaskView(currentStatus: currentStatus, project: project, showAddTaskView: $showAddTaskView, curruntAddTaskOffset: $curruntAddTaskOffset)
+                        .offset(y: height)
+                        .offset(y: -curruntAddTaskOffset > 0 ? -curruntAddTaskOffset <= (height + 10) ? curruntAddTaskOffset : -(height + 10) : 0)
+                        .gesture(DragGesture().updating($gestureAddTaskOffset, body: { value, out, _ in
+                            out = value.translation.height
+                            onChange()
+                        }).onEnded({ value in
+                            let maxHeight = height
+                            withAnimation {
+                                showAddTaskView = false
+                                if -curruntAddTaskOffset > height / 1.4 && -curruntAddTaskOffset < maxHeight + height / 1.3 {
+                                    curruntAddTaskOffset = -maxHeight
+                                }
+                                else {
+                                    curruntAddTaskOffset = 0
+                                }
+                            }
+                            lastAddTaskOffset = curruntAddTaskOffset
+                        }))
                     
                 }
                 
@@ -374,6 +456,7 @@ struct TasksView: View {
                     .frame(width: 64, height: 22)
             }
         }
+        .navigationBarHidden(showAdditionalStatuses || curruntAddStatusOffset != 0 || curruntAddTaskOffset != 0 ? true : false)
     
 }
 
@@ -389,7 +472,7 @@ struct TasksView: View {
                     } else if height > 800 && height < 900 {
                         curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
                     } else {
-                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
+                        curruntOffset = -(height / 3.2) + gestureOffset + lastOffset
                     }
                 } else {
                     if height > 500 && height < 700 {
@@ -406,6 +489,10 @@ struct TasksView: View {
             self.curruntAddStatusOffset = gestureAddStatusOffset + lastAddStatusOffset
             if showAdditionalStatuses {
                 curruntAddStatusOffset = -height + gestureAddStatusOffset + lastAddStatusOffset
+            }
+            self.curruntAddTaskOffset = gestureAddTaskOffset + lastAddTaskOffset
+            if showAddTaskView {
+                curruntAddTaskOffset = -height + gestureAddTaskOffset + lastAddTaskOffset
             }
         }
     }

@@ -11,12 +11,13 @@ struct ProjectCardView: View {
     @Binding var showEditView: Bool
     @State var favorite = true
     
-    
+    @Binding var currentEditOffset: CGFloat
     @Binding var currentProject: Int
     
     var project: Project
     var colors = [Color.red, Color.purple]
     var width = UIScreen.main.bounds.width
+    var height = UIScreen.main.bounds.height
     var body: some View {
         VStack {
             HStack {
@@ -54,7 +55,8 @@ struct ProjectCardView: View {
                         
                         Button {
                             currentProject = project.idx!
-                            showEditView.toggle()
+                            showEditView = true
+                            currentEditOffset = -height
                         } label: {
                             Label("Edit", systemImage: "pencil")
                         }
@@ -142,6 +144,6 @@ struct ProjectCardView_Previews: PreviewProvider {
     @State static var curr = 0
 //    @State static var currentProject = 0
     static var previews: some View {
-        ProjectCardView(showEditView: $show, currentProject: $curr, project: project)
+        ProjectCardView(showEditView: $show, currentEditOffset: .constant(0), currentProject: $curr, project: project)
     }
 }

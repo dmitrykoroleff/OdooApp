@@ -35,7 +35,7 @@ struct CustomBottomButton: View {
                 .frame(width: 55, height: 55)
                 .cornerRadius(8)
                 .foregroundColor(.white)
-                .shadow(radius: 4)
+                .shadow(color: (Color("MainColor")), radius: 4)
         )
     }
 }

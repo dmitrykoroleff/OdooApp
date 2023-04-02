@@ -8,7 +8,12 @@
 import SwiftUI
 import Foundation
 
-struct Status: Identifiable {
+struct Status: Identifiable, Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
     var id: UUID
     var image: String
     var name: String

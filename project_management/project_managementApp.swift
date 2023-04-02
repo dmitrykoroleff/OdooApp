@@ -11,7 +11,7 @@ import SwiftUI
 struct project_managementApp: App {
     var body: some Scene {
         WindowGroup {
-            ProjectsView()
+            ProjectsView(project: .constant(projects[0]))
         }
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProjectsView: View {
+    @Binding var project: Project
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
@@ -23,7 +24,9 @@ struct ProjectsView: View {
     var width = UIScreen.main.bounds.width
     @State var searchQuery = ""
     @State var showEditView = false
-    
+    @State var currentEditOffset: CGFloat = 0
+    @State var lastEditOffset: CGFloat = 0
+    @GestureState var gestureEditOffset: CGFloat = 0
     @State var currentProject: Int = 0
     var body: some View {
         NavigationView {
@@ -44,7 +47,7 @@ struct ProjectsView: View {
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color.gray)
                                 
-                                Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
+                                Text(verbatim: "awesomeuser@edu.hse.ru") // Хардкод
                                     .foregroundColor(Color("Headings"))
                                     .font(.headline)
                                     .fontWeight(.semibold)
@@ -133,7 +136,7 @@ struct ProjectsView: View {
                             ScrollView(.vertical, showsIndicators: false) {
                                 ForEach(projects) { project in
                                     NavigationLink(destination: TasksView(project: project)) {
-                                        ProjectCardView(showEditView: $showEditView, currentProject: $currentProject, project: project)
+                                        ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, project: project)
                                     }
                                     .foregroundColor(.black)
                                 }
@@ -145,6 +148,7 @@ struct ProjectsView: View {
                         }
                         .offset(y: searchIsActive ? -(height / 8) : 0)
                     }
+                    .padding(.horizontal, 20)
                     .frame(width: width)
                     .blur(radius: projects.isEmpty ? 7 : 0)
                     if projects.isEmpty {
@@ -161,37 +165,54 @@ struct ProjectsView: View {
                     
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
-                            if statuses.count + 1 <= 5 {
-                                if height > 500 && height < 700 {
-                                    curruntOffset = -(height / 3)
-                                } else if height < 800 && height > 700 {
-                                    curruntOffset = -(height / 2.9)
-                                } else if height > 800 && height < 900 {
-                                    curruntOffset = -(height / 3.6)
-                                } else {
-                                    curruntOffset = -(height / 3.5)
-                                }
-                            } else {
-                                if height > 500 && height < 700 {
-                                    curruntOffset = -(height / 3)
-                                } else if height < 800 && height > 700 {
-                                    curruntOffset = -(height / 2.9)
-                                } else if height > 800 && height < 900 {
-                                    curruntOffset = -(height / 2.6)
-                                } else {
-                                    curruntOffset = -(height / 2.6)
-                                }
-                            }
                             showBottomBar = true
-                            
+                            curruntOffset = -height
                         }
                         
                     }, label: {
                         CustomAddButton()
                     })
-                    .offset(x: width * 0.325, y: (height * 0.435))
+                    .offset(x: width * 0.35, y: (height * 0.38))
                     
+                    AddProjectView(showBottomSheet: $showBottomBar, currentOffset: $curruntOffset)
+                        .offset(y: height)
+                        .offset(y: -curruntOffset > 0 ? -curruntOffset <= (height + 10) ? curruntOffset : -(height + 10) : 0)
+                        .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
+                            out = value.translation.height
+                            onChange()
+                        }).onEnded({ value in
+                            let maxHeight = height
+                            withAnimation {
+                                showBottomBar = false
+                                if -curruntOffset > height / 1.4 && -curruntOffset < maxHeight + height / 1.3 {
+                                    curruntOffset = -maxHeight
+                                }
+                                else {
+                                    curruntOffset = 0
+                                }
+                            }
+                            lastOffset = curruntOffset
+                        }))
                     
+                    EditProjectView(showEditProjectView: $showEditView, currentEditOffset: $currentEditOffset, project: $project)
+                        .offset(y: height)
+                        .offset(y: -currentEditOffset > 0 ? -currentEditOffset <= (height + 10) ? currentEditOffset : -(height + 10) : 0)
+                        .gesture(DragGesture().updating($gestureEditOffset, body: { value, out, _ in
+                            out = value.translation.height
+                            onChange()
+                        }).onEnded({ value in
+                            let maxHeight = height
+                            withAnimation {
+                                showEditView = false
+                                if -currentEditOffset > height / 1.4 && -currentEditOffset < maxHeight + height / 1.3 {
+                                    currentEditOffset = -maxHeight
+                                }
+                                else {
+                                    currentEditOffset = 0
+                                }
+                            }
+                            lastEditOffset = currentEditOffset
+                        }))
                     
                 }
             }
@@ -204,30 +225,16 @@ struct ProjectsView: View {
         DispatchQueue.main.async {
             self.curruntOffset = gestureOffset + lastOffset
             if showBottomBar {
-                if statuses.count + 1 <= 5 {
-                    if height > 500 && height < 700 {
-                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
-                    } else if height < 800 && height > 700{
-                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
-                    } else if height > 800 && height < 900 {
-                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
-                    } else {
-                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
-                    }
-                } else {
-                    if height > 500 && height < 700 {
-                        curruntOffset = -(height / 3) + gestureOffset + lastOffset
-                    } else if height < 800 && height > 700{
-                        curruntOffset = -(height / 1.5) + gestureOffset + lastOffset
-                    } else if height > 800 && height < 900 {
-                        curruntOffset = -(height / 2.6) + gestureOffset + lastOffset
-                    } else {
-                        curruntOffset = -(height / 2.6) + gestureOffset + lastOffset
-                    }
-                }
+                curruntOffset = -height + gestureOffset + lastOffset
+            }
+            self.currentEditOffset = gestureEditOffset + lastEditOffset
+            if showEditView {
+                currentEditOffset = -height + gestureEditOffset + lastEditOffset
             }
             
+            
         }
+        
     }
 
 
@@ -235,6 +242,6 @@ struct ProjectsView: View {
 
 struct ProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectsView()
+        ProjectsView(project: .constant(projects[0]))
     }
 }

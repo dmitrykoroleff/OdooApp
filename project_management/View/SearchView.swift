@@ -12,12 +12,13 @@ struct SearchView: View {
     @Binding var searchQuery: String
     @State var showEditView = false
     @State var currentProject: Int = 0
+    @State var currentEditOffset: CGFloat = 0
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(searchProject(projects: projects, searchQuery: searchQuery)) { project in
                 NavigationLink(destination: TasksView(project: project)) {
-                    ProjectCardView(showEditView: $showEditView, currentProject: $currentProject, project: project)
+                    ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, project: project)
                 }
                 .foregroundColor(.black)
             }
