@@ -45,3 +45,11 @@ let additionStatuses: [[Status]] = [
     ]
 ]
 
+func getAllTasks(project: Project) -> [Task] {
+    var tasks: [Task] = []
+    for status in projects[project.idx!].statuses {
+        tasks.insert(contentsOf: status.tasks, at: 0)
+    }
+    return tasks
+    
+}

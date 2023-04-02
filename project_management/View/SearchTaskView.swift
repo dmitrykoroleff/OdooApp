@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct SearchTaskView: View {
+    var projectTasks: [Task]
+    @Binding var searchQuery: String
+    @State var showEditView = false
+    @State var currentTask: Int = 0
+    @State var currentStatus: Status
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ScrollView {
+            ForEach(searchTask(tasks: projectTasks, searchQuery: searchQuery)) { task in
+                NavigationLink(
+                    destination:
+                        TaskManagmentView()) {
+                            TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                        }
+                        .foregroundColor(.black)
+            }
+        }
+        .background(Color.white)
     }
 }
 
 struct SearchTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchTaskView()
+        SearchTaskView(projectTasks: projects[0].statuses[0].tasks, searchQuery: .constant(""), currentStatus: statuses[0])
     }
 }

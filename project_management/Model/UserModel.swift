@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Task: Indexable, Identifiable {
+struct Task: Indexable, Identifiable, Equatable {
+    static func == (lhs: Task, rhs: Task) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     var id = UUID()
     var idx: Int?
     var text: String

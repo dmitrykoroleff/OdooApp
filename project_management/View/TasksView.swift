@@ -132,15 +132,17 @@ struct TasksView: View {
                         
                         TabView {
         
-                            ForEach(projects[project.idx!].statuses.indices, id: \.self) { index in
+                            ForEach(projects[project.idx!].statuses) { status in
                                 ScrollView(.vertical, showsIndicators: false) {
-                                    if projects[project.idx!].statuses[index].tasks.isEmpty {
-                                        Text("Задач в данном статусе нет")
+                                    if status.tasks.isEmpty {
+                                        Text("There are no tasks in this status yet")
                                             .font(.body)
                                             .fontWeight(.light)
                                             .foregroundColor(Color.gray)
+                                            .italic()
+                                        
                                     } else {
-                                        ForEach(projects[project.idx!].statuses[index].tasks) { task in
+                                        ForEach(status.tasks) { task in
                                             NavigationLink(
                                                 destination:
                                                     TaskManagmentView(), isActive: $isActive) {
@@ -159,6 +161,16 @@ struct TasksView: View {
                         .edgesIgnoringSafeArea(.bottom)
                     }
                     .frame(width: width)
+                    
+                    if searchTask(tasks: getAllTasks(project: project), searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
+                        SearchTaskView(projectTasks: getAllTasks(project: project), searchQuery: $searchQuery, currentStatus: currentStatus)
+                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.6) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
+                            .offset(x: -38)
+                        
+                    } else if !searchQuery.isEmpty {
+                        NoResultsView(searchQuery: $searchQuery)
+                            .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4) : height > 700 && height < 800 ? (height / 4.3) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
+                    }
                     
                         
                         HStack {

@@ -8,7 +8,11 @@
 import SwiftUI
 import Foundation
 
-struct Project: Indexable, Identifiable {
+struct Project: Indexable, Identifiable, Equatable {
+    static func == (lhs: Project, rhs: Project) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     
     var id = UUID()
     var idx: Int?
