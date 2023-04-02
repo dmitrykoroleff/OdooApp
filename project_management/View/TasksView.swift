@@ -10,6 +10,7 @@ import SwiftUI
 struct TasksView: View {
     var project: Project
     @State var isActive = false
+    @State var onThisView = true
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var showBottomBar = false
     @State var showAddTaskView = false
@@ -75,13 +76,19 @@ struct TasksView: View {
                                     
                                 }
                                 
+                            }.simultaneousGesture(TapGesture().onEnded{
+                                onThisView = false
+                            })
+                            .onAppear {
+                                onThisView = true
                             }
+                            
                         }
                         .padding()
                         .padding(.horizontal, 15)
                         .offset(y: searchIsActive ? -(height / 2) : 0)
                         HStack {
-                            Text("\(statuses[currentIndex].name)") //hardcode
+                            Text("\(currentIndex < project.statuses.count ? project.statuses[currentIndex].name: "Add new status")")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("Headings"))
@@ -149,9 +156,40 @@ struct TasksView: View {
                         .padding(.bottom)
                         
                         TabView(selection: $currentIndex) {
-                            ForEach(Array(project.statuses.enumerated()), id: \.offset) { offset, element in
+                            ForEach(Array((project.statuses + [Status(id: UUID(), image: "", name: "Add New")]).enumerated()), id: \.offset) { offset, element in
                                 ScrollView(.vertical, showsIndicators: false) {
-                                    if projects[project.idx!].statuses[currentIndex].tasks.isEmpty {
+                                    if currentIndex == project.statuses.count || offset == project.statuses.count {
+                                        HStack {
+                                            VStack {
+                                                ZStack {
+                                                    Image(systemName: "plus")
+                                                        .resizable()
+                                                        .font(Font.title.weight(.ultraLight))
+                                                        .frame(width: 60, height: 60)
+                                                    
+                                                    animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
+                                                        .onAppear{
+                                                            
+                                                            withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
+                                                                self.progression = 1
+                                                            }
+                                                            
+                                                        }
+                                                       
+                                                    
+                                                }
+                                                .frame(width: width / 1.05, height: height / 2)
+                                                .foregroundColor(Color("MainColor"))
+                                                Spacer()
+                                            }
+                                        }
+                                        .onTapGesture {
+                                            withAnimation {
+                                                curruntAddStatusOffset = -(height)
+                                                showAdditionalStatuses = true
+                                            }
+                                        }
+                                    } else if projects[project.idx!].statuses[currentIndex].tasks.isEmpty {
                                         Text("There are no tasks in this status yet")
                                             .font(.body)
                                             .fontWeight(.light)
@@ -168,7 +206,7 @@ struct TasksView: View {
                                         }
                                     }
                                 }
-                                
+//                                .tag(offset)
                                 
                             }
                             
@@ -229,37 +267,8 @@ struct TasksView: View {
 //                            }
 //                            .tag(3)
                             
-                            HStack {
-                                VStack {
-                                    ZStack {
-                                        Image(systemName: "plus")
-                                            .resizable()
-                                            .font(Font.title.weight(.ultraLight))
-                                            .frame(width: 60, height: 60)
-                                        
-                                        animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
-                                            .onAppear{
-                                                
-                                                withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
-                                                    self.progression = 1
-                                                }
-                                                
-                                            }
-                                           
-                                        
-                                    }
-                                    .frame(width: width / 1.05, height: height / 2)
-                                    .foregroundColor(Color("MainColor"))
-                                    Spacer()
-                                }
-                            }
-                            .onTapGesture {
-                                withAnimation {
-                                    curruntAddStatusOffset = -(height)
-                                    showAdditionalStatuses = true
-                                }
-                            }
-                                .tag(project.statuses.count)
+
+                            
                         }
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                         
@@ -303,8 +312,8 @@ struct TasksView: View {
                     }
                     
                         
-                        HStack {
-                            
+                    HStack {
+                        if currentIndex != project.statuses.count {
                             Button(action: {
                                 withAnimation(Animation.easeIn(duration: 0.2)){
                                     showAddTaskView = true
@@ -316,44 +325,44 @@ struct TasksView: View {
                                 CustomAddButton()
                             })
                             .offset(x: customAddButtonOffset(height: height)[0], y: customAddButtonOffset(height: height)[1])
-                            
-                            Button(action: {
-                                withAnimation(Animation.easeIn(duration: 0.2)){
-                                    if statuses.count + 1 <= 5 {
-                                        if height > 500 && height < 700 {
-                                            curruntOffset = -(height / 3)
-                                        } else if height < 800 && height > 700 {
-                                            curruntOffset = -(height / 2.9)
-                                        } else if height > 800 && height < 900 {
-                                            curruntOffset = -(height / 3.6)
-                                        } else {
-                                            curruntOffset = -(height / 3.2)
-                                        }
-                                    } else {
-                                        if height > 500 && height < 700 {
-                                            curruntOffset = -(height / 3)
-                                        } else if height < 800 && height > 700 {
-                                            curruntOffset = -(height / 2.9)
-                                        } else if height > 800 && height < 900 {
-                                            curruntOffset = -(height / 2.6)
-                                        } else {
-                                            curruntOffset = -(height / 2.6)
-                                        }
-                                    }
-                                    showBottomBar = true
-                                    
-                                }
-                                
-                            }, label: {
-                                CustomBottomButton()
-                            })
-                            .offset(x: customBottomButtonOffset(height: height)[0], y: customBottomButtonOffset(height: height)[1])
-                            
                         }
+                        Button(action: {
+                            withAnimation(Animation.easeIn(duration: 0.2)){
+                                if statuses.count + 1 <= 5 {
+                                    if height > 500 && height < 700 {
+                                        curruntOffset = -(height / 3)
+                                    } else if height < 800 && height > 700 {
+                                        curruntOffset = -(height / 2.9)
+                                    } else if height > 800 && height < 900 {
+                                        curruntOffset = -(height / 3.6)
+                                    } else {
+                                        curruntOffset = -(height / 3.2)
+                                    }
+                                } else {
+                                    if height > 500 && height < 700 {
+                                        curruntOffset = -(height / 3)
+                                    } else if height < 800 && height > 700 {
+                                        curruntOffset = -(height / 2.9)
+                                    } else if height > 800 && height < 900 {
+                                        curruntOffset = -(height / 2.6)
+                                    } else {
+                                        curruntOffset = -(height / 2.6)
+                                    }
+                                }
+                                showBottomBar = true
+                                
+                            }
+                            
+                        }, label: {
+                            CustomBottomButton()
+                        })
+                        .offset(x: customBottomButtonOffset(height: height)[0], y: customBottomButtonOffset(height: height)[1])
+                        
+                    }
                     
                     
                     VStack {
-                        BottomSheetView(curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
+                        BottomSheetView(currentProjectIdx: project.idx!, curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
                             .offset(y: height)
                             .offset(y: statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 3.1) ? curruntOffset : -(height / 3.1) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0))
                             .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
@@ -456,7 +465,7 @@ struct TasksView: View {
                     .frame(width: 64, height: 22)
             }
         }
-        .navigationBarHidden(showAdditionalStatuses || curruntAddStatusOffset != 0 || curruntAddTaskOffset != 0 ? true : false)
+        .navigationBarHidden((showAdditionalStatuses || curruntAddStatusOffset != 0 || curruntAddTaskOffset != 0) || !onThisView ? true : false)
     
 }
 

@@ -26,6 +26,7 @@ struct Project: Indexable, Identifiable, Equatable {
                , name: "In progress"),
         Status(id: UUID(), image: "flag.checkered.2.crossed", name: "Done"),
         Status(id: UUID(), image: "multiply.circle", name: "Cancelled"),
+//        Status(id: UUID(), image: "", name: "Add new"),
     ]
 
     

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BottomSheetView: View {
+    var currentProjectIdx: Int
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     @Binding var curruntAddStatusOffset: CGFloat
@@ -46,7 +47,7 @@ struct BottomSheetView: View {
                     }
                     LazyVGrid(columns: columns, spacing: 20)  {
                             
-                        ForEach(Array(statuses.enumerated()), id: \.offset) { offset, status in
+                        ForEach(Array(projects[currentProjectIdx].statuses.enumerated()), id: \.offset) { offset, status in
                                 Button(action: {
                                     withAnimation(Animation.easeIn(duration: 0.2)) {
                                         index = offset
@@ -111,6 +112,6 @@ struct BottomSheetView: View {
 
 struct BottomSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheetView(curruntAddStatusOffset: .constant(0), currentStatus: .constant(Status(id: UUID(), image: "graduationcap", name: "Student")), index: .constant(0), showAdditionalStatuses: .constant(false))
+        BottomSheetView(currentProjectIdx: 0, curruntAddStatusOffset: .constant(0), currentStatus: .constant(Status(id: UUID(), image: "graduationcap", name: "Student")), index: .constant(0), showAdditionalStatuses: .constant(false))
     }
 }
