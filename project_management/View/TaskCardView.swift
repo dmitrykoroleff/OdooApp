@@ -13,8 +13,10 @@ struct TaskCardView: View {
     @Binding var showEditView: Bool
     @Binding var currentTask: Int
     @Binding var currentStatus: Status
+    @Binding var currentEditOffset: CGFloat
     
     var width = UIScreen.main.bounds.width
+    var heigth = UIScreen.main.bounds.height
     var body: some View {
         VStack(spacing: 5) {
             HStack {
@@ -64,7 +66,8 @@ struct TaskCardView: View {
                     
                     Button {
 //                        currentTask = task.idx!
-                        showEditView.toggle()
+                        showEditView = true
+                        currentEditOffset = -heigth
                     } label: {
                         Label("Edit", systemImage: "pencil")
                     }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TasksView: View {
     var project: Project
+    @Binding var task: Task
     @State var isActive = false
     @State var onThisView = true
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -38,6 +39,9 @@ struct TasksView: View {
     var gradient2 = Gradient(colors:[Color("GradientColor4"), Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4")])
 
     @State private var progression: CGFloat = 0
+    @State var currentEditOffset: CGFloat = 0
+    @State var lastEditOffset: CGFloat = 0
+    @GestureState var gestureEditOffset: CGFloat = 0
     var body: some View {
         NavigationView {
             GeometryReader {_ in
@@ -200,7 +204,7 @@ struct TasksView: View {
                                             NavigationLink(
                                                 destination:
                                                     TaskManagmentView(), isActive: $isActive) {
-                                                        TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                                        TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus, currentEditOffset: $currentEditOffset)
                                                     }
                                                     .foregroundColor(.black)
                                         }
@@ -442,7 +446,25 @@ struct TasksView: View {
                             }
                             lastAddTaskOffset = curruntAddTaskOffset
                         }))
-                    
+                    EditTaskView(showEditOffset: $showEditView, task: $task, currentEditOffset: $currentEditOffset)
+                        .offset(y: height)
+                        .offset(y: -currentEditOffset > 0 ? -currentEditOffset <= (height + 10) ? currentEditOffset : -(height + 10) : 0)
+                        .gesture(DragGesture().updating($gestureEditOffset, body: { value, out, _ in
+                            out = value.translation.height
+                            onChange()
+                        }).onEnded({ value in
+                            let maxHeight = height
+                            withAnimation {
+                                showEditView = false
+                                if -currentEditOffset > height / 1.4 && -currentEditOffset < maxHeight + height / 1.3 {
+                                    currentEditOffset = -maxHeight
+                                }
+                                else {
+                                    currentEditOffset = 0
+                                }
+                            }
+                            lastEditOffset = currentEditOffset
+                        }))
                 }
                 
             }
@@ -465,7 +487,7 @@ struct TasksView: View {
                     .frame(width: 64, height: 22)
             }
         }
-        .navigationBarHidden((showAdditionalStatuses || curruntAddStatusOffset != 0 || curruntAddTaskOffset != 0) || !onThisView ? true : false)
+        .navigationBarHidden((showAdditionalStatuses || curruntAddStatusOffset != 0 || curruntAddTaskOffset != 0 || currentEditOffset != 0) || !onThisView ? true : false)
     
 }
 
@@ -503,12 +525,15 @@ struct TasksView: View {
             if showAddTaskView {
                 curruntAddTaskOffset = -height + gestureAddTaskOffset + lastAddTaskOffset
             }
+            if showEditView {
+                currentEditOffset = -height + gestureEditOffset + lastEditOffset
+            }
         }
     }
 }
 
 struct TasksView_Previews: PreviewProvider {
     static var previews: some View {
-        TasksView(project: projects[0])
+        TasksView(project: projects[0], task: .constant(projects[0].statuses[0].tasks[0]))
     }
 }

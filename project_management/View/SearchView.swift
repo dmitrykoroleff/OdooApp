@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     var projects: [Project]
     @Binding var searchQuery: String
+    @Binding var task: Task
     @State var showEditView = false
     @State var currentProject: Int = 0
     @State var currentEditOffset: CGFloat = 0
@@ -17,7 +18,7 @@ struct SearchView: View {
         
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(searchProject(projects: projects, searchQuery: searchQuery)) { project in
-                NavigationLink(destination: TasksView(project: project)) {
+                NavigationLink(destination: TasksView(project: project, task: $task)) {
                     ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, project: project)
                 }
                 .foregroundColor(.black)
@@ -30,7 +31,7 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(projects: projects, searchQuery: .constant(""))
+        SearchView(projects: projects, searchQuery: .constant(""), task: .constant(projects[0].statuses[0].tasks[0]))
     }
 }
 

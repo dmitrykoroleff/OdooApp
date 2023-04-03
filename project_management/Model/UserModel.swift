@@ -43,3 +43,8 @@ struct Task: Indexable, Identifiable, Equatable {
         }
     }
 }
+
+var tasks: [Task] = [
+    
+    Task(text: "QQ", status: statuses[0])
+]

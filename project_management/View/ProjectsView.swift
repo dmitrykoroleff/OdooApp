@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProjectsView: View {
     @Binding var project: Project
+    @Binding var task: Task
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
@@ -135,7 +136,7 @@ struct ProjectsView: View {
                             
                             ScrollView(.vertical, showsIndicators: false) {
                                 ForEach(projects) { project in
-                                    NavigationLink(destination: TasksView(project: project)) {
+                                    NavigationLink(destination: TasksView(project: project, task: $task)) {
                                         ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, project: project)
                                     }
                                     .foregroundColor(.black)
@@ -156,7 +157,7 @@ struct ProjectsView: View {
                     }
                     
                     if searchProject(projects: projects, searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
-                        SearchView(projects: projects, searchQuery: $searchQuery)
+                        SearchView(projects: projects, searchQuery: $searchQuery, task: $task)
                             .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.6) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
                     } else if !searchQuery.isEmpty {
                         NoResultsView(searchQuery: $searchQuery)
@@ -242,6 +243,14 @@ struct ProjectsView: View {
 
 struct ProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectsView(project: .constant(projects[0]))
+        ProjectsView(project: .constant(projects[0]), task: .constant(projects[0].statuses[0].tasks[0]))
     }
 }
+
+struct initData {
+    init() {
+        createTestData()
+    }
+}
+
+var initdata = initData()

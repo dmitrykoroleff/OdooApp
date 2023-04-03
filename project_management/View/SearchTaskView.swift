@@ -13,6 +13,7 @@ struct SearchTaskView: View {
     @State var showEditView = false
     @State var currentTask: Int = 0
     @State var currentStatus: Status
+    @State var currentEditOffset: CGFloat = 0
     var body: some View {
         
         ZStack {
@@ -25,7 +26,7 @@ struct SearchTaskView: View {
                         NavigationLink(
                             destination:
                                 TaskManagmentView()) {
-                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus, currentEditOffset: $currentEditOffset)
                                 }
                                 .foregroundColor(.black)
                     }
@@ -34,7 +35,7 @@ struct SearchTaskView: View {
                         NavigationLink(
                             destination:
                                 TaskManagmentView()) {
-                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus)
+                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus, currentEditOffset: $currentEditOffset)
                                 }
                                 .foregroundColor(.black)
                     }
