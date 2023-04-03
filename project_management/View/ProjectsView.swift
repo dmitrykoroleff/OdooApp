@@ -247,10 +247,3 @@ struct ProjectsView_Previews: PreviewProvider {
     }
 }
 
-struct initData {
-    init() {
-        createTestData()
-    }
-}
-
-var initdata = initData()
