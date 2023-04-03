@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddProjectView: View {
     
+    @Binding var currProjects: [Project]
     @Binding var showBottomSheet: Bool
     @Binding var currentOffset: CGFloat
     
@@ -73,6 +74,7 @@ struct AddProjectView: View {
                             date = Date.now
                             showBottomSheet = false
                             currentOffset = 0
+                            currProjects = projects
                         }
                     }, label: {
                         Text("Add")
@@ -206,7 +208,8 @@ struct AddProjectView: View {
 
 struct AddProjectView_Previews: PreviewProvider {
     @State static var show = false
+    @State static var pr = projects
     static var previews: some View {
-        AddProjectView(showBottomSheet: $show, currentOffset: .constant(0))
+        AddProjectView(currProjects: $pr, showBottomSheet: $show, currentOffset: .constant(0))
     }
 }

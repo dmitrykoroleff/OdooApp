@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProjectsView: View {
+    @State var currProjects = projects
     @Binding var project: Project
     @Binding var task: Task
     @State var curruntOffset: CGFloat = 0
@@ -133,14 +134,18 @@ struct ProjectsView: View {
                         .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) : height > 700 && height < 800 ? -(height / 7) : height > 800 && height < 850 ? -(height / 7.3) : height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
                         
                         VStack {
-                            
                             ScrollView(.vertical, showsIndicators: false) {
-                                ForEach(projects) { project in
-                                    NavigationLink(destination: TasksView(project: project, task: $task)) {
-                                        ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, project: project)
+                                if !projects.isEmpty {
+                                    ForEach(Array(currProjects.enumerated()), id: \.offset) { offset, project in
+                                        NavigationLink(destination: TasksView(project: project, task: $task)) {
+                                            ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, currProjects: $currProjects, idx: offset, project: project)
+                                        }
+                                        .foregroundColor(.black)
                                     }
-                                    .foregroundColor(.black)
                                 }
+                            }
+                            .onAppear {
+                                self.currProjects = projects
                             }
                             
                         }
@@ -154,7 +159,7 @@ struct ProjectsView: View {
                     }
                     
                     if searchProject(projects: projects, searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
-                        SearchView(projects: projects, searchQuery: $searchQuery, task: $task)
+                        SearchView(projects_: projects, searchQuery: $searchQuery, task: $task)
                             .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.6) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
                     } else if !searchQuery.isEmpty {
                         NoResultsView(searchQuery: $searchQuery)
@@ -172,7 +177,7 @@ struct ProjectsView: View {
                     })
                     .offset(x: width * 0.35, y: (height * 0.38))
                     
-                    AddProjectView(showBottomSheet: $showBottomBar, currentOffset: $curruntOffset)
+                    AddProjectView(currProjects: $currProjects, showBottomSheet: $showBottomBar, currentOffset: $curruntOffset)
                         .offset(y: height)
                         .offset(y: -curruntOffset > 0 ? -curruntOffset <= (height + 10) ? curruntOffset : -(height + 10) : 0)
                         .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in

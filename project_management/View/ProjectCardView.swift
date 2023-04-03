@@ -14,6 +14,8 @@ struct ProjectCardView: View {
     @Binding var currentEditOffset: CGFloat
     @Binding var currentProject: Int
     
+    @Binding var currProjects: [Project]
+    var idx: Int
     var project: Project
     var colors = [Color.red, Color.purple]
     var width = UIScreen.main.bounds.width
@@ -62,9 +64,9 @@ struct ProjectCardView: View {
                         }
                         
                         Button {
-                            currentProject = project.idx!
-                            projects.remove(at: currentProject)
+                            projects.remove(at: idx)
                             reindex(source: &projects, count: projects.count)
+                            currProjects = projects
                         } label: {
                             Label("Delete", systemImage: "delete.left")
                         }
@@ -142,8 +144,9 @@ struct ProjectCardView_Previews: PreviewProvider {
     @State static var project = projects[1]
     @State static var show = false
     @State static var curr = 0
+    @State static var pr = projects
 //    @State static var currentProject = 0
     static var previews: some View {
-        ProjectCardView(showEditView: $show, currentEditOffset: .constant(0), currentProject: $curr, project: project)
+        ProjectCardView(showEditView: $show, currentEditOffset: .constant(0), currentProject: $curr, currProjects: $pr, idx: 0,  project: project)
     }
 }

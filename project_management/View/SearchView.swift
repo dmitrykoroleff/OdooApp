@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SearchView: View {
-    var projects: [Project]
+    var projects_: [Project]
+    @State var currProjects = projects
     @Binding var searchQuery: String
     @Binding var task: Task
     @State var showEditView = false
@@ -17,11 +18,14 @@ struct SearchView: View {
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
-            ForEach(searchProject(projects: projects, searchQuery: searchQuery)) { project in
+            ForEach(Array(searchProject(projects: projects, searchQuery: searchQuery).enumerated()), id: \.offset) { offset, project in
                 NavigationLink(destination: TasksView(project: project, task: $task)) {
-                    ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, project: project)
+                    ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, currProjects: $currProjects, idx: offset, project: project)
                 }
                 .foregroundColor(.black)
+            }
+            .onAppear {
+                self.currProjects = projects
             }
         }
         .background(Color.white)
@@ -31,7 +35,7 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(projects: projects, searchQuery: .constant(""), task: .constant(projects[0].statuses[0].tasks[0]))
+        SearchView(projects_: projects, searchQuery: .constant(""), task: .constant(projects[0].statuses[0].tasks[0]))
     }
 }
 
