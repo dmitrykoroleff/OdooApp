@@ -73,7 +73,9 @@ struct TaskCardView: View {
                     }
                     
                     Button {
-                        
+//                        currentTask = task.idx!
+//                        currentStatus.tasks.remove(at: currentTask)
+//                        reindex(source: &currentStatus.tasks, count: currentStatus.tasks.count)
                     } label: {
                         Label("Delete", systemImage: "delete.left")
                     }

@@ -206,7 +206,14 @@ struct TasksView: View {
                                                     TaskManagmentView(), isActive: $isActive) {
                                                         TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus, currentEditOffset: $currentEditOffset)
                                                     }
+                                                    .simultaneousGesture(TapGesture().onEnded{
+                                                        onThisView = false
+                                                    })
+                                                    .onAppear {
+                                                        onThisView = true
+                                                    }
                                                     .foregroundColor(.black)
+                                            
                                         }
                                     }
                                 }

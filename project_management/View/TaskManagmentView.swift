@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TaskManagmentView: View {
     @State var selectedDate = Date()
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var text: String = "The best description ever done by the human being!"
     @State var projectName = "Best project"
     var height = UIScreen.main.bounds.height
@@ -94,6 +95,23 @@ struct TaskManagmentView: View {
         .tabViewStyle(.page(indexDisplayMode: .always))
         .onAppear {
             setupAppearance()
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action : {
+            self.mode.wrappedValue.dismiss()
+        }){
+                Image(systemName: "arrow.left")
+                    .foregroundColor(.black)
+                .font(.system(size: 16, weight: .bold))
+        })
+        .toolbar {
+            
+            ToolbarItem(placement: .principal) {
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 64, height: 22)
+            }
         }
     }
     func setupAppearance() {
