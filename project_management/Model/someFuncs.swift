@@ -12,8 +12,14 @@ protocol Indexable {
     var idx: Int? { get set }
 }
 
-func reindex(source: inout Indexable, count: Int) {
+func reindex (source: inout [Project], count: Int) {
     for i in 0..<count {
-        source.idx = i
+        source[i].idx = i
+    }
+}
+
+func reindex (source: inout [Task], count: Int) {
+    for i in 0..<count {
+        source[i].idx = i
     }
 }

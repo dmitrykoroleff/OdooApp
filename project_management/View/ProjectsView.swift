@@ -144,9 +144,6 @@ struct ProjectsView: View {
                             }
                             
                         }
-                        .onAppear{
-                            createTestData()
-                        }
                         .offset(y: searchIsActive ? -(height / 8) : 0)
                     }
                     .padding(.horizontal, 20)
@@ -246,4 +243,3 @@ struct ProjectsView_Previews: PreviewProvider {
         ProjectsView(project: .constant(projects[0]), task: .constant(projects[0].statuses[0].tasks[0]))
     }
 }
-

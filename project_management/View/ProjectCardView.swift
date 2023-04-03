@@ -64,7 +64,7 @@ struct ProjectCardView: View {
                         Button {
                             currentProject = project.idx!
                             projects.remove(at: currentProject)
-                            rearrangeIdx()
+                            reindex(source: &projects, count: projects.count)
                         } label: {
                             Label("Delete", systemImage: "delete.left")
                         }
