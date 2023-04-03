@@ -88,3 +88,10 @@ func createTestData() {
     ]
 }
 
+struct initData {
+    init() {
+        createTestData()
+    }
+}
+
+

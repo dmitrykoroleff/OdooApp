@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14C4A9BB29DAF6B0009FC176 /* InitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4A9BA29DAF6B0009FC176 /* InitView.swift */; };
 		57362CC529D5FFB7003E79D6 /* project_managementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57362CC429D5FFB7003E79D6 /* project_managementApp.swift */; };
 		57362CC929D5FFB9003E79D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57362CC829D5FFB9003E79D6 /* Assets.xcassets */; };
 		57362CCC29D5FFBA003E79D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57362CCB29D5FFBA003E79D6 /* Preview Assets.xcassets */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14C4A9BA29DAF6B0009FC176 /* InitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitView.swift; sourceTree = "<group>"; };
 		57362CC129D5FFB7003E79D6 /* project_management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project_management.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57362CC429D5FFB7003E79D6 /* project_managementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_managementApp.swift; sourceTree = "<group>"; };
 		57362CC829D5FFB9003E79D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				57362CEE29D60017003E79D6 /* View */,
 				57362CC829D5FFB9003E79D6 /* Assets.xcassets */,
 				57362CCA29D5FFBA003E79D6 /* Preview Content */,
+				14C4A9BA29DAF6B0009FC176 /* InitView.swift */,
 			);
 			path = project_management;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				57828D4629D9D13E009CD83F /* OffsetsViewModel.swift in Sources */,
 				576B1B9929D63A0C000BDB11 /* BottomSheetView.swift in Sources */,
 				57362CF929D60145003E79D6 /* AddStatusView.swift in Sources */,
+				14C4A9BB29DAF6B0009FC176 /* InitView.swift in Sources */,
 				57362D0529D6167E003E79D6 /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
