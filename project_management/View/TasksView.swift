@@ -162,6 +162,7 @@ struct TasksView: View {
                         TabView(selection: $currentIndex) {
                             ForEach(Array((project.statuses + [Status(id: UUID(), image: "", name: "Add New")]).enumerated()), id: \.offset) { offset, element in
                                 ScrollView(.vertical, showsIndicators: false) {
+                                    VStack {
                                     if currentIndex == project.statuses.count || offset == project.statuses.count {
                                         HStack {
                                             VStack {
@@ -179,7 +180,7 @@ struct TasksView: View {
                                                             }
                                                             
                                                         }
-                                                       
+                                                    
                                                     
                                                 }
                                                 .frame(width: width / 1.05, height: height / 2)
@@ -216,6 +217,8 @@ struct TasksView: View {
                                             
                                         }
                                     }
+                                }
+                                    .padding(.bottom, height / 3)
                                 }
 //                                .tag(offset)
                                 
@@ -343,19 +346,19 @@ struct TasksView: View {
                                     if height > 500 && height < 700 {
                                         curruntOffset = -(height / 3)
                                     } else if height < 800 && height > 700 {
-                                        curruntOffset = -(height / 2.9)
+                                        curruntOffset = -(height / 2.3)
                                     } else if height > 800 && height < 900 {
-                                        curruntOffset = -(height / 3.6)
+                                        curruntOffset = -(height / 2.8)
                                     } else {
-                                        curruntOffset = -(height / 3.2)
+                                        curruntOffset = -(height / 3)
                                     }
                                 } else {
                                     if height > 500 && height < 700 {
-                                        curruntOffset = -(height / 3)
+                                        curruntOffset = -(height / 2.3)
                                     } else if height < 800 && height > 700 {
                                         curruntOffset = -(height / 2.9)
                                     } else if height > 800 && height < 900 {
-                                        curruntOffset = -(height / 2.6)
+                                        curruntOffset = -(height / 2.8)
                                     } else {
                                         curruntOffset = -(height / 2.6)
                                     }
@@ -375,7 +378,7 @@ struct TasksView: View {
                     VStack {
                         BottomSheetView(currentProjectIdx: project.idx!, curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
                             .offset(y: height)
-                            .offset(y: statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 3.1) ? curruntOffset : -(height / 3.1) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0))
+                            .offset(y: statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.2) ? curruntOffset : -(height / 2.2) : 0))
                             .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
                                 out = value.translation.height
                                 onChange()
@@ -386,17 +389,17 @@ struct TasksView: View {
                                     if -curruntOffset > 200 && -curruntOffset < maxHeight / 1.5 {
                                         if statuses.count + 1 <= 5 {
                                             if height > 600 && height < 700 {
-                                                curruntOffset = -maxHeight / 3.6
+                                                curruntOffset = -maxHeight / 3
                                             } else if height < 800 && height > 700 {
-                                                curruntOffset = -maxHeight / 3.6
+                                                curruntOffset = -maxHeight / 2.3
                                             } else if height > 800 && height < 900{
-                                                curruntOffset = -maxHeight / 3.6
+                                                curruntOffset = -maxHeight / 2.8
                                             } else {
-                                                curruntOffset = -maxHeight / 3.2
+                                                curruntOffset = -maxHeight / 3
                                             }
                                         } else {
                                             if height > 600 && height < 700 {
-                                                curruntOffset = -maxHeight / 3
+                                                curruntOffset = -maxHeight / 2.3
                                             } else if height < 800 && height > 700 {
                                                 curruntOffset = -maxHeight / 1.5
                                             } else if height > 800 && height < 900{
@@ -504,17 +507,17 @@ struct TasksView: View {
             if showBottomBar {
                 if statuses.count + 1 <= 5 {
                     if height > 500 && height < 700 {
-                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
+                        curruntOffset = -(height / 3) + gestureOffset + lastOffset
                     } else if height < 800 && height > 700{
-                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
+                        curruntOffset = -(height / 2.3) + gestureOffset + lastOffset
                     } else if height > 800 && height < 900 {
-                        curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
+                        curruntOffset = -(height / 2.8) + gestureOffset + lastOffset
                     } else {
-                        curruntOffset = -(height / 3.2) + gestureOffset + lastOffset
+                        curruntOffset = -(height / 3) + gestureOffset + lastOffset
                     }
                 } else {
                     if height > 500 && height < 700 {
-                        curruntOffset = -(height / 3) + gestureOffset + lastOffset
+                        curruntOffset = -(height / 2.3) + gestureOffset + lastOffset
                     } else if height < 800 && height > 700{
                         curruntOffset = -(height / 1.5) + gestureOffset + lastOffset
                     } else if height > 800 && height < 900 {

@@ -133,22 +133,22 @@ struct ProjectsView: View {
                         .padding(.horizontal, 30)
                         .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) : height > 700 && height < 800 ? -(height / 7) : height > 800 && height < 850 ? -(height / 7.3) : height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
                         
-                        VStack {
                             ScrollView(.vertical, showsIndicators: false) {
-                                if !projects.isEmpty {
-                                    ForEach(Array(currProjects.enumerated()), id: \.offset) { offset, project in
-                                        NavigationLink(destination: TasksView(project: project, task: $task)) {
-                                            ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, currProjects: $currProjects, idx: offset, project: project)
+                                VStack {
+                                    if !projects.isEmpty {
+                                        ForEach(Array(currProjects.enumerated()), id: \.offset) { offset, project in
+                                            NavigationLink(destination: TasksView(project: project, task: $task)) {
+                                                ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, currProjects: $currProjects, idx: offset, project: project)
+                                            }
+                                            .foregroundColor(.black)
                                         }
-                                        .foregroundColor(.black)
                                     }
                                 }
+                                .padding(.bottom, height / 3)
                             }
                             .onAppear {
                                 self.currProjects = projects
                             }
-                            
-                        }
                         .offset(y: searchIsActive ? -(height / 8) : 0)
                     }
                     .padding(.horizontal, 20)
