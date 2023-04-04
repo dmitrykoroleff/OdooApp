@@ -62,31 +62,31 @@ var projects: [Project] = [
 
 func createTestData() {
     projects[0].statuses[0].tasks = [
-        Task(text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[0].statuses[0]),
-        Task(text: "Customer review", company: "YourCompany, Joel Willis", subTasks: (0..<5).map({_ in
-            Task(text: "Text", status: projects[0].statuses[0])
+        Task(projectIdx: 0, text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[0].statuses[0]),
+        Task(projectIdx: 0, text: "Customer review", company: "YourCompany, Joel Willis", subTasks: (0..<5).map({_ in
+            Task(projectIdx: 0, text: "Text", status: projects[0].statuses[0])
         }), status: projects[0].statuses[0]),
-        Task(text: "Office planning", status: projects[0].statuses[0])
+        Task(projectIdx: 0, text: "Office planning", status: projects[0].statuses[0])
     ]
     
     projects[0].statuses[1].tasks = [
-        Task(text: "Room2: Decoration", company: "YourCompany, Joel Willis", isFavorite: true, status: projects[0].statuses[1]),
-        Task(text: "Room1: Decoration", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "Yesterday", status: projects[0].statuses[1]),
-        Task(text: "Black chairs for manager", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "In 9 days", status: projects[0].statuses[1])
+        Task(projectIdx: 0, text: "Room2: Decoration", company: "YourCompany, Joel Willis", isFavorite: true, status: projects[0].statuses[1]),
+        Task(projectIdx: 0, text: "Room1: Decoration", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "Yesterday", status: projects[0].statuses[1]),
+        Task(projectIdx: 0, text: "Black chairs for manager", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "In 9 days", status: projects[0].statuses[1])
     ]
     
     projects[2].statuses[0].tasks = [
-        Task(text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[2].statuses[0]),
-        Task(text: "Customer review", company: "YourCompany, Joel Willis", subTasks: (0..<5).map({_ in
+        Task(projectIdx: 2, text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[2].statuses[0]),
+        Task(projectIdx: 2, text: "Customer review", company: "YourCompany, Joel Willis", subTasks: (0..<5).map({_ in
             Task(text: "Text", status: projects[2].statuses[0])
         }), status: projects[2].statuses[0]),
-        Task(text: "Office planning", status: projects[2].statuses[0])
+        Task(projectIdx: 2, text: "Office planning", status: projects[2].statuses[0])
     ]
     
     projects[2].statuses[1].tasks = [
-        Task(text: "Room2: Decoration", company: "YourCompany, Joel Willis", isFavorite: true, status: projects[2].statuses[1]),
-        Task(text: "Room1: Decoration", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "Yesterday", status: projects[2].statuses[1]),
-        Task(text: "Black chairs for manager", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "In 9 days", status: projects[2].statuses[1])
+        Task(projectIdx: 2, text: "Room2: Decoration", company: "YourCompany, Joel Willis", isFavorite: true, status: projects[2].statuses[1]),
+        Task(projectIdx: 2, text: "Room1: Decoration", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "Yesterday", status: projects[2].statuses[1]),
+        Task(projectIdx: 2, text: "Black chairs for manager", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "In 9 days", status: projects[2].statuses[1])
     ]
 }
 

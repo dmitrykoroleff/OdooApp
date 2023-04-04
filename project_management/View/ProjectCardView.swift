@@ -55,13 +55,13 @@ struct ProjectCardView: View {
                             
                         }
                         
-                        Button {
-                            currentProject = project.idx!
-                            showEditView = true
-                            currentEditOffset = -height
-                        } label: {
-                            Label("Edit", systemImage: "pencil")
-                        }
+//                        Button {
+//                            currentProject = project.idx!
+//                            showEditView = true
+//                            currentEditOffset = -height
+//                        } label: {
+//                            Label("Edit", systemImage: "pencil")
+//                        }
                         
                         Button {
                             projects.remove(at: idx)

@@ -13,6 +13,7 @@ struct Task: Indexable, Identifiable, Equatable {
     }
     
     var id = UUID()
+    var projectIdx: Int
     var idx: Int?
     var text: String
     var company: String?
@@ -22,8 +23,9 @@ struct Task: Indexable, Identifiable, Equatable {
     var isFavorite: Bool = false
     var status: Status
     
-    init(id: UUID = UUID(),  idx: Int? = nil, text: String, company: String = "", tags: [String]? = nil, dueTime: String? = nil, subTasks: [Task]? = nil, isFavorite: Bool = false, status: Status) {
+    init(id: UUID = UUID(), projectIdx: Int = 0, idx: Int? = nil, text: String, company: String = "", tags: [String]? = nil, dueTime: String? = nil, subTasks: [Task]? = nil, isFavorite: Bool = false, status: Status) {
         self.id = id
+        self.projectIdx = projectIdx
         self.text = text
         self.company = company
         self.tags = tags

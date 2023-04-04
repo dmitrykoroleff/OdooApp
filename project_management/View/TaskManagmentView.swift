@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TaskManagmentView: View {
     @State var selectedDate = Date()
+    var task: Task
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var text: String = "The best description ever done by the human being!"
     @State var projectName = "Best project"
@@ -17,12 +18,12 @@ struct TaskManagmentView: View {
     var body: some View {
         TabView {
             VStack {
-                Text("Task name")
+                Text(task.text)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(Color("Headings"))
 
-                Text("Project name: \(projectName)") // хардкод
+                Text("Project name: \(projects[task.projectIdx].name)") // хардкод
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 10)
@@ -120,8 +121,8 @@ struct TaskManagmentView: View {
     }
 }
 
-struct TaskManagmentView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskManagmentView()
-    }
-}
+//struct TaskManagmentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskManagmentView(task: projects[0].statuses[0].tasks[0])
+//    }
+//}

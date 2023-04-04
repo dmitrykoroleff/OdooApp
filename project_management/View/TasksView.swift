@@ -205,7 +205,7 @@ struct TasksView: View {
                                             ForEach(Array(projects[project.idx!].statuses[currentIndex].tasks.enumerated()), id: \.offset) { offset, task in
                                                 NavigationLink(
                                                     destination:
-                                                        TaskManagmentView(), isActive: $isActive) {
+                                                        TaskManagmentView(task: task), isActive: $isActive) {
                                                             TaskCardView(task: task, currTasks: $currTasks, showEditView: $showEditView, currentTask: offset, currentStatus: projects[project.idx!].statuses[currentIndex], currentEditOffset: $currentEditOffset)
                                                         }
                                                         .simultaneousGesture(TapGesture().onEnded{

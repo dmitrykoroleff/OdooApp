@@ -25,7 +25,7 @@ struct SearchTaskView: View {
                     ForEach(projectTasks) { task in
                         NavigationLink(
                             destination:
-                                TaskManagmentView()) {
+                                TaskManagmentView(task: task)) {
                                     TaskCardView(task: task, currTasks: $currentStatus.tasks, showEditView: $showEditView, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
                                 }
                                 .foregroundColor(.black)
@@ -34,7 +34,7 @@ struct SearchTaskView: View {
                     ForEach(searchTask(tasks: projectTasks, searchQuery: searchQuery)) { task in
                         NavigationLink(
                             destination:
-                                TaskManagmentView()) {
+                                TaskManagmentView(task: task)) {
                                     TaskCardView(task: task, currTasks: $currentStatus.tasks, showEditView: $showEditView, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
                                 }
                                 .foregroundColor(.black)

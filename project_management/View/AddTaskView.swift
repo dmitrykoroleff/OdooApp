@@ -56,7 +56,7 @@ struct AddTaskView: View {
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
                             
-                            let newTask = Task(text: text, company: newText == "" ? "My Company": newText, status: projects[project.idx!].statuses[currentStatus])
+                            let newTask = Task(projectIdx: project.idx!, text: text, company: newText == "" ? "My Company": newText, status: projects[project.idx!].statuses[currentStatus])
                             projects[project.idx!].statuses[currentStatus].tasks.append(newTask)
                             showAddTaskView = false
                             curruntAddTaskOffset = 0
