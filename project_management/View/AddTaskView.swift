@@ -43,6 +43,7 @@ struct AddTaskView: View {
                 HStack {
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
+                            UIApplication.shared.endEditing()
                             showAddTaskView = false
                             curruntAddTaskOffset = 0
                         }
@@ -55,7 +56,7 @@ struct AddTaskView: View {
                     Spacer()
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
-                            
+                            UIApplication.shared.endEditing()
                             let newTask = Task(projectIdx: project.idx!, text: text, company: newText == "" ? "My Company": newText, status: projects[project.idx!].statuses[currentStatus])
                             projects[project.idx!].statuses[currentStatus].tasks.append(newTask)
                             showAddTaskView = false

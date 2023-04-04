@@ -45,6 +45,7 @@ struct AddProjectView: View {
                             _external = false
                             _internal = false
                             date = Date.now
+                            UIApplication.shared.endEditing()
                             showBottomSheet = false
                             currentOffset = 0
                         }
@@ -76,8 +77,10 @@ struct AddProjectView: View {
                             showBottomSheet = false
                             currentOffset = 0
                             currProjects = projects
-                            HapticManager.instance.notification(type: .success)
+                            UIApplication.shared.endEditing()
+                            
                         }
+                        HapticManager.instance.notification(type: .success)
                     }, label: {
                         Text("Add")
                             .fontWeight(.medium)

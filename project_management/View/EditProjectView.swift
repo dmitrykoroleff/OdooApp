@@ -42,6 +42,7 @@ struct EditProjectView: View {
                 HStack {
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
+                            UIApplication.shared.endEditing()
                             showEditProjectView = false
                             currentEditOffset = 0
                         }
@@ -54,6 +55,7 @@ struct EditProjectView: View {
                     Spacer()
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
+                            UIApplication.shared.endEditing()
                             showEditProjectView = false
                             currentEditOffset = 0
                         }

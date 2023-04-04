@@ -31,6 +31,7 @@ struct AddStatusView: View {
                             withAnimation(Animation.easeIn(duration: 0.2)) {
                                 showView = false
                                 currentOffset = 0
+                                UIApplication.shared.endEditing()
                             }
                             HapticManager.instance.impact(style: .light)
                         }, label: {
@@ -43,6 +44,7 @@ struct AddStatusView: View {
                             withAnimation(Animation.easeIn(duration: 0.2)) {
                                 
                                 projects[currentProject].statuses.append(Status(id: UUID(),idx: projects[currentProject].statuses.count, projectIdx: currentProject, image: activeStatus, name: text))
+                                UIApplication.shared.endEditing()
                                 showView = false
                                 text = ""
                                 activeStatus = "plus"

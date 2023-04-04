@@ -43,6 +43,7 @@ struct EditTaskView: View {
                 HStack {
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
+                            UIApplication.shared.endEditing()
                             showEditOffset = false
                             currentEditOffset = 0
                         }
@@ -56,7 +57,7 @@ struct EditTaskView: View {
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
 
-                            
+                            UIApplication.shared.endEditing()
                             showEditOffset = false
                             currentEditOffset = 0
                         }
