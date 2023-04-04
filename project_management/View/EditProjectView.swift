@@ -45,6 +45,7 @@ struct EditProjectView: View {
                             showEditProjectView = false
                             currentEditOffset = 0
                         }
+                        HapticManager.instance.impact(style: .light)
                     }, label: {
                         Text("Cancel")
                             .fontWeight(.semibold)
@@ -56,6 +57,7 @@ struct EditProjectView: View {
                             showEditProjectView = false
                             currentEditOffset = 0
                         }
+                        HapticManager.instance.notification(type: .success)
                     }, label: {
                         Text("Edit")
                             .fontWeight(.medium)

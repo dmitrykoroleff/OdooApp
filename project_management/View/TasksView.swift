@@ -334,6 +334,7 @@ struct TasksView: View {
                                     curruntAddTaskOffset = -height
                                     
                                 }
+                                HapticManager.instance.impact(style: .light)
                                 
                             }, label: {
                                 CustomAddButton()
@@ -366,6 +367,7 @@ struct TasksView: View {
                                 showBottomBar = true
                                 
                             }
+                            HapticManager.instance.impact(style: .light)
                             
                         }, label: {
                             CustomBottomButton()

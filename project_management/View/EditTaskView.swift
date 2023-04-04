@@ -46,6 +46,7 @@ struct EditTaskView: View {
                             showEditOffset = false
                             currentEditOffset = 0
                         }
+                        HapticManager.instance.impact(style: .light)
                     }, label: {
                         Text("Cancel")
                             .foregroundColor(Color("MainColor"))
@@ -59,6 +60,7 @@ struct EditTaskView: View {
                             showEditOffset = false
                             currentEditOffset = 0
                         }
+                        HapticManager.instance.notification(type: .success)
                     }, label: {
                         Text("Edit")
                             .foregroundColor(.gray)

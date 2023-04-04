@@ -32,6 +32,7 @@ struct AddStatusView: View {
                                 showView = false
                                 currentOffset = 0
                             }
+                            HapticManager.instance.impact(style: .light)
                         }, label: {
                             Text("Cancel")
                                 .fontWeight(.semibold)
@@ -47,6 +48,7 @@ struct AddStatusView: View {
                                 activeStatus = "plus"
                                 currentOffset = 0
                             }
+                            HapticManager.instance.notification(type: .success)
                         }, label: {
                             Text("Done")
                                 .fontWeight(.medium)

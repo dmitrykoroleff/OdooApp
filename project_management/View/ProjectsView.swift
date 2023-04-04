@@ -170,7 +170,9 @@ struct ProjectsView: View {
                         withAnimation(Animation.easeIn(duration: 0.2)){
                             showBottomBar = true
                             curruntOffset = -height
+                            
                         }
+                        HapticManager.instance.impact(style: .light)
                         
                     }, label: {
                         CustomAddButton()

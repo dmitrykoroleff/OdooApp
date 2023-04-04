@@ -48,6 +48,7 @@ struct AddProjectView: View {
                             showBottomSheet = false
                             currentOffset = 0
                         }
+                        HapticManager.instance.impact(style: .light)
                     }, label: {
                         Text("Cancel")
                             .fontWeight(.semibold)
@@ -75,6 +76,7 @@ struct AddProjectView: View {
                             showBottomSheet = false
                             currentOffset = 0
                             currProjects = projects
+                            HapticManager.instance.notification(type: .success)
                         }
                     }, label: {
                         Text("Add")

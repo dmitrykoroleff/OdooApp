@@ -26,6 +26,7 @@
 		57362D0529D6167E003E79D6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57362D0429D6167E003E79D6 /* UserModel.swift */; };
 		576B1B9729D636AB000BDB11 /* SwipeBackExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B1B9629D636AB000BDB11 /* SwipeBackExtension.swift */; };
 		576B1B9929D63A0C000BDB11 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576B1B9829D63A0C000BDB11 /* BottomSheetView.swift */; };
+		577EF3EC29DC15AE00F2CD0F /* HapticFeedBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577EF3EB29DC15AE00F2CD0F /* HapticFeedBack.swift */; };
 		57828D4429D973E4009CD83F /* someFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57828D4329D973E4009CD83F /* someFuncs.swift */; };
 		57828D4629D9D13E009CD83F /* OffsetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57828D4529D9D13E009CD83F /* OffsetsViewModel.swift */; };
 		57828D4829D9FB0C009CD83F /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57828D4729D9FB0C009CD83F /* AnimationView.swift */; };
@@ -81,6 +82,7 @@
 		57362D0429D6167E003E79D6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		576B1B9629D636AB000BDB11 /* SwipeBackExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackExtension.swift; sourceTree = "<group>"; };
 		576B1B9829D63A0C000BDB11 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		577EF3EB29DC15AE00F2CD0F /* HapticFeedBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedBack.swift; sourceTree = "<group>"; };
 		57828D4329D973E4009CD83F /* someFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = someFuncs.swift; sourceTree = "<group>"; };
 		57828D4529D9D13E009CD83F /* OffsetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetsViewModel.swift; sourceTree = "<group>"; };
 		57828D4729D9FB0C009CD83F /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				57362D0229D6161F003E79D6 /* ProjectViewModel.swift */,
 				57828D4529D9D13E009CD83F /* OffsetsViewModel.swift */,
+				577EF3EB29DC15AE00F2CD0F /* HapticFeedBack.swift */,
 				57362CF129D60072003E79D6 /* Extensions */,
 			);
 			path = ViewModel;
@@ -369,6 +372,7 @@
 				57362CFD29D60187003E79D6 /* CustomAddButtonView.swift in Sources */,
 				57AAEBF129D8407F0044DA70 /* ProfileView.swift in Sources */,
 				57362CF329D600A7003E79D6 /* ProjectsView.swift in Sources */,
+				577EF3EC29DC15AE00F2CD0F /* HapticFeedBack.swift in Sources */,
 				57F73A4E29D61917001B6F88 /* TaskManagmentView.swift in Sources */,
 				57362CC529D5FFB7003E79D6 /* project_managementApp.swift in Sources */,
 				57F73A4429D61837001B6F88 /* SearchView.swift in Sources */,

@@ -53,6 +53,7 @@ struct BottomSheetView: View {
                                         index = offset
                                         currentStatus = status
                                     }
+                                    HapticManager.instance.impact(style: .soft)
                                 }, label: {
                                     VStack(spacing: 10) {
                                         if status.image == "globe" {
