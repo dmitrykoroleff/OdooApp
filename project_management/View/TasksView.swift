@@ -438,7 +438,7 @@ struct TasksView: View {
                             lastAddStatusOffset = curruntAddStatusOffset
                         }))
                     
-                    AddTaskView(currentStatus: currentStatus, project: project, showAddTaskView: $showAddTaskView, curruntAddTaskOffset: $curruntAddTaskOffset)
+                    AddTaskView(currentStatus: currentIndex, project: project, showAddTaskView: $showAddTaskView, curruntAddTaskOffset: $curruntAddTaskOffset)
                         .offset(y: height)
                         .offset(y: -curruntAddTaskOffset > 0 ? -curruntAddTaskOffset <= (height + 10) ? curruntAddTaskOffset : -(height + 10) : 0)
                         .gesture(DragGesture().updating($gestureAddTaskOffset, body: { value, out, _ in

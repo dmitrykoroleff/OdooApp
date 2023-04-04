@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddTaskView: View {
     
-    var currentStatus: Status
+    var currentStatus: Int
     var project: Project
     @Binding var showAddTaskView: Bool
     @Binding var curruntAddTaskOffset: CGFloat
@@ -55,8 +55,8 @@ struct AddTaskView: View {
                     Button(action: {
                         withAnimation(Animation.easeIn(duration: 0.2)){
                             
-//                            let newTask = Task(text: text, company: newText == "" ? "My Company": newText, status: projects[project.idx!])
-//                            project.tasks[currentStatus]!.append(newTask)
+                            let newTask = Task(text: text, company: newText == "" ? "My Company": newText, status: projects[project.idx!].statuses[currentStatus])
+                            projects[project.idx!].statuses[currentStatus].tasks.append(newTask)
                             showAddTaskView = false
                             curruntAddTaskOffset = 0
                         }
@@ -136,9 +136,9 @@ struct AddTaskView: View {
     }
 }
 
-struct AddTaskView_Previews: PreviewProvider {
-
-    static var previews: some View {
-        AddTaskView(currentStatus: projects[0].statuses[0], project: projects[0], showAddTaskView: .constant(false), curruntAddTaskOffset: .constant(0))
-    }
-}
+//struct AddTaskView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        AddTaskView(currentStatus: projects[0].statuses[0], project: projects[0], showAddTaskView: .constant(false), curruntAddTaskOffset: .constant(0))
+//    }
+//}
