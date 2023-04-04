@@ -85,6 +85,7 @@ struct BottomSheetView: View {
                                 curruntAddStatusOffset = -height
                                 showAdditionalStatuses = true
                             }
+                            HapticManager.instance.impact(style: .soft)
                         }, label: {
                             VStack {
                                 Image(systemName: "plus")

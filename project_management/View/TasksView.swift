@@ -348,7 +348,7 @@ struct TasksView: View {
                         }
                         Button(action: {
                             withAnimation(Animation.easeIn(duration: 0.2)){
-                                if statuses.count + 1 <= 5 {
+                                if projects[project.idx!].statuses.count + 1 <= 5 {
                                     if height > 500 && height < 700 {
                                         curruntOffset = -(height / 3)
                                     } else if height < 800 && height > 700 {
@@ -362,9 +362,9 @@ struct TasksView: View {
                                     if height > 500 && height < 700 {
                                         curruntOffset = -(height / 2.3)
                                     } else if height < 800 && height > 700 {
-                                        curruntOffset = -(height / 2.9)
+                                        curruntOffset = -(height / 2.3)
                                     } else if height > 800 && height < 900 {
-                                        curruntOffset = -(height / 2.8)
+                                        curruntOffset = -(height / 2.3)
                                     } else {
                                         curruntOffset = -(height / 2.6)
                                     }
@@ -385,7 +385,7 @@ struct TasksView: View {
                     VStack {
                         BottomSheetView(currentProjectIdx: project.idx!, curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
                             .offset(y: height)
-                            .offset(y: statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.2) ? curruntOffset : -(height / 2.2) : 0))
+                            .offset(y: projects[project.idx!].statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.2) ? curruntOffset : -(height / 2.2) : 0))
                             .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
                                 out = value.translation.height
                                 onChange()
@@ -394,7 +394,7 @@ struct TasksView: View {
                                 withAnimation {
                                     showBottomBar = false
                                     if -curruntOffset > 200 && -curruntOffset < maxHeight / 1.5 {
-                                        if statuses.count + 1 <= 5 {
+                                        if projects[project.idx!].statuses.count + 1 <= 5 {
                                             if height > 600 && height < 700 {
                                                 curruntOffset = -maxHeight / 3
                                             } else if height < 800 && height > 700 {
@@ -408,9 +408,9 @@ struct TasksView: View {
                                             if height > 600 && height < 700 {
                                                 curruntOffset = -maxHeight / 2.3
                                             } else if height < 800 && height > 700 {
-                                                curruntOffset = -maxHeight / 1.5
+                                                curruntOffset = -maxHeight / 2.3
                                             } else if height > 800 && height < 900{
-                                                curruntOffset = -maxHeight / 2.6
+                                                curruntOffset = -maxHeight / 2.3
                                             } else {
                                                 curruntOffset = -maxHeight / 2.6
                                             }
@@ -512,7 +512,7 @@ struct TasksView: View {
         DispatchQueue.main.async {
             self.curruntOffset = gestureOffset + lastOffset
             if showBottomBar {
-                if statuses.count + 1 <= 5 {
+                if projects[project.idx!].statuses.count + 1 <= 5 {
                     if height > 500 && height < 700 {
                         curruntOffset = -(height / 3) + gestureOffset + lastOffset
                     } else if height < 800 && height > 700{
@@ -526,9 +526,9 @@ struct TasksView: View {
                     if height > 500 && height < 700 {
                         curruntOffset = -(height / 2.3) + gestureOffset + lastOffset
                     } else if height < 800 && height > 700{
-                        curruntOffset = -(height / 1.5) + gestureOffset + lastOffset
+                        curruntOffset = -(height / 2.3) + gestureOffset + lastOffset
                     } else if height > 800 && height < 900 {
-                        curruntOffset = -(height / 2.6) + gestureOffset + lastOffset
+                        curruntOffset = -(height / 2.3) + gestureOffset + lastOffset
                     } else {
                         curruntOffset = -(height / 2.6) + gestureOffset + lastOffset
                     }
