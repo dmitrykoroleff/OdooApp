@@ -26,7 +26,7 @@ struct SearchTaskView: View {
                         NavigationLink(
                             destination:
                                 TaskManagmentView()) {
-                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
+                                    TaskCardView(task: task, currTasks: $currentStatus.tasks, showEditView: $showEditView, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
                                 }
                                 .foregroundColor(.black)
                     }
@@ -35,7 +35,7 @@ struct SearchTaskView: View {
                         NavigationLink(
                             destination:
                                 TaskManagmentView()) {
-                                    TaskCardView(task: task, showEditView: $showEditView, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
+                                    TaskCardView(task: task, currTasks: $currentStatus.tasks, showEditView: $showEditView, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
                                 }
                                 .foregroundColor(.black)
                     }

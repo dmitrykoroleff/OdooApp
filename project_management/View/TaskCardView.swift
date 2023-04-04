@@ -10,6 +10,7 @@ import SwiftUI
 struct TaskCardView: View {
     
     var task: Task
+    @Binding var currTasks: [Task]
     @Binding var showEditView: Bool
     var currentTask: Int
     var currentStatus: Status
@@ -77,6 +78,7 @@ struct TaskCardView: View {
 //                        print(projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks)
                         projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks.remove(at: currentTask)
                         reindex(source: &projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks, count:  projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks.count)
+                        currTasks = projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks
                     } label: {
                         Label("Delete", systemImage: "delete.left")
                     }

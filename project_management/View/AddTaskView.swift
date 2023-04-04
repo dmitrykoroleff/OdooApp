@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddTaskView: View {
     
+    @Binding var currTasks: [Task]
     var currentStatus: Int
     var project: Project
     @Binding var showAddTaskView: Bool
@@ -59,6 +60,7 @@ struct AddTaskView: View {
                             projects[project.idx!].statuses[currentStatus].tasks.append(newTask)
                             showAddTaskView = false
                             curruntAddTaskOffset = 0
+                            currTasks = projects[project.idx!].statuses[currentStatus].tasks
                         }
                         HapticManager.instance.notification(type: .success)
                     }, label: {

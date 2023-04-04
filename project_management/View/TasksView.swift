@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TasksView: View {
     var project: Project
+    @State var currTasks = projects[0].statuses[0].tasks
     @Binding var task: Task
     @State var isActive = false
     @State var onThisView = true
@@ -200,29 +201,33 @@ struct TasksView: View {
                                             .foregroundColor(Color.gray)
                                             .italic()
                                     } else {
-                                        ForEach(Array(projects[project.idx!].statuses[currentIndex].tasks.enumerated()), id: \.offset) { offset, task in
-                                            NavigationLink(
-                                                destination:
-                                                    TaskManagmentView(), isActive: $isActive) {
-                                                        TaskCardView(task: task, showEditView: $showEditView, currentTask: offset, currentStatus: projects[project.idx!].statuses[currentIndex], currentEditOffset: $currentEditOffset)
-                                                    }
-                                                    .simultaneousGesture(TapGesture().onEnded{
-                                                        onThisView = false
-                                                    })
-                                                    .onAppear {
-                                                        onThisView = true
-                                                    }
-                                                    .foregroundColor(.black)
-                                            
+                                        if !projects[project.idx!].statuses[currentIndex].tasks.isEmpty {
+                                            ForEach(Array(projects[project.idx!].statuses[currentIndex].tasks.enumerated()), id: \.offset) { offset, task in
+                                                NavigationLink(
+                                                    destination:
+                                                        TaskManagmentView(), isActive: $isActive) {
+                                                            TaskCardView(task: task, currTasks: $currTasks, showEditView: $showEditView, currentTask: offset, currentStatus: projects[project.idx!].statuses[currentIndex], currentEditOffset: $currentEditOffset)
+                                                        }
+                                                        .simultaneousGesture(TapGesture().onEnded{
+                                                            onThisView = false
+                                                        })
+                                                        .onAppear {
+                                                            onThisView = true
+                                                        }
+                                                        .foregroundColor(.black)
+                                                
+                                            }
                                         }
                                     }
                                 }
                                     .padding(.bottom, height / 3)
                                 }
+                                .onAppear {
+                                    currTasks = projects[project.idx!].statuses[currentIndex == projects[project.idx!].statuses.count ? projects[project.idx!].statuses.count - 1: currentIndex].tasks
+                                }
 //                                .tag(offset)
                                 
                             }
-                            
 //                            ScrollView(.vertical, showsIndicators: false) {
 //                                if projects[project.idx!].statuses[1].tasks.isEmpty {
 //                                    Text("Задач в данном статусе нет")
@@ -284,6 +289,7 @@ struct TasksView: View {
                             
                         }
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                        
                         
 //                        TabView {
 //
@@ -438,7 +444,7 @@ struct TasksView: View {
                             lastAddStatusOffset = curruntAddStatusOffset
                         }))
                     
-                    AddTaskView(currentStatus: currentIndex, project: project, showAddTaskView: $showAddTaskView, curruntAddTaskOffset: $curruntAddTaskOffset)
+                    AddTaskView(currTasks: $currTasks, currentStatus: currentIndex, project: project, showAddTaskView: $showAddTaskView, curruntAddTaskOffset: $curruntAddTaskOffset)
                         .offset(y: height)
                         .offset(y: -curruntAddTaskOffset > 0 ? -curruntAddTaskOffset <= (height + 10) ? curruntAddTaskOffset : -(height + 10) : 0)
                         .gesture(DragGesture().updating($gestureAddTaskOffset, body: { value, out, _ in
