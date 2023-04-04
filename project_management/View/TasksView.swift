@@ -91,7 +91,7 @@ struct TasksView: View {
                         .padding(.horizontal, 15)
                         .offset(y: searchIsActive ? -(height / 2) : 0)
                         HStack {
-                            Text("\(currentIndex < project.statuses.count ? project.statuses[currentIndex].name: "Add new status")")
+                            Text("\(currentIndex < projects[project.idx!].statuses.count ? projects[project.idx!].statuses[currentIndex].name: "Add new status")")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("Headings"))
@@ -146,7 +146,7 @@ struct TasksView: View {
                         .padding(.horizontal, 30)
                         .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) : height > 700 && height < 800 ? -(height / 7) : height > 800 && height < 850 ? -(height / 7.3) : height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
                         HStack {
-                            ForEach(Array(project.statuses.enumerated()), id: \.offset) { offset, element in
+                            ForEach(Array(projects[project.idx!].statuses.enumerated()), id: \.offset) { offset, element in
                                 Circle()
                                     .frame(width: 6, height: 6)
                                     .foregroundColor(offset == currentIndex ? Color.black : Color.gray)
@@ -154,15 +154,15 @@ struct TasksView: View {
                             }
                             Circle()
                                 .frame(width: 6, height: 6)
-                                .foregroundColor(project.statuses.count == currentIndex ? Color.black : Color.gray)
+                                .foregroundColor(projects[project.idx!].statuses.count == currentIndex ? Color.black : Color.gray)
                         }
                         .padding(.bottom)
                         
                         TabView(selection: $currentIndex) {
-                            ForEach(Array((project.statuses + [Status(id: UUID(), image: "", name: "Add New")]).enumerated()), id: \.offset) { offset, element in
+                            ForEach(Array((projects[project.idx!].statuses + [Status(id: UUID(), image: "", name: "Add New")]).enumerated()), id: \.offset) { offset, element in
                                 ScrollView(.vertical, showsIndicators: false) {
                                     VStack {
-                                    if currentIndex == project.statuses.count || offset == project.statuses.count {
+                                    if currentIndex == projects[project.idx!].statuses.count || offset == projects[project.idx!].statuses.count {
                                         HStack {
                                             VStack {
                                                 ZStack {
@@ -326,7 +326,7 @@ struct TasksView: View {
                     
                         
                     HStack {
-                        if currentIndex != project.statuses.count {
+                        if currentIndex != projects[project.idx!].statuses.count {
                             Button(action: {
                                 withAnimation(Animation.easeIn(duration: 0.2)){
                                     showAddTaskView = true
@@ -418,7 +418,7 @@ struct TasksView: View {
                             }))
                     }
                     
-                    AddStatusView(showView: $showAdditionalStatuses, currentStatus: $currentStatus, currentOffset: $curruntAddStatusOffset)
+                    AddStatusView(showView: $showAdditionalStatuses, currentProject: project.idx!, currentOffset: $curruntAddStatusOffset)
                         .offset(y: height)
                         .offset(y: -curruntAddStatusOffset > 0 ? -curruntAddStatusOffset <= (height + 10) ? curruntAddStatusOffset : -(height + 10) : 0)
                         .gesture(DragGesture().updating($gestureAddStatusOffset, body: { value, out, _ in

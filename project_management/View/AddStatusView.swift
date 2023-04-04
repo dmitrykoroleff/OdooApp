@@ -11,7 +11,7 @@ struct AddStatusView: View {
     @State var text: String = ""
     @State var activeStatus: String = "plus"
     @Binding var showView: Bool
-    @Binding var currentStatus: Status
+    var currentProject: Int
     @Binding var currentOffset: CGFloat
     
     var width = UIScreen.main.bounds.width
@@ -41,12 +41,13 @@ struct AddStatusView: View {
                         Spacer()
                         Button(action: {
                             withAnimation(Animation.easeIn(duration: 0.2)) {
-                                statuses.append(Status(id: UUID(), image: activeStatus, name: text))
-                                currentStatus = statuses[statuses.count - 1]
+                                
+                                projects[currentProject].statuses.append(Status(id: UUID(),idx: projects[currentProject].statuses.count, projectIdx: currentProject, image: activeStatus, name: text))
                                 showView = false
                                 text = ""
                                 activeStatus = "plus"
                                 currentOffset = 0
+                                
                             }
                             HapticManager.instance.notification(type: .success)
                         }, label: {
@@ -163,8 +164,8 @@ struct AddStatusView: View {
     }
 }
 
-struct AddStatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddStatusView(showView: .constant(false), currentStatus: .constant(statuses[0]), currentOffset: .constant(0))
-    }
-}
+//struct AddStatusView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddStatusView(showView: .constant(false), currentStatus: .constant(statuses[0]), currentOffset: .constant(0))
+//    }
+//}
