@@ -33,7 +33,6 @@ struct TasksView: View {
     @State var curruntAddTaskOffset: CGFloat = 0
     @State var lastAddTaskOffset: CGFloat = 0
     @GestureState var gestureAddTaskOffset: CGFloat = 0
-    @State var currentTask: Int = 0
     var gradient1 = Gradient(colors:[Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4"), Color("GradientColor1")])
     
     var gradient2 = Gradient(colors:[Color("GradientColor4"), Color("GradientColor1"), Color("GradientColor2"), Color("GradientColor3"), Color("GradientColor4")])
@@ -201,11 +200,11 @@ struct TasksView: View {
                                             .foregroundColor(Color.gray)
                                             .italic()
                                     } else {
-                                        ForEach(projects[project.idx!].statuses[currentIndex].tasks) { task in
+                                        ForEach(Array(projects[project.idx!].statuses[currentIndex].tasks.enumerated()), id: \.offset) { offset, task in
                                             NavigationLink(
                                                 destination:
                                                     TaskManagmentView(), isActive: $isActive) {
-                                                        TaskCardView(task: task, showEditView: $showEditView, currentTask: $currentTask, currentStatus: $currentStatus, currentEditOffset: $currentEditOffset)
+                                                        TaskCardView(task: task, showEditView: $showEditView, currentTask: offset, currentStatus: projects[project.idx!].statuses[currentIndex], currentEditOffset: $currentEditOffset)
                                                     }
                                                     .simultaneousGesture(TapGesture().onEnded{
                                                         onThisView = false

@@ -20,14 +20,7 @@ struct Project: Indexable, Identifiable, Equatable {
     var company: String
     var date: String?
     var type: [String]
-    var statuses: [Status] = [
-        Status(id: UUID(), image: "flag.checkered.circle", name: "New"),
-        Status(id: UUID(), image: "brain.head.profile" //Пока так, надо найти с круглыми чатами
-               , name: "In progress"),
-        Status(id: UUID(), image: "flag.checkered.2.crossed", name: "Done"),
-        Status(id: UUID(), image: "multiply.circle", name: "Cancelled"),
-//        Status(id: UUID(), image: "", name: "Add new"),
-    ]
+    var statuses: [Status]
 
     
     init(id: UUID = UUID(), idx: Int? = nil, name: String, company: String = "", date: String? = nil, type: [String]) {
@@ -47,6 +40,15 @@ struct Project: Indexable, Identifiable, Equatable {
         } else {
             self.idx = idx
         }
+        
+        self.statuses  = [
+            Status(id: UUID(), idx: 0, projectIdx: self.idx, image: "flag.checkered.circle", name: "New"),
+            Status(id: UUID(), idx: 1, projectIdx: self.idx, image: "brain.head.profile" //Пока так, надо найти с круглыми чатами
+                   , name: "In progress"),
+            Status(id: UUID(), idx: 2, projectIdx: self.idx, image: "flag.checkered.2.crossed", name: "Done"),
+            Status(id: UUID(), idx: 3, projectIdx: self.idx, image: "multiply.circle", name: "Cancelled"),
+    //        Status(id: UUID(), image: "", name: "Add new"),
+        ]
     }
     
 }
@@ -74,17 +76,17 @@ func createTestData() {
     ]
     
     projects[2].statuses[0].tasks = [
-        Task(text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[0].statuses[0]),
+        Task(text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[2].statuses[0]),
         Task(text: "Customer review", company: "YourCompany, Joel Willis", subTasks: (0..<5).map({_ in
-            Task(text: "Text", status: projects[0].statuses[0])
-        }), status: projects[0].statuses[0]),
-        Task(text: "Office planning", status: projects[0].statuses[0])
+            Task(text: "Text", status: projects[2].statuses[0])
+        }), status: projects[2].statuses[0]),
+        Task(text: "Office planning", status: projects[2].statuses[0])
     ]
     
     projects[2].statuses[1].tasks = [
-        Task(text: "Room2: Decoration", company: "YourCompany, Joel Willis", isFavorite: true, status: projects[0].statuses[1]),
-        Task(text: "Room1: Decoration", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "Yesterday", status: projects[0].statuses[1]),
-        Task(text: "Black chairs for manager", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "In 9 days", status: projects[0].statuses[1])
+        Task(text: "Room2: Decoration", company: "YourCompany, Joel Willis", isFavorite: true, status: projects[2].statuses[1]),
+        Task(text: "Room1: Decoration", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "Yesterday", status: projects[2].statuses[1]),
+        Task(text: "Black chairs for manager", company: "YourCompany, Joel Willis", tags: ["New Feature"], dueTime: "In 9 days", status: projects[2].statuses[1])
     ]
 }
 

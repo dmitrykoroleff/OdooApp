@@ -11,8 +11,8 @@ struct TaskCardView: View {
     
     var task: Task
     @Binding var showEditView: Bool
-    @Binding var currentTask: Int
-    @Binding var currentStatus: Status
+    var currentTask: Int
+    var currentStatus: Status
     @Binding var currentEditOffset: CGFloat
     
     var width = UIScreen.main.bounds.width
@@ -73,9 +73,10 @@ struct TaskCardView: View {
                     }
                     
                     Button {
-//                        currentTask = task.idx!
-//                        currentStatus.tasks.remove(at: currentTask)
-//                        reindex(source: &currentStatus.tasks, count: currentStatus.tasks.count)
+//                        reindex(source: &projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks, count:  projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks.count)
+//                        print(projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks)
+                        projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks.remove(at: currentTask)
+                        reindex(source: &projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks, count:  projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks.count)
                     } label: {
                         Label("Delete", systemImage: "delete.left")
                     }

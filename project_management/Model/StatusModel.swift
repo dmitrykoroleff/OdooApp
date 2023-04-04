@@ -15,10 +15,23 @@ struct Status: Identifiable, Hashable {
     }
     
     var id: UUID
+    var idx: Int?
+    var projectIdx: Int?
     var image: String
     var name: String
     
     var tasks: [Task] = []
+    
+    init(id: UUID, idx: Int? = nil, projectIdx: Int? = nil, image: String, name: String) {
+        
+        self.id = id
+        self.idx = idx
+        self.projectIdx = projectIdx
+        self.image = image
+        self.name = name
+        
+        
+    }
 }
 
 var statuses: [Status] = [
