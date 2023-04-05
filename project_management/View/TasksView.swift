@@ -129,6 +129,7 @@ struct TasksView: View {
                                                 searchIsActive = false
                                                 UIApplication.shared.endEditing()
                                             }
+                                            HapticManager.instance.impact(style: .soft)
                                             
                                         } label: {
                                             Image("delete")
@@ -193,6 +194,7 @@ struct TasksView: View {
                                                 curruntAddStatusOffset = -(height)
                                                 showAdditionalStatuses = true
                                             }
+                                            HapticManager.instance.impact(style: .soft)
                                         }
                                     } else if projects[project.idx!].statuses[currentIndex].tasks.isEmpty {
                                         Text("There are no tasks in this status yet")

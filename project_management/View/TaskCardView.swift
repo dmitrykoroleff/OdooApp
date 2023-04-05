@@ -59,11 +59,11 @@ struct TaskCardView: View {
                         
                     }
                     
-                    Button {
-                        
-                    } label: {
-                        Label("Change status", systemImage: "folder")
-                    }
+//                    Button {
+//                        
+//                    } label: {
+//                        Label("Change status", systemImage: "folder")
+//                    }
                     
 //                    Button {
 ////                        currentTask = task.idx!

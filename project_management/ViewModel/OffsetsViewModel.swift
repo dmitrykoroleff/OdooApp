@@ -41,7 +41,7 @@ func customAddButtonOffset(height: CGFloat) -> [CGFloat] {
         offsetX = -240
         offsetY = -110
     } else if height > 800 && height < 900{
-        offsetX = -265
+        offsetX = -255
         offsetY = -120
     } else {
         offsetX = -295

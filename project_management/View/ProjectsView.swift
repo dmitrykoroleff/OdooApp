@@ -115,6 +115,7 @@ struct ProjectsView: View {
                                                 searchIsActive = false
                                                 UIApplication.shared.endEditing()
                                             }
+                                            HapticManager.instance.impact(style: .soft)
                                             
                                         } label: {
                                             Image("delete")
