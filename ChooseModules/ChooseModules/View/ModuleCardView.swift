@@ -78,8 +78,8 @@ struct ModuleCardView: View {
     }
 }
 
-struct ModuleCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ModuleCardView(module: Modules(name: "", notifications: 0))
-    }
-}
+//struct ModuleCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ModuleCardView(module: Modules(name: "", notifications: 0, view: ModuleCardView.self as! View))
+//    }
+//}

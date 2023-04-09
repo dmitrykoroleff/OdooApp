@@ -6,7 +6,7 @@
       "location" : "https://github.com/Alamofire/Alamofire",
       "state" : {
         "branch" : "master",
-        "revision" : "f1f7a06f40c6aadb4beb2a78f380f9938d574fa7"
+        "revision" : "fd87f7ce7461197ea5af6e4a865168b8fc913ee0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/openid/AppAuth-iOS.git",
       "state" : {
-        "revision" : "3d36a58a2b736f7bc499453e996a704929b25080",
-        "version" : "1.6.0"
+        "revision" : "0eadcdec4ddb121865f3d66917549194afce1f2b",
+        "version" : "1.6.1"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Kitura/Swift-JWT",
       "state" : {
-        "revision" : "08e02ff214c41df49bdd189ff837d68ba11c437b",
-        "version" : "4.0.0"
+        "revision" : "f68ec28fbd90a651597e9e825ea7f315f8d52a1f",
+        "version" : "4.0.1"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "6fe203dc33195667ce1759bf0182975e4653ba1c",
-        "version" : "1.4.4"
+        "revision" : "32e8d724467f8fe623624570367e3d50c5638e46",
+        "version" : "1.5.2"
       }
     },
     {
@@ -88,6 +88,15 @@
       "state" : {
         "revision" : "d15c034dd235bed4393f6b25290c8b9025b2fdf8",
         "version" : "2.1.11"
+      }
+    },
+    {
+      "identity" : "trackable-scroll-view",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxnatchanon/trackable-scroll-view.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4b094575c2370c3341d0b377a27b46bda4f937f7"
       }
     }
   ],

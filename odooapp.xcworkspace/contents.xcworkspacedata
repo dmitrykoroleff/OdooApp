@@ -5,6 +5,9 @@
       location = "group:CRMModule/CRMModule/CRMModule.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Profile/Profile.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:RecruitmentModule/RecruitmentModule/RecruitmentModule.xcodeproj">
    </FileRef>
    <FileRef
@@ -21,8 +24,5 @@
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:odooapp.xcodeproj">
    </FileRef>
 </Workspace>

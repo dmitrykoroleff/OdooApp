@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct TaskView: View {
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     var task: Task
     var body: some View {
         HStack(spacing: 20) {
             ZStack {
                 
                 Circle()
-                    .foregroundColor(Color("MainColor"))
+                    .foregroundColor(Color("MainColor", bundle: bundle))
                     .frame(width: 40, height: 40)
                 
                 Text("A") // Хардкод

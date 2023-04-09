@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserCardView: View {
+    
     @State var userCard: UserCard
     var statusImage: String
     var body: some View {

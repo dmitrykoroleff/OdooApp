@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JobView: View {
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     @State var user: User
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
@@ -35,7 +36,7 @@ struct JobView: View {
 //                .frame(height: height/6)
                 Text("Job")
                     .font(.system(size: 14))
-                    .foregroundColor(Color("MainColor"))
+                    .foregroundColor(Color("MainColor", bundle: bundle))
                 VStack(alignment: .leading) {
                     HStack() {
                         VStack(alignment: .leading, spacing: 10) {
@@ -72,7 +73,7 @@ struct JobView: View {
                 
                 Text("Contract")
                     .font(.system(size: 14))
-                    .foregroundColor(Color("MainColor"))
+                    .foregroundColor(Color("MainColor", bundle: bundle))
                 VStack(alignment: .leading) {
                     HStack {
                         VStack(alignment: .leading, spacing: 10) {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserView: View {
-    
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State private var currentIndex = 0
     var user: User
@@ -23,7 +23,7 @@ struct UserView: View {
         ZStack {
             VStack(alignment: .center) {
                 VStack(spacing: 10) {
-                    Image("logo")
+                    Image("logo", bundle: bundle)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 64, height: 22)
@@ -50,7 +50,7 @@ struct UserView: View {
                     VStack(alignment: .center) {
                         Text("Log note")
                             .font(.system(size: 14))
-                            .foregroundColor(Color("MainColor"))
+                            .foregroundColor(Color("MainColor", bundle: bundle))
                         List {
                             ForEach(notes) { note in
                                 NoteView(note: note)
@@ -74,7 +74,7 @@ struct UserView: View {
                                             //Does't work :(
                                             
                                         }
-                                        .tint(Color("MainColor"))
+                                        .tint(Color("MainColor", bundle: bundle))
                                         Button(role: .cancel) {
                                             
                                         } label: {
@@ -102,7 +102,7 @@ struct UserView: View {
                         }, label: {
                             Text("Add new log note")
                                 .underline()
-                                .foregroundColor(Color("MainColor"))
+                                .foregroundColor(Color("MainColor", bundle: bundle))
                         })
                         Spacer()
                         
@@ -131,10 +131,10 @@ struct UserView: View {
             if showBottomSheet {
                     ZStack {
                         RoundedRectangle(cornerRadius: 35)
-                            .stroke(Color("MainColor").opacity(0.5))
+                            .stroke(Color("MainColor", bundle: bundle).opacity(0.5))
                             .frame(height: UIScreen.main.bounds.height)
                             .background(Color.white)
-                            .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
+                            .shadow(color: Color("MainColor", bundle: bundle).opacity(0.5), radius: 5)
                             .cornerRadius(35)
                         VStack {
                             HStack {
@@ -144,7 +144,7 @@ struct UserView: View {
                                     }
                                 }, label: {
                                     Text("Cancel")
-                                        .foregroundColor(Color("MainColor"))
+                                        .foregroundColor(Color("MainColor", bundle: bundle))
                                         .font(.system(size: 14))
                                 })
                                 Spacer()

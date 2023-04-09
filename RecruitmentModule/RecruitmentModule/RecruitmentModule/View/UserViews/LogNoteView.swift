@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LogNoteView: View {
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     @State var user: User
     @State var text: String = ""
     @State var offSet: CGFloat = 0
@@ -20,7 +21,7 @@ struct LogNoteView: View {
             VStack(alignment: .center) {
                 Text("Log note")
                     .font(.system(size: 14))
-                    .foregroundColor(Color("MainColor"))
+                    .foregroundColor(Color("MainColor", bundle: bundle))
                 List {
                     ForEach(notes) { note in
                         NoteView(note: note)
@@ -44,7 +45,7 @@ struct LogNoteView: View {
                                     //Does't work :(
                                     
                                 }
-                                .tint(Color("MainColor"))
+                                .tint(Color("MainColor", bundle: bundle))
                                 Button(role: .cancel) {
                                     
                                 } label: {
@@ -72,7 +73,7 @@ struct LogNoteView: View {
                 }, label: {
                     Text("Add new log note")
                         .underline()
-                        .foregroundColor(Color("MainColor"))
+                        .foregroundColor(Color("MainColor", bundle: bundle))
                 })
                 Spacer()
                 
@@ -81,10 +82,10 @@ struct LogNoteView: View {
             if showBottomSheet {
                     ZStack {
                         RoundedRectangle(cornerRadius: 35)
-                            .stroke(Color("MainColor").opacity(0.5))
+                            .stroke(Color("MainColor", bundle: bundle).opacity(0.5))
                             .frame(height: UIScreen.main.bounds.height)
                             .background(Color.white)
-                            .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
+                            .shadow(color: Color("MainColor", bundle: bundle).opacity(0.5), radius: 5)
                             .cornerRadius(35)
                         VStack {
                             HStack {
@@ -94,7 +95,7 @@ struct LogNoteView: View {
                                     }
                                 }, label: {
                                     Text("Cancel")
-                                        .foregroundColor(Color("MainColor"))
+                                        .foregroundColor(Color("MainColor", bundle: bundle))
                                         .font(.system(size: 14))
                                 })
                                 Spacer()
