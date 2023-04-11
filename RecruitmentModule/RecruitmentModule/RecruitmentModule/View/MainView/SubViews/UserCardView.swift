@@ -8,16 +8,8 @@
 import SwiftUI
 
 struct UserCardView: View {
-    var index: Int = 0
-    @State var userCard = UserCard(fullName: "Arina Shoshina", userStatus: "websiteRequest")
-    @ObservedObject var shared: LogicR
-//    var nam = {
-//        var jsonRes = LogicR().dataRecr["result"] as? [String : Any]
-//        var jsonRecords = jsonRes?["records"] as? Array<Any>
-//        var jsb = jsonRecords?[0] as? [String : Any] ?? ["":0]
-//        var stage = jsb["partner_name"] as? String ?? " p"
-//        return stage
-//    }
+    
+    @State var userCard: UserCard
     var statusImage: String
     var body: some View {
         HStack {

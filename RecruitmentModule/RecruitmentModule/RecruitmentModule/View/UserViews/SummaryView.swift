@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SummaryView: View {
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     @State var user: User
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
@@ -17,7 +18,7 @@ struct SummaryView: View {
         VStack {
             Text("Application Summary")
                 .font(.system(size: 14))
-                .foregroundColor(Color("MainColor"))
+                .foregroundColor(Color("MainColor", bundle: bundle))
             Spacer()
                 .frame(height: height/50)
             Text("\(description[index]!)") // hardcode

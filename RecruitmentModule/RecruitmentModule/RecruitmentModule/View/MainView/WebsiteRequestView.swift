@@ -31,7 +31,7 @@ public struct WebsiteRequestView: View { //надо переименовать
             NavigationView {
                 ZStack(alignment: .bottomTrailing) {
                     VStack(alignment: .center) {
-                        Image("logo")
+                        Image("logo", bundle: bundle)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 64, height: 22)
@@ -46,7 +46,7 @@ public struct WebsiteRequestView: View { //надо переименовать
                                     .foregroundColor(Color.gray)
                                 
                                 Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
-                                    .foregroundColor(Color("Headings"))
+                                    .foregroundColor(Color("Headings", bundle: bundle))
                                     .font(.headline)
                                     .fontWeight(.semibold)
                                 
@@ -60,7 +60,7 @@ public struct WebsiteRequestView: View { //надо переименовать
                                 ZStack {
                                     
                                     Circle()
-                                        .foregroundColor(Color("MainColor"))
+                                        .foregroundColor(Color("MainColor", bundle: bundle))
                                         .frame(width: 40, height: 40)
                                     
                                     Text("A") // Хардкод
@@ -77,7 +77,7 @@ public struct WebsiteRequestView: View { //надо переименовать
                             Text("Name") //hardcode
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .foregroundColor(Color("Headings"))
+                                .foregroundColor(Color("Headings", bundle: bundle))
                             Spacer()
                         }
                         .padding(.horizontal)
@@ -112,7 +112,7 @@ public struct WebsiteRequestView: View { //надо переименовать
                                             }
                                             
                                         } label: {
-                                            Image("delete")
+                                            Image("delete", bundle: bundle)
                                                 .resizable()
                                             
                                         }
@@ -202,10 +202,10 @@ public struct WebsiteRequestView: View { //надо переименовать
                             ZStack {
                                 
                                 RoundedRectangle(cornerRadius: 35)
-                                    .stroke(Color("MainColor").opacity(0.5))
+                                    .stroke(Color("MainColor", bundle: bundle).opacity(0.5))
                                     .frame(height: UIScreen.main.bounds.height)
                                     .background(Color.white)
-                                    .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
+                                    .shadow(color: Color("MainColor", bundle: bundle).opacity(0.5), radius: 5)
                                     .cornerRadius(35)
                                 
                                 Button(action: {
@@ -221,7 +221,7 @@ public struct WebsiteRequestView: View { //надо переименовать
                                         .resizable()
                                         .imageScale(.large)
                                         .frame(width: 34, height: 3)
-                                        .foregroundColor(Color("MainColor"))
+                                        .foregroundColor(Color("MainColor", bundle: bundle))
                                     
                                     
                                     HStack {

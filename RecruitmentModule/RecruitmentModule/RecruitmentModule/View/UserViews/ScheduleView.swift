@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScheduleView: View {
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     @State var user: User
     @State var text: String = ""
     @State var offSet: CGFloat = 0
@@ -20,7 +21,7 @@ struct ScheduleView: View {
             VStack(alignment: .center) {
                 Text("Schedule activity")
                     .font(.system(size: 14))
-                    .foregroundColor(Color("MainColor"))
+                    .foregroundColor(Color("MainColor", bundle: bundle))
                 List {
                     ForEach(tasks) { task in
                         TaskView(task: task)
@@ -44,7 +45,7 @@ struct ScheduleView: View {
                                     //Does't work :(
                                     
                                 }
-                                .tint(Color("MainColor"))
+                                .tint(Color("MainColor", bundle: bundle))
                                 Button(role: .cancel) {
                                     
                                 } label: {
@@ -77,7 +78,7 @@ struct ScheduleView: View {
                 }, label: {
                     Text("Add new schedule activity")
                         .underline()
-                        .foregroundColor(Color("MainColor"))
+                        .foregroundColor(Color("MainColor", bundle: bundle))
                 })
                 Spacer()
                 

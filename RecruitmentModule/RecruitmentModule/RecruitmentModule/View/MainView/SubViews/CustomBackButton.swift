@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomBackButton: View {
-    
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
@@ -16,7 +16,7 @@ struct CustomBackButton: View {
                 self.presentationMode.wrappedValue.dismiss()
                 }) {
                     HStack {
-                    Image("ic_back") // set image here
+                    Image("ic_back", bundle: bundle) // set image here
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(.white)
                         

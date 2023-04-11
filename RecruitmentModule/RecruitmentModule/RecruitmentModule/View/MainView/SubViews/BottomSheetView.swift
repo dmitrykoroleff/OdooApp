@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct BottomSheetView: View {
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     @State var statuses: [Status]
     var body: some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 35)
-                    .stroke(Color("MainColor").opacity(0.5))
+                    .stroke(Color("MainColor", bundle: bundle).opacity(0.5))
                     .frame(height: UIScreen.main.bounds.height)
                     .background(Color.white)
-                    .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
+                    .shadow(color: Color("MainColor", bundle: bundle).opacity(0.5), radius: 5)
                     .cornerRadius(35)
                 
                 VStack(spacing: 20) {
@@ -25,7 +26,7 @@ struct BottomSheetView: View {
                         .resizable()
                         .imageScale(.large)
                         .frame(width: 34, height: 3)
-                        .foregroundColor(Color("MainColor"))
+                        .foregroundColor(Color("MainColor", bundle: bundle))
                     
                     
                     HStack {

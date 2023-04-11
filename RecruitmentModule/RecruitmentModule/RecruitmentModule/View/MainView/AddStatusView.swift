@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddStatusView: View {
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     @State var text: String = ""
     @State var activeStatus: String = "plus"
     @Binding var showView: Bool
@@ -19,10 +20,10 @@ struct AddStatusView: View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 35)
-                    .stroke(Color("MainColor").opacity(0.5))
+                    .stroke(Color("MainColor", bundle: bundle).opacity(0.5))
                     .frame(height: UIScreen.main.bounds.height)
                     .background(Color.white)
-                    .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
+                    .shadow(color: Color("MainColor", bundle: bundle).opacity(0.5), radius: 5)
                     .cornerRadius(35)
                 VStack {
                     HStack {
@@ -32,7 +33,7 @@ struct AddStatusView: View {
                             }
                         }, label: {
                             Text("Cancel")
-                                .foregroundColor(Color("MainColor"))
+                                .foregroundColor(Color("MainColor", bundle: bundle))
                                 .font(.system(size: 14))
                         })
                         Spacer()

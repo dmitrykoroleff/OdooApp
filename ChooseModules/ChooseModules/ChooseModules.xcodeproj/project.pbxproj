@@ -12,6 +12,8 @@
 		611422DB29D0388400DDE6E0 /* RecruitmentModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611422DA29D0388400DDE6E0 /* RecruitmentModule.framework */; };
 		611422DC29D0388400DDE6E0 /* RecruitmentModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 611422DA29D0388400DDE6E0 /* RecruitmentModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6114232B29D5983A00DDE6E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6114232A29D5983A00DDE6E0 /* Assets.xcassets */; };
+		6158A69A29E31BD50049A7AE /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6158A69929E31BD50049A7AE /* Profile.framework */; };
+		6158A69B29E31BD50049A7AE /* Profile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6158A69929E31BD50049A7AE /* Profile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61BB924A29BDDDA3006AFDF4 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BB924129BDDDA2006AFDF4 /* ChooseModules.framework */; };
 		61BB924F29BDDDA3006AFDF4 /* ChooseModulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB924E29BDDDA3006AFDF4 /* ChooseModulesTests.swift */; };
 		61BB925029BDDDA3006AFDF4 /* ChooseModules.h in Headers */ = {isa = PBXBuildFile; fileRef = 61BB924429BDDDA2006AFDF4 /* ChooseModules.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,6 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6158A69B29E31BD50049A7AE /* Profile.framework in Embed Frameworks */,
 				611422D829D0387F00DDE6E0 /* CRMModule.framework in Embed Frameworks */,
 				611422DC29D0388400DDE6E0 /* RecruitmentModule.framework in Embed Frameworks */,
 			);
@@ -57,6 +60,7 @@
 		611422D629D0387F00DDE6E0 /* CRMModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CRMModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		611422DA29D0388400DDE6E0 /* RecruitmentModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RecruitmentModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6114232A29D5983A00DDE6E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6158A69929E31BD50049A7AE /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB924129BDDDA2006AFDF4 /* ChooseModules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChooseModules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB924429BDDDA2006AFDF4 /* ChooseModules.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseModules.h; sourceTree = "<group>"; };
 		61BB924929BDDDA3006AFDF4 /* ChooseModulesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChooseModulesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,7 @@
 		611422D529D0387F00DDE6E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6158A69929E31BD50049A7AE /* Profile.framework */,
 				611422DA29D0388400DDE6E0 /* RecruitmentModule.framework */,
 				611422D629D0387F00DDE6E0 /* CRMModule.framework */,
 			);

@@ -9,23 +9,23 @@ import SwiftUI
 
 struct BottomBarView: View {
     @State var text: String = ""
-    
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
     var body: some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 35)
-                    .stroke(Color("MainColor").opacity(0.5))
+                    .stroke(Color("MainColor", bundle: bundle).opacity(0.5))
                     .frame(height: UIScreen.main.bounds.height)
                     .background(Color.white)
-                    .shadow(color: Color("MainColor").opacity(0.5), radius: 5)
+                    .shadow(color: Color("MainColor", bundle: bundle).opacity(0.5), radius: 5)
                     .cornerRadius(35)
                 VStack {
                     HStack {
                         Button(action: {}, label: {
                             Text("Cancel")
-                                .foregroundColor(Color("MainColor"))
+                                .foregroundColor(Color("MainColor", bundle: bundle))
                                 .font(.system(size: 14))
                         })
                         Spacer()
