@@ -87,7 +87,7 @@ public struct StatusView: View {
                                 Text(currentStatus.name)
                                     .font(.title)
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color("Headings"))
+                                    .foregroundColor(Color("Headings", bundle: bundle))
                                 Spacer()
                             }
                             .padding(.horizontal)
@@ -124,7 +124,7 @@ public struct StatusView: View {
                                             }
                                             
                                         } label: {
-                                            Image("delete")
+                                            Image("delete", bundle: bundle)
                                                 .resizable()
                                             
                                         }
