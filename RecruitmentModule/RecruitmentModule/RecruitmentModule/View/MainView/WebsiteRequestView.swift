@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct WebsiteRequestView: View { //надо переименовать
     @ObservedObject var shared: LogicR
-    
+    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
 //    var nam = {
 //        var jsonRes = LogicR().dataRecr["result"] as? [String : Any]
 //        var jsonRecords = jsonRes?["records"] as? Array<Any>

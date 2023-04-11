@@ -165,11 +165,10 @@ public struct ChooseModuleView: View {
                                     height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
                         
                         // каруселька
-                        
-                    }
-                    //                    NavigationLink(destination: CRMModule.StatusView(), label: {
-                    NavigationLink(destination: RecruitmentModule.RecruitmentView().environmentObject(LogicR()).onAppear{LogicR().getData()}, label: {
-                        CarouselModulesView(spacing: 15, trailingSpace: 30, index: $currentIndex, items: modules, currentOffset: $curruntOffset, addFavModule: $addFavModule) { module in
+                        CarouselModulesView(spacing: 15, trailingSpace: 30,
+                                            index: $currentIndex, items: modules,
+                                            currentOffset: $curruntOffset,
+                                            addFavModule: $addFavModule) { module in
                             GeometryReader { proxy in
                                 let size = proxy.size
                                
@@ -327,6 +326,7 @@ public struct ChooseModuleView: View {
             }
             .ignoresSafeArea(.keyboard)
         }
+        
         
     } //end of body
     
