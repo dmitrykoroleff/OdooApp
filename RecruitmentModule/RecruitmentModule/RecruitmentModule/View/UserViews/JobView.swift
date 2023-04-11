@@ -11,6 +11,14 @@ struct JobView: View {
     @State var user: User
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
+    var job: [Int: String] = [:]
+    var department: [Int: String] = [:]
+    var recruiter: [Int: String] = [:]
+    var hireDate: [Int: String] = [:]
+    var eSalary: [Int: Int] = [:]
+    var pSalary: [Int: Int] = [:]
+    var appreciation: [Int: String] = [:]
+    var index: Int = 0
     var body: some View {
         
             VStack {
@@ -46,18 +54,53 @@ struct JobView: View {
                         .frame(width: width/3)
                         Divider()
                         VStack(alignment: .leading, spacing: 10) {
-                            
-                            ForEach(jobs, id: \.self) {job in
-                                if job == "Appecietion" {
-                                    HStack {
-                                        Image(systemName: "star.fill")
-                                        Image(systemName: "star.fill")
-                                        Image(systemName: "star")
-                                            .foregroundColor(.black)
+                            ForEach(jobs, id: \.self) {jobss in
+                                if jobss == "Appecietion" {
+                                    if appreciation[index]! == "1" {
+                                        HStack {
+                                            Image(systemName: "star.fill")
+                                            Image(systemName: "star")
+                                            Image(systemName: "star")
+//                                                .foregroundColor(.black)
+                                        }.foregroundColor(.yellow)
+                                    } else if appreciation[index]! == "2" {
+                                        HStack {
+                                            Image(systemName: "star.fill")
+                                            Image(systemName: "star.fill")
+                                            Image(systemName: "star")
+//                                                .foregroundColor(.black)
+                                        }.foregroundColor(.yellow)
+                                    } else if appreciation[index]! == "3" {
+                                        HStack {
+                                            Image(systemName: "star.fill")
+                                            Image(systemName: "star.fill")
+                                            Image(systemName: "star.fill")
+//                                                .foregroundColor(.black)
+                                        }.foregroundColor(.yellow)
                                     }
-                                    .foregroundColor(.yellow)
-                                } else {
-                                    Text(user.jobs[job]!)
+                                    else {
+                                        HStack {
+                                            Image(systemName: "star")
+                                            Image(systemName: "star")
+                                            Image(systemName: "star")
+//                                                .foregroundColor(.black)
+                                        }.foregroundColor(.yellow)
+                                    }
+                                }
+                                else if jobss == "Applied job" {
+                                    Text(job[index]!)
+                                }
+                                else if jobss == "Department" {
+                                    Text(department[index]!)
+                                }
+                                else if jobss == "Recruter"{
+                                    Text(recruiter[index]!)
+                                }
+                                else if jobss == "Hire date" {
+                                    Text(hireDate[index]!)
+                                }
+                                else {
+                                    Text(" ")
                                 }
                             }
                         }
@@ -83,8 +126,8 @@ struct JobView: View {
                         .frame(width: width/3)
                         Divider()
                         VStack(alignment: .leading, spacing: 10) {
-                            Text("0.00")
-                            Text("0.00")
+                            Text("\(eSalary[index]!)")
+                            Text("\(pSalary[index]!)")
                         }
                         Spacer()
                     }

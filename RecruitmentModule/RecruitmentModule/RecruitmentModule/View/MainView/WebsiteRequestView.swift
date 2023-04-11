@@ -7,11 +7,16 @@
 
 import SwiftUI
 
-struct WebsiteRequestView: View { //надо переименовать
+public struct WebsiteRequestView: View { //надо переименовать
+    @ObservedObject var shared: LogicR
     
-    
-    
-    
+//    var nam = {
+//        var jsonRes = LogicR().dataRecr["result"] as? [String : Any]
+//        var jsonRecords = jsonRes?["records"] as? Array<Any>
+//        var js = jsonRecords?[0] as? [String : Any]
+//        var jjj = js?["partner_name"] as? String ?? "axm"
+//        return jjj
+//    }
     @State var showBottomBar = false
     @State var searchIsActive = false
     @State var showAdditionalStatuses = false
@@ -21,7 +26,7 @@ struct WebsiteRequestView: View { //надо переименовать
     @State var searchQuery = ""
     @State var currentStatus: Status = statuses[0]
     
-    var body: some View {
+    public var body: some View {
     
             NavigationView {
                 ZStack(alignment: .bottomTrailing) {
@@ -69,7 +74,7 @@ struct WebsiteRequestView: View { //надо переименовать
                         .padding()
                         .offset(y: searchIsActive ? -(height / 2) : 0)
                         HStack {
-                            Text(currentStatus.name) //hardcode
+                            Text("Name") //hardcode
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("Headings"))
@@ -140,15 +145,32 @@ struct WebsiteRequestView: View { //надо переименовать
                                 //Прогрессбар немного залезает на карточку :(
                                     .padding(10)
                             }
-                            ScrollView(.vertical, showsIndicators: false) {
-                                ForEach(someDict[currentStatus.name] ?? []) { user in //someDict == users
-                                    NavigationLink(destination: UserView(user: testUser)) {
-                                        UserCardView(userCard: user, statusImage: currentStatus.image)
+//                            ScrollView(.vertical, showsIndicators: false)  {
+//                                ForEach(0..<(shared.stageId["Initial Qualification"]?.count ?? 0)) { user in //someDict == users
+//                                    NavigationLink(destination: UserView(user: testUser)) {
+//                                        UserCardView(userCard: user, statusImage: currentStatus.image)
+//                                    }
+//                                    .foregroundColor(.black)
+//                                }
+//                            }
+//                            .onAppear { shared.getData() }
+//                            .edgesIgnoringSafeArea(.bottom)
+                            ScrollView(.vertical, showsIndicators: false)  {
+                                if self.shared.stageId["Initial Qualification"]?.count ?? 0 > 0 {
+                                    ForEach(0..<(self.shared.stageId["Initial Qualification"]?.count ?? 0)) { user in //someDict == users
+                                        NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, index: self.shared.stageId["Initial Qualification"]![user])) {
+                                            UserTestCard(index: self.shared.stageId["Initial Qualification"]![user], array: self.shared.names, appreciation: self.shared.appreciation, shared: LogicR(), statusImage: currentStatus.image).environmentObject(LogicR())
+                                        }
+                                        .foregroundColor(.black)
                                     }
-                                    .foregroundColor(.black)
+                                }
+                                else {
+                                    Text("Loading...")
                                 }
                             }
+                            .onAppear { self.shared.getData() }
                             .edgesIgnoringSafeArea(.bottom)
+                            
                             
                         }
                         .offset(y: searchIsActive ? -(height / 8) : 0)
@@ -295,7 +317,7 @@ struct WebsiteRequestView: View { //надо переименовать
                             .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnded(value:)))
                     }
                     
-                }
+                }.navigationBarBackButtonHidden(true)
             }
         
     }
@@ -312,7 +334,6 @@ struct WebsiteRequestView: View { //надо переименовать
                 showBottomBar.toggle()
                 offSet = 0
             }
-            
         }
     }
     
@@ -338,9 +359,9 @@ struct WebsiteRequestView: View { //надо переименовать
     //    }
     
 }
-
-struct WebsiteRequestView_Previews: PreviewProvider {
-    static var previews: some View {
-        WebsiteRequestView()
-    }
-}
+//
+//struct WebsiteRequestView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WebsiteRequestView()
+//    }
+//}

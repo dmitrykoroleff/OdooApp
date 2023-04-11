@@ -30,6 +30,7 @@ let jobs = [
     "Test task"
 ]
 
+
 var testUser = User(id: UUID(),name: "Arina Shoshina", email: "aashoshina@miem.hse.ru", phone: "+79013686745",
                     jobs: [
     "Applied job" : "УЛ СВТ",

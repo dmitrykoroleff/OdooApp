@@ -141,7 +141,7 @@ struct StudentView: View {
                         ScrollView(.vertical, showsIndicators: false) {
                             ForEach(users) { user in
                                 NavigationLink(destination: UserView(user: testUser)) {
-                                    UserCardView(userCard: user, statusImage: statuses[0].image)
+                                    UserCardView(userCard: user, shared: LogicR(), statusImage: statuses[0].image)
                                 }
                                 .foregroundColor(.black)
                             }

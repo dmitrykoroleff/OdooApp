@@ -145,7 +145,7 @@ struct UnauthenticatedView: View {
 
                         }
                     }.sheet(isPresented: $modelCookie.isPresent) {
-                        Webview(url: URL(string: "\(str1)\(str2)\(str3)")!, modelCookie: modelCookie)
+                        Webview(modelCookie: modelCookie)
                     }
                 }
                 .padding(.horizontal, 28)

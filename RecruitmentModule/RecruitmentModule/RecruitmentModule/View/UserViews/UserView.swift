@@ -18,6 +18,21 @@ struct UserView: View {
     @State var offSet: CGFloat = 0
     @State var showBottomSheet = false
     @State var showAddSchedule = false
+    var name: [Int: String] = [:]
+    var job: [Int: String] = [:]
+    var phone: [Int: String] = [:]
+    var department: [Int: String] = [:]
+    var recruiter: [Int: String] = [:]
+    var hireDate: [Int: String] = [:]
+    var eSalary: [Int: Int] = [:]
+    var pSalary: [Int: Int] = [:]
+    var description: [Int: String] = [:]
+    var appreciation: [Int: String] = [:]
+    var deadline: [Int: String] = [:]
+    var summary: [Int: String] = [:]
+    var index: Int = 0
+    
+    
     
     var body: some View {
         ZStack {
@@ -29,22 +44,29 @@ struct UserView: View {
                         .frame(width: 64, height: 22)
                     Spacer()
                         .frame(height: height/80)
-                    Text(user.name)
+                    Text(name[index]!)
                         .font(.system(size: 20, weight: .bold))
-                    Text(user.email)
+                    Text("email")
                         .font(.system(size: 14))
                         .foregroundColor(.gray)
                         .underline()
-                    Text(user.phone)
-                        .font(.system(size: 14))
-                        .foregroundColor(.gray)
+                    if phone[index] == "" {
+                        Text("none")
+                            .font(.system(size: 14))
+                            .foregroundColor(.gray)
+                    }
+                    else {
+                        Text(phone[index]!)
+                            .font(.system(size: 14))
+                            .foregroundColor(.gray)
+                    }
                     Spacer()
                 }
                 .frame(height: height/6)
                 Spacer()
                 TabView {
-                    JobView(user: user)
-                    SummaryView(user: testUser)
+                    JobView(user: user, job: job, department: department, recruiter: recruiter, hireDate: hireDate, eSalary: eSalary, pSalary: pSalary, appreciation: appreciation, index: index)
+                    SummaryView(user: testUser, description: description, index: index)
 //                    LogNoteView(user: testUser, notes: notes)
                     //LogNoteView
                     VStack(alignment: .center) {
@@ -221,8 +243,8 @@ struct UserView: View {
     }
 }
 
-struct UserView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserView(user: testUser)
-    }
-}
+//struct UserView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserView(user: testUser, name: LogicR().names)
+//    }
+//}

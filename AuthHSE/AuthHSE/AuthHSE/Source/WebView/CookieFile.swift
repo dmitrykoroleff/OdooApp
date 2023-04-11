@@ -9,7 +9,9 @@ import Foundation
 import Alamofire
 import SwiftUI
 
-open class CookieFile: ObservableObject {
+public class CookieFile: ObservableObject {
+    
+    public init() { }
     
     @AppStorage("auth") var authenticated = false {
         willSet { objectWillChange.send() }
@@ -60,30 +62,29 @@ open class CookieFile: ObservableObject {
     func logOut() {
         deleteCookies(forURL: URL(string: urlGet)!)
         self.authenticated.toggle()
-        
     }
     
     func getUrl(url: String) {
         self.urlGet = url
     }
     
-    func getError() {
+    public func getError() {
         let json: [String: Any] = ["id": 100,
                                    "jsonrpc": "2.0",
                                    "method": "call",
                                    "params": [
-                                        "domain": [],
-                                        "fields": ["id", "user_id", "x_favourite_modules"],
-                                        "model": "res.users.settings"]]
+                                    "domain": [],
+                                    "fields": ["id", "name", "child_id", "parent_id", "groups_id"],
+                                    "model": "ir.ui.menu"]]
 //        let url = URL(string: self.urlGet)
 //        let jsonData = try? JSONSerialization.data(withJSONObject: json)
 //        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
 //            guard let data = data else { return }
 //            print(data)
-        let ur1 = "https://odoo.miem.tv/"
-        let ur2 = "web/dataset/search_read"
-        AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
-            switch response.result {
+            let ur1 = "https://crm.auditory.ru/"
+            let ur2 = "web/dataset/search_read"
+            AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
+                switch response.result {
                 case .success(let data):
                     do {
                         guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
@@ -99,9 +100,9 @@ open class CookieFile: ObservableObject {
                             print("Error: Could print JSON in String")
                             return
                         }
-                        if jsonObject["error"] != nil {
+//                        print(jsonObject)
+                        if jsonObject["error"] != nil  {
                             self.validUrl = false
-                            print(self.validUrl)
                         }
                         
                     } catch {
@@ -110,15 +111,15 @@ open class CookieFile: ObservableObject {
                     }
                 case .failure(let error):
                     print(error)
+                    self.validUrl = false
+                }
             }
-        }
+//        }
+        
     }
-            
-    
     
     enum Result {
         case success(HTTPURLResponse, Data)
         case failure(Error)
     }
-    
 }

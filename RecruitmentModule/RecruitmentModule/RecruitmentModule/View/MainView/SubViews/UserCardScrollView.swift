@@ -15,7 +15,7 @@ struct UserCardScrollView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(userCards) { userCard in
                     NavigationLink(destination: EmptyView()) {
-                        UserCardView(userCard: userCard, statusImage: statuses[0].image)
+                        UserCardView(userCard: userCard, shared: LogicR(), statusImage: statuses[0].image).environmentObject(LogicR())
                     }
                     .foregroundColor(.black)
                 }

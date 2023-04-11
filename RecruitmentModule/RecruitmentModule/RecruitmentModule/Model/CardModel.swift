@@ -23,13 +23,13 @@ struct UserCard: Identifiable, Hashable {
     
     func getUserStatus() -> String {
         switch userStatus {
-            case "Website request":
+            case "Initial Qualification":
                 return "globe"
-            case "In communication":
+            case "Contract Proposal":
                 return "bubble.left.and.bubble.right"
-            case "Testing period":
+            case "Second Interview":
                 return "gearshape"
-            case "Student":
+            case "First Interview":
                 return "graduationcap"
             default:
                 return "unknown"
@@ -38,8 +38,8 @@ struct UserCard: Identifiable, Hashable {
 }
 // Надо подумать как лучше форомить статусы и связать их с пользователем
 
-var userCards: [UserCard] = (0..<10).map({ _ in
-    UserCard(fullName: "Arina Shoshina", userStatus: "Website request")
+var userCards: [UserCard] = (0..<10).map({ ind in
+    UserCard(fullName: "\(ind)", userStatus: "Website request")
 })
 
 var userCardsinCommunication: [UserCard] = (0..<10).map({ _ in         //Просто для теста

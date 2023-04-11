@@ -11,7 +11,7 @@ import WebKit
 import Alamofire
 
 struct Webview: UIViewControllerRepresentable {
-    let url: URL
+    let url: URL = URL(string: "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?response_type=token&client_id=crm.auditory.ru&redirect_uri=https://crm.auditory.ru/auth_oauth/signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Fcrm.auditory.ru%252Fweb%22%7D")!
     @ObservedObject var modelCookie: CookieFile
 //    private var httpCookieStore: WKHTTPCookieStore  { return WKWebsiteDataStore.default().httpCookieStore }
     func makeUIViewController(context: Context) -> WebviewController {
@@ -29,9 +29,9 @@ class WebviewController: UIViewController, WKNavigationDelegate {
     @ObservedObject var modelCookie: CookieFile
     lazy var webview: WKWebView = WKWebView()
     lazy var progressbar: UIProgressView = UIProgressView()
-    var str1: String = "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?"
-    var str2: String = "response_type=token&client_id=odoo.miem.tv&redirect_uri=https://odoo.miem.tv/auth_oauth/"
-    var str3: String = "signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Fodoo.miem.tv%252Fweb%22%7D"
+    var str1: String = "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?response_type=token&client_id=crm.auditory.ru&redirect_uri=https://"
+    var str2: String = "crm.auditory.ru/auth_oauth/signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22"
+    var str3: String = "%3A+%22https%253A%252F%252Fcrm.auditory.ru%252Fweb%22%7D"
     init(modelCookie: CookieFile) {
         self.modelCookie = modelCookie
         super.init(nibName: nil, bundle: nil)
@@ -70,7 +70,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
     }
 
     func URLWeb(webView: WKWebView) -> String {
-        if (webView.url?.host)! == "odoo.miem.tv" && modelCookie.sessionID.isEmpty {
+        if (webView.url?.host)! == "crm.auditory.ru" && modelCookie.sessionID.isEmpty{
             webView
             let aString = webview.url!.absoluteString
             let newUrl = aString.replacingOccurrences(of: "#", with: "?", options: .literal, range: nil)
@@ -82,9 +82,9 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                                        "jsonrpc": "2.0",
                                        "method": "call",
                                        "params": [
-                                       "domain": [],
-                                       "fields": ["id", "name", "child_id", "parent_id", "groups_id"],
-                                       "model": "ir.ui.menu"]]
+                                        "domain": [],
+                                        "fields": ["id", "name", "child_id", "parent_id", "groups_id"],
+                                        "model": "ir.ui.menu"]]
             
             let jsonData = try? JSONSerialization.data(withJSONObject: json)
             executeURLRequest(url: url!) { result in
@@ -93,7 +93,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                     var request = URLRequest(url: url!)
                     request.httpMethod = "POST"
                     request.httpBody = jsonData
-                    let ur1 = "https://odoo.miem.tv/"
+                    let ur1 = "https://crm.auditory.ru/"
                     let ur2 = "web/dataset/search_read"
                     AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
                         switch response.result {
@@ -112,15 +112,16 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                                         print("Error: Could print JSON in String")
                                         return
                                     }
-                                    print("RESULT: ", jsonObject["error"])
-                                    print("RESULT2: ", jsonObject["result"])
-                                    print("RESULT3: ", jsonObject)
+//                                    print("RESULT: ", jsonObject["error"])
+//                                    print("RESULT2: ", jsonObject["result"])
+//                                    print("RESULT3: ", jsonObject)
                                 } catch {
                                     print("Error: Trying to convert JSON data to string")
                                     return
                                 }
                             case .failure(let error):
                                 print(error)
+                                self.modelCookie.validUrl = false
                         }
                     }
                     cookies = self.readCookie(forURL: url!)
@@ -166,7 +167,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
 //            }
             if let response = response as? HTTPURLResponse,
                 let data = data {
-                if response.url!.absoluteString == "https://odoo.miem.tv/ru/web/login?oauth_error=2" {
+                if response.url!.absoluteString == "https://crm.auditory.ru/ru/web/login?oauth_error=2" {
                     return
                 }
                 completion(.success(response, data))

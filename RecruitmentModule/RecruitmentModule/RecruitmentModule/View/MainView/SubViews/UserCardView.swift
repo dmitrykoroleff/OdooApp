@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct UserCardView: View {
-    @State var userCard: UserCard
+    var index: Int = 0
+    @State var userCard = UserCard(fullName: "Arina Shoshina", userStatus: "websiteRequest")
+    @ObservedObject var shared: LogicR
+//    var nam = {
+//        var jsonRes = LogicR().dataRecr["result"] as? [String : Any]
+//        var jsonRecords = jsonRes?["records"] as? Array<Any>
+//        var jsb = jsonRecords?[0] as? [String : Any] ?? ["":0]
+//        var stage = jsb["partner_name"] as? String ?? " p"
+//        return stage
+//    }
     var statusImage: String
     var body: some View {
         HStack {
             VStack(alignment: .center) {
                 
-                Text(userCard.fullName)
+                Text("\(index)")
                     .foregroundColor(Color(hex: 0x282F33))
                 //.font(Font.custom("Inter", size: 16))
                     .font(.system(size: 18, weight: .semibold))
-                
-                
-                
-                
                 Spacer()
                 HStack {
                     ForEach(1..<4, id: \.self) { number in
@@ -65,8 +70,8 @@ struct UserCardView: View {
     }
 }
 
-struct PersonCard_Previews: PreviewProvider {
-    static var previews: some View {
-        UserCardView(userCard: UserCard(fullName: "Arina Shoshina", userStatus: "websiteRequest"), statusImage: statuses[0].image)
-    }
-}
+//struct PersonCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserCardView(userCard: UserCard(fullName: "Arina Shoshina", userStatus: "websiteRequest"), shared: LogicR(), statusImage: statuses[0].image).environmentObject(LogicR())
+//    }
+//}

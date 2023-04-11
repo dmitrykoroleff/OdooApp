@@ -12,7 +12,7 @@ public struct RecruitmentView: View {
         
     }
     public var body: some View {
-        WebsiteRequestView()
+        WebsiteRequestView(shared: LogicR())
     }
     
     

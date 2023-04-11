@@ -14,12 +14,14 @@ struct AppView: View {
 //        metricaStart()
     }
     var body: some View {
-        AuthHSE.AuthView()
+        AuthHSE.AuthView().onAppear {
+            CookieFile().getError()
+        }
     }
     
     func metricaStart() {
         let configuration = YMMYandexMetricaConfiguration.init(apiKey: "ecbc98ca-f03d-4409-a73a-fd6f48d2dc33")
-//            YMMYandexMetrica.activate(with: configuration!)
+            YMMYandexMetrica.activate(with: configuration!)
     }
 
 }

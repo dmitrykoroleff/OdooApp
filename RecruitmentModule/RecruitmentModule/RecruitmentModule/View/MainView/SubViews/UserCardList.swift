@@ -22,7 +22,7 @@ struct UserCardList: View {
                     .opacity(0)
                     .buttonStyle(PlainButtonStyle())
                     
-                    UserCardView(userCard: userCard, statusImage: statuses[0].image)
+                    UserCardView(index: 0, userCard: userCard, shared: LogicR(), statusImage: statuses[0].image).environmentObject(LogicR())
                 }
             }
 //            .toolbar(.hidden, for: .navigationBar)

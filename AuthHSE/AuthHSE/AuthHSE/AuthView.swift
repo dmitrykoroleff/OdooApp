@@ -11,10 +11,10 @@ public struct AuthView: View {
     @StateObject private var observed = Observed()
     @StateObject private var auth = CookieFile()
     @EnvironmentObject var viewRouter: ViewRouter
-    var bool = CookieFile().getError()
+//    var bool = CookieFile().getError()
     public init() { }
     public var body: some View {
-        if !auth.authenticated && !auth.validUrl {
+        if !auth.authenticated {
             UnauthenticatedView(model: observed.getUnauthenticatedViewModel())
             
         } else {
