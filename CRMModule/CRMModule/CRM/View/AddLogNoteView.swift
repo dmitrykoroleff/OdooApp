@@ -34,8 +34,8 @@ struct AddLogNoteView: View {
                         }
                     }, label: {
                         Text("Cancel")
+                            .fontWeight(.semibold)
                             .foregroundColor(Color("MainColor", bundle: bundle))
-                            .font(.system(size: 14))
                     })
                     Spacer()
                     Button(action: {
@@ -46,8 +46,9 @@ struct AddLogNoteView: View {
                         }
                     }, label: {
                         Text("Done")
+                            .fontWeight(.medium)
                             .foregroundColor(.gray)
-                            .font(.system(size: 14))
+                            .font(.system(size: 16))
                     })
                 }
                 Spacer()

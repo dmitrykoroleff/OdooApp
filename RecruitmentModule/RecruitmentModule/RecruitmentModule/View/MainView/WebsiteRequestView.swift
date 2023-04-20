@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Profile
 
 public struct WebsiteRequestView: View { //надо переименовать
     @ObservedObject var shared: LogicR
@@ -27,8 +28,6 @@ public struct WebsiteRequestView: View { //надо переименовать
     @State var currentStatus: Status = statuses[0]
     
     public var body: some View {
-    
-            NavigationView {
                 ZStack(alignment: .bottomTrailing) {
                     VStack(alignment: .center) {
                         Image("logo", bundle: bundle)
@@ -54,22 +53,22 @@ public struct WebsiteRequestView: View { //надо переименовать
                             
                             Spacer()
                             
-                            Button {
-                                
-                            } label: {
+                           
+                            NavigationLink(destination: Profile.ProfileView()) {
                                 ZStack {
-                                    
-                                    Circle()
-                                        .foregroundColor(Color("MainColor", bundle: bundle))
-                                        .frame(width: 40, height: 40)
-                                    
-                                    Text("A") // Хардкод
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.white)
-                                    
+                                        
+                                        Circle()
+                                            .foregroundColor(Color("MainColor", bundle: bundle))
+                                            .frame(width: 40, height: 40)
+                                        
+                                        Text("A") // Хардкод
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.white)
+                                        
                                 }
                             }
+                            
                         }
                         .padding()
                         .offset(y: searchIsActive ? -(height / 2) : 0)
@@ -316,8 +315,7 @@ public struct WebsiteRequestView: View { //надо переименовать
                         //                    .offset(y: showBottomBar ? 0: height)
                             .gesture(DragGesture().onChanged(onChanged(value:)).onEnded(onEnded(value:)))
                     }
-                    
-                }.navigationBarBackButtonHidden(true)
+
             }
         
     }

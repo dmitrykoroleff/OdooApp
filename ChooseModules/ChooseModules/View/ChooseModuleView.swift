@@ -21,6 +21,9 @@ public struct ChooseModuleView: View {
     @State var liked = false
     @State var openProfile = false
     @State var openModule: String? = nil
+    var gradient1: Gradient
+    var gradient2: Gradient
+    @State private var progression: CGFloat = 0
     
     let colors: [Color] = [Color("CardColor1", bundle: bundle),
                            Color("CardColor2", bundle: bundle),
@@ -36,6 +39,16 @@ public struct ChooseModuleView: View {
     
     public init() {
         modules = Modules.sampleData
+        self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
+                                        Color("GradientColor2", bundle: bundle),
+                                        Color("GradientColor3", bundle: bundle),
+                                        Color("GradientColor4", bundle: bundle),
+                                        Color("GradientColor1", bundle: bundle)])
+        self.gradient2 = Gradient(colors:[Color("GradientColor4", bundle: bundle),
+                                         Color("GradientColor1", bundle: bundle),
+                                         Color("GradientColor2", bundle: bundle),
+                                         Color("GradientColor3", bundle: bundle),
+                                         Color("GradientColor4", bundle: bundle)])
         
     }
     
@@ -56,7 +69,8 @@ public struct ChooseModuleView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 64, height: 22)
-                            .offset(y: height < 700 ? 24 : 0)
+                            .offset(y: height < 700 ? 30 : 0)
+                            .offset(y: 10)
                         
                         HStack {
                             
@@ -95,15 +109,15 @@ public struct ChooseModuleView: View {
                             }
                             
                         }
-                        
+                        .padding(.horizontal, 30)
                         .background(
                             NavigationLink(destination: Profile.ProfileView(), isActive: $openProfile) {
                                 
                             }
                                 .hidden()
                         )
-                        .padding()
                         .offset(y: searchIsActive ? -(height / 2) : 0)
+                        .offset(y: height < 700 ? 40 : 0)
                         
                         HStack {
                             Text("Choose module")
@@ -112,8 +126,9 @@ public struct ChooseModuleView: View {
                                 .foregroundColor(Color("Headings", bundle: bundle))
                             Spacer()
                         }
-                        .padding(.horizontal)
+                        .padding(.horizontal, 30)
                         .offset(y: searchIsActive ? -(height / 2) : 0)
+                        .offset(y: height < 700 ? 40 : 0)
                         
                         HStack(spacing: 15) {
                             
@@ -127,6 +142,7 @@ public struct ChooseModuleView: View {
                             })
                             
                         }
+                        .padding(.horizontal)
                         .background {
                             ZStack {
                                 Color.white
@@ -159,117 +175,171 @@ public struct ChooseModuleView: View {
                         }
                         .padding(.vertical)
                         .padding(.horizontal, 30)
-                        .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 6) :
-                                    height > 700 && height < 800 ? -(height / 7) :
-                                    height > 800 && height < 850 ? -(height / 7.3) :
-                                    height > 850 && height < 900 ? -(height / 8) : -(height / 9) : 0)
-                        
+                        .offset(y: searchIsActive ? height > 600 && height < 700 ? -(height / 8.8) :
+                                    height > 700 && height < 800 ? -(height / 8.3) :
+                                    height > 800 && height < 850 ? -(height / 9.1) :
+                                    height > 850 && height < 900 ? -(height / 8.8) : -(height / 9.8) : 0)
+                        .offset(y: height < 700 && !searchIsActive ? 40 : 0)
                         // каруселька
-                        CarouselModulesView(spacing: 15, trailingSpace: 30,
-                                            index: $currentIndex, items: modules,
-                                            currentOffset: $curruntOffset,
-                                            addFavModule: $addFavModule) { module in
-                            GeometryReader { proxy in
-                                let size = proxy.size
-                               
-                                    
-                                ZStack {
-                                                                        
-                                    
-                                    Rectangle()
-                                        .foregroundColor(colors[Int(generateColorFor(text:
-                                                                                        module.name, colors: colors))]) // Хардкод
-                                    
-                                    
-                                    Button(action: {
-                                        openModule = module.name
-                                    }) {
-                                    VStack(alignment: .leading, spacing: 15) {
+                        TabView(selection: $currentIndex) {
+                            
+                            
+                            
+                            ForEach(Array(modules.enumerated()), id: \.offset) { offset, element in
+                                
+                                GeometryReader { _ in
+                                    ZStack {
                                         
-                                        HStack {
-                                            
-                                            Spacer()
-                                            
-                                            Image(systemName: "heart.fill")
-                                                .resizable()
-                                                .imageScale(.large)
-                                                .foregroundColor(.white)
-                                                .frame(width: height > 600 && height < 700 ? 20
-                                                       : height > 700 && height < 800 ? 21 :
-                                                        height > 800 && height < 900 ? 22 :
-                                                        25, height: height > 600 && height <
-                                                       700 ? 20 : height > 700 && height <
-                                                       800 ? 21 : height > 800 && height <
-                                                       900 ? 22 : 25)
-                                            
+                                        
+                                        Rectangle()
+                                            .foregroundColor(colors[Int(generateColorFor(text:
+                                                                                            element.name, colors: colors))]) // Хардкод
+                                        
+                                        
+                                        Button(action: {
+                                            openModule = element.name
+                                        }) {
+                                            VStack(alignment: .leading, spacing: 15) {
+                                                
+                                                HStack {
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Image(systemName: "heart.fill")
+                                                        .resizable()
+                                                        .imageScale(.large)
+                                                        .foregroundColor(.white)
+                                                        .frame(width: height > 600 && height < 700 ? 20
+                                                               : height > 700 && height < 800 ? 21 :
+                                                                height > 800 && height < 900 ? 22 :
+                                                                25, height: height > 600 && height <
+                                                               700 ? 20 : height > 700 && height <
+                                                               800 ? 21 : height > 800 && height <
+                                                               900 ? 22 : 25)
+                                                    
+                                                }
+                                                
+                                                .padding()
+                                                .padding(.top, height > 600 && height < 700 ? 2 :
+                                                            height > 700 && height < 800 ? 2 :
+                                                            height > 800 && height < 900 ? 3 : 5)
+                                                .padding(.trailing, height > 600 && height < 700
+                                                         ? 2 : height > 700 && height < 800 ? 2 :
+                                                            height > 800 && height < 900 ? 3 : 5)
+                                                
+                                                
+                                                Text(element.name).font(.title) /// Хардкод
+                                                    .fontWeight(.bold)
+                                                    .padding(.horizontal, 30)
+                                                    .offset(y: -20)
+                                                    .foregroundColor(.white)
+                                                
+                                                
+                                                let viewModule = element.view
+                                                Text(String(element.notifications) + " New Notifications") // Хардкод
+                                                    .font(.body)
+                                                    .fontWeight(.regular)
+                                                    .foregroundColor(.white)
+                                                    .padding(.horizontal, 30)
+                                                    .offset(y: -20)
+                                                    .background(
+                                                        Color.white
+                                                            .frame(height: 1)
+                                                            .offset(y: 10)
+                                                            .padding(.horizontal, 30)
+                                                            .offset(y: -20)
+                                                    )
+                                                
+                                                Spacer()
+                                                
+                                            }
                                         }
                                         
-                                        .padding()
-                                        .padding(.top, height > 600 && height < 700 ? 2 :
-                                                    height > 700 && height < 800 ? 2 :
-                                                    height > 800 && height < 900 ? 3 : 5)
-                                        .padding(.trailing, height > 600 && height < 700
-                                                 ? 2 : height > 700 && height < 800 ? 2 :
-                                                    height > 800 && height < 900 ? 3 : 5)
                                         
+                                    }
+                                    .cornerRadius(20)
+                                    .padding(.vertical)
+                                    .padding(.horizontal, 40)
+                                    .frame(height: currentIndex == offset ? height / 4 + 20 : height / 4)
+                                    .offset(y: currentIndex == offset ? 0 : 10)
+                                    .animation(.easeInOut, value: currentIndex == offset)
+                                }
+                                .tag(offset)
+                            }
+                            
+                            GeometryReader { _ in
+                                
+                                ZStack {
+                                    
+                                    VStack(spacing: 10) {
                                         
-                                        Text(module.name).font(.title) /// Хардкод
-                                            .fontWeight(.bold)
-                                            .padding(.horizontal, 30).foregroundColor(.white)
+                                        Text("Add favourite module")
+                                            .fixedSize()
                                         
-                                        
-                                        let viewModule = module.view
-                                        Text(String(module.notifications) + " New Notifications") // Хардкод
-                                            .font(.body)
-                                            .fontWeight(.regular)
-                                            .foregroundColor(.white)
-                                            .padding(.horizontal, 30)
-                                            .background(
-                                                Color.white
-                                                    .frame(height: 1)
-                                                    .offset(y: 10)
-                                                    .padding(.horizontal, 30)
-                                            )
-                                        
-                                        Spacer()
-                                        
+                                        Image(systemName: "plus")
+                                            .imageScale(.large)
+                                    }
+                                    .foregroundColor(Color("MainColor", bundle: bundle))
+
+                                        animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
+                                            .onAppear{
+                                                
+                                                withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
+                                                    //MARK: animation turn off
+                                                    self.progression = 1
+                                                }
+                                                
+                                            }
+                                            .padding(.vertical)
+                                            .padding(.horizontal, 40)
+                                }
+                                .frame(height: currentIndex == modules.count ? height / 4 + 20 : height / 4)
+                                .offset(y: currentIndex == modules.count ? 0 : 10)
+                                .animation(.easeInOut, value: modules.count == currentIndex)
+                                .onTapGesture {
+                                    withAnimation {
+                                        if height > 500 && height < 700 {
+                                            curruntOffset = -(height / 2.9)
+                                        } else if height < 800 && height > 700 {
+                                            curruntOffset = -(height / 2.4)
+                                        } else if height > 800 && height < 900 {
+                                            curruntOffset = -(height / 2.3)
+                                        } else {
+                                            curruntOffset = -(height / 2.2)
+                                        }
+                                        addFavModule = true
                                     }
                                 }
-                                .padding(.horizontal, 20)
-                                
-                                    }
-                                    
-                                    
-                                    .cornerRadius(20)
-                                
-                            
                             }
-                            .padding(.top, 20)
+                            .tag(modules.count)
+                            
+                            
                         }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                        .tabViewStyle(.page)
+                        .frame(height: height / 3)
+                        .offset(y: height < 700 ? 40 : 0)
                         
                         // индикаторы пролистывания карусельки
                         HStack(spacing: 10) {
-                            ForEach(modules.indices , id: \.self) { index in
+                            ForEach(Array(modules.enumerated()), id: \.offset) { offset, element in
                                 Circle()
-                                    .fill(Color.black.opacity(currentIndex == index ? 1 : 0.1))
+                                    .fill(Color.black.opacity(currentIndex == offset ? 1 : 0.1))
                                     .frame(width: 8, height: 8)
-                                    .animation(.spring(), value: currentIndex == index)
+                                    .animation(.spring(), value: currentIndex == offset)
                             }
                             Circle()
-                                .fill(Color.black.opacity(currentIndex == modules.count ? 1 : 0.1))
+                                .fill(Color.black.opacity(modules.count == currentIndex ? 1 : 0.1))
                                 .frame(width: 8, height: 8)
-                                .animation(.spring(), value: currentIndex == modules.count)
+                                .animation(.spring(), value: modules.count == currentIndex)
                         }
-                        .offset(y: height > 600 && height < 700 ? -(height / 3.4) :
-                                    height > 700 && height < 800 ? -(height / 3.2) :
-                                    height > 800 && height < 850 ? -(height / 3.1) :
-                                    height > 850 && height < 900 ? -(height / 3) : -(height / 2.7))
+                        .offset(y: -60)
+                        .offset(y: height < 700 ? 60 : 0)
                         
                         
                         Spacer()
                         
                     }
-                    .padding()
                     .padding(.top, height < 800 ? height < 700 ? 0 : 30 : 40)
                     
                     // поднимающийся лист со всеми модулями
@@ -288,17 +358,25 @@ public struct ChooseModuleView: View {
                                     addFavModule = false
                                     if -curruntOffset > 100 && -curruntOffset < maxHeight / 2 {
                                         if height > 600 && height < 700 {
-                                            curruntOffset = -maxHeight / 3
-                                        } else if height < 800 && height > 700 {
                                             curruntOffset = -maxHeight / 2.9
+                                        } else if height < 800 && height > 700 {
+                                            curruntOffset = -maxHeight / 2.4
                                         } else if height > 800 && height < 900{
-                                            curruntOffset = -maxHeight / 2.75
+                                            curruntOffset = -maxHeight / 2.3
                                         } else {
-                                            curruntOffset = -maxHeight / 2.5
+                                            curruntOffset = -maxHeight / 2.2
                                         }
-                                    } else if -curruntOffset > maxHeight / 2.4 {
+                                    } else if -curruntOffset > maxHeight / 2 {
                                         
-                                        curruntOffset = -maxHeight + 190
+                                        if height > 600 && height < 700 {
+                                            curruntOffset = -maxHeight  + 210
+                                        } else if height < 800 && height > 700 {
+                                            curruntOffset = -maxHeight  + 240
+                                        } else if height > 800 && height < 900{
+                                            curruntOffset = -maxHeight + 270
+                                        } else {
+                                            curruntOffset = -maxHeight + 300
+                                        }
                                     }
                                     else {
                                         curruntOffset = 0
@@ -335,13 +413,13 @@ public struct ChooseModuleView: View {
             self.curruntOffset = gestureOffset + lastOffset
             if addFavModule {
                 if height > 500 && height < 700 {
-                    curruntOffset = -(height / 3) + gestureOffset + lastOffset
-                } else if height < 800 && height > 700{
                     curruntOffset = -(height / 2.9) + gestureOffset + lastOffset
+                } else if height < 800 && height > 700{
+                    curruntOffset = -(height / 2.4) + gestureOffset + lastOffset
                 } else if height > 800 && height < 900 {
-                    curruntOffset = -(height / 2.75) + gestureOffset + lastOffset
+                    curruntOffset = -(height / 2.3) + gestureOffset + lastOffset
                 } else {
-                    curruntOffset = -(height / 2.5) + gestureOffset + lastOffset
+                    curruntOffset = -(height / 2.2) + gestureOffset + lastOffset
                 }
             }
         }
