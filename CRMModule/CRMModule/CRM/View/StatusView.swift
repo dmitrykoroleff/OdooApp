@@ -7,9 +7,11 @@
 
 import SwiftUI
 import SwiftUITrackableScrollView
+import Profile
 
 public struct StatusView: View {
     let bundle = Bundle(identifier: "CRM.CRMModule")
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
@@ -26,11 +28,24 @@ public struct StatusView: View {
     let taskCards: [TaskCard] = TaskCard.sampleWebsiteRequest
     @State var showBottomBar = false
     @State var showAdditionalStatuses = false
+    var gradient1: Gradient
+    var gradient2: Gradient
+    @State private var progression: CGFloat = 0
     @State private var scrollViewContentOffset = CGFloat(0)
-    public init() {}
+    public init() {
+        self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
+                                        Color("GradientColor2", bundle: bundle),
+                                        Color("GradientColor3", bundle: bundle),
+                                        Color("GradientColor4", bundle: bundle),
+                                        Color("GradientColor1", bundle: bundle)])
+        self.gradient2 = Gradient(colors:[Color("GradientColor4", bundle: bundle),
+                                         Color("GradientColor1", bundle: bundle),
+                                         Color("GradientColor2", bundle: bundle),
+                                         Color("GradientColor3", bundle: bundle),
+                                         Color("GradientColor4", bundle: bundle)])
+    }
     public var body: some View {
         
-        NavigationView {
             GeometryReader {_ in 
                 ZStack {
                     
@@ -61,9 +76,7 @@ public struct StatusView: View {
                                 
                                 Spacer()
                                 
-                                Button {
-                                    
-                                } label: {
+                                NavigationLink(destination: Profile.ProfileView()) {
                                     ZStack {
                                         
                                         Circle()
@@ -77,6 +90,7 @@ public struct StatusView: View {
                                         
                                     }
                                 }
+                            
                                 
                             }
                             .padding()
@@ -84,7 +98,7 @@ public struct StatusView: View {
                         }
                         if scrollViewContentOffset < 30 {
                             HStack {
-                                Text(currentStatus.name)
+                                Text(currentIndex == statuses.count ? "Add new status" : statuses[currentIndex].name)
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color("Headings", bundle: bundle))
@@ -142,61 +156,97 @@ public struct StatusView: View {
                         
                         Spacer()
                             
-                            HStack(spacing: 10) {
-                                ForEach(statuses.indices , id: \.self) { index in
-                                    Circle()
-                                        .fill(Color.black.opacity(currentIndex == index ? 1 : 0.1))
-                                        .frame(width: 8, height: 8)
-                                        .animation(.spring(), value: currentIndex == index)
-                                }
+                        HStack {
+                            ForEach(Array(statuses.enumerated()), id: \.offset) { offset, element in
                                 Circle()
-                                    .fill(Color.black.opacity(currentIndex == statuses.count ? 1 : 0.1))
                                     .frame(width: 8, height: 8)
-                                    .animation(.spring(), value: currentIndex == statuses.count)
+                                    .foregroundColor(currentIndex == offset ? Color.black : Color.gray)
+
                             }
+                            Circle()
+                                .frame(width: 8, height: 8)
+                                .foregroundColor(statuses.count == currentIndex ? Color.black : Color.gray)
+                        }
+                        .padding(.bottom)
                             .opacity(searchIsActive ? 0 : 1)
                             .padding(.vertical, 6)
                             .offset(y: scrollViewContentOffset < 30 && scrollViewContentOffset > 0 ? -scrollViewContentOffset : 0)
                         
-                        CarouselStatusesView(spacing: 15, trailingSpace: 10, index: $currentIndex, items: statuses, curruntAddStatusOffset: $curruntAddStatusOffset, showAdditionalStatuses: $showAdditionalStatuses, currentStatus: $currentStatus) { status in
+                        TabView(selection: $currentIndex) {
                             
-                            VStack {
-                                if scrollViewContentOffset < 30 {
-                                    CustomProgressBarView()
-                                        .offset(y: scrollViewContentOffset < 30 && scrollViewContentOffset > 0 ? -scrollViewContentOffset : 0)
-                                }
-                        
-                                TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
-                                    VStack {
-                                        ForEach(someDict[status.name] ?? []) { task in
-                                            NavigationLink(destination: TaskView(task: testTask)) {
-                                                TaskCardView(taskCard: task, statusImage: status.image)
-                                            }
-                                            .foregroundColor(.black)
-                                            .buttonStyle(.plain)
-                                            
-                                            
-                                        }
-                                        .padding(.top, 5)
+                            ForEach(Array(statuses.enumerated()), id: \.offset) { offset, element in
+                                VStack {
+                                    if scrollViewContentOffset < 30 {
+                                        CustomProgressBarView()
+                                            .offset(y: scrollViewContentOffset < 30 && scrollViewContentOffset > 0 ? -scrollViewContentOffset : 0)
                                     }
-                                    .padding(.bottom, height / 2)
+                            
+                                    TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
+                                        VStack {
+                                            ForEach(someDict[element.name] ?? []) { task in
+                                                NavigationLink(destination: TaskView(task: testTask)) {
+                                                    TaskCardView(taskCard: task, curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image)
+                                                }
+                                                .foregroundColor(.black)
+                                                
+                                                
+                                            }
+                                            .padding(.top, 5)
+                                        }
+                                        .padding(.bottom, height / 2)
+                                        
+                                        
+                                    }
+                                    .edgesIgnoringSafeArea(.bottom)
                                     
                                 }
-                                .edgesIgnoringSafeArea(.bottom)
-                                
+                                .tag(offset)
+                            }
+                            
+                            HStack {
+                                VStack {
+                                    ZStack {
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .font(Font.title.weight(.ultraLight))
+                                            .frame(width: 60, height: 60)
+                                        
+                                        animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
+                                            .onAppear{
+                                                
+                                                withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
+                                                    self.progression = 1
+                                                }
+                                                
+                                            }
+                                        
+                                    }
+                                    .frame(width: width / 1.05, height: height / 2)
+                                    .foregroundColor(Color("MainColor", bundle: bundle))
+                                    Spacer()
+                                }
+                            }
+                            .tag(statuses.count)
+                            .onTapGesture {
+                                withAnimation {
+                                    curruntAddStatusOffset = -(height)
+                                    showAdditionalStatuses = true
+                                }
                             }
                             
                         }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                        .tabViewStyle(.page)
 
                     }
                     .blur(radius: curruntOffset != 0 ? 4 : 0)
                     .disabled(curruntOffset != 0 ? true : false)
+                    .padding()
                     .onTapGesture {
                         withAnimation(Animation.easeIn(duration: 0.2)) {
                             curruntOffset = 0
                         }
                     }
-                    .padding()
                     
                     VStack {
                         Spacer()
@@ -204,29 +254,9 @@ public struct StatusView: View {
                             Spacer()
                             Button(action: {
                                 withAnimation(Animation.easeIn(duration: 0.2)){
-                                    if statuses.count + 1 <= 5 {
-                                        if height > 500 && height < 700 {
-                                            curruntOffset = -(height / 3)
-                                        } else if height < 800 && height > 700 {
-                                            curruntOffset = -(height / 2.9)
-                                        } else if height > 800 && height < 900 {
-                                            curruntOffset = -(height / 3.6)
-                                        } else {
-                                            curruntOffset = -(height / 3.5)
-                                        }
-                                    } else {
-                                        if height > 500 && height < 700 {
-                                            curruntOffset = -(height / 3)
-                                        } else if height < 800 && height > 700 {
-                                            curruntOffset = -(height / 2.9)
-                                        } else if height > 800 && height < 900 {
-                                            curruntOffset = -(height / 2.6)
-                                        } else {
-                                            curruntOffset = -(height / 2.6)
-                                        }
-                                    }
-                                    showBottomBar = true
                                     
+                                    self.mode.wrappedValue.dismiss()
+                        
                                 }
                                 
                             }, label: {
@@ -316,8 +346,8 @@ public struct StatusView: View {
                 
             }
             .ignoresSafeArea(.keyboard)
+            .navigationBarHidden(true)
         
-        }
     }
     
     func onChange() {

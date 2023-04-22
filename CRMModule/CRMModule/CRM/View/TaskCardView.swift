@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TaskCardView: View {
     @State var taskCard: TaskCard
+    @Binding var curruntOffset: CGFloat
+    @Binding var showBottomBar: Bool
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     var statusImage: String
@@ -53,15 +55,46 @@ struct TaskCardView: View {
                 .frame(height: 60)
                 
                 Spacer()
-                VStack {
-                    ZStack {
-                        Circle()
-                            .stroke(.black, lineWidth: 1)
-                            .frame(width: 30, height: 30)
-                        Image(systemName: statusImage)
+                Button {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        withAnimation(Animation.easeIn(duration: 0.2)) {
+                            if statuses.count + 1 <= 5 {
+                                if height > 500 && height < 700 {
+                                    curruntOffset = -(height / 3)
+                                } else if height < 800 && height > 700 {
+                                    curruntOffset = -(height / 2.9)
+                                } else if height > 800 && height < 900 {
+                                    curruntOffset = -(height / 3.6)
+                                } else {
+                                    curruntOffset = -(height / 3.5)
+                                }
+                            } else {
+                                if height > 500 && height < 700 {
+                                    curruntOffset = -(height / 3)
+                                } else if height < 800 && height > 700 {
+                                    curruntOffset = -(height / 2.9)
+                                } else if height > 800 && height < 900 {
+                                    curruntOffset = -(height / 2.6)
+                                } else {
+                                    curruntOffset = -(height / 2.6)
+                                }
+                            }
+                            showBottomBar = true
+                        }
                     }
+                } label: {
+                    VStack {
+                        ZStack {
+                            Circle()
+                                .stroke(.black, lineWidth: 1)
+                                .frame(width: 30, height: 30)
+                            Image(systemName: statusImage)
+                        }
+                    }
+                    .padding()
                 }
-                .padding()
+
+                
             }
             .frame(width: width - 60, height: 90)
         }
@@ -70,6 +103,6 @@ struct TaskCardView: View {
 
 struct TaskCardView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskCardView(taskCard: TaskCard(fullName: "Arina Shoshina", taskStatus: "websiteRequest"), statusImage: statuses[0].image)
+        TaskCardView(taskCard: TaskCard(fullName: "Arina Shoshina", taskStatus: "websiteRequest"), curruntOffset: .constant(0), showBottomBar: .constant(false), statusImage: statuses[0].image)
     }
 }

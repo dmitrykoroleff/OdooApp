@@ -10,7 +10,7 @@ import SwiftUI
 struct TaskView: View {
     let bundle = Bundle(identifier: "CRM.CRMModule")
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @State private var currentIndex = 0
+    @State var currentIndex = 0
     var task: Task
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
@@ -28,12 +28,9 @@ struct TaskView: View {
         ZStack {
             VStack(alignment: .center) {
                 VStack(spacing: 10) {
-                    Image("logo", bundle: bundle)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 64, height: 22)
+
                     Spacer()
-                        .frame(height: height/80)
+                    
                     Text(task.name)
                         .font(.system(size: 20, weight: .bold))
                     Text(task.price)
@@ -44,9 +41,23 @@ struct TaskView: View {
                 }
                 .frame(height: height/6)
                 Spacer()
-                TabView {
+                
+                HStack(spacing: 10) {
+                    ForEach(Array(0...3), id: \.self) { index in
+                        Circle()
+                            .fill(Color.black.opacity(currentIndex == index ? 1 : 0.1))
+                            .frame(width: 8, height: 8)
+                            .animation(.spring(), value: currentIndex == index)
+                    }
+                    
+                }
+                .offset(y: height < 700 ? -10 : -20)
+                
+                TabView(selection: $currentIndex) {
                     GeneralInformationView(task: task)
+                        .tag(0)
                     SummaryView(task: testTask)
+                        .tag(1)
                     
                     VStack(alignment: .center) {
                         Text("Log note")
@@ -96,14 +107,13 @@ struct TaskView: View {
                         Spacer()
                         
                     }
+                    .tag(2)
                     
                     ScheduleListView(scheduleTasks: scheduleTasks, showAddSchedule: $showAddSchedule, curruntAddScheduleOffset: $curruntAddScheduleOffset)
+                        .tag(3)
                     
                 }
-                .tabViewStyle(.page(indexDisplayMode: .always))
-                .onAppear {
-                    setupAppearance()
-                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
             }
             .padding(.vertical, 60)
             
@@ -148,6 +158,15 @@ struct TaskView: View {
                 }))
             
            
+        }
+        .toolbar {
+            
+            ToolbarItem(placement: .principal) {
+                Image("logo", bundle: bundle)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 64, height: 22)
+            }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {

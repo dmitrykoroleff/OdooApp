@@ -20,7 +20,7 @@ struct DropdownView: View {
             VStack {
                     HStack {
                         Text(selectionTitle)
-                            .font(.system(size: 16, weight: .semibold, design: .rounded))
+                            .font(.system(size: 14, weight: .light, design: .default))
                             .animation(.none)
                         Spacer()
                         Image(systemName: "chevron.down")
@@ -97,7 +97,7 @@ struct DropdownMenuItemView: View {
                     .font(.system(size: 14, weight: .bold))
                     .opacity(selectionId == item.id ? 1 : 0)
                 Text(item.title)
-                    .font(.system(size: 16, weight: .regular, design: .rounded))
+                    .font(.system(size: 14, weight: .light, design: .default))
 
                 Spacer()
 

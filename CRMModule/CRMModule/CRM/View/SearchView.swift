@@ -16,7 +16,7 @@ struct SearchView: View {
             ScrollView(.vertical, showsIndicators: false) {
                     ForEach(searchQuery.isEmpty ? getAllTasks() ?? [] : search(tasks: getAllTasks(), searchQuery: searchQuery)) { task in
                         NavigationLink(destination: TaskView(task: testTask)) {
-                            TaskCardView(taskCard: task, statusImage: statuses[0].image)
+                            TaskCardView(taskCard: task,curruntOffset: .constant(0), showBottomBar: .constant(false), statusImage: statuses[0].image)
                         }
                         .foregroundColor(.black)
                     }
