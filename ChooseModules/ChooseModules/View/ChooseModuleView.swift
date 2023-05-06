@@ -285,7 +285,6 @@ public struct ChooseModuleView: View {
                                             .onAppear{
                                                 
                                                 withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
-                                                    //MARK: animation turn off
                                                     self.progression = 1
                                                 }
                                                 
