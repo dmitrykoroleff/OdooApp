@@ -1,8 +1,8 @@
 //
 //  UserModel.swift
-//  RecruitmentModule
+//  CRM
 //
-//  Created by Nikita Rybakovskiy on 03.02.2023.
+//  Created by Dmitry Korolev on 13/3/2023.
 //
 
 import Foundation
@@ -30,7 +30,6 @@ let jobs = [
     "Test task"
 ]
 
-
 var testUser = User(id: UUID(),name: "Arina Shoshina", email: "aashoshina@miem.hse.ru", phone: "+79013686745",
                     jobs: [
     "Applied job" : "УЛ СВТ",
@@ -43,4 +42,3 @@ var testUser = User(id: UUID(),name: "Arina Shoshina", email: "aashoshina@miem.h
     "Source" : "",
     "Test task" : ""
 ], rating: 2)
-
