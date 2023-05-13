@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseRemoteConfig
 import CRMModule
 import RecruitmentModule
 import Profile
@@ -402,6 +403,10 @@ public struct ChooseModuleView: View {
                 .offset(y: -height/22.25)
             }
             .ignoresSafeArea(.keyboard)
+            .onAppear{
+                let result = RCValues().fetchCloudValues()
+                print(result)
+            }
         }
         
         
