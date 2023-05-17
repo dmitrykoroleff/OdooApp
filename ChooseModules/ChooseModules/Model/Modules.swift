@@ -41,7 +41,7 @@ extension Modules { // Хардкор
     
     static let sampleData: [Modules] = [
         Modules(name: "CRM", notifications: 0, view: CRMModule.StatusView()),
-        Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.RecruitmentView()),
+        Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.StatusView()),
     ]
     
 }

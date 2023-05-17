@@ -61,7 +61,7 @@ public struct ChooseModuleView: View {
                                    tag: "CRM",
                                    selection: $openModule)
                     { EmptyView() }
-                    NavigationLink(destination: RecruitmentModule.RecruitmentView(),
+                    NavigationLink(destination: RecruitmentModule.StatusView(),
                                    tag: "Recruitment",
                                    selection: $openModule)
                     { EmptyView() }

@@ -1,13 +1,13 @@
 //
 //  StatusModel.swift
-//  RecruitmentModule
+//  CRM
 //
-//  Created by Nikita Rybakovskiy on 02.02.2023.
+//  Created by Dmitry Korolev on 6/3/2023.
 //
 
 import SwiftUI
 
-struct Status: Identifiable {
+struct Status: Identifiable, Equatable {
     var id: UUID
     var image: String
     var name: String
@@ -20,13 +20,6 @@ var statuses: [Status] = [
     Status(id: UUID(), image: "gearshape", name: "Testing period"),
     Status(id: UUID(), image: "graduationcap", name: "Student"),
 ]
-
-enum UserStatus: String {
-    case websiteRequest = "globe"
-    case inCommunication = "bubble.left.and.bubble.right"
-    case testingPeriod = "gearshape"
-    case student = "graduationcap"
-}
 
 
 let additionStatuses: [[Status]] = [
