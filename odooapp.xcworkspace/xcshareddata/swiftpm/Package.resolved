@@ -64,6 +64,15 @@
       }
     },
     {
+      "identity" : "metrica-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yandexmobile/metrica-sdk-ios",
+      "state" : {
+        "revision" : "56a79b9224ead8f186834bcebe4a8a83a50ee024",
+        "version" : "3.17.0"
+      }
+    },
+    {
       "identity" : "swift-jwt",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Kitura/Swift-JWT",

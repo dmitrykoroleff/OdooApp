@@ -12,7 +12,6 @@
 		611422DB29D0388400DDE6E0 /* RecruitmentModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611422DA29D0388400DDE6E0 /* RecruitmentModule.framework */; };
 		611422DC29D0388400DDE6E0 /* RecruitmentModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 611422DA29D0388400DDE6E0 /* RecruitmentModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6114232B29D5983A00DDE6E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6114232A29D5983A00DDE6E0 /* Assets.xcassets */; };
-		6158A69A29E31BD50049A7AE /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6158A69929E31BD50049A7AE /* Profile.framework */; };
 		6158A69B29E31BD50049A7AE /* Profile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6158A69929E31BD50049A7AE /* Profile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61BB924A29BDDDA3006AFDF4 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BB924129BDDDA2006AFDF4 /* ChooseModules.framework */; };
 		61BB924F29BDDDA3006AFDF4 /* ChooseModulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB924E29BDDDA3006AFDF4 /* ChooseModulesTests.swift */; };
@@ -26,6 +25,8 @@
 		61BB926929BDDF83006AFDF4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB926829BDDF83006AFDF4 /* SearchView.swift */; };
 		61BB926B29BDDFC1006AFDF4 /* ModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB926A29BDDFC1006AFDF4 /* ModuleViewModel.swift */; };
 		61BB926D29BDDFDC006AFDF4 /* ChooseModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB926C29BDDFDC006AFDF4 /* ChooseModuleApp.swift */; };
+		61E4E10729F4375A001C17B9 /* YandexMobileMetrica in Frameworks */ = {isa = PBXBuildFile; productRef = 61E4E10629F4375A001C17B9 /* YandexMobileMetrica */; };
+		61E4E10929F4375A001C17B9 /* YandexMobileMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 61E4E10829F4375A001C17B9 /* YandexMobileMetricaCrashes */; };
 		7E6905A829E1911C00004EEA /* LogicRecruitment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6905A729E1911C00004EEA /* LogicRecruitment.swift */; };
 		7E6905AB29E192C300004EEA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E6905AA29E192C300004EEA /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -82,7 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61E4E10929F4375A001C17B9 /* YandexMobileMetricaCrashes in Frameworks */,
 				7E6905AB29E192C300004EEA /* Alamofire in Frameworks */,
+				61E4E10729F4375A001C17B9 /* YandexMobileMetrica in Frameworks */,
 				611422D729D0387F00DDE6E0 /* CRMModule.framework in Frameworks */,
 				611422DB29D0388400DDE6E0 /* RecruitmentModule.framework in Frameworks */,
 			);
@@ -210,6 +213,8 @@
 			name = ChooseModules;
 			packageProductDependencies = (
 				7E6905AA29E192C300004EEA /* Alamofire */,
+				61E4E10629F4375A001C17B9 /* YandexMobileMetrica */,
+				61E4E10829F4375A001C17B9 /* YandexMobileMetricaCrashes */,
 			);
 			productName = ChooseModules;
 			productReference = 61BB924129BDDDA2006AFDF4 /* ChooseModules.framework */;
@@ -263,6 +268,7 @@
 			mainGroup = 61BB923729BDDDA2006AFDF4;
 			packageReferences = (
 				7E6905A929E192C300004EEA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				61E4E10529F43759001C17B9 /* XCRemoteSwiftPackageReference "metrica-sdk-ios" */,
 			);
 			productRefGroup = 61BB924229BDDDA2006AFDF4 /* Products */;
 			projectDirPath = "";
@@ -583,6 +589,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		61E4E10529F43759001C17B9 /* XCRemoteSwiftPackageReference "metrica-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yandexmobile/metrica-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.14.0;
+			};
+		};
 		7E6905A929E192C300004EEA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -594,6 +608,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		61E4E10629F4375A001C17B9 /* YandexMobileMetrica */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61E4E10529F43759001C17B9 /* XCRemoteSwiftPackageReference "metrica-sdk-ios" */;
+			productName = YandexMobileMetrica;
+		};
+		61E4E10829F4375A001C17B9 /* YandexMobileMetricaCrashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61E4E10529F43759001C17B9 /* XCRemoteSwiftPackageReference "metrica-sdk-ios" */;
+			productName = YandexMobileMetricaCrashes;
+		};
 		7E6905AA29E192C300004EEA /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7E6905A929E192C300004EEA /* XCRemoteSwiftPackageReference "Alamofire" */;

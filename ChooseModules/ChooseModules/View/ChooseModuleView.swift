@@ -9,6 +9,7 @@ import SwiftUI
 import CRMModule
 import RecruitmentModule
 import Profile
+import YandexMobileMetrica
 //let bundle = Bundle(identifier: "chooseModules.ChooseModules")
 public struct ChooseModuleView: View {
     @State var curruntOffset: CGFloat = 0
@@ -38,6 +39,17 @@ public struct ChooseModuleView: View {
     let modules: [Modules]
     
     public init() {
+        //ya metrika
+        // Creating a screen object.
+        let screen = YMMECommerceScreen(
+                name: "ChooseModulesScreen",
+                categoryComponents: ["выбор модулей"],
+                searchQuery: "выбор модулей",
+                payload: ["ios_version": String(UIDevice.current.systemVersion)]
+        )
+        // Sending an e-commerce event.
+        YMMECommerce.showScreenEvent(screen: screen)
+        
         modules = Modules.sampleData
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
                                         Color("GradientColor2", bundle: bundle),

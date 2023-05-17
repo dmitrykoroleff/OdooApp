@@ -4,6 +4,7 @@ import ChooseModules
 
 
 struct UnauthenticatedView: View {
+    private var hseButtonToggle: Bool
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     @ObservedObject private var model: UnauthenticatedViewModel
     @ObservedObject private var modelCookie = CookieFile()
@@ -15,6 +16,8 @@ struct UnauthenticatedView: View {
 
     init(model: UnauthenticatedViewModel) {
         self.model = model
+        hseButtonToggle = false
+        //false show, true hide 
     }
 
     var body: some View {
@@ -99,53 +102,58 @@ struct UnauthenticatedView: View {
 
                     }
                     .disabled(loginModel.server.isEmpty || loginModel.email.isEmpty || loginModel.password.isEmpty)
-
-                    HStack {
+                    if !hseButtonToggle {
                         VStack {
-                            Divider()
-                                .overlay(.black)
-                        }
-                        .padding(.leading, 12)
-
-                        Text("or")
-                            .font(.footnote)
-                            .fontWeight(.light)
-                            .foregroundColor(.gray)
-
-                        VStack {
-                            Divider()
-                                .overlay(.black)
-                        }
-                        .padding(.trailing, 12)
-                    }
-
-                    Button {
-//                        model.startLogin()
-                        modelCookie.show()
-                    } label: {
-
-                        ZStack {
-
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(Color("Dark Blue", bundle: bundle))
-                                .frame(height: CGFloat(height) / 15.5)
-
-                            HStack(spacing: 10) {
-
-                                Image("HSELogo", bundle: bundle)
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-
-                                Text("log-in-with-hse-string")
-                                    .foregroundColor(.white)
-                                    .font(.title2)
-                                .fontWeight(.medium)
-
+                            HStack {
+                                VStack {
+                                    Divider()
+                                        .overlay(.black)
+                                }
+                                .padding(.leading, 12)
+                                
+                                Text("or")
+                                    .font(.footnote)
+                                    .fontWeight(.light)
+                                    .foregroundColor(.gray)
+                                
+                                VStack {
+                                    Divider()
+                                        .overlay(.black)
+                                }
+                                .padding(.trailing, 12)
                             }
-
-                        }
-                    }.sheet(isPresented: $modelCookie.isPresent) {
-                        Webview(modelCookie: modelCookie)
+                            
+                            Button {
+                                
+                                //                        model.startLogin()
+                                modelCookie.show()
+                                self.hidden()
+                            } label: {
+                                
+                                ZStack {
+                                    
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color("Dark Blue", bundle: bundle))
+                                        .frame(height: CGFloat(height) / 15.5)
+                                    
+                                    HStack(spacing: 10) {
+                                        
+                                        Image("HSELogo", bundle: bundle)
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                        
+                                        Text("log-in-with-hse-string")
+                                            .foregroundColor(.white)
+                                            .font(.title2)
+                                            .fontWeight(.medium)
+                                        
+                                    }
+                                    
+                                }
+                            }.sheet(isPresented: $modelCookie.isPresent) {
+                                Webview(modelCookie: modelCookie)
+                            }
+                        }//end of vstack to hide
                     }
                 }
                 .padding(.horizontal, 28)
