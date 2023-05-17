@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseRemoteConfig
 import CRMModule
 import RecruitmentModule
 import Profile
@@ -285,7 +286,6 @@ public struct ChooseModuleView: View {
                                             .onAppear{
                                                 
                                                 withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
-                                                    //MARK: animation turn off
                                                     self.progression = 1
                                                 }
                                                 
@@ -403,6 +403,10 @@ public struct ChooseModuleView: View {
                 .offset(y: -height/22.25)
             }
             .ignoresSafeArea(.keyboard)
+            .onAppear{
+                let result = RCValues().fetchCloudValues()
+                print(result)
+            }
         }
         
         

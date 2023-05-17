@@ -54,7 +54,7 @@ public class Auth {
         } catch {
             print(error)
         }
-        let task = session.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
 
             guard error == nil, let data = data else {
                 completion(.failure(error ?? URLError(.badServerResponse)))
@@ -77,7 +77,7 @@ public class Auth {
             } catch let parseError {
                 completion(.failure(parseError))
             }
-        }
+        })
         task.resume()
 
         return task
@@ -86,6 +86,7 @@ public class Auth {
     //    server: "demo3.odoo.com", login: "admin", password: "admin"
     public func testAuthenticate(server: String, login: String, password: String) -> Bool {
         var resultLogIn: Bool = false
+        let semaphore = DispatchSemaphore(value: 0)
         authenticate(server: server, login: login, password: password) { result in
 
             switch result {
@@ -104,9 +105,10 @@ public class Auth {
                     print("we should never get here")
                     print("responseObject = \(value)")
                 }
+                semaphore.signal()
             }
         }
-        
+        semaphore.wait()
         return resultLogIn
     }
 }
