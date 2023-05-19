@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ModuleCardView: View {
-    let module: Modules
+    let module: String
     let colors: [Color] = [Color("CardColor1", bundle: bundle),
                            Color("CardColor2", bundle: bundle),
                            Color("CardColor3", bundle: bundle),
@@ -27,7 +27,7 @@ struct ModuleCardView: View {
                 Rectangle()
                     .cornerRadius(20)
                     .frame(width: 150, height: 100)
-                    .foregroundColor(colors[Int(generateColorFor(text: module.name, colors: colors))])
+                    .foregroundColor(colors[Int(generateColorFor(text: module, colors: colors))])
                 
                 VStack {
                     
@@ -55,12 +55,12 @@ struct ModuleCardView: View {
                     
                    
                         
-                        generateIcon(text: module.name) // Хардкод
+                        generateIcon(text: module) // Хардкод
                             .resizable()
-                            .frame(width: module.name == "CRM" ? 50 : 35, height: 35)
+                            .frame(width: module == "CRM" ? 50 : 35, height: 35)
                             .offset(y: -36)
                     
-                    Text(module.name) // Хардкод
+                    Text(module) // Хардкод
                         .foregroundColor(.white)
                         .offset(y: -40)
                     
@@ -72,8 +72,6 @@ struct ModuleCardView: View {
             
             
         }
-        
-        
         .edgesIgnoringSafeArea(.bottom)
     }
 }

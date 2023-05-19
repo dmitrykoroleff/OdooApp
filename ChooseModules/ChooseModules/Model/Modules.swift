@@ -9,6 +9,7 @@ import SwiftUI
 import CRMModule
 import RecruitmentModule
 import FirebaseRemoteConfig
+import FirebaseStorage
 
 struct Modules: Identifiable, Equatable {
     static func == (lhs: Modules, rhs: Modules) -> Bool {
@@ -34,7 +35,7 @@ struct Modules: Identifiable, Equatable {
 }
 
 struct ImplementedModules: Decodable {
-    let modules: [String]
+    let modules: [[String:String]]
 }
 
 extension Modules { // Хардкор
@@ -50,7 +51,7 @@ extension Modules { // Хардкор
 class RCValues {
     
    init() {
-        let result = fetchCloudValues()
+        fetchCloudValues()
     }
     
 //    func loadDefaultValues() {
@@ -67,30 +68,75 @@ class RCValues {
     }
     
     func fetchCloudValues() -> [String] {
-        var modules: ImplementedModules = ImplementedModules(modules: [""])
+        var modules: ImplementedModules = ImplementedModules(modules: [["":""]])
         // 1
         activateDebugMode()
         
         // 2
-        RemoteConfig.remoteConfig().fetch { [weak self] _, error in
+        
+        
+        print("Retrieved values from the cloud!")
+        let implementedModules = RemoteConfig.remoteConfig()
+            .configValue(forKey: "implementedModules")
+            .stringValue ?? "undefined"
+        let data = implementedModules.data(using: .utf8)
+        
+        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [["":""]])
+        
+        var arr: [String] = []
+        for module in modules.modules {
+            arr.append(module["nameEn"]!)
+        }
+        
+        return arr
+    }
+}
+
+
+class StorageValues {
+    
+    init() {
+         getModulesIcons()
+     }
+    
+    func getModulesIcons() -> [UIImage] {
+        
+        let storage = Storage.storage().reference()
+        var images: [UIImage] = []
+        storage.child("module_icons/").listAll(completion: { (result, error) in
+            
             if let error = error {
-                print("Uh-oh. Got an error fetching remote values \(error)")
                 return
             }
             
-            // 3
-            RemoteConfig.remoteConfig().activate()
-            
-            print("Retrieved values from the cloud!")
-            let implementedModules = RemoteConfig.remoteConfig()
-                .configValue(forKey: "implementedModules")
-                .stringValue ?? "undefined"
-            let data = implementedModules.data(using: .utf8)
-            
-            modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [""])
-            print(modules.modules)
-            
-        }
-        return modules.modules
+            if let result = result {
+                print("items")
+                for item in result.items {
+                    print(item)
+                    item.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                        if let error = error {
+                            // Uh-oh, an error occurred!
+                        } else {
+                            // Data for "images/island.jpg" is returned
+                            let image = UIImage(data: data!)
+                            print(image)
+                            images.append(image!)
+                            //                            semaphore.signal()
+                            
+                        }
+                    }
+                    
+                    item.downloadURL { url, error in
+                        if let error = error {
+                            // Handle any errors
+                        } else {
+                            // Get the download URL for 'images/stars.jpg'
+                            print(url)
+                        }
+                    }
+                }
+            }
+        })
+        return images
     }
 }
