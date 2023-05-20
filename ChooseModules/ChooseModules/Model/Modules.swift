@@ -8,6 +8,7 @@
 import SwiftUI
 import CRMModule
 import RecruitmentModule
+import FirebaseRemoteConfig
 
 struct Modules: Identifiable, Equatable {
     static func == (lhs: Modules, rhs: Modules) -> Bool {
@@ -32,13 +33,64 @@ struct Modules: Identifiable, Equatable {
     }
 }
 
+struct ImplementedModules: Decodable {
+    let modules: [String]
+}
+
 extension Modules { // Хардкор
     
     static let sampleData: [Modules] = [
         Modules(name: "CRM", notifications: 0, view: CRMModule.StatusView()),
-        Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.RecruitmentView()),
+        Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.StatusView()),
     ]
     
 }
 
 
+class RCValues {
+    
+   init() {
+        let result = fetchCloudValues()
+    }
+    
+//    func loadDefaultValues() {
+//        let appDefaults: [String: Any?] = [
+//            "appPrimaryColor": "#FBB03B"
+//        ]
+//        RemoteConfig.remoteConfig().setDefaults(appDefaults as? [String: NSObject])
+//    }
+    
+    func activateDebugMode() {
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        RemoteConfig.remoteConfig().configSettings = settings
+    }
+    
+    func fetchCloudValues() -> [String] {
+        var modules: ImplementedModules = ImplementedModules(modules: [""])
+        // 1
+        activateDebugMode()
+        
+        // 2
+        RemoteConfig.remoteConfig().fetch { [weak self] _, error in
+            if let error = error {
+                print("Uh-oh. Got an error fetching remote values \(error)")
+                return
+            }
+            
+            // 3
+            RemoteConfig.remoteConfig().activate()
+            
+            print("Retrieved values from the cloud!")
+            let implementedModules = RemoteConfig.remoteConfig()
+                .configValue(forKey: "implementedModules")
+                .stringValue ?? "undefined"
+            let data = implementedModules.data(using: .utf8)
+            
+            modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [""])
+            print(modules.modules)
+            
+        }
+        return modules.modules
+    }
+}

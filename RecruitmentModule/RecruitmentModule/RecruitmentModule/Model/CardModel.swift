@@ -1,64 +1,116 @@
 //
 //  CardModel.swift
-//  RecruitmentModule
+//  CRM
 //
-//  Created by Nikita Rybakovskiy on 31.01.2023.
+//  Created by Dmitry Korolev on 6/3/2023.
 //
 
-import Foundation
+import SwiftUI
 
-struct UserCard: Identifiable, Hashable {
+struct TaskCard: Identifiable, Hashable {
     
     let id: UUID
     var fullName: String
     var rating: Int = 0
-    var userStatus: String
+    var taskStatus: String
     
-    init(id: UUID = UUID(), fullName: String, userStatus: String) {
+    init(id: UUID = UUID(), fullName: String, taskStatus: String) {
         self.id = id
         self.fullName = fullName
-        self.userStatus = userStatus
+        self.taskStatus = taskStatus
         
     }
     
-    func getUserStatus() -> String {
-        switch userStatus {
-            case "Initial Qualification":
+    func getTaskStatus() -> String {
+        switch taskStatus {
+            case "Website request":
                 return "globe"
-            case "Contract Proposal":
+            case "In communication":
                 return "bubble.left.and.bubble.right"
-            case "Second Interview":
+            case "Testing period":
                 return "gearshape"
-            case "First Interview":
+            case "Student":
                 return "graduationcap"
             default:
                 return "unknown"
         }
     }
 }
-// Надо подумать как лучше форомить статусы и связать их с пользователем
 
-var userCards: [UserCard] = (0..<10).map({ ind in
-    UserCard(fullName: "\(ind)", userStatus: "Website request")
-})
+extension TaskCard { // Хардкор
+    
+    static let sampleWebsiteRequest: [TaskCard] = [
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request"),
+    ]
+    
+    static let sampleTestingPeriod: [TaskCard] = [
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Testing period"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Testing period"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Testing period")
+    ]
+    
+    static let sampleInCommunication: [TaskCard] = [
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "In communication"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "In communication"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "In communication"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "In communication"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "In communication")
+    ]
+    
+    static let sampleStudent: [TaskCard] = [
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Student"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Student"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Student"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Student"),
+        TaskCard(fullName: "Arina Shoshina", taskStatus: "Student")
+    ]
+    
+}
 
-var userCardsinCommunication: [UserCard] = (0..<10).map({ _ in         //Просто для теста
-    UserCard(fullName: "Arina Shoshina", userStatus: "In communication")
-})
+//var taskCards: [TaskCard] = (0..<10).map({ _ in
+//    TaskCard(fullName: "Arina Shoshina", taskStatus: "Website request")
+//})
+//
+//var taskCards_inCommunication: [TaskCard] = (0..<10).map({ _ in         //Просто для теста
+//    TaskCard(fullName: "Arina Shoshina", taskStatus: "In communication")
+//})
+//
+//var taskCards_testingPeriod: [TaskCard] = (0..<10).map({ _ in         //Просто для теста
+//    TaskCard(fullName: "Arina Shoshina", taskStatus: "Testing period")
+//})
+//
+//var taskCards_student: [TaskCard] = (0..<3).map({ _ in         //Просто для теста
+//    TaskCard(fullName: "Arina Shoshina", taskStatus: "Student")
+//})
 
-var userCardstestingPeriod: [UserCard] = (0..<10).map({ _ in         //Просто для теста
-    UserCard(fullName: "Arina Shoshina", userStatus: "Testing period")
-})
 
-var userCardsstudent: [UserCard] = (0..<3).map({ _ in         //Просто для теста
-    UserCard(fullName: "Arina Shoshina", userStatus: "Student")
-})
-
-
-var someDict: [String : [UserCard]] = [
-    "Website request": userCards,
-    "In communication": userCardsinCommunication,
-    "Testing period":userCardstestingPeriod,
-    "Student":userCardsstudent
+var someDict: [String : [TaskCard]] = [
+    "Website request": TaskCard.sampleWebsiteRequest,
+    "In communication": TaskCard.sampleInCommunication,
+    "Testing period": TaskCard.sampleTestingPeriod,
+    "Student": TaskCard.sampleStudent
 ]
 
+func getAllTasks() -> [TaskCard] {
+    var res: [TaskCard] = []
+    for key in someDict.keys {
+        res += someDict[key]!
+    }
+    print(res)
+    return res
+    
+}
