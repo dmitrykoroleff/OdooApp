@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61182A3C2A18E3DD00F06FBF /* ButtonToggleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61182A3B2A18E3DD00F06FBF /* ButtonToggleResponse.swift */; };
 		6162A8CB291EA0B1008B32A6 /* AuthHSE.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6162A8CA291EA0B1008B32A6 /* AuthHSE.docc */; };
 		6162A8D1291EA0B2008B32A6 /* AuthHSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */; };
 		6162A8D6291EA0B2008B32A6 /* AuthHSETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A8D5291EA0B2008B32A6 /* AuthHSETests.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		61182A3B2A18E3DD00F06FBF /* ButtonToggleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonToggleResponse.swift; sourceTree = "<group>"; };
 		6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthHSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6162A8C9291EA0B1008B32A6 /* AuthHSE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthHSE.h; sourceTree = "<group>"; };
 		6162A8CA291EA0B1008B32A6 /* AuthHSE.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AuthHSE.docc; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61182A3A2A18E3C400F06FBF /* FeatureToggle */ = {
+			isa = PBXGroup;
+			children = (
+				61182A3B2A18E3DD00F06FBF /* ButtonToggleResponse.swift */,
+			);
+			path = FeatureToggle;
+			sourceTree = "<group>";
+		};
 		6162A8BC291EA0B1008B32A6 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +183,7 @@
 		6162A8ED291EC483008B32A6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				61182A3A2A18E3C400F06FBF /* FeatureToggle */,
 				7E6E8F6F2986AB4800710224 /* WebView */,
 				6162A906291ED321008B32A6 /* Authenticated */,
 				6162A8FE291ED1AE008B32A6 /* UnAuthenticated */,
@@ -372,6 +383,7 @@
 				6162A8FD291ECEE7008B32A6 /* UnauthenticatedViewModel.swift in Sources */,
 				6162A8F6291EC52F008B32A6 /* ApplicationStateManager.swift in Sources */,
 				6162A90F291ED65A008B32A6 /* CustomTextField.swift in Sources */,
+				61182A3C2A18E3DD00F06FBF /* ButtonToggleResponse.swift in Sources */,
 				7E6E8F732986AB5F00710224 /* WebView.swift in Sources */,
 				6162A8CB291EA0B1008B32A6 /* AuthHSE.docc in Sources */,
 				6162A905291ED304008B32A6 /* AuthenticatedView.swift in Sources */,

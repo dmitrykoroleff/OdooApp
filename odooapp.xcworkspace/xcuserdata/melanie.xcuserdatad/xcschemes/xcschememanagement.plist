@@ -4,18 +4,24 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Profile.xcscheme_^#shared#^_</key>
+		<key>Promises (Playground) 1.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>14</integer>
 		</dict>
-		<key>ProfileTest.xcscheme_^#shared#^_</key>
+		<key>Promises (Playground) 2.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>15</integer>
 		</dict>
-		<key>ProfileUITest.xcscheme_^#shared#^_</key>
+		<key>Promises (Playground).xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
