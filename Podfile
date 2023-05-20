@@ -9,6 +9,7 @@ target 'odooapp' do
   pod 'YandexMobileMetrica/Dynamic', '4.5.0'
   pod 'Firebase/Core'
   pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Storage'
 
 
 

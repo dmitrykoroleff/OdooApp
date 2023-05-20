@@ -414,11 +414,10 @@ public struct ChooseModuleView: View {
                 }
                 .offset(y: -height/22.25)
             }
-            .ignoresSafeArea(.keyboard)
-            .onAppear{
-                let result = RCValues().fetchCloudValues()
-                print(result)
+            .onAppear {
+                StorageValues().getModulesIcons()
             }
+            .ignoresSafeArea(.keyboard)
         }
         
         
