@@ -17,7 +17,8 @@ struct UnauthenticatedView: View {
 
     init(model: UnauthenticatedViewModel) {
         self.model = model
-        hseButtonToggle = false
+//        hseButtonToggle = false
+        hseButtonToggle = model.buttonFeatureToggle()
         //false show, true hide 
     }
 
@@ -102,54 +103,57 @@ struct UnauthenticatedView: View {
                             
                         }
                         .disabled(loginModel.server.isEmpty || loginModel.email.isEmpty || loginModel.password.isEmpty)
-                        
-                        HStack {
-                            VStack {
-                                Divider()
-                                    .overlay(.black)
-                            }
-                            .padding(.leading, 12)
-                            
-                            Text("or")
-                                .font(.footnote)
-                                .fontWeight(.light)
-                                .foregroundColor(.gray)
-                            
-                            VStack {
-                                Divider()
-                                    .overlay(.black)
-                            }
-                            .padding(.trailing, 12)
-                        }
-                        
-                        Button {
-                            //                        model.startLogin()
-                            modelCookie.show()
-                        } label: {
-                            
-                            ZStack {
+                        if !hseButtonToggle {
+                        VStack {
+                            HStack {
+                                VStack {
+                                    Divider()
+                                        .overlay(.black)
+                                }
+                                .padding(.leading, 12)
                                 
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(Color("Dark Blue", bundle: bundle))
-                                    .frame(height: CGFloat(height) / 15.5)
+                                Text("or")
+                                    .font(.footnote)
+                                    .fontWeight(.light)
+                                    .foregroundColor(.gray)
                                 
-                                HStack(spacing: 10) {
+                                VStack {
+                                    Divider()
+                                        .overlay(.black)
+                                }
+                                .padding(.trailing, 12)
+                            }
+                            
+                            Button {
+                                //                        model.startLogin()
+                                modelCookie.show()
+                            } label: {
+                                
+                                ZStack {
                                     
-                                    Image("HSELogo", bundle: bundle)
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color("Dark Blue", bundle: bundle))
+                                        .frame(height: CGFloat(height) / 15.5)
                                     
-                                    Text("log-in-with-hse-string")
-                                        .foregroundColor(.white)
-                                        .font(.title2)
-                                        .fontWeight(.medium)
+                                    HStack(spacing: 10) {
+                                        
+                                        Image("HSELogo", bundle: bundle)
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                        
+                                        Text("log-in-with-hse-string")
+                                            .foregroundColor(.white)
+                                            .font(.title2)
+                                            .fontWeight(.medium)
+                                        
+                                    }
                                     
                                 }
-                                
+                            }.sheet(isPresented: $modelCookie.isPresent) {
+                                Webview(modelCookie: modelCookie)
                             }
-                        }.sheet(isPresented: $modelCookie.isPresent) {
-                            Webview(modelCookie: modelCookie)
-                        }
+                        } // end Vstack
+                    } // end if
                     }
                     .padding(.horizontal, 28)
                     

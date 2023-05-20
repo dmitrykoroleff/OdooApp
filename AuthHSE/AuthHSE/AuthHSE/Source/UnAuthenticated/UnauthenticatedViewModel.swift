@@ -9,6 +9,7 @@ import Foundation
 import SwiftCoroutine
 import AppAuth
 import AuthOdoo
+import FirebaseRemoteConfig
 
 class UnauthenticatedViewModel: ObservableObject {
 
@@ -92,5 +93,24 @@ class UnauthenticatedViewModel: ObservableObject {
 
     private func getViewController() -> UIViewController {
         return UIApplication.shared.windows.first!.rootViewController!
+    }
+    
+    func buttonFeatureToggle() -> Bool {
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+//        RemoteConfig.remoteConfig().configSettings = settings
+        let remoteConfig = RemoteConfig.remoteConfig()
+//        remoteConfig.setDefaults(fromPlist: "GoogoleService-Info")
+        remoteConfig.configSettings = settings
+        remoteConfig.activate()
+        
+        let isHseAuthEnabled = remoteConfig
+            .configValue(forKey: "isHseAuthEnabled")
+            .stringValue
+//        let isHseAuthEnabled = RemoteConfig.remoteConfig().defaultValue(forKey: "isHseAuthEnabled")?.boolValue
+        print("response from fb \(isHseAuthEnabled)")
+//        let rresponse = isHseAuthEnable.
+        return false
+        
     }
 }
