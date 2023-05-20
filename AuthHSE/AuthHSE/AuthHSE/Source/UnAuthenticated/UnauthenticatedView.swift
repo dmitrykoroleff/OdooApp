@@ -4,6 +4,7 @@ import ChooseModules
 
 
 struct UnauthenticatedView: View {
+    private var hseButtonToggle: Bool
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     @ObservedObject private var model: UnauthenticatedViewModel
     @ObservedObject private var modelCookie = CookieFile()
@@ -16,6 +17,8 @@ struct UnauthenticatedView: View {
 
     init(model: UnauthenticatedViewModel) {
         self.model = model
+        hseButtonToggle = false
+        //false show, true hide 
     }
 
     var body: some View {

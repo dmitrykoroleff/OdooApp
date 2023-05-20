@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 @main
 public struct ChooseModuleApp: App {
     public init() {
@@ -17,6 +16,8 @@ public struct ChooseModuleApp: App {
 //            ChooseModuleView(modules: Modules.sampleData)
             ChooseModuleView()
             
+           
+
         }
     }
 }

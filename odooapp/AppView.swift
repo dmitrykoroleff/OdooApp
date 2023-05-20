@@ -11,7 +11,8 @@ import YandexMobileMetrica
 
 struct AppView: View {
     init() {
-//        metricaStart()
+        metricaStart()
+        print("metrica started")
     }
     var body: some View {
         AuthHSE.AuthView().onAppear {

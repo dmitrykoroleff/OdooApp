@@ -30,6 +30,8 @@
 		61BB926929BDDF83006AFDF4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB926829BDDF83006AFDF4 /* SearchView.swift */; };
 		61BB926B29BDDFC1006AFDF4 /* ModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB926A29BDDFC1006AFDF4 /* ModuleViewModel.swift */; };
 		61BB926D29BDDFDC006AFDF4 /* ChooseModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB926C29BDDFDC006AFDF4 /* ChooseModuleApp.swift */; };
+		61E4E10729F4375A001C17B9 /* YandexMobileMetrica in Frameworks */ = {isa = PBXBuildFile; productRef = 61E4E10629F4375A001C17B9 /* YandexMobileMetrica */; };
+		61E4E10929F4375A001C17B9 /* YandexMobileMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 61E4E10829F4375A001C17B9 /* YandexMobileMetricaCrashes */; };
 		7E6905A829E1911C00004EEA /* LogicRecruitment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6905A729E1911C00004EEA /* LogicRecruitment.swift */; };
 		7E6905AB29E192C300004EEA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E6905AA29E192C300004EEA /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -87,7 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61E4E10929F4375A001C17B9 /* YandexMobileMetricaCrashes in Frameworks */,
 				7E6905AB29E192C300004EEA /* Alamofire in Frameworks */,
+				61E4E10729F4375A001C17B9 /* YandexMobileMetrica in Frameworks */,
 				611422D729D0387F00DDE6E0 /* CRMModule.framework in Frameworks */,
 				57F6166B2A0D15C5004711EC /* FirebaseDatabase in Frameworks */,
 				57F6166F2A0D15C5004711EC /* FirebaseRemoteConfig in Frameworks */,

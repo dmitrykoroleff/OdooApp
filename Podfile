@@ -10,4 +10,6 @@ target 'odooapp' do
   pod 'Firebase/Core'
   pod 'Firebase/RemoteConfig'
 
+
+
 end
