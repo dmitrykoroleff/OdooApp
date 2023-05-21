@@ -58,7 +58,7 @@ struct UserCardView: View {
                 Button {
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
                         withAnimation(Animation.easeIn(duration: 0.2)) {
-                            if statuses.count + 1 <= 5 {
+                            if statusesRecr.count + 1 <= 5 {
                                 if height > 500 && height < 700 {
                                     curruntOffset = -(height / 3)
                                 } else if height < 800 && height > 700 {
@@ -103,6 +103,6 @@ struct UserCardView: View {
 
 struct TaskCardView_Previews: PreviewProvider {
     static var previews: some View {
-        UserCardView(userCard: TaskCard(fullName: "Arina Shoshina", taskStatus: "websiteRequest"), curruntOffset: .constant(0), showBottomBar: .constant(false), statusImage: statuses[0].image)
+        UserCardView(userCard: TaskCard(fullName: "Arina Shoshina", taskStatus: "websiteRequest"), curruntOffset: .constant(0), showBottomBar: .constant(false), statusImage: statusesRecr[0].image)
     }
 }

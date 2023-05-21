@@ -13,10 +13,10 @@ struct Status: Identifiable, Equatable {
     var name: String
 }
 
-var statuses: [Status] = [
-    Status(id: UUID(), image: "globe", name: "Website request"),
+var statusesRecr: [Status] = [
+    Status(id: UUID(), image: "globe", name: "👔Manager"),
     Status(id: UUID(), image: "bubble.left.and.bubble.right" //Пока так, надо найти с круглыми чатами
-           , name: "In communication"),
+           , name: "🙈Student"),
     Status(id: UUID(), image: "gearshape", name: "Testing period"),
     Status(id: UUID(), image: "graduationcap", name: "Student"),
 ]

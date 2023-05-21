@@ -22,9 +22,14 @@ public struct StatusView: View {
     @State var searchQuery = ""
     @State var currentIndex: Int = 0
     @State var status: Int = 0
+    var stageID: Array<Int>
+    var stageName: Array<String>
+    var jobID: Int
     var height = UIScreen.main.bounds.height
+    @State var statusRecr: String = "👔Manager"
+    @ObservedObject var shared: LogicR
     var width = UIScreen.main.bounds.width
-    @State var currentStatus: Status = statuses[0]
+    @State var currentStatus: Status = statusesRecr.count > 0 ? statusesRecr[0] : Status(id: UUID(), image: "globe", name: "👔Manager")
     let taskCards: [TaskCard] = TaskCard.sampleWebsiteRequest
     @State var showBottomBar = false
     @State var showAdditionalStatuses = false
@@ -32,7 +37,7 @@ public struct StatusView: View {
     var gradient2: Gradient
     @State private var progression: CGFloat = 0
     @State private var scrollViewContentOffset = CGFloat(0)
-    public init() {
+    public init(jobId: Int, shared: LogicR, stageId: Array<Int>, stageName: Array<String>) {
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
                                         Color("GradientColor2", bundle: bundle),
                                         Color("GradientColor3", bundle: bundle),
@@ -43,6 +48,10 @@ public struct StatusView: View {
                                          Color("GradientColor2", bundle: bundle),
                                          Color("GradientColor3", bundle: bundle),
                                          Color("GradientColor4", bundle: bundle)])
+        self.jobID = jobId
+        self.shared = shared
+        self.stageID = stageId
+        self.stageName = stageName
     }
     public var body: some View {
         
@@ -99,7 +108,7 @@ public struct StatusView: View {
                         }
                         if scrollViewContentOffset < 30 {
                             HStack {
-                                Text(currentIndex == statuses.count ? "Add new status" : statuses[currentIndex].name)
+                                Text(currentIndex == statusesRecr.count ? "Add new status" : statusesRecr[currentIndex].name)
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color("Headings", bundle: bundle))
@@ -147,7 +156,6 @@ public struct StatusView: View {
                                         .foregroundColor(.black)
                                         
                                     }
-                                    
                                 }
                             }
                         }
@@ -158,7 +166,7 @@ public struct StatusView: View {
                         Spacer()
                             
                         HStack {
-                            ForEach(Array(statuses.enumerated()), id: \.offset) { offset, element in
+                            ForEach(Array(statusesRecr.enumerated()), id: \.offset) { offset, element in
                                 Circle()
                                     .frame(width: 8, height: 8)
                                     .foregroundColor(currentIndex == offset ? Color.black : Color.gray)
@@ -166,7 +174,7 @@ public struct StatusView: View {
                             }
                             Circle()
                                 .frame(width: 8, height: 8)
-                                .foregroundColor(statuses.count == currentIndex ? Color.black : Color.gray)
+                                .foregroundColor(statusesRecr.count == currentIndex ? Color.black : Color.gray)
                         }
                         .padding(.bottom)
                             .opacity(searchIsActive ? 0 : 1)
@@ -175,32 +183,34 @@ public struct StatusView: View {
                         
                         TabView(selection: $currentIndex) {
                             
-                            ForEach(Array(statuses.enumerated()), id: \.offset) { offset, element in
+                            ForEach(Array(statusesRecr.enumerated()), id: \.offset) { offset, element in
                                 VStack {
                                     if scrollViewContentOffset < 30 {
                                         CustomProgressBarView()
                                             .offset(y: scrollViewContentOffset < 30 && scrollViewContentOffset > 0 ? -scrollViewContentOffset : 0)
                                     }
-//                                    if self.shared.stageId["Initial Qualification"]?.count ?? 0 > 0 {
-//                                        ForEach(0..<(self.shared.stageId["Initial Qualification"]?.count ?? 0)) { user in //someDict == users
-//                                            NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, index: self.shared.stageId["Initial Qualification"]![user])) {
-//                                                UserTestCard(index: self.shared.stageId["Initial Qualification"]![user], array: self.shared.names, appreciation: self.shared.appreciation, shared: LogicR(), statusImage: currentStatus.image).environmentObject(LogicR())
-//                                            }
-//                                            .foregroundColor(.black)
-//                                        }
-//                                    }
-                                    // код для логиги закоменчен, потому что нам нужен был TabView и теперь мы используем dict
                                     TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
                                         VStack {
-                                            ForEach(someDict[element.name] ?? []) { task in
-                                                NavigationLink(destination: UserView(user: testTask)) {
-                                                    UserCardView(userCard: task, curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image)
+                                            if currentIndex < statusesRecr.count {
+                                                if shared.getCountStatus(status: statusesRecr[currentIndex].name) > 0 {
+                                                    ForEach(0..<shared.getCountStatus(status: statusesRecr[currentIndex].name), id: \.self) { user in
+                                                        let id = shared.jobInt[shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0]
+                                                        if shared.currentJobID(jobID: jobID, id: id ?? -1) {
+                                                            NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, email: shared.email, group: shared.group, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, deadline: shared.deadline, summary: shared.activeSummary, index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)) {
+                                                                UserTestCard(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, array: shared.names, appreciation: shared.appreciation, shared: LogicR(), curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image).environmentObject(LogicR())
+                                                            }
+                                                            .foregroundColor(.black)
+                                                        }
+                                                        
+                                                    }
+                                                    .padding(.top, 5)
                                                 }
-                                                .foregroundColor(.black)
-                                                
-                                                
+                                                else {
+                                                    Text("There is no application yet!")
+                                                        .foregroundColor(.black)
+                                                }
                                             }
-                                            .padding(.top, 5)
+
                                         }
                                         .padding(.bottom, height / 2)
                                         
@@ -235,7 +245,7 @@ public struct StatusView: View {
                                     Spacer()
                                 }
                             }
-                            .tag(statuses.count)
+                            .tag(statusesRecr.count)
                             .onTapGesture {
                                 withAnimation {
                                     curruntAddStatusOffset = -(height)
@@ -277,7 +287,7 @@ public struct StatusView: View {
                         
                         if search(tasks: taskCards, searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
                             withAnimation(Animation.easeIn(duration: 0.2)) {
-                                SearchView(taskCards: taskCards, searchQuery: $searchQuery)
+                                SearchView(taskCards: taskCards, searchQuery: $searchQuery, currentIndex: currentIndex, element: Status(id: UUID(), image: "globe", name: "👔Manager"))
                                     .offset(y: searchViewOffset(searchIsActive: searchIsActive, height: height))
                             }
                         } else if !searchQuery.isEmpty {
@@ -290,7 +300,7 @@ public struct StatusView: View {
                     VStack {
                         BottomSheetView(curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
                             .offset(y: height)
-                            .offset(y: statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 3.5) ? curruntOffset : -(height / 3.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0))
+                            .offset(y: statusesRecr.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 3.5) ? curruntOffset : -(height / 3.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0))
                             .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
                                 out = value.translation.height
                                 onChange()
@@ -299,7 +309,7 @@ public struct StatusView: View {
                                 withAnimation {
                                     showBottomBar = false
                                     if -curruntOffset > 150 && -curruntOffset < maxHeight / 1.5 {
-                                        if statuses.count + 1 <= 5 {
+                                        if statusesRecr.count + 1 <= 5 {
                                             if height > 600 && height < 700 {
                                                 curruntOffset = -maxHeight / 3.6
                                             } else if height < 800 && height > 700 {
@@ -330,7 +340,7 @@ public struct StatusView: View {
                     }
                     
                     
-                    AddStatusView(showView: $showAdditionalStatuses, currentStatus: $currentStatus, currentOffset: $curruntAddStatusOffset, curruntBottomSheetOffset: $curruntOffset)
+                    AddStatusView(showView: $showAdditionalStatuses, currentStatus: $currentStatus, currentOffset: $curruntAddStatusOffset, curruntBottomSheetOffset: $curruntOffset, id: jobID, shared: shared)
                         .offset(y: height)
                         .offset(y: -curruntAddStatusOffset > 0 ? -curruntAddStatusOffset <= (height + 10) ? curruntAddStatusOffset : -(height + 10) : 0)
                         .gesture(DragGesture().updating($gestureAddStatusOffset, body: { value, out, _ in
@@ -363,7 +373,7 @@ public struct StatusView: View {
         DispatchQueue.main.async {
             self.curruntOffset = gestureOffset + lastOffset
             if showBottomBar {
-                if statuses.count + 1 <= 5 {
+                if statusesRecr.count + 1 <= 5 {
                     if height > 500 && height < 700 {
                         curruntOffset = -(height / 3.6) + gestureOffset + lastOffset
                     } else if height < 800 && height > 700{
@@ -393,8 +403,8 @@ public struct StatusView: View {
     }
 }
 
-struct StatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatusView()
-    }
-}
+//struct StatusView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StatusView()
+//    }
+//}

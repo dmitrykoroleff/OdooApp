@@ -101,7 +101,7 @@ struct CarouselStatusesView <Content: View, T: Identifiable>: View {
                         let roundIndex = progress.rounded()
                         currentIndex = max(min(currentIndex + Int(roundIndex), list.count), 0)
                         currentIndex = index
-                        currentStatus = currentIndex == statuses.count ? addNewStatus: statuses[currentIndex]
+                        currentStatus = currentIndex == statusesRecr.count ? addNewStatus: statusesRecr[currentIndex]
                     })
                     .onChanged({value in
                         let offsetX = value.translation.width
@@ -123,11 +123,11 @@ struct CarouselStatusesView <Content: View, T: Identifiable>: View {
     }
 }
 
-struct CarouselStatusesView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatusView()
-    }
-}
+//struct CarouselStatusesView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StatusView()
+//    }
+//}
 
 extension View {
     
