@@ -36,6 +36,16 @@ class UnauthenticatedViewModel: ObservableObject {
     /*
      * Run front channel operations on the UI thread and back channel operations on a background thread
      */
+    func buttonFeatureToggle() -> Bool {
+        let remoteConfig = RemoteConfig.remoteConfig()
+        let isHseAuthEnabled = remoteConfig
+            .configValue(forKey: "isHseAuthEnabled")
+            .boolValue
+        print("response from fb \(isHseAuthEnabled)")
+        return isHseAuthEnabled
+        
+    }
+    
     func startLogin() {
 
         DispatchQueue.main.startCoroutine {
@@ -95,22 +105,5 @@ class UnauthenticatedViewModel: ObservableObject {
         return UIApplication.shared.windows.first!.rootViewController!
     }
     
-    func buttonFeatureToggle() -> Bool {
-        let settings = RemoteConfigSettings()
-        settings.minimumFetchInterval = 0
-//        RemoteConfig.remoteConfig().configSettings = settings
-        let remoteConfig = RemoteConfig.remoteConfig()
-//        remoteConfig.setDefaults(fromPlist: "GoogoleService-Info")
-        remoteConfig.configSettings = settings
-        remoteConfig.activate()
-        
-        let isHseAuthEnabled = remoteConfig
-            .configValue(forKey: "isHseAuthEnabled")
-            .stringValue
-//        let isHseAuthEnabled = RemoteConfig.remoteConfig().defaultValue(forKey: "isHseAuthEnabled")?.boolValue
-        print("response from fb \(isHseAuthEnabled)")
-//        let rresponse = isHseAuthEnable.
-        return false
-        
-    }
+    
 }

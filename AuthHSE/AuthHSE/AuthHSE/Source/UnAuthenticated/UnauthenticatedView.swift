@@ -11,6 +11,7 @@ struct UnauthenticatedView: View {
     @StateObject private var loginModel: LoginViewModel = .init()
     private var height = UIScreen.main.bounds.height
     @State var checkBoolLogIn: Bool = false
+    @State var showAlert: Bool = false
     var str1: String = "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?"
     var str2: String = "response_type=token&client_id=odoo.miem.tv&redirect_uri=https://odoo.miem.tv/auth_oauth/"
     var str3: String = "signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Fodoo.miem.tv%252Fweb%22%7D"
@@ -85,6 +86,9 @@ struct UnauthenticatedView: View {
                             
                             withAnimation{
                                 checkBoolLogIn = self.model.logInOdooNew(serverURL: loginModel.server, username: loginModel.email, password: loginModel.password)
+                                showAlert = !checkBoolLogIn
+                                print("checkBoolLogIn \(checkBoolLogIn)")
+                                print("showAlert \(showAlert)")
                             }
                         } label: {
                             
@@ -103,6 +107,9 @@ struct UnauthenticatedView: View {
                             
                         }
                         .disabled(loginModel.server.isEmpty || loginModel.email.isEmpty || loginModel.password.isEmpty)
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("title-alert-string"), message: Text("message-alert-string"), dismissButton: .default(Text("Ok")))
+                        }
                         if !hseButtonToggle {
                         VStack {
                             HStack {
