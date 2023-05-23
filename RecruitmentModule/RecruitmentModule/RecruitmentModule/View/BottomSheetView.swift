@@ -47,11 +47,11 @@ struct BottomSheetView: View {
                     }
                     LazyVGrid(columns: columns, spacing: 20)  {
                             
-                            ForEach(statuses) { status in
+                            ForEach(statusesRecr) { status in
                                 Button(action: {
                                     withAnimation(Animation.easeIn(duration: 0.2)) {
-                                        index = find(value: status, in: statuses)!
-                                        currentStatus = statuses[index]
+                                        index = find(value: status, in: statusesRecr)!
+                                        currentStatus = statusesRecr[index]
                                     }
                                 }, label: {
                                     VStack(spacing: 10) {

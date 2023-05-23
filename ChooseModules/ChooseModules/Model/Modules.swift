@@ -42,7 +42,7 @@ extension Modules { // Хардкор
     
     static let sampleData: [Modules] = [
         Modules(name: "CRM", notifications: 0, view: CRMModule.StatusView()),
-        Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.StatusView()),
+        Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.ViewOfJobs(shared: LogicR())),
     ]
     
 }
@@ -85,7 +85,7 @@ class RCValues {
         
         var arr: [String] = []
         for module in modules.modules {
-            arr.append(module["nameEn"]!)
+            arr.append(module["nameEn"] ?? " ")
         }
         
         return arr

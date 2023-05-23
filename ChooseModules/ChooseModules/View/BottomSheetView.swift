@@ -20,7 +20,7 @@ struct BottomSheetView: View {
                            tag: "CRM",
                            selection: $openModule)
             { EmptyView() }
-            NavigationLink(destination: RecruitmentModule.StatusView(),
+            NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR()),
                            tag: "Recruitment",
                            selection: $openModule)
             { EmptyView() }

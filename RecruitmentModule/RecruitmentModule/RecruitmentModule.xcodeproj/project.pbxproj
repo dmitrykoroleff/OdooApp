@@ -46,6 +46,12 @@
 		61FABEBD29E30A2200ED6059 /* RecruitmentModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FABE4B29E3096F00ED6059 /* RecruitmentModule.framework */; platformFilter = ios; };
 		61FABECA29E30A8200ED6059 /* RecruitmentModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABEC929E30A8200ED6059 /* RecruitmentModuleTest.swift */; };
 		61FABECC29E30A8200ED6059 /* RecruitmentModuleTestLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABECB29E30A8200ED6059 /* RecruitmentModuleTestLaunchTests.swift */; };
+		7E053DAB2A193DA300B963AD /* ExtensionCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E053DAA2A193DA300B963AD /* ExtensionCalendar.swift */; };
+		7E053DAD2A193DC700B963AD /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E053DAC2A193DC700B963AD /* JsonRequest.swift */; };
+		7E053DB02A193E1E00B963AD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E053DAF2A193E1E00B963AD /* Alamofire */; };
+		7E061BB72A1A12A60076175B /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E061BB62A1A12A60076175B /* JobView.swift */; };
+		7E061BB92A1A13150076175B /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E061BB82A1A13150076175B /* TaskView.swift */; };
+		7E061BBB2A1A28F00076175B /* ChooseJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E061BBA2A1A28F00076175B /* ChooseJob.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +105,11 @@
 		61FABEC729E30A8200ED6059 /* RecruitmentModuleTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecruitmentModuleTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FABEC929E30A8200ED6059 /* RecruitmentModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentModuleTest.swift; sourceTree = "<group>"; };
 		61FABECB29E30A8200ED6059 /* RecruitmentModuleTestLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentModuleTestLaunchTests.swift; sourceTree = "<group>"; };
+		7E053DAA2A193DA300B963AD /* ExtensionCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCalendar.swift; sourceTree = "<group>"; };
+		7E053DAC2A193DC700B963AD /* JsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
+		7E061BB62A1A12A60076175B /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
+		7E061BB82A1A13150076175B /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		7E061BBA2A1A28F00076175B /* ChooseJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseJob.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61FABEB429E309FE00ED6059 /* SwiftUITrackableScrollView in Frameworks */,
+				7E053DB02A193E1E00B963AD /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +190,8 @@
 				6158A66229E314F70049A7AE /* TaskModel.swift */,
 				6158A66329E314F70049A7AE /* UserModel.swift */,
 				1417CB3D2A07B6D1004DB240 /* LogicRecr.swift */,
+				7E053DAA2A193DA300B963AD /* ExtensionCalendar.swift */,
+				7E053DAC2A193DC700B963AD /* JsonRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +208,7 @@
 				6158A66B29E314F70049A7AE /* AddLogNoteView.swift */,
 				6158A66C29E314F70049A7AE /* ScheduleView.swift */,
 				6158A66D29E314F70049A7AE /* AddScheduleView.swift */,
+				7E061BBA2A1A28F00076175B /* ChooseJob.swift */,
 				6158A66E29E314F70049A7AE /* UserCardView.swift */,
 				6158A66F29E314F70049A7AE /* ScheduleListView.swift */,
 				6158A67029E314F70049A7AE /* StatusView.swift */,
@@ -205,6 +220,8 @@
 				6158A67629E314F70049A7AE /* CustomBottomButton.swift */,
 				6158A67729E314F70049A7AE /* GeneralInformationView.swift */,
 				1417CB3F2A07BA41004DB240 /* UserTestCard.swift */,
+				7E061BB62A1A12A60076175B /* JobView.swift */,
+				7E061BB82A1A13150076175B /* TaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +292,7 @@
 			name = RecruitmentModule;
 			packageProductDependencies = (
 				61FABEB329E309FE00ED6059 /* SwiftUITrackableScrollView */,
+				7E053DAF2A193E1E00B963AD /* Alamofire */,
 			);
 			productName = CRMModule;
 			productReference = 61FABE4B29E3096F00ED6059 /* RecruitmentModule.framework */;
@@ -347,6 +365,7 @@
 			mainGroup = 61FABE4129E3096F00ED6059;
 			packageReferences = (
 				61FABEB229E309FE00ED6059 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
+				7E053DAE2A193E1E00B963AD /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 61FABE4C29E3096F00ED6059 /* Products */;
 			projectDirPath = "";
@@ -391,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6158A69729E314F70049A7AE /* GeneralInformationView.swift in Sources */,
+				7E053DAB2A193DA300B963AD /* ExtensionCalendar.swift in Sources */,
 				6158A68B29E314F70049A7AE /* AddLogNoteView.swift in Sources */,
 				6158A67B29E314F70049A7AE /* ColorExtension.swift in Sources */,
 				6158A69029E314F70049A7AE /* StatusView.swift in Sources */,
@@ -414,10 +434,14 @@
 				6158A67A29E314F70049A7AE /* ApplicationExtension.swift in Sources */,
 				6158A69229E314F70049A7AE /* BottomSheetView.swift in Sources */,
 				6158A68429E314F70049A7AE /* UserModel.swift in Sources */,
+				7E053DAD2A193DC700B963AD /* JsonRequest.swift in Sources */,
 				6158A68829E314F70049A7AE /* SearchView.swift in Sources */,
+				7E061BB92A1A13150076175B /* TaskView.swift in Sources */,
 				6158A68929E314F70049A7AE /* NoteView.swift in Sources */,
 				6158A69329E314F70049A7AE /* CarouselStatusesView.swift in Sources */,
+				7E061BB72A1A12A60076175B /* JobView.swift in Sources */,
 				6158A69829E314F70049A7AE /* RecruitmentApp.swift in Sources */,
+				7E061BBB2A1A28F00076175B /* ChooseJob.swift in Sources */,
 				1417CB3E2A07B6D1004DB240 /* LogicRecr.swift in Sources */,
 				6158A67929E314F70049A7AE /* OffsetsViewModel.swift in Sources */,
 				6158A68529E314F70049A7AE /* SummaryView.swift in Sources */,
@@ -580,7 +604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5P7ZDD2Z5R;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -612,7 +636,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 5P7ZDD2Z5R;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -685,7 +709,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YN4CY38HR3;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
@@ -772,6 +796,14 @@
 				kind = branch;
 			};
 		};
+		7E053DAE2A193E1E00B963AD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -779,6 +811,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 61FABEB229E309FE00ED6059 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
 			productName = SwiftUITrackableScrollView;
+		};
+		7E053DAF2A193E1E00B963AD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E053DAE2A193E1E00B963AD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

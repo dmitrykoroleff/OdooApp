@@ -16,6 +16,10 @@ struct ScheduleListView: View {
     @Binding var curruntAddScheduleOffset: CGFloat
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
+    var deadline: [Int: String] = [:]
+    var summary: [Int: String] = [:]
+    var recruiter: [Int: String] = [:]
+    var index: Int = 0
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -23,37 +27,37 @@ struct ScheduleListView: View {
                     .font(.system(size: 14))
                     .foregroundColor(Color("MainColor", bundle: bundle))
                 List {
-                    ForEach(scheduleTasks) { scheduleTask in
-                        ScheduleView(scheduleTask: scheduleTask)
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    
-                                } label: {
-
-                                    Label {
-                                        Text("Cancel")
-                                            .font(.system(size: 6))
-                                    } icon: {
-                                        Image(systemName: "trash")
-                                    }
-                                    .labelStyle(VerticalLabelStyle())
-                                    //Does't work :(
-                                    
-                                }
-                                .tint(Color("MainColor", bundle: bundle))
-                                Button(role: .cancel) {
-                                    
-                                } label: {
-                                    Label("Edit", systemImage: "square.and.pencil")
-                                }
-                                Button(role: .destructive) {
-                                    
-                                } label: {
-                                    Label("Done", systemImage: "checkmark.square")
-                                }
-                                .tint(Color(hex: 0x017E84))
-                            }
-                    }
+//                    ForEach(scheduleTasks) { scheduleTask in
+////                        ScheduleView(scheduleTask: scheduleTask)
+//                            .swipeActions {
+//                                Button(role: .destructive) {
+//                                    
+//                                } label: {
+//
+//                                    Label {
+//                                        Text("Cancel")
+//                                            .font(.system(size: 6))
+//                                    } icon: {
+//                                        Image(systemName: "trash")
+//                                    }
+//                                    .labelStyle(VerticalLabelStyle())
+//                                    //Does't work :(
+//                                    
+//                                }
+//                                .tint(Color("MainColor", bundle: bundle))
+//                                Button(role: .cancel) {
+//                                    
+//                                } label: {
+//                                    Label("Edit", systemImage: "square.and.pencil")
+//                                }
+//                                Button(role: .destructive) {
+//                                    
+//                                } label: {
+//                                    Label("Done", systemImage: "checkmark.square")
+//                                }
+//                                .tint(Color(hex: 0x017E84))
+//                            }
+//                    }
                 }
                 .listStyle(.plain)
                 .frame(height: height*0.55)

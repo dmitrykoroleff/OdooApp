@@ -15,7 +15,8 @@ struct AddStatusView: View {
     @Binding var currentStatus: Status
     @Binding var currentOffset: CGFloat
     @Binding var curruntBottomSheetOffset: CGFloat
-    
+    var id: Int
+    var shared: LogicR
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
     var body: some View {
@@ -43,11 +44,15 @@ struct AddStatusView: View {
                         Spacer()
                         Button(action: {
                             withAnimation(Animation.easeIn(duration: 0.2)) {
-                                statuses.append(Status(id: UUID(), image: activeStatus, name: text))
+                                statusesRecr.append(Status(id: UUID(), image: activeStatus, name: text))
                                 someDict[text] = [TaskCard(fullName: "Закупка оборудования", taskStatus: text)]
-                                currentStatus = statuses[statuses.count - 1]
+                                currentStatus = statusesRecr[statusesRecr.count - 1]
                                 currentOffset = 0
-                                if statuses.count + 1 <= 5 {
+                                print(id, text)
+                                if text != "" {
+                                    shared.createStatus(id: id, name: text)
+                                }
+                                if statusesRecr.count + 1 <= 5 {
                                     if height > 500 && height < 700 {
                                         curruntBottomSheetOffset = -(height / 3)
                                     } else if height < 800 && height > 700{
@@ -178,6 +183,6 @@ struct AddStatusView: View {
 
 struct AddStatusView_Previews: PreviewProvider {
     static var previews: some View {
-        AddStatusView(showView: .constant(false), currentStatus: .constant(statuses[0]), currentOffset: .constant(0), curruntBottomSheetOffset: .constant(0))
+        AddStatusView(showView: .constant(false), currentStatus: .constant(statusesRecr[0]), currentOffset: .constant(0), curruntBottomSheetOffset: .constant(0), id: 9, shared: LogicR())
     }
 }

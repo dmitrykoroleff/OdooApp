@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RecruitmentModule
 @main
 public struct ChooseModuleApp: App {
     public init() {
@@ -14,7 +15,7 @@ public struct ChooseModuleApp: App {
     public var body: some Scene {
         WindowGroup {
 //            ChooseModuleView(modules: Modules.sampleData)
-            ChooseModuleView()
+            ChooseModuleView().onAppear{ LogicR().getData() }
             
            
 
