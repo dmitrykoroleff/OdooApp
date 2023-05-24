@@ -10,6 +10,10 @@ import SwiftUI
 struct SearchTaskView: View {
     var projectTasks: [Task]
     @Binding var searchQuery: String
+    @State var showBottomBar = false
+    @State var changingStatus = false
+    @State var onStatus: Int = 0
+    @State var currentOffset: CGFloat = 0
     @State var showEditView = false
     @State var currentTask: Int = 0
     @State var currentStatus: Status
@@ -26,7 +30,7 @@ struct SearchTaskView: View {
                         NavigationLink(
                             destination:
                                 TaskManagmentView(task: task)) {
-                                    TaskCardView(task: task, currTasks: $currentStatus.tasks, showEditView: $showEditView, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
+                                    TaskCardView(task: task, currTasks: $currentStatus.tasks, showEditView: $showEditView, onStatus: $onStatus, changingStatus: $changingStatus, taskToChange: $currentTask, showBottomBar: $showBottomBar, curruntOffset: $currentOffset, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
                                 }
                                 .foregroundColor(.black)
                     }
@@ -35,7 +39,7 @@ struct SearchTaskView: View {
                         NavigationLink(
                             destination:
                                 TaskManagmentView(task: task)) {
-                                    TaskCardView(task: task, currTasks: $currentStatus.tasks, showEditView: $showEditView, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
+                                    TaskCardView(task: task, currTasks: $currentStatus.tasks, showEditView: $showEditView, onStatus: $onStatus, changingStatus: $changingStatus, taskToChange: $currentTask, showBottomBar: $showBottomBar, curruntOffset: $currentOffset, currentTask: currentTask, currentStatus: currentStatus, currentEditOffset: $currentEditOffset)
                                 }
                                 .foregroundColor(.black)
                     }

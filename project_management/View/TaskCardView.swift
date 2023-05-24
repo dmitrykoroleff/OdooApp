@@ -12,12 +12,17 @@ struct TaskCardView: View {
     var task: Task
     @Binding var currTasks: [Task]
     @Binding var showEditView: Bool
+    @Binding var onStatus: Int
+    @Binding var changingStatus: Bool
+    @Binding var taskToChange: Int
+    @Binding var showBottomBar: Bool
+    @Binding var curruntOffset: CGFloat
     var currentTask: Int
     var currentStatus: Status
     @Binding var currentEditOffset: CGFloat
     
     var width = UIScreen.main.bounds.width
-    var heigth = UIScreen.main.bounds.height
+    var height = UIScreen.main.bounds.height
     var body: some View {
         VStack(spacing: 5) {
             HStack {
@@ -59,16 +64,44 @@ struct TaskCardView: View {
                         
                     }
                     
-//                    Button {
-//                        
-//                    } label: {
-//                        Label("Change status", systemImage: "folder")
-//                    }
+                    Button {
+                        taskToChange = currentTask
+                        onStatus = currentStatus.idx!
+                        changingStatus.toggle()
+                        print(taskToChange)
+                        withAnimation(Animation.easeIn(duration: 0.2)){
+                            if projects[task.projectIdx].statuses.count + 1 <= 5 {
+                                if height > 500 && height < 700 {
+                                    curruntOffset = -(height / 3)
+                                } else if height < 800 && height > 700 {
+                                    curruntOffset = -(height / 2.3)
+                                } else if height > 800 && height < 900 {
+                                    curruntOffset = -(height / 2.8)
+                                } else {
+                                    curruntOffset = -(height / 3)
+                                }
+                            } else {
+                                if height > 500 && height < 700 {
+                                    curruntOffset = -(height / 2.3)
+                                } else if height < 800 && height > 700 {
+                                    curruntOffset = -(height / 2.3)
+                                } else if height > 800 && height < 900 {
+                                    curruntOffset = -(height / 2.3)
+                                } else {
+                                    curruntOffset = -(height / 2.6)
+                                }
+                            }
+                            showBottomBar = true
+                            
+                        }
+                    } label: {
+                        Label("Change status", systemImage: "folder")
+                    }
                     
                     Button {
 //                        currentTask = task.idx!
                         showEditView = true
-                        currentEditOffset = -heigth
+                        currentEditOffset = -height
                     } label: {
                         Label("Edit", systemImage: "pencil")
                     }

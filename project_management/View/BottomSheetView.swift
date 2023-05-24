@@ -9,6 +9,9 @@ import SwiftUI
 
 struct BottomSheetView: View {
     var currentProjectIdx: Int
+    var currentTask: Int
+    var onStatus: Int
+    @Binding var changingStatus: Bool
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     @Binding var curruntAddStatusOffset: CGFloat
@@ -49,6 +52,14 @@ struct BottomSheetView: View {
                             
                         ForEach(Array(projects[currentProjectIdx].statuses.enumerated()), id: \.offset) { offset, status in
                                 Button(action: {
+                                    if changingStatus {
+                                        print("Working")
+                                        let currTask = projects[currentProjectIdx].statuses[onStatus].tasks[currentTask]
+                                        projects[currentProjectIdx].statuses[onStatus].tasks.remove(at: currentTask)
+                                        reindex(source: &projects[currentProjectIdx].statuses[onStatus].tasks, count:  projects[currentProjectIdx].statuses[onStatus].tasks.count)
+                                        projects[currentProjectIdx].statuses[status.idx!].tasks.append(currTask)
+                                        changingStatus.toggle()
+                                    }
                                     withAnimation(Animation.easeIn(duration: 0.2)) {
                                         index = offset
                                         currentStatus = status
@@ -84,6 +95,7 @@ struct BottomSheetView: View {
                             withAnimation(Animation.easeIn(duration: 0.2)) {
                                 curruntAddStatusOffset = -height
                                 showAdditionalStatuses = true
+                                changingStatus = false
                             }
                             HapticManager.instance.impact(style: .soft)
                         }, label: {
@@ -113,7 +125,8 @@ struct BottomSheetView: View {
 }
 
 struct BottomSheetView_Previews: PreviewProvider {
+    @State static var changingStatus = false
     static var previews: some View {
-        BottomSheetView(currentProjectIdx: 0, curruntAddStatusOffset: .constant(0), currentStatus: .constant(Status(id: UUID(), image: "graduationcap", name: "Student")), index: .constant(0), showAdditionalStatuses: .constant(false))
+        BottomSheetView(currentProjectIdx: 0, currentTask: 0, onStatus: 0, changingStatus: $changingStatus, curruntAddStatusOffset: .constant(0), currentStatus: .constant(Status(id: UUID(), image: "graduationcap", name: "Student")), index: .constant(0), showAdditionalStatuses: .constant(false))
     }
 }

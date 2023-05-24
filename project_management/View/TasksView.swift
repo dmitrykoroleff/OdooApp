@@ -10,6 +10,9 @@ import SwiftUI
 struct TasksView: View {
     var project: Project
     @State var currTasks = projects[0].statuses[0].tasks
+    @State var changingStatus: Bool = false
+    @State var currentTask: Int = 0
+    @State var onStatus: Int = 0
     @Binding var task: Task
     @State var isActive = false
     @State var onThisView = true
@@ -208,7 +211,7 @@ struct TasksView: View {
                                                 NavigationLink(
                                                     destination:
                                                         TaskManagmentView(task: task), isActive: $isActive) {
-                                                            TaskCardView(task: task, currTasks: $currTasks, showEditView: $showEditView, currentTask: offset, currentStatus: projects[project.idx!].statuses[currentIndex], currentEditOffset: $currentEditOffset)
+                                                            TaskCardView(task: task, currTasks: $currTasks, showEditView: $showEditView, onStatus: $onStatus, changingStatus: $changingStatus, taskToChange: $currentTask, showBottomBar: $showBottomBar, curruntOffset: $curruntOffset, currentTask: offset, currentStatus: projects[project.idx!].statuses[currentIndex], currentEditOffset: $currentEditOffset)
                                                         }
                                                         .simultaneousGesture(TapGesture().onEnded{
                                                             onThisView = false
@@ -385,7 +388,7 @@ struct TasksView: View {
                     
                     
                     VStack {
-                        BottomSheetView(currentProjectIdx: project.idx!, curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
+                        BottomSheetView(currentProjectIdx: project.idx!, currentTask: currentTask,onStatus: onStatus, changingStatus: $changingStatus, curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
                             .offset(y: height)
                             .offset(y: projects[project.idx!].statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.2) ? curruntOffset : -(height / 2.2) : 0))
                             .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
@@ -423,6 +426,7 @@ struct TasksView: View {
                                     }
                                 }
                                 lastOffset = curruntOffset
+                                changingStatus = false
                             }))
                     }
                     
