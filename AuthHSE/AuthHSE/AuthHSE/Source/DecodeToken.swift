@@ -35,7 +35,12 @@ class DecodeToken {
                 let payload = json as? [String: Any] else {
           return nil
       }
-
       return payload
     }
+}
+
+struct TokenClaims: Claims {
+    let email: String
+    let name: String
+    // Другие поля, если они присутствуют в вашем токене
 }

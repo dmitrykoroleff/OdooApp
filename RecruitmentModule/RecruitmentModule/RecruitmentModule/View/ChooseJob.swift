@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Profile
 
 
 public struct ViewOfJobs: View {
@@ -16,8 +17,12 @@ public struct ViewOfJobs: View {
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     @State var searchQuery = ""
-    public init(shared: LogicR) {
+    var userName: String
+    var userEmail: String
+    public init(shared: LogicR, userName: String, userEmail: String) {
         self.shared = shared
+        self.userName = userName
+        self.userEmail = userEmail
     }
     public var body: some View {
         VStack {
@@ -37,7 +42,7 @@ public struct ViewOfJobs: View {
                             .fontWeight(.semibold)
                             .foregroundColor(Color.gray)
                         
-                        Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
+                        Text(verbatim: "\(userEmail)") // Хардкод
                             .foregroundColor(Color("Headings", bundle: bundle))
                             .font(.headline)
                             .fontWeight(.semibold)
@@ -46,14 +51,14 @@ public struct ViewOfJobs: View {
                     Spacer()
                     
                     // Link to profile
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: Profile.ProfileView(name: userName, email: userEmail)) {
                         ZStack {
                             
                             Circle()
                                 .foregroundColor(Color("MainColor", bundle: bundle))
                                 .frame(width: 40, height: 40)
                             
-                            Text("A") // Хардкод
+                            Text("\(shared.getFirstLetter(str: userName))") // Хардкод
                                 .font(.title3)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
@@ -128,7 +133,7 @@ public struct ViewOfJobs: View {
         
         ScrollView(.vertical) {
             ForEach(Array(shared.jobIdSet), id: \.self) { id in
-                NavigationLink(destination: StatusView(jobId: id, shared: self.shared, stageId: shared.stageOfJob[id] ?? [], stageName: shared.stageOfJobName[id] ?? []).onAppear {
+                NavigationLink(destination: StatusView(jobId: id, shared: self.shared, stageId: shared.stageOfJob[id] ?? [], stageName: shared.stageOfJobName[id] ?? [], userName: userName, userEmail: userEmail).onAppear {
                         statusesRecr.removeAll()
                         for item in shared.stageOfJobName[id] ?? [] {
                             statusesRecr.append(Status(id: UUID(), image: "globe", name: item))

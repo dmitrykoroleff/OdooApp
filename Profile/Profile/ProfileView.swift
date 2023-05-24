@@ -14,7 +14,12 @@ public struct ProfileView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
-    public init() {}
+    var name: String
+    var email: String
+    public init(name: String, email: String) {
+        self.name = name
+        self.email = email
+    }
     public var body: some View {
         VStack {
             Button {
@@ -32,7 +37,7 @@ public struct ProfileView: View {
                             Color("MainColor", bundle: bundle)
                                 .frame(width: 80, height: 80)
                                 .cornerRadius(80)
-                            Text("AU") // хардкод
+                            Text("\(ModelProfile().getInitials(str: name))") // хардкод
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
@@ -60,18 +65,16 @@ public struct ProfileView: View {
                 )
             }
             VStack(spacing: 10) {
-                Text("Awesome User") // хардкод
+                Text("\(name)") // хардкод
                     .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(Color("MainColor", bundle: bundle))
                     .padding(.top, 35)
                 
-                Text(verbatim: "awesomeuser@edu.hse.ru") // хардкод
+                Text(verbatim: "\(email)") // хардкод
                     .foregroundColor(.gray)
                     .underline()
                 
-                Text("+7 (987) 658 77 77") // хардкод
-                    .foregroundColor(.gray)
             }
             
             Spacer()
@@ -166,9 +169,9 @@ public struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView()
+//    }
+//}
 

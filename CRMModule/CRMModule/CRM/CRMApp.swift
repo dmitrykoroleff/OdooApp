@@ -13,7 +13,7 @@ public struct CRMApp: App {
     public var body: some Scene {
         WindowGroup {
 //            StatusView(currentIndex: 0, taskCards: TaskCard.sampleWebsiteRequest)
-            StatusView()
+            StatusView(name: " ", email: " ")
         }
     }
 }

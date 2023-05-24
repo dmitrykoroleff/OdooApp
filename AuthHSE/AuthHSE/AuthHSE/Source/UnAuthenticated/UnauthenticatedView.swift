@@ -26,7 +26,7 @@ struct UnauthenticatedView: View {
     var body: some View {
 
         if checkBoolLogIn {
-            ChooseModules.ChooseModuleView()
+            ChooseModules.ChooseModuleView(email: CookieFile().emailuser, name: CookieFile().nameUser)
         } else {
             ScrollView {
                 

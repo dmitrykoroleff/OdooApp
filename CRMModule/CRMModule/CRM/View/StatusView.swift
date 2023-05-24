@@ -30,9 +30,11 @@ public struct StatusView: View {
     @State var showAdditionalStatuses = false
     var gradient1: Gradient
     var gradient2: Gradient
+    var name: String
+    var email: String
     @State private var progression: CGFloat = 0
     @State private var scrollViewContentOffset = CGFloat(0)
-    public init() {
+    public init(name: String, email: String) {
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
                                         Color("GradientColor2", bundle: bundle),
                                         Color("GradientColor3", bundle: bundle),
@@ -43,6 +45,8 @@ public struct StatusView: View {
                                          Color("GradientColor2", bundle: bundle),
                                          Color("GradientColor3", bundle: bundle),
                                          Color("GradientColor4", bundle: bundle)])
+        self.name = name
+        self.email = email
     }
     public var body: some View {
         
@@ -67,7 +71,7 @@ public struct StatusView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color.gray)
                                     
-                                    Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
+                                    Text(verbatim: "\(email)") // Хардкод
                                         .foregroundColor(Color("Headings", bundle: bundle))
                                         .font(.headline)
                                         .fontWeight(.semibold)
@@ -76,14 +80,14 @@ public struct StatusView: View {
                                 
                                 Spacer()
                                 
-                                NavigationLink(destination: Profile.ProfileView()) {
+                                NavigationLink(destination: Profile.ProfileView(name: name, email: email)) {
                                     ZStack {
                                         
                                         Circle()
                                             .foregroundColor(Color("MainColor", bundle: bundle))
                                             .frame(width: 40, height: 40)
                                         
-                                        Text("A") // Хардкод
+                                        Text("\(CRMLogic().getFirstLetter(str: name))") // Хардкод
                                             .font(.title3)
                                             .fontWeight(.semibold)
                                             .foregroundColor(.white)
@@ -384,8 +388,8 @@ public struct StatusView: View {
     }
 }
 
-struct StatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatusView()
-    }
-}
+//struct StatusView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StatusView()
+//    }
+//}
