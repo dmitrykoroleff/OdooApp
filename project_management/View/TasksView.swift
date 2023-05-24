@@ -349,40 +349,8 @@ struct TasksView: View {
                             }, label: {
                                 CustomAddButton()
                             })
-                            .offset(x: customAddButtonOffset(height: height)[0], y: customAddButtonOffset(height: height)[1])
+                            .offset(x: customBottomButtonOffset(height: height)[0], y: customAddButtonOffset(height: height)[1])
                         }
-                        Button(action: {
-                            withAnimation(Animation.easeIn(duration: 0.2)){
-                                if projects[project.idx!].statuses.count + 1 <= 5 {
-                                    if height > 500 && height < 700 {
-                                        curruntOffset = -(height / 3)
-                                    } else if height < 800 && height > 700 {
-                                        curruntOffset = -(height / 2.3)
-                                    } else if height > 800 && height < 900 {
-                                        curruntOffset = -(height / 2.8)
-                                    } else {
-                                        curruntOffset = -(height / 3)
-                                    }
-                                } else {
-                                    if height > 500 && height < 700 {
-                                        curruntOffset = -(height / 2.3)
-                                    } else if height < 800 && height > 700 {
-                                        curruntOffset = -(height / 2.3)
-                                    } else if height > 800 && height < 900 {
-                                        curruntOffset = -(height / 2.3)
-                                    } else {
-                                        curruntOffset = -(height / 2.6)
-                                    }
-                                }
-                                showBottomBar = true
-                                
-                            }
-                            HapticManager.instance.impact(style: .light)
-                            
-                        }, label: {
-                            CustomBottomButton()
-                        })
-                        .offset(x: customBottomButtonOffset(height: height)[0], y: customBottomButtonOffset(height: height)[1])
                         
                     }
                     

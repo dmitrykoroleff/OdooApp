@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProjectsView: View {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var currProjects = projects
     @Binding var project: Project
     @Binding var task: Task
@@ -30,6 +31,9 @@ struct ProjectsView: View {
     @State var lastEditOffset: CGFloat = 0
     @GestureState var gestureEditOffset: CGFloat = 0
     @State var currentProject: Int = 0
+    @State var currentIndex: Int = 0
+    @State var showAddTaskView = false
+    @State var curruntAddTaskOffset: CGFloat = 0
     var body: some View {
         NavigationView {
             GeometryReader {_ in
@@ -167,18 +171,42 @@ struct ProjectsView: View {
                             .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4) : height > 700 && height < 800 ? (height / 4.3) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
                     }
                     
-                    Button(action: {
-                        withAnimation(Animation.easeIn(duration: 0.2)){
-                            showBottomBar = true
-                            curruntOffset = -height
+                    VStack {
+                        Spacer()
+                        HStack {
+                            if currentIndex != projects[project.idx!].statuses.count {
+                                Button(action: {
+                                    withAnimation(Animation.easeIn(duration: 0.2)){
+                                        showBottomBar = true
+                                        curruntOffset = -height
+
+                                        
+                                    }
+                                    HapticManager.instance.impact(style: .light)
+                                    
+                                }, label: {
+                                    CustomAddButton()
+                                })
+                                .offset(y: customAddButtonOffset(height: height)[1])
+                            }
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                withAnimation(Animation.easeIn(duration: 0.2)){
+                                    self.mode.wrappedValue.dismiss()
+                                    
+                                }
+                                HapticManager.instance.impact(style: .light)
+                                
+                            }, label: {
+                                CustomBottomButton()
+                            })
+                            .offset(y: customBottomButtonOffset(height: height)[1])
                             
                         }
-                        HapticManager.instance.impact(style: .light)
-                        
-                    }, label: {
-                        CustomAddButton()
-                    })
-                    .offset(x: width * 0.35, y: (height * 0.38))
+                    }
+                    .padding(.horizontal, 30)
                     
                     AddProjectView(currProjects: $currProjects, showBottomSheet: $showBottomBar, currentOffset: $curruntOffset)
                         .offset(y: height)
