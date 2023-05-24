@@ -23,7 +23,7 @@ struct EditTaskView: View {
     @State private var _external = false
     @State private var _internal = false
     
-    @State var projectName: String = String()
+    @State var text: String = String()
     @State private var companyName: String = String()
     
     var height = UIScreen.main.bounds.height
@@ -55,6 +55,8 @@ struct EditTaskView: View {
                     })
                     Spacer()
                     Button(action: {
+                        projects[task.projectIdx].statuses[task.status.idx!].tasks[task.idx!].text = text
+                        projects[task.projectIdx].statuses[task.status.idx!].tasks[task.idx!].company = companyName
                         withAnimation(Animation.easeIn(duration: 0.2)){
 
                             UIApplication.shared.endEditing()
@@ -75,7 +77,7 @@ struct EditTaskView: View {
                         .font(.system(size: 28))
                     Spacer()
                 }
-                TextField(task.text, text: $task.text) //Очень не очень по сути только для макета надо переделать
+                TextField("Task text", text: $text) //Очень не очень по сути только для макета надо переделать
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 10)
@@ -86,7 +88,7 @@ struct EditTaskView: View {
                     )
                 //                        .offset(y: 20)
                     .frame(height: 100)
-                TextField("Company name", text: $task.text) //Очень не очень по сути только для макета надо переделать
+                TextField("Company name", text: $companyName) //Очень не очень по сути только для макета надо переделать
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 10)
@@ -129,12 +131,16 @@ struct EditTaskView: View {
             
             
         }
+        .onAppear {
+            text = task.text
+            companyName = task.company ?? ""
+        }
     }
 }
 
 struct EditTaskView_Previews: PreviewProvider {
     @State static var show = false
     static var previews: some View {
-        EditTaskView(showEditOffset: .constant(false), task: .constant(projects[0].statuses[0].tasks[0]), currentEditOffset: .constant(0))
+        EditTaskView(showEditOffset: .constant(false), task: .constant(Task(projectIdx: 0, text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[0].statuses[0])), currentEditOffset: .constant(0))
     }
 }

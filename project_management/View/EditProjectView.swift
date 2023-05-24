@@ -54,6 +54,9 @@ struct EditProjectView: View {
                     })
                     Spacer()
                     Button(action: {
+                        projects[project.idx!].name = projectName
+                        projects[project.idx!].company = companyName
+//                        projects[project.idx!].type = project.type
                         withAnimation(Animation.easeIn(duration: 0.2)){
                             UIApplication.shared.endEditing()
                             showEditProjectView = false
@@ -74,7 +77,7 @@ struct EditProjectView: View {
                         .font(.system(size: 28))
                     Spacer()
                 }
-                TextField(project.name, text: $project.name) //Очень не очень по сути только для макета надо переделать
+                TextField("Project name", text: $projectName) //Очень не очень по сути только для макета надо переделать
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 10)
@@ -85,7 +88,7 @@ struct EditProjectView: View {
                     )
                 //                        .offset(y: 20)
                     .frame(height: 100)
-                TextField("Company name", text: $project.company) //Очень не очень по сути только для макета надо переделать
+                TextField("Company name", text: $companyName) //Очень не очень по сути только для макета надо переделать
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 10)
@@ -192,6 +195,17 @@ struct EditProjectView: View {
             .frame(width: width * 0.8, height: height * 0.95)
             
             
+        }
+        .onAppear {
+            projectName = project.name
+            companyName = project.company
+            if project.type.contains("Internal") {
+                _external = false
+                _internal = true
+            } else {
+                _external = true
+                _internal = false
+            }
         }
     }
 }

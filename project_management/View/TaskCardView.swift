@@ -65,13 +65,13 @@ struct TaskCardView: View {
 //                        Label("Change status", systemImage: "folder")
 //                    }
                     
-//                    Button {
-////                        currentTask = task.idx!
-//                        showEditView = true
-//                        currentEditOffset = -heigth
-//                    } label: {
-//                        Label("Edit", systemImage: "pencil")
-//                    }
+                    Button {
+//                        currentTask = task.idx!
+                        showEditView = true
+                        currentEditOffset = -heigth
+                    } label: {
+                        Label("Edit", systemImage: "pencil")
+                    }
                     
                     Button {
 //                        reindex(source: &projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks, count:  projects[currentStatus.projectIdx!].statuses[currentStatus.idx!].tasks.count)
