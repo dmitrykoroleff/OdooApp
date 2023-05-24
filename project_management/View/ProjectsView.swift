@@ -137,7 +137,7 @@ struct ProjectsView: View {
                             ScrollView(.vertical, showsIndicators: false) {
                                 VStack {
                                     if !projects.isEmpty {
-                                        ForEach(Array(currProjects.enumerated()), id: \.offset) { offset, project in
+                                        ForEach(Array(projects.enumerated()), id: \.offset) { offset, project in
                                             NavigationLink(destination: TasksView(project: project, task: $task)) {
                                                 ProjectCardView(showEditView: $showEditView, currentEditOffset: $currentEditOffset, currentProject: $currentProject, currProjects: $currProjects, idx: offset, project: project)
                                             }

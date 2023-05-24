@@ -54,8 +54,10 @@ struct EditProjectView: View {
                     })
                     Spacer()
                     Button(action: {
+//                        print(projects[project.idx!].name)
                         projects[project.idx!].name = projectName
                         projects[project.idx!].company = companyName
+//                        print(projects[project.idx!].name)
 //                        projects[project.idx!].type = project.type
                         withAnimation(Animation.easeIn(duration: 0.2)){
                             UIApplication.shared.endEditing()
@@ -125,67 +127,67 @@ struct EditProjectView: View {
 //                            .frame(height: 50)
 //
 //                    )
-                HStack {
-                    
-                    Button(action: {
-                        if (project.type.contains("External")) {
-                            project.type.remove(at: project.type.firstIndex(of: "External")!)
-                        } else {
-                            project.type.append("External")
-                        }
-                    }, label: {
-                        HStack {
-                            Circle()
-                                .fill(.red)
-                                .frame(width: 8, height: 8)
-                            Text("External")
-                                .foregroundColor(!(project.type.contains("External")) ? .black: .white)
-                        }
-                    })
-                    .background {
-                        RoundedRectangle(cornerRadius: 40)
-                            .stroke()
-                            .background {
-                                RoundedRectangle(cornerRadius: 40)
-                                    .fill(!(project.type.contains("External")) ? .white: Color(hex: 0xEC9706))
-                                    .frame(width: 100, height: 30)
-                                    
-                            }
-                            .frame(width: 100, height: 30)
-                            
-                    }
-                    .padding(.horizontal)
-                    Spacer()
-                    Button(action: {
-                        if (project.type.contains("Internal")) {
-                            project.type.remove(at: project.type.firstIndex(of: "Internal")!)
-                        } else {
-                            project.type.append("Internal")
-                        }
-                    }, label: {
-                        HStack {
-                            Circle()
-                                .fill(.purple)
-                                .frame(width: 8, height: 8)
-                            Text("Internal")
-                                .foregroundColor(!(project.type.contains("Internal")) ? .black: .white)
-                        }
-                    })
-                    .background {
-                        RoundedRectangle(cornerRadius: 40)
-                            .stroke()
-                            .background {
-                                RoundedRectangle(cornerRadius: 40)
-                                    .fill(!(project.type.contains("Internal")) ? .white: Color(hex: 0xA219FF))
-                                    .frame(width: 100, height: 30)
-                                    
-                            }
-                            .frame(width: 100, height: 30)
-                            
-                    }
-                    .padding(.horizontal)
-                    
-                }
+//                HStack {
+//
+//                    Button(action: {
+//                        if (project.type.contains("External")) {
+//                            project.type.remove(at: project.type.firstIndex(of: "External")!)
+//                        } else {
+//                            project.type.append("External")
+//                        }
+//                    }, label: {
+//                        HStack {
+//                            Circle()
+//                                .fill(.red)
+//                                .frame(width: 8, height: 8)
+//                            Text("External")
+//                                .foregroundColor(!(project.type.contains("External")) ? .black: .white)
+//                        }
+//                    })
+//                    .background {
+//                        RoundedRectangle(cornerRadius: 40)
+//                            .stroke()
+//                            .background {
+//                                RoundedRectangle(cornerRadius: 40)
+//                                    .fill(!(project.type.contains("External")) ? .white: Color(hex: 0xEC9706))
+//                                    .frame(width: 100, height: 30)
+//
+//                            }
+//                            .frame(width: 100, height: 30)
+//
+//                    }
+//                    .padding(.horizontal)
+//                    Spacer()
+//                    Button(action: {
+//                        if (project.type.contains("Internal")) {
+//                            project.type.remove(at: project.type.firstIndex(of: "Internal")!)
+//                        } else {
+//                            project.type.append("Internal")
+//                        }
+//                    }, label: {
+//                        HStack {
+//                            Circle()
+//                                .fill(.purple)
+//                                .frame(width: 8, height: 8)
+//                            Text("Internal")
+//                                .foregroundColor(!(project.type.contains("Internal")) ? .black: .white)
+//                        }
+//                    })
+//                    .background {
+//                        RoundedRectangle(cornerRadius: 40)
+//                            .stroke()
+//                            .background {
+//                                RoundedRectangle(cornerRadius: 40)
+//                                    .fill(!(project.type.contains("Internal")) ? .white: Color(hex: 0xA219FF))
+//                                    .frame(width: 100, height: 30)
+//
+//                            }
+//                            .frame(width: 100, height: 30)
+//
+//                    }
+//                    .padding(.horizontal)
+//
+//                }
             
                     
                 
@@ -193,19 +195,10 @@ struct EditProjectView: View {
                 Spacer()
             }
             .frame(width: width * 0.8, height: height * 0.95)
-            
-            
         }
         .onAppear {
             projectName = project.name
             companyName = project.company
-            if project.type.contains("Internal") {
-                _external = false
-                _internal = true
-            } else {
-                _external = true
-                _internal = false
-            }
         }
     }
 }
