@@ -16,10 +16,9 @@ struct AuthenticatedView: View {
     }
     
     var body: some View {
-        
 //        TabView {
             // MARK: insert here choose module
-            ChooseModules.ChooseModuleView()
+        ChooseModules.ChooseModuleView(email: CookieFile().emailuser, name: CookieFile().nameUser)
                 .tabItem {
                     Image(systemName: "person")
                     Text("module")

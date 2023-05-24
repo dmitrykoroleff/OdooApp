@@ -18,6 +18,7 @@
 		61D3D6F929E2F0320098B040 /* ProfileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3D6F529E2F0320098B040 /* ProfileApp.swift */; };
 		61D3D6FB29E2F03D0098B040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61D3D6FA29E2F03D0098B040 /* Assets.xcassets */; };
 		61D3D6FE29E2F0490098B040 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61D3D6FD29E2F0490098B040 /* Preview Assets.xcassets */; };
+		7EAA69C42A1E01B900CEABC4 /* ModelProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA69C32A1E01B900CEABC4 /* ModelProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		61D3D6F529E2F0320098B040 /* ProfileApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileApp.swift; sourceTree = "<group>"; };
 		61D3D6FA29E2F03D0098B040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61D3D6FD29E2F0490098B040 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7EAA69C32A1E01B900CEABC4 /* ModelProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				61D3D6F329E2F0320098B040 /* ProfileView.swift */,
 				61D3D6FA29E2F03D0098B040 /* Assets.xcassets */,
 				61D3D6FC29E2F0490098B040 /* Preview Content */,
+				7EAA69C32A1E01B900CEABC4 /* ModelProfile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				61D3D6F729E2F0320098B040 /* ProfileView.swift in Sources */,
 				61D3D6F929E2F0320098B040 /* ProfileApp.swift in Sources */,
 				61D3D6F629E2F0320098B040 /* ImagePicker.swift in Sources */,
+				7EAA69C42A1E01B900CEABC4 /* ModelProfile.swift in Sources */,
 				61D3D6F829E2F0320098B040 /* AboutAppView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

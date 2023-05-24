@@ -25,6 +25,8 @@ public struct ChooseModuleView: View {
     @State var openModule: String? = nil
     var gradient1: Gradient
     var gradient2: Gradient
+    var email: String
+    var name: String
     @State private var progression: CGFloat = 0
     
     let colors: [Color] = [Color("CardColor1", bundle: bundle),
@@ -39,17 +41,7 @@ public struct ChooseModuleView: View {
     //    let modules: [Modules]
     let modules: [Modules]
     
-    public init() {
-        //ya metrika
-        // Creating a screen object.
-//        let screen = YMMECommerceScreen(
-//                name: "ChooseModulesScreen",
-//                categoryComponents: ["выбор модулей"],
-//                searchQuery: "выбор модулей",
-//                payload: ["ios_version": String(UIDevice.current.systemVersion)]
-//        )
-//        // Sending an e-commerce event.
-//        YMMECommerce.showScreenEvent(screen: screen)
+    public init(email: String, name: String) {
         
         modules = Modules.sampleData
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
@@ -62,18 +54,19 @@ public struct ChooseModuleView: View {
                                          Color("GradientColor2", bundle: bundle),
                                          Color("GradientColor3", bundle: bundle),
                                          Color("GradientColor4", bundle: bundle)])
-        
+        self.email = email
+        self.name = name
     }
     
     public var body: some View {
         NavigationView{
             GeometryReader { geometry in
                 ZStack {
-                    NavigationLink(destination: CRMModule.StatusView(),
+                    NavigationLink(destination: CRMModule.StatusView(name: name, email: email).onAppear { CRMLogic().mainRequestCRM() },
                                    tag: "CRM",
                                    selection: $openModule)
                     { EmptyView() }
-                    NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR()),
+                    NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: name, userEmail: email),
                                    tag: "Recruitment",
                                    selection: $openModule)
                     { EmptyView() }
@@ -94,7 +87,7 @@ public struct ChooseModuleView: View {
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color.gray)
                                 
-                                Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
+                                Text(verbatim: email) // Хардкод
                                     .foregroundColor(Color("Headings", bundle: bundle))
                                     .font(.headline)
                                     .fontWeight(.semibold)
@@ -112,7 +105,7 @@ public struct ChooseModuleView: View {
                                         .foregroundColor(Color("MainColor", bundle: bundle))
                                         .frame(width: 40, height: 40)
                                     
-                                    Text("A") // Хардкод
+                                    Text("\(ModelChoose().getFirstLetter(str: name))") // Хардкод
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
@@ -124,7 +117,7 @@ public struct ChooseModuleView: View {
                         }
                         .padding(.horizontal, 30)
                         .background(
-                            NavigationLink(destination: Profile.ProfileView(), isActive: $openProfile) {
+                            NavigationLink(destination: Profile.ProfileView(name: name, email: email), isActive: $openProfile) {
                                 
                             }
                                 .hidden()
@@ -441,11 +434,11 @@ public struct ChooseModuleView: View {
     }
     
     
-    struct ChooseModuleView_Previews: PreviewProvider {
-        static var previews: some View {
-            ChooseModuleView()
-        }
-    }
+//    struct ChooseModuleView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            ChooseModuleView()
+//        }
+//    }
     
 }
 

@@ -41,6 +41,10 @@ public class LogicR: ObservableObject {
     @Published var stageOfJob: [Int: Array<Int>] = [:]
     @Published var stageOfJobName: [Int: Array<String>] = [:]
     
+    @Published var nameLog: Array<String> = []
+    @Published var textLog: Array<String> = []
+    @Published var dateLog: Array<String> = []
+    
     public func getStages() {
         let json = Json().jsonStageId
         let ur1 = "https://crm.auditory.ru/"
@@ -55,10 +59,10 @@ public class LogicR: ObservableObject {
                             return
                         }
                         DispatchQueue.main.async {
-                            var jsonRes = jsonObject["result"] as? [String : Any]
+                            var jsonRes = jsonObject["result"] as? [String: Any]
                             var jsonRecords = jsonRes?["records"] as? Array<Any>
                             for index in 0..<(jsonRecords?.count ?? 0) {
-                                var js = jsonRecords?[index] as? [String : Any]
+                                var js = jsonRecords?[index] as? [String: Any]
                                 self.allStages.append(js?["name"] as? String ?? "")
                             }
                             self.statusRecr = self.allStages[0]
@@ -104,13 +108,13 @@ public class LogicR: ObservableObject {
     
     
     func getArrayRecr() {
-        var jsonRes = self.dataRecr["result"] as? [String : Any]
+        var jsonRes = self.dataRecr["result"] as? [String: Any]
         var jsonRecords = jsonRes?["records"] as? Array<Any>
-        var js = jsonRecords?[0] as? [String : Any]
+        var js = jsonRecords?[0] as? [String: Any]
         var jjj = js?["job_id"] as? Array<Any>
         stageId = [:]
         for index in 0..<(jsonRecords?.count ?? 0) {
-            var jsb = jsonRecords![index] as? [String : Any] ?? ["":0]
+            var jsb = jsonRecords![index] as? [String: Any] ?? ["": 0]
             var stage = jsb["stage_id"] as? Array<Any> ?? []
             let jid = jsb["job_id"] as? Array<Any> ?? []
             getOther(jsb: jsb)
@@ -256,7 +260,7 @@ public class LogicR: ObservableObject {
         let json = Json().createStatusJson(jobId: id, name: name)
         let ur1 = "https://crm.auditory.ru/"
         let ur2 = "web/dataset/call_kw/name_create"
-        AF.request("\(ur1)\(ur2)", method: .get, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
+        AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {
             case .success(let data):
                 do {
@@ -274,6 +278,52 @@ public class LogicR: ObservableObject {
                 print(error)
             }
         }
+    }
+    
+    
+    public func getNotes(thread: Int) {
+        let json = Json().getLogNotes(thread: thread)
+        let ur1 = "https://crm.auditory.ru/"
+        let ur2 = "mail/thread/messages"
+        AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                        print("Error: Cannot convert data to JSON object")
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        let jsonRes = jsonObject["result"] as? Array<Any>
+                        if jsonRes?.count ?? 0 > 0 {
+                            for item in jsonRes! {
+                                let js = item as? [String: Any]
+                                
+                            }
+                        }
+                        
+                    }
+                } catch {
+                    print("Error: Trying to convert JSON data to string")
+                    return
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    
+    func getFirstLetter(str: String) -> String {
+        let separatedNames = str.components(separatedBy: " ")
+        var initials = ""
+
+        if let firstName = separatedNames.first, let lastName = separatedNames.dropFirst().first {
+            if let firstInitial = firstName.first, let lastInitial = lastName.first {
+                initials = "\(firstInitial)"
+            }
+        }
+        return initials
     }
     
 }

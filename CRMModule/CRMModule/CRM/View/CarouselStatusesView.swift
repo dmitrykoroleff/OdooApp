@@ -123,11 +123,11 @@ struct CarouselStatusesView <Content: View, T: Identifiable>: View {
     }
 }
 
-struct CarouselStatusesView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatusView()
-    }
-}
+//struct CarouselStatusesView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StatusView()
+//    }
+//}
 
 extension View {
     

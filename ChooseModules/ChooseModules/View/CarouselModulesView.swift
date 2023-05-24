@@ -156,12 +156,12 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
     }
 }
 
-struct CarouselModulesView_Previews: PreviewProvider {
-    static var previews: some View {
-//        ChooseModuleView(modules: Modules.sampleData)
-        ChooseModuleView()
-    }
-}
+//struct CarouselModulesView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        ChooseModuleView(modules: Modules.sampleData)
+//        ChooseModuleView()
+//    }
+//}
 
 extension View {
     

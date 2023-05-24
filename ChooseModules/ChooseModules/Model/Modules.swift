@@ -41,8 +41,8 @@ struct ImplementedModules: Decodable {
 extension Modules { // Хардкор
     
     static let sampleData: [Modules] = [
-        Modules(name: "CRM", notifications: 0, view: CRMModule.StatusView()),
-        Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.ViewOfJobs(shared: LogicR())),
+        Modules(name: "CRM", notifications: 0, view: CRMModule.StatusView(name: " ", email: " ")),
+        Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: "", userEmail: "")),
     ]
     
 }
@@ -139,4 +139,20 @@ class StorageValues {
         })
         return images
     }
+}
+
+class ModelChoose {
+    
+    func getFirstLetter(str: String) -> String {
+        let separatedNames = str.components(separatedBy: " ")
+        var initials = ""
+
+        if let firstName = separatedNames.first, let lastName = separatedNames.dropFirst().first {
+            if let firstInitial = firstName.first, let lastInitial = lastName.first {
+                initials = "\(firstInitial)"
+            }
+        }
+        return initials
+    }
+    
 }

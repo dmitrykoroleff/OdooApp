@@ -23,6 +23,12 @@ public class CookieFile: ObservableObject {
     @AppStorage("auth") var validUrl = false {
         willSet { objectWillChange.send() }
     }
+    @AppStorage("name") var nameUser = "" {
+        willSet { objectWillChange.send() }
+    }
+    @AppStorage("email") var emailuser = "" {
+        willSet { objectWillChange.send() }
+    }
     
     
     @Published var isPresent: Bool = false

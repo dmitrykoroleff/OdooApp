@@ -44,6 +44,9 @@
 		61FABEBD29E30A2200ED6059 /* CRMModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FABE4B29E3096F00ED6059 /* CRMModule.framework */; platformFilter = ios; };
 		61FABECA29E30A8200ED6059 /* CRMModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABEC929E30A8200ED6059 /* CRMModuleTest.swift */; };
 		61FABECC29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABECB29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift */; };
+		7E75A5142A1B637A0088D8CA /* LogicCRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E75A5132A1B637A0088D8CA /* LogicCRM.swift */; };
+		7E75A5162A1B65D80088D8CA /* JsonRquestCRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E75A5152A1B65D80088D8CA /* JsonRquestCRM.swift */; };
+		7E75A5192A1B6AB30088D8CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E75A5182A1B6AB30088D8CA /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,8 @@
 		61FABEC729E30A8200ED6059 /* CRMModuleTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRMModuleTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FABEC929E30A8200ED6059 /* CRMModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMModuleTest.swift; sourceTree = "<group>"; };
 		61FABECB29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMModuleTestLaunchTests.swift; sourceTree = "<group>"; };
+		7E75A5132A1B637A0088D8CA /* LogicCRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicCRM.swift; sourceTree = "<group>"; };
+		7E75A5152A1B65D80088D8CA /* JsonRquestCRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRquestCRM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61FABEB429E309FE00ED6059 /* SwiftUITrackableScrollView in Frameworks */,
+				7E75A5192A1B6AB30088D8CA /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +179,8 @@
 				6158A66129E314F70049A7AE /* CardModel.swift */,
 				6158A66229E314F70049A7AE /* TaskModel.swift */,
 				6158A66329E314F70049A7AE /* UserModel.swift */,
+				7E75A5132A1B637A0088D8CA /* LogicCRM.swift */,
+				7E75A5152A1B65D80088D8CA /* JsonRquestCRM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +277,7 @@
 			name = CRMModule;
 			packageProductDependencies = (
 				61FABEB329E309FE00ED6059 /* SwiftUITrackableScrollView */,
+				7E75A5182A1B6AB30088D8CA /* Alamofire */,
 			);
 			productName = CRMModule;
 			productReference = 61FABE4B29E3096F00ED6059 /* CRMModule.framework */;
@@ -341,6 +350,7 @@
 			mainGroup = 61FABE4129E3096F00ED6059;
 			packageReferences = (
 				61FABEB229E309FE00ED6059 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
+				7E75A5172A1B6AB30088D8CA /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 61FABE4C29E3096F00ED6059 /* Products */;
 			projectDirPath = "";
@@ -386,6 +396,7 @@
 			files = (
 				6158A69729E314F70049A7AE /* GeneralInformationView.swift in Sources */,
 				6158A68B29E314F70049A7AE /* AddLogNoteView.swift in Sources */,
+				7E75A5142A1B637A0088D8CA /* LogicCRM.swift in Sources */,
 				6158A67B29E314F70049A7AE /* ColorExtension.swift in Sources */,
 				6158A69029E314F70049A7AE /* StatusView.swift in Sources */,
 				6158A67D29E314F70049A7AE /* StatusViewModel.swift in Sources */,
@@ -397,6 +408,7 @@
 				6158A68F29E314F70049A7AE /* ScheduleListView.swift in Sources */,
 				6158A68C29E314F70049A7AE /* ScheduleView.swift in Sources */,
 				6158A69529E314F70049A7AE /* CustomProgressbarView.swift in Sources */,
+				7E75A5162A1B65D80088D8CA /* JsonRquestCRM.swift in Sources */,
 				6158A68129E314F70049A7AE /* NoteModel.swift in Sources */,
 				6158A68D29E314F70049A7AE /* AddScheduleView.swift in Sources */,
 				6158A68029E314F70049A7AE /* StatusModel.swift in Sources */,
@@ -764,6 +776,14 @@
 				kind = branch;
 			};
 		};
+		7E75A5172A1B6AB30088D8CA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -771,6 +791,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 61FABEB229E309FE00ED6059 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
 			productName = SwiftUITrackableScrollView;
+		};
+		7E75A5182A1B6AB30088D8CA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E75A5172A1B6AB30088D8CA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

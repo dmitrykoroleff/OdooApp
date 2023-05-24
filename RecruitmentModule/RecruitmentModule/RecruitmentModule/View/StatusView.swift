@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SwiftUITrackableScrollView
-//import Profile
+import Profile
 
 public struct StatusView: View {
     let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
@@ -25,6 +25,8 @@ public struct StatusView: View {
     var stageID: Array<Int>
     var stageName: Array<String>
     var jobID: Int
+    var nameUser: String
+    var emailUser: String
     var height = UIScreen.main.bounds.height
     @State var statusRecr: String = "👔Manager"
     @ObservedObject var shared: LogicR
@@ -37,7 +39,7 @@ public struct StatusView: View {
     var gradient2: Gradient
     @State private var progression: CGFloat = 0
     @State private var scrollViewContentOffset = CGFloat(0)
-    public init(jobId: Int, shared: LogicR, stageId: Array<Int>, stageName: Array<String>) {
+    public init(jobId: Int, shared: LogicR, stageId: Array<Int>, stageName: Array<String>, userName: String, userEmail: String) {
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
                                         Color("GradientColor2", bundle: bundle),
                                         Color("GradientColor3", bundle: bundle),
@@ -52,6 +54,8 @@ public struct StatusView: View {
         self.shared = shared
         self.stageID = stageId
         self.stageName = stageName
+        self.nameUser = userName
+        self.emailUser = userEmail
     }
     public var body: some View {
         
@@ -76,7 +80,7 @@ public struct StatusView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(Color.gray)
                                     
-                                    Text(verbatim: "aashoshina@miem.hse.ru") // Хардкод
+                                    Text(verbatim: "\(emailUser)") // Хардкод
                                         .foregroundColor(Color("Headings", bundle: bundle))
                                         .font(.headline)
                                         .fontWeight(.semibold)
@@ -86,14 +90,14 @@ public struct StatusView: View {
                                 Spacer()
                                 
                                 // Link to profile 
-                                NavigationLink(destination: EmptyView()) {
+                                NavigationLink(destination: Profile.ProfileView(name: nameUser, email: emailUser)) {
                                     ZStack {
                                         
                                         Circle()
                                             .foregroundColor(Color("MainColor", bundle: bundle))
                                             .frame(width: 40, height: 40)
                                         
-                                        Text("A") // Хардкод
+                                        Text("\(shared.getFirstLetter(str: nameUser))") // Хардкод
                                             .font(.title3)
                                             .fontWeight(.semibold)
                                             .foregroundColor(.white)

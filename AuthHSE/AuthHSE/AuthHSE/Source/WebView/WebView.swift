@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import WebKit
 import Alamofire
+import SwiftJWT
 
 struct Webview: UIViewControllerRepresentable {
     let url: URL = URL(string: "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?response_type=token&client_id=crm.auditory.ru&redirect_uri=https://crm.auditory.ru/auth_oauth/signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Fcrm.auditory.ru%252Fweb%22%7D")!
@@ -75,6 +76,21 @@ class WebviewController: UIViewController, WKNavigationDelegate {
             let aString = webview.url!.absoluteString
             let newUrl = aString.replacingOccurrences(of: "#", with: "?", options: .literal, range: nil)
             self.modelCookie.getUrl(url: newUrl)
+            if let url = URL(string: "\(newUrl)") {
+                if let accessToken = url.valueOf("access_token"), let tokenType = url.valueOf("token_type") {
+                    let accessTokenMy = accessToken
+                    do {
+                        let jwt = try JWT<TokenClaims>(jwtString: accessTokenMy)
+                        let claims = jwt.claims
+                        CookieFile().nameUser = claims.name
+                        CookieFile().emailuser = claims.email
+                        // Обрабатывайте другие поля claims по мере необходимости
+                    } catch {
+                        print("Failed to decode access token: \(error)")
+                    }
+                }
+            }
+            
             webview.stopLoading()
             let url = URL(string: newUrl)
             var cookies = readCookie(forURL: url!)
@@ -221,5 +237,18 @@ class WebviewController: UIViewController, WKNavigationDelegate {
         default:
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
+    }
+}
+
+
+
+extension URL {
+    func valueOf(_ key: String) -> String? {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false),
+              let queryItems = components.queryItems else {
+            return nil
+        }
+        
+        return queryItems.first(where: { $0.name == key })?.value
     }
 }

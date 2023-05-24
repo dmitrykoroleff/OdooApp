@@ -54,4 +54,16 @@ class Json {
                                     "domain": [],
                                     "fields": ["name"],
                                     "model": "hr.recruitment.stage"]]
+    
+    
+    func getLogNotes(thread: Int) -> [String: Any] {
+        let json: [String: Any] = ["id": 100,
+                                   "jsonrpc": "2.0",
+                                   "method": "call",
+                                   "params": [
+                                        "thread_id": thread,
+                                        "limit": 30,
+                                        "thread_model": "hr.applicant"]]
+        return json
+    }
 }
