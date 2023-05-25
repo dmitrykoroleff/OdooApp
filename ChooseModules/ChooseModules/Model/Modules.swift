@@ -35,7 +35,7 @@ struct Modules: Identifiable, Equatable {
 }
 
 struct ImplementedModules: Decodable {
-    let modules: [[String:String]]
+    let modules: [String]
 }
 
 extension Modules { // Хардкор
@@ -68,7 +68,7 @@ class RCValues {
     }
     
     func fetchCloudValues() -> [String] {
-        var modules: ImplementedModules = ImplementedModules(modules: [["":""]])
+        var modules: ImplementedModules = ImplementedModules(modules: [""])
                 // 1
                 activateDebugMode()
                 
@@ -88,17 +88,17 @@ class RCValues {
                     RemoteConfig.remoteConfig().activate { _, _ in
                       print("Retrieved values from the cloud!")
                         let implementedModules = RemoteConfig.remoteConfig()
-                            .configValue(forKey: "implementedModules")
+                            .configValue(forKey: "implementedModulesIOS")
                             .stringValue ?? "undefined"
                         let data = implementedModules.data(using: .utf8)
                         
-                        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [["":""]])
+                        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [""])
                         print(modules)
-                        var arr: [String] = []
-                        for module in modules.modules {
-                            arr.append(module["nameEn"] ?? " ")
-                        }
-                        print(arr)
+//                        var arr: [String] = []
+//                        for module in modules.modules {
+//                            arr.append(module["nameEn"] ?? " ")
+//                        }
+//                        print(arr)
                     }
                   }
                 
@@ -120,19 +120,19 @@ class RCValues {
     }
     
     func getModules() -> [String] {
-        var modules: ImplementedModules = ImplementedModules(modules: [["":""]])
+        var modules: ImplementedModules = ImplementedModules(modules: [""])
         let implementedModules = RemoteConfig.remoteConfig()
-            .configValue(forKey: "implementedModules")
+            .configValue(forKey: "implementedModulesIOS")
             .stringValue ?? "undefined"
         let data = implementedModules.data(using: .utf8)
         
-        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [["":""]])
+        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [""])
 //        print(modules)
-        var arr: [String] = []
-        for module in modules.modules {
-            arr.append(module["nameEn"] ?? " ")
-        }
-        return arr
+//        var arr: [String] = []
+//        for module in modules.modules {
+//            arr.append(module["nameEn"] ?? " ")
+//        }
+        return modules.modules
     }
 }
 

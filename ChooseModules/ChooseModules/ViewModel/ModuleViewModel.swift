@@ -18,6 +18,8 @@ func generateIcon(text: String) -> Image {
         return Image("CRMIcon", bundle: bundle)
     case "Recruitment":
         return Image("RecruitmentIcon", bundle: bundle)
+    case "Projects":
+        return Image("ProjectsIcon", bundle: bundle)
     default:
         return Image("noResultsIcon", bundle: bundle)
     }
