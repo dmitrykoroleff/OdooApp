@@ -24,6 +24,7 @@ struct EditProjectView: View {
     
     @State var projectName: String = String()
     @State private var companyName: String = String()
+    @State var projectType: [String] = []
     
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
@@ -57,6 +58,7 @@ struct EditProjectView: View {
 //                        print(projects[project.idx!].name)
                         projects[project.idx!].name = projectName
                         projects[project.idx!].company = companyName
+                        projects[project.idx!].type = projectType
 //                        print(projects[project.idx!].name)
 //                        projects[project.idx!].type = project.type
                         withAnimation(Animation.easeIn(duration: 0.2)){
@@ -127,67 +129,67 @@ struct EditProjectView: View {
 //                            .frame(height: 50)
 //
 //                    )
-//                HStack {
-//
-//                    Button(action: {
-//                        if (project.type.contains("External")) {
-//                            project.type.remove(at: project.type.firstIndex(of: "External")!)
-//                        } else {
-//                            project.type.append("External")
-//                        }
-//                    }, label: {
-//                        HStack {
-//                            Circle()
-//                                .fill(.red)
-//                                .frame(width: 8, height: 8)
-//                            Text("External")
-//                                .foregroundColor(!(project.type.contains("External")) ? .black: .white)
-//                        }
-//                    })
-//                    .background {
-//                        RoundedRectangle(cornerRadius: 40)
-//                            .stroke()
-//                            .background {
-//                                RoundedRectangle(cornerRadius: 40)
-//                                    .fill(!(project.type.contains("External")) ? .white: Color(hex: 0xEC9706))
-//                                    .frame(width: 100, height: 30)
-//
-//                            }
-//                            .frame(width: 100, height: 30)
-//
-//                    }
-//                    .padding(.horizontal)
-//                    Spacer()
-//                    Button(action: {
-//                        if (project.type.contains("Internal")) {
-//                            project.type.remove(at: project.type.firstIndex(of: "Internal")!)
-//                        } else {
-//                            project.type.append("Internal")
-//                        }
-//                    }, label: {
-//                        HStack {
-//                            Circle()
-//                                .fill(.purple)
-//                                .frame(width: 8, height: 8)
-//                            Text("Internal")
-//                                .foregroundColor(!(project.type.contains("Internal")) ? .black: .white)
-//                        }
-//                    })
-//                    .background {
-//                        RoundedRectangle(cornerRadius: 40)
-//                            .stroke()
-//                            .background {
-//                                RoundedRectangle(cornerRadius: 40)
-//                                    .fill(!(project.type.contains("Internal")) ? .white: Color(hex: 0xA219FF))
-//                                    .frame(width: 100, height: 30)
-//
-//                            }
-//                            .frame(width: 100, height: 30)
-//
-//                    }
-//                    .padding(.horizontal)
-//
-//                }
+                HStack {
+
+                    Button(action: {
+                        if (projectType.contains("External")) {
+                            projectType.remove(at: projectType.firstIndex(of: "External")!)
+                        } else {
+                            projectType.append("External")
+                        }
+                    }, label: {
+                        HStack {
+                            Circle()
+                                .fill(.red)
+                                .frame(width: 8, height: 8)
+                            Text("External")
+                                .foregroundColor(!(projectType.contains("External")) ? .black: .white)
+                        }
+                    })
+                    .background {
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke()
+                            .background {
+                                RoundedRectangle(cornerRadius: 40)
+                                    .fill(!(projectType.contains("External")) ? .white: Color(hex: 0xEC9706))
+                                    .frame(width: 100, height: 30)
+
+                            }
+                            .frame(width: 100, height: 30)
+
+                    }
+                    .padding(.horizontal)
+                    Spacer()
+                    Button(action: {
+                        if (projectType.contains("Internal")) {
+                            projectType.remove(at: projectType.firstIndex(of: "Internal")!)
+                        } else {
+                            projectType.append("Internal")
+                        }
+                    }, label: {
+                        HStack {
+                            Circle()
+                                .fill(.purple)
+                                .frame(width: 8, height: 8)
+                            Text("Internal")
+                                .foregroundColor(!(projectType.contains("Internal")) ? .black: .white)
+                        }
+                    })
+                    .background {
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke()
+                            .background {
+                                RoundedRectangle(cornerRadius: 40)
+                                    .fill(!(projectType.contains("Internal")) ? .white: Color(hex: 0xA219FF))
+                                    .frame(width: 100, height: 30)
+
+                            }
+                            .frame(width: 100, height: 30)
+
+                    }
+                    .padding(.horizontal)
+
+                }
             
                     
                 
@@ -199,6 +201,7 @@ struct EditProjectView: View {
         .onAppear {
             projectName = project.name
             companyName = project.company
+            projectType = project.type
         }
     }
 }
