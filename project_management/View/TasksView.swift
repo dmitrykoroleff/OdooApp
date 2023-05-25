@@ -356,7 +356,7 @@ struct TasksView: View {
                     
                     
                     VStack {
-                        BottomSheetView(currentProjectIdx: project.idx!, currentTask: currentTask,onStatus: onStatus, changingStatus: $changingStatus, curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, showAdditionalStatuses: $showAdditionalStatuses)
+                        BottomSheetView(currentProjectIdx: project.idx!, currentTask: currentTask,onStatus: onStatus, changingStatus: $changingStatus, curruntAddStatusOffset: $curruntAddStatusOffset, currentStatus: $currentStatus, index: $currentIndex, currOffset: $curruntOffset, showAdditionalStatuses: $showAdditionalStatuses)
                             .offset(y: height)
                             .offset(y: projects[project.idx!].statuses.count + 1 <= 5 ? (-curruntOffset > 0 ? -curruntOffset <= (height / 2.5) ? curruntOffset : -(height / 2.5) : 0) : (-curruntOffset > 0 ? -curruntOffset <= (height / 2.2) ? curruntOffset : -(height / 2.2) : 0))
                             .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in

@@ -17,6 +17,7 @@ struct BottomSheetView: View {
     @Binding var curruntAddStatusOffset: CGFloat
     @Binding var currentStatus: Status
     @Binding var index: Int
+    @Binding var currOffset: CGFloat
     @State var showBottomBar = false
     @Binding var showAdditionalStatuses: Bool
     let columns = [
@@ -63,6 +64,8 @@ struct BottomSheetView: View {
                                     withAnimation(Animation.easeIn(duration: 0.2)) {
                                         index = offset
                                         currentStatus = status
+                                        currOffset = 0
+                                        showBottomBar = false
                                     }
                                     HapticManager.instance.impact(style: .soft)
                                 }, label: {
@@ -126,7 +129,8 @@ struct BottomSheetView: View {
 
 struct BottomSheetView_Previews: PreviewProvider {
     @State static var changingStatus = false
+    @State static var currOffset: CGFloat = 0
     static var previews: some View {
-        BottomSheetView(currentProjectIdx: 0, currentTask: 0, onStatus: 0, changingStatus: $changingStatus, curruntAddStatusOffset: .constant(0), currentStatus: .constant(Status(id: UUID(), image: "graduationcap", name: "Student")), index: .constant(0), showAdditionalStatuses: .constant(false))
+        BottomSheetView(currentProjectIdx: 0, currentTask: 0, onStatus: 0, changingStatus: $changingStatus, curruntAddStatusOffset: .constant(0), currentStatus: .constant(Status(id: UUID(), image: "graduationcap", name: "Student")), index: .constant(0), currOffset: $currOffset, showAdditionalStatuses: .constant(false))
     }
 }
