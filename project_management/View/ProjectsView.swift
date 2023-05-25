@@ -34,10 +34,13 @@ struct ProjectsView: View {
     @State var currentIndex: Int = 0
     @State var showAddTaskView = false
     @State var curruntAddTaskOffset: CGFloat = 0
+    @State private var showingAlert = true
+    @State var ok: Bool = true
     var body: some View {
         NavigationView {
             GeometryReader {_ in
                 ZStack {
+                    
                     VStack(alignment: .center) {
                         Image("logo")
                             .resizable()
@@ -252,6 +255,9 @@ struct ProjectsView: View {
             }
 
         }
+        .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Warning!"), message: Text("Модуль находится в демо версии."), dismissButton: .default(Text("OK!")))
+                }
         
     }
     
