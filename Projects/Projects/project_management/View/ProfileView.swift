@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @AppStorage("auth") var authenticated = true
     @State var shouldShowImagePicker = false
     @State var image: UIImage?
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -114,7 +115,7 @@ struct ProfileView: View {
                 VStack(spacing: 15) {
                     
                     Button {
-                        
+                        self.authenticated.toggle()
                     } label: {
                         
                         ZStack {
@@ -127,6 +128,7 @@ struct ProfileView: View {
                                 .foregroundColor(.white)
                                 .font(.title2)
                                 .fontWeight(.medium)
+                            
                             
                         }
                     }
