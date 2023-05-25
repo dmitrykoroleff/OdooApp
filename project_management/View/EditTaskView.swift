@@ -10,7 +10,9 @@ import SwiftUI
 struct EditTaskView: View {
     
     @Binding var showEditOffset: Bool
-    @Binding var task: Task
+    var currentProject: Int
+    var currentTask: Int
+    var currentStatus: Int
     @Binding var currentEditOffset: CGFloat
     
     let dateFormatter: DateFormatter = {
@@ -55,8 +57,8 @@ struct EditTaskView: View {
                     })
                     Spacer()
                     Button(action: {
-                        projects[task.projectIdx].statuses[task.status.idx!].tasks[task.idx!].text = text
-                        projects[task.projectIdx].statuses[task.status.idx!].tasks[task.idx!].company = companyName
+                        projects[currentProject].statuses[currentStatus].tasks[currentTask].text = text
+                        projects[currentProject].statuses[currentStatus].tasks[currentTask].company = companyName
                         withAnimation(Animation.easeIn(duration: 0.2)){
 
                             UIApplication.shared.endEditing()
@@ -132,15 +134,15 @@ struct EditTaskView: View {
             
         }
         .onAppear {
-            text = task.text
-            companyName = task.company ?? ""
+            text = projects[currentProject].statuses[currentStatus].tasks[currentTask].text
+            companyName = projects[currentProject].statuses[currentStatus].tasks[currentTask].company ?? ""
         }
     }
 }
 
-struct EditTaskView_Previews: PreviewProvider {
-    @State static var show = false
-    static var previews: some View {
-        EditTaskView(showEditOffset: .constant(false), task: .constant(Task(projectIdx: 0, text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[0].statuses[0])), currentEditOffset: .constant(0))
-    }
-}
+//struct EditTaskView_Previews: PreviewProvider {
+//    @State static var show = false
+//    static var previews: some View {
+//        EditTaskView(showEditOffset: .constant(false), task: .constant(Task(projectIdx: 0, text: "Meeting Room Furnitures", company: "YourCompany, Joel Willis", status: projects[0].statuses[0])), currentEditOffset: .constant(0))
+//    }
+//}

@@ -231,7 +231,7 @@ struct ProjectsView: View {
                             lastOffset = curruntOffset
                         }))
                     
-                    EditProjectView(showEditProjectView: $showEditView, currentEditOffset: $currentEditOffset, project: $project)
+                    EditProjectView(showEditProjectView: $showEditView, currentEditOffset: $currentEditOffset, project: $project, currentProject: currentProject)
                         .offset(y: height)
                         .offset(y: -currentEditOffset > 0 ? -currentEditOffset <= (height + 10) ? currentEditOffset : -(height + 10) : 0)
                         .gesture(DragGesture().updating($gestureEditOffset, body: { value, out, _ in

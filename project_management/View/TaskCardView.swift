@@ -100,6 +100,7 @@ struct TaskCardView: View {
                     
                     Button {
 //                        currentTask = task.idx!
+                        taskToChange = currentTask
                         showEditView = true
                         currentEditOffset = -height
                     } label: {

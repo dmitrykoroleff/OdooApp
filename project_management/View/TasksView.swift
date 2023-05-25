@@ -437,7 +437,7 @@ struct TasksView: View {
                             }
                             lastAddTaskOffset = curruntAddTaskOffset
                         }))
-                    EditTaskView(showEditOffset: $showEditView, task: $task, currentEditOffset: $currentEditOffset)
+                    EditTaskView(showEditOffset: $showEditView, currentProject: project.idx!, currentTask: currentTask, currentStatus: currentIndex, currentEditOffset: $currentEditOffset)
                         .offset(y: height)
                         .offset(y: -currentEditOffset > 0 ? -currentEditOffset <= (height + 10) ? currentEditOffset : -(height + 10) : 0)
                         .gesture(DragGesture().updating($gestureEditOffset, body: { value, out, _ in

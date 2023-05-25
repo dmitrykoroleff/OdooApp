@@ -11,6 +11,7 @@ struct EditProjectView: View {
     @Binding var showEditProjectView: Bool
     @Binding var currentEditOffset: CGFloat
     @Binding var project: Project
+    var currentProject: Int
     
     let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
@@ -56,9 +57,9 @@ struct EditProjectView: View {
                     Spacer()
                     Button(action: {
 //                        print(projects[project.idx!].name)
-                        projects[project.idx!].name = projectName
-                        projects[project.idx!].company = companyName
-                        projects[project.idx!].type = projectType
+                        projects[currentProject].name = projectName
+                        projects[currentProject].company = companyName
+                        projects[currentProject].type = projectType
 //                        print(projects[project.idx!].name)
 //                        projects[project.idx!].type = project.type
                         withAnimation(Animation.easeIn(duration: 0.2)){
@@ -199,15 +200,15 @@ struct EditProjectView: View {
             .frame(width: width * 0.8, height: height * 0.95)
         }
         .onAppear {
-            projectName = project.name
-            companyName = project.company
-            projectType = project.type
+            projectName = projects[currentProject].name
+            companyName = projects[currentProject].company
+            projectType = projects[currentProject].type
         }
     }
 }
 
-struct EditProjectView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProjectView(showEditProjectView: .constant(false), currentEditOffset: .constant(0), project: .constant(projects[0]))
-    }
-}
+//struct EditProjectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditProjectView(showEditProjectView: .constant(false), currentEditOffset: .constant(0), project: .constant(projects[0]))
+//    }
+//}
