@@ -1,10 +1,11 @@
 import SwiftUI
 import Combine
 import ChooseModules
+import FirebaseRemoteConfig
 
 
 struct UnauthenticatedView: View {
-    private var hseButtonToggle: Bool
+    @State private var hseButtonToggle: Bool = false
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     @ObservedObject private var model: UnauthenticatedViewModel
     @ObservedObject private var modelCookie = CookieFile()
@@ -15,11 +16,17 @@ struct UnauthenticatedView: View {
     var str1: String = "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?"
     var str2: String = "response_type=token&client_id=odoo.miem.tv&redirect_uri=https://odoo.miem.tv/auth_oauth/"
     var str3: String = "signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Fodoo.miem.tv%252Fweb%22%7D"
+//    var remoteConf: RemoteConfig!
 
     init(model: UnauthenticatedViewModel) {
         self.model = model
+//        self.remoteConfig = RemoteConfig.remoteConfig()
 //        hseButtonToggle = false
-        hseButtonToggle = model.buttonFeatureToggle()
+//        hseButtonToggle = model.buttonFeatureToggle()
+//        RCValues().fetchCloudValues()
+        RCValues().fetchCloudValues()
+        
+        
         //false show, true hide 
     }
 
@@ -170,6 +177,28 @@ struct UnauthenticatedView: View {
             .ignoresSafeArea(.keyboard)
             .transition(.offset(x: 0, y: 850))
             .background(Color("Background", bundle: bundle))
+            .onAppear {
+//                RemoteConfig.remoteConfig().addOnConfigUpdateListener { configUpdate, error in
+//                  guard let configUpdate, error == nil else {
+//                    print("Error listening for config updates: \(error)")
+//                  }
+//
+//                  print("Updated keys: \(configUpdate.updatedKeys)")
+//
+//                  self.remoteConfig.activate { changed, error in
+//                    guard error == nil else { return self.displayError(error) }
+//                    DispatchQueue.main.async {
+//                        hseButtonToggle = self.remoteConfig.configValue(forKey: "isHseAuthEnabled")
+//                    }
+//                  }
+//                }
+            
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    // Put your code which should be executed with a delay here
+                    
+                    hseButtonToggle = RemoteConfig.remoteConfig().configValue(forKey: "isHseAuthEnabled").boolValue
+                }
+            }
         }
     }
 

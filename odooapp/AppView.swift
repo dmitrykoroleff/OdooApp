@@ -8,15 +8,18 @@
 import SwiftUI
 import AuthHSE
 import YandexMobileMetrica
+import FirebaseRemoteConfig
 
 struct AppView: View {
     init() {
         metricaStart()
         print("metrica started")
+//        print(RemoteConfig.remoteConfig().configValue(forKey: "isHseAuthEnabled").boolValue)
     }
     var body: some View {
         AuthHSE.AuthView().onAppear {
             CookieFile().getError()
+//            RCValues().fetchCloudValues()
         }
     }
     
@@ -32,3 +35,4 @@ struct ContentView_Previews: PreviewProvider {
         AppView()
     }
 }
+
