@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1413F67B2A1F9A4300C4E198 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1413F67A2A1F9A4200C4E198 /* LaunchScreen.swift */; };
 		61182A3C2A18E3DD00F06FBF /* ButtonToggleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61182A3B2A18E3DD00F06FBF /* ButtonToggleResponse.swift */; };
 		6162A8CB291EA0B1008B32A6 /* AuthHSE.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6162A8CA291EA0B1008B32A6 /* AuthHSE.docc */; };
 		6162A8D1291EA0B2008B32A6 /* AuthHSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */; };
@@ -70,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1413F67A2A1F9A4200C4E198 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		61182A3B2A18E3DD00F06FBF /* ButtonToggleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonToggleResponse.swift; sourceTree = "<group>"; };
 		6162A8C6291EA0B1008B32A6 /* AuthHSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthHSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6162A8C9291EA0B1008B32A6 /* AuthHSE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthHSE.h; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				6162A8FA291ECEB4008B32A6 /* UnauthenticatedView.swift */,
 				6162A8FC291ECEE7008B32A6 /* UnauthenticatedViewModel.swift */,
+				1413F67A2A1F9A4200C4E198 /* LaunchScreen.swift */,
 			);
 			path = UnAuthenticated;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				6162A90F291ED65A008B32A6 /* CustomTextField.swift in Sources */,
 				61182A3C2A18E3DD00F06FBF /* ButtonToggleResponse.swift in Sources */,
 				7E6E8F732986AB5F00710224 /* WebView.swift in Sources */,
+				1413F67B2A1F9A4300C4E198 /* LaunchScreen.swift in Sources */,
 				6162A8CB291EA0B1008B32A6 /* AuthHSE.docc in Sources */,
 				6162A905291ED304008B32A6 /* AuthenticatedView.swift in Sources */,
 				6162A908291ED340008B32A6 /* AuthenticatedViewModel.swift in Sources */,

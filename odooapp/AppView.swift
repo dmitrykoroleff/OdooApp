@@ -18,6 +18,7 @@ struct AppView: View {
     }
     var body: some View {
         AuthHSE.AuthView().onAppear {
+            Thread.sleep(forTimeInterval: 1.0)
             CookieFile().getError()
 //            RCValues().fetchCloudValues()
         }
