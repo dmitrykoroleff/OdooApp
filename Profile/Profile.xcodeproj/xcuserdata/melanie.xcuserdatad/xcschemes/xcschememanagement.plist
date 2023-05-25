@@ -7,7 +7,7 @@
 		<key>Profile.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>27</integer>
 		</dict>
 		<key>ProfileTest.xcscheme_^#shared#^_</key>
 		<dict>
@@ -17,7 +17,7 @@
 		<key>ProfileUITest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>26</integer>
 		</dict>
 	</dict>
 </dict>

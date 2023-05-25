@@ -47,7 +47,7 @@ struct BottomSheetView: View {
                     ScrollView() {
                         Text("All modules")
                         LazyVGrid(columns: columns) {
-                            ForEach(RCValues().fetchCloudValues(), id: \.self){module in
+                            ForEach(RCValues().getModules(), id: \.self){module in
                                 Button(action: {
                                     openModule = module
                                 }) {

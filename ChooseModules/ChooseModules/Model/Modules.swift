@@ -35,7 +35,7 @@ struct Modules: Identifiable, Equatable {
 }
 
 struct ImplementedModules: Decodable {
-    let modules: [[String:String]]
+    let modules: [String]
 }
 
 extension Modules { // Хардкор
@@ -51,7 +51,7 @@ extension Modules { // Хардкор
 class RCValues {
     
    init() {
-        fetchCloudValues()
+//        fetchCloudValues()
     }
     
 //    func loadDefaultValues() {
@@ -68,27 +68,71 @@ class RCValues {
     }
     
     func fetchCloudValues() -> [String] {
-        var modules: ImplementedModules = ImplementedModules(modules: [["":""]])
-        // 1
-        activateDebugMode()
-        
-        // 2
-        
-        
-        print("Retrieved values from the cloud!")
+        var modules: ImplementedModules = ImplementedModules(modules: [""])
+                // 1
+                activateDebugMode()
+                
+                // 2
+                
+                RemoteConfig.remoteConfig().fetch { [weak self] _, error in
+                    if let error = error {
+                        print("Uh-oh. Got an error fetching remote values \(error.localizedDescription)")
+                      // In a real app, you would probably want to call the loading
+                      // done callback anyway, and just proceed with the default values.
+                      // I won't do that here, so we can call attention
+                      // to the fact that Remote Config isn't loading.
+                      return
+                    }
+
+                    // 3
+                    RemoteConfig.remoteConfig().activate { _, _ in
+                      print("Retrieved values from the cloud!")
+                        let implementedModules = RemoteConfig.remoteConfig()
+                            .configValue(forKey: "implementedModulesIOS")
+                            .stringValue ?? "undefined"
+                        let data = implementedModules.data(using: .utf8)
+                        
+                        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [""])
+                        print(modules)
+//                        var arr: [String] = []
+//                        for module in modules.modules {
+//                            arr.append(module["nameEn"] ?? " ")
+//                        }
+//                        print(arr)
+                    }
+                  }
+                
+        //        RemoteConfig.remoteConfig().activate()
+        //        print("Retrieved values from the cloud!")
+        //        let implementedModules = RemoteConfig.remoteConfig()
+        //            .configValue(forKey: "implementedModules")
+        //            .stringValue ?? "undefined"
+        //        let data = implementedModules.data(using: .utf8)
+        //
+        //        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [["":""]])
+        //        print(modules)
+        //        var arr: [String] = []
+        //        for module in modules.modules {
+        //            arr.append(module["nameEn"] ?? " ")
+        //        }
+        //        print(arr)
+            return [""]
+    }
+    
+    func getModules() -> [String] {
+        var modules: ImplementedModules = ImplementedModules(modules: [""])
         let implementedModules = RemoteConfig.remoteConfig()
-            .configValue(forKey: "implementedModules")
+            .configValue(forKey: "implementedModulesIOS")
             .stringValue ?? "undefined"
         let data = implementedModules.data(using: .utf8)
         
-        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [["":""]])
-        
-        var arr: [String] = []
-        for module in modules.modules {
-            arr.append(module["nameEn"] ?? " ")
-        }
-        
-        return arr
+        modules = (try? JSONDecoder().decode(ImplementedModules.self, from: data!)) ?? ImplementedModules(modules: [""])
+//        print(modules)
+//        var arr: [String] = []
+//        for module in modules.modules {
+//            arr.append(module["nameEn"] ?? " ")
+//        }
+        return modules.modules
     }
 }
 

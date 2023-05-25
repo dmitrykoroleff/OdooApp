@@ -18,7 +18,8 @@ public class CRMLogic: ObservableObject {
     
     public func mainRequestCRM() {
         let json = JsonCRM().jsonStageId
-        let ur1 = "https://crm.auditory.ru/"
+//        let ur1 = "https://crm.auditory.ru/"
+        let ur1 = "https://erp.miem.hse.ru/"
         let ur2 = "web/dataset/search_read"
         AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {

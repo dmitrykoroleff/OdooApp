@@ -12,7 +12,7 @@ import Alamofire
 import SwiftJWT
 
 struct Webview: UIViewControllerRepresentable {
-    let url: URL = URL(string: "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?response_type=token&client_id=crm.auditory.ru&redirect_uri=https://crm.auditory.ru/auth_oauth/signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Fcrm.auditory.ru%252Fweb%22%7D")!
+    let url: URL = URL(string: "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?response_type=token&client_id=erp-miem&redirect_uri=https%3A%2F%2Ferp.miem.hse.ru%2Fauth_oauth%2Fsignin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Ferp.miem.hse.ru%252Fweb%22%7D")!
     @ObservedObject var modelCookie: CookieFile
 //    private var httpCookieStore: WKHTTPCookieStore  { return WKWebsiteDataStore.default().httpCookieStore }
     func makeUIViewController(context: Context) -> WebviewController {
@@ -30,9 +30,9 @@ class WebviewController: UIViewController, WKNavigationDelegate {
     @ObservedObject var modelCookie: CookieFile
     lazy var webview: WKWebView = WKWebView()
     lazy var progressbar: UIProgressView = UIProgressView()
-    var str1: String = "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?response_type=token&client_id=crm.auditory.ru&redirect_uri=https://"
-    var str2: String = "crm.auditory.ru/auth_oauth/signin&scope=profile&state=%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22"
-    var str3: String = "%3A+%22https%253A%252F%252Fcrm.auditory.ru%252Fweb%22%7D"
+    var str1: String = "https://profile.miem.hse.ru/auth/realms/MIEM/protocol/openid-connect/auth?response_type=token&client_id=erp-miem&redirect_uri=https"
+    var str2: String = "%3A%2F%2Ferp.miem.hse.ru%2Fauth_oauth%2Fsignin&scope=profile&state="
+    var str3: String = "%7B%22d%22%3A+%22crm%22%2C+%22p%22%3A+4%2C+%22r%22%3A+%22https%253A%252F%252Ferp.miem.hse.ru%252Fweb%22%7D"
     init(modelCookie: CookieFile) {
         self.modelCookie = modelCookie
         super.init(nibName: nil, bundle: nil)
@@ -71,7 +71,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
     }
 
     func URLWeb(webView: WKWebView) -> String {
-        if (webView.url?.host)! == "crm.auditory.ru" && modelCookie.sessionID.isEmpty{
+        if (webView.url?.host)! == "erp.miem.hse.ru" && modelCookie.sessionID.isEmpty{
             webView
             let aString = webview.url!.absoluteString
             let newUrl = aString.replacingOccurrences(of: "#", with: "?", options: .literal, range: nil)
@@ -109,7 +109,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                     var request = URLRequest(url: url!)
                     request.httpMethod = "POST"
                     request.httpBody = jsonData
-                    let ur1 = "https://crm.auditory.ru/"
+                    let ur1 = "https://erp.miem.hse.ru/"
                     let ur2 = "web/dataset/search_read"
                     AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
                         switch response.result {
@@ -183,7 +183,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
 //            }
             if let response = response as? HTTPURLResponse,
                 let data = data {
-                if response.url!.absoluteString == "https://crm.auditory.ru/ru/web/login?oauth_error=2" {
+                if response.url!.absoluteString == "https://erp.miem.hse.ru/ru/web/login?oauth_error=2" {
                     return
                 }
                 completion(.success(response, data))

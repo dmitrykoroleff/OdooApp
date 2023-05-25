@@ -10,6 +10,7 @@ import FirebaseRemoteConfig
 import CRMModule
 import RecruitmentModule
 import Profile
+import FirebaseRemoteConfig
 //import YandexMobileMetrica
 //let bundle = Bundle(identifier: "chooseModules.ChooseModules")
 public struct ChooseModuleView: View {
@@ -406,9 +407,6 @@ public struct ChooseModuleView: View {
                     }
                 }
                 .offset(y: -height/22.25)
-            }
-            .onAppear {
-                StorageValues().getModulesIcons()
             }
             .ignoresSafeArea(.keyboard)
         }
