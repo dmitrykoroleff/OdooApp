@@ -7,228 +7,225 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57F0FB842A20A83C0050C35C /* ProjectsModule.docc in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FB832A20A83C0050C35C /* ProjectsModule.docc */; };
-		57F0FB8A2A20A83C0050C35C /* ProjectsModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F0FB7F2A20A83C0050C35C /* ProjectsModule.framework */; };
-		57F0FB8F2A20A83C0050C35C /* ProjectsModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FB8E2A20A83C0050C35C /* ProjectsModuleTests.swift */; };
-		57F0FB902A20A83C0050C35C /* ProjectsModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F0FB822A20A83C0050C35C /* ProjectsModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		57F0FBF62A20A9410050C35C /* OffsetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBD62A20A9400050C35C /* OffsetsViewModel.swift */; };
-		57F0FBF72A20A9410050C35C /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBD72A20A9400050C35C /* ProjectViewModel.swift */; };
-		57F0FBF82A20A9410050C35C /* SwipeBackExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBD92A20A9400050C35C /* SwipeBackExtension.swift */; };
-		57F0FBF92A20A9410050C35C /* HapticFeedBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBDA2A20A9400050C35C /* HapticFeedBack.swift */; };
-		57F0FBFA2A20A9410050C35C /* InitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBDB2A20A9400050C35C /* InitView.swift */; };
-		57F0FBFB2A20A9410050C35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F0FBDC2A20A9400050C35C /* Assets.xcassets */; };
-		57F0FBFC2A20A9410050C35C /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBDE2A20A9400050C35C /* StatusModel.swift */; };
-		57F0FBFD2A20A9410050C35C /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBDF2A20A9400050C35C /* ProjectModel.swift */; };
-		57F0FBFE2A20A9410050C35C /* someFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE02A20A9400050C35C /* someFuncs.swift */; };
-		57F0FBFF2A20A9410050C35C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE12A20A9400050C35C /* UserModel.swift */; };
-		57F0FC002A20A9410050C35C /* ProjectsModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE22A20A9400050C35C /* ProjectsModuleApp.swift */; };
-		57F0FC012A20A9410050C35C /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE42A20A9410050C35C /* ProjectCardView.swift */; };
-		57F0FC022A20A9410050C35C /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE52A20A9410050C35C /* AddTaskView.swift */; };
-		57F0FC032A20A9410050C35C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE62A20A9410050C35C /* SearchView.swift */; };
-		57F0FC042A20A9410050C35C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE72A20A9410050C35C /* ProfileView.swift */; };
-		57F0FC052A20A9410050C35C /* AddStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE82A20A9410050C35C /* AddStatusView.swift */; };
-		57F0FC062A20A9410050C35C /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBE92A20A9410050C35C /* TaskCardView.swift */; };
-		57F0FC072A20A9410050C35C /* TaskManagmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBEA2A20A9410050C35C /* TaskManagmentView.swift */; };
-		57F0FC082A20A9410050C35C /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBEB2A20A9410050C35C /* BottomSheetView.swift */; };
-		57F0FC092A20A9410050C35C /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBEC2A20A9410050C35C /* AnimationView.swift */; };
-		57F0FC0A2A20A9410050C35C /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBED2A20A9410050C35C /* EditProjectView.swift */; };
-		57F0FC0B2A20A9410050C35C /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBEE2A20A9410050C35C /* CustomButtonView.swift */; };
-		57F0FC0C2A20A9410050C35C /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBEF2A20A9410050C35C /* ProjectsView.swift */; };
-		57F0FC0D2A20A9410050C35C /* SearchTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBF02A20A9410050C35C /* SearchTaskView.swift */; };
-		57F0FC0E2A20A9410050C35C /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBF12A20A9410050C35C /* TasksView.swift */; };
-		57F0FC0F2A20A9410050C35C /* NoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBF22A20A9410050C35C /* NoSearchView.swift */; };
-		57F0FC102A20A9410050C35C /* CustomAddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBF32A20A9410050C35C /* CustomAddButtonView.swift */; };
-		57F0FC112A20A9410050C35C /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBF42A20A9410050C35C /* EditTaskView.swift */; };
-		57F0FC122A20A9410050C35C /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0FBF52A20A9410050C35C /* AddProjectView.swift */; };
+		57D5D3792A2006EB00E779ED /* ProjectsModule.docc in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3782A2006EB00E779ED /* ProjectsModule.docc */; };
+		57D5D37F2A2006EC00E779ED /* ProjectsModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5D3742A2006EB00E779ED /* ProjectsModule.framework */; };
+		57D5D3842A2006EC00E779ED /* ProjectsModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3832A2006EC00E779ED /* ProjectsModuleTests.swift */; };
+		57D5D3852A2006EC00E779ED /* ProjectsModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 57D5D3772A2006EB00E779ED /* ProjectsModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57D5D3B12A20086500E779ED /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3942A20086500E779ED /* AddTaskView.swift */; };
+		57D5D3B22A20086500E779ED /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3952A20086500E779ED /* SearchView.swift */; };
+		57D5D3B32A20086500E779ED /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3962A20086500E779ED /* ProfileView.swift */; };
+		57D5D3B42A20086500E779ED /* AddStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3972A20086500E779ED /* AddStatusView.swift */; };
+		57D5D3B52A20086500E779ED /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3982A20086500E779ED /* TaskCardView.swift */; };
+		57D5D3B62A20086500E779ED /* TaskManagmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3992A20086500E779ED /* TaskManagmentView.swift */; };
+		57D5D3B72A20086500E779ED /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D39A2A20086500E779ED /* BottomSheetView.swift */; };
+		57D5D3B82A20086500E779ED /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D39B2A20086500E779ED /* AnimationView.swift */; };
+		57D5D3B92A20086500E779ED /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D39C2A20086500E779ED /* EditProjectView.swift */; };
+		57D5D3BA2A20086500E779ED /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D39D2A20086500E779ED /* CustomButtonView.swift */; };
+		57D5D3BB2A20086500E779ED /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D39E2A20086500E779ED /* ProjectsView.swift */; };
+		57D5D3BC2A20086500E779ED /* SearchTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D39F2A20086500E779ED /* SearchTaskView.swift */; };
+		57D5D3BD2A20086500E779ED /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3A02A20086500E779ED /* TasksView.swift */; };
+		57D5D3BE2A20086500E779ED /* NoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3A12A20086500E779ED /* NoSearchView.swift */; };
+		57D5D3BF2A20086500E779ED /* CustomAddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3A22A20086500E779ED /* CustomAddButtonView.swift */; };
+		57D5D3C02A20086500E779ED /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3A32A20086500E779ED /* EditTaskView.swift */; };
+		57D5D3C12A20086500E779ED /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3A42A20086500E779ED /* AddProjectView.swift */; };
+		57D5D3C22A20086500E779ED /* OffsetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3A62A20086500E779ED /* OffsetsViewModel.swift */; };
+		57D5D3C32A20086500E779ED /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3A72A20086500E779ED /* ProjectViewModel.swift */; };
+		57D5D3C42A20086500E779ED /* SwipeBackExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3A92A20086500E779ED /* SwipeBackExtension.swift */; };
+		57D5D3C52A20086500E779ED /* HapticFeedBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3AA2A20086500E779ED /* HapticFeedBack.swift */; };
+		57D5D3C62A20086500E779ED /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3AC2A20086500E779ED /* StatusModel.swift */; };
+		57D5D3C72A20086500E779ED /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3AD2A20086500E779ED /* ProjectModel.swift */; };
+		57D5D3C82A20086500E779ED /* someFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3AE2A20086500E779ED /* someFuncs.swift */; };
+		57D5D3C92A20086500E779ED /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3AF2A20086500E779ED /* UserModel.swift */; };
+		57D5D3CE2A200D9700E779ED /* InitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3CD2A200D9700E779ED /* InitView.swift */; };
+		57D5D3D02A200DAD00E779ED /* ProjectsModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3CF2A200DAD00E779ED /* ProjectsModuleApp.swift */; };
+		57D5D3D22A201B2B00E779ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D5D3D12A201B2B00E779ED /* Assets.xcassets */; };
+		57D5D3D42A201B9E00E779ED /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5D3D32A201B9E00E779ED /* ProjectCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		57F0FB8B2A20A83C0050C35C /* PBXContainerItemProxy */ = {
+		57D5D3802A2006EC00E779ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 57F0FB762A20A83C0050C35C /* Project object */;
+			containerPortal = 57D5D36B2A2006EB00E779ED /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 57F0FB7E2A20A83C0050C35C;
+			remoteGlobalIDString = 57D5D3732A2006EB00E779ED;
 			remoteInfo = ProjectsModule;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		57F0FB7F2A20A83C0050C35C /* ProjectsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProjectsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57F0FB822A20A83C0050C35C /* ProjectsModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectsModule.h; sourceTree = "<group>"; };
-		57F0FB832A20A83C0050C35C /* ProjectsModule.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ProjectsModule.docc; sourceTree = "<group>"; };
-		57F0FB892A20A83C0050C35C /* ProjectsModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectsModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		57F0FB8E2A20A83C0050C35C /* ProjectsModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModuleTests.swift; sourceTree = "<group>"; };
-		57F0FBD62A20A9400050C35C /* OffsetsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetsViewModel.swift; sourceTree = "<group>"; };
-		57F0FBD72A20A9400050C35C /* ProjectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
-		57F0FBD92A20A9400050C35C /* SwipeBackExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeBackExtension.swift; sourceTree = "<group>"; };
-		57F0FBDA2A20A9400050C35C /* HapticFeedBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HapticFeedBack.swift; sourceTree = "<group>"; };
-		57F0FBDB2A20A9400050C35C /* InitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitView.swift; sourceTree = "<group>"; };
-		57F0FBDC2A20A9400050C35C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		57F0FBDE2A20A9400050C35C /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
-		57F0FBDF2A20A9400050C35C /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
-		57F0FBE02A20A9400050C35C /* someFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = someFuncs.swift; sourceTree = "<group>"; };
-		57F0FBE12A20A9400050C35C /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		57F0FBE22A20A9400050C35C /* ProjectsModuleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsModuleApp.swift; sourceTree = "<group>"; };
-		57F0FBE42A20A9410050C35C /* ProjectCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
-		57F0FBE52A20A9410050C35C /* AddTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
-		57F0FBE62A20A9410050C35C /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		57F0FBE72A20A9410050C35C /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		57F0FBE82A20A9410050C35C /* AddStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStatusView.swift; sourceTree = "<group>"; };
-		57F0FBE92A20A9410050C35C /* TaskCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
-		57F0FBEA2A20A9410050C35C /* TaskManagmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagmentView.swift; sourceTree = "<group>"; };
-		57F0FBEB2A20A9410050C35C /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
-		57F0FBEC2A20A9410050C35C /* AnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
-		57F0FBED2A20A9410050C35C /* EditProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
-		57F0FBEE2A20A9410050C35C /* CustomButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
-		57F0FBEF2A20A9410050C35C /* ProjectsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
-		57F0FBF02A20A9410050C35C /* SearchTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTaskView.swift; sourceTree = "<group>"; };
-		57F0FBF12A20A9410050C35C /* TasksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
-		57F0FBF22A20A9410050C35C /* NoSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSearchView.swift; sourceTree = "<group>"; };
-		57F0FBF32A20A9410050C35C /* CustomAddButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAddButtonView.swift; sourceTree = "<group>"; };
-		57F0FBF42A20A9410050C35C /* EditTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
-		57F0FBF52A20A9410050C35C /* AddProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
+		57D5D3742A2006EB00E779ED /* ProjectsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProjectsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57D5D3772A2006EB00E779ED /* ProjectsModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectsModule.h; sourceTree = "<group>"; };
+		57D5D3782A2006EB00E779ED /* ProjectsModule.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ProjectsModule.docc; sourceTree = "<group>"; };
+		57D5D37E2A2006EC00E779ED /* ProjectsModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectsModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57D5D3832A2006EC00E779ED /* ProjectsModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModuleTests.swift; sourceTree = "<group>"; };
+		57D5D3942A20086500E779ED /* AddTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		57D5D3952A20086500E779ED /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		57D5D3962A20086500E779ED /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		57D5D3972A20086500E779ED /* AddStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStatusView.swift; sourceTree = "<group>"; };
+		57D5D3982A20086500E779ED /* TaskCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
+		57D5D3992A20086500E779ED /* TaskManagmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagmentView.swift; sourceTree = "<group>"; };
+		57D5D39A2A20086500E779ED /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		57D5D39B2A20086500E779ED /* AnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		57D5D39C2A20086500E779ED /* EditProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		57D5D39D2A20086500E779ED /* CustomButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
+		57D5D39E2A20086500E779ED /* ProjectsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		57D5D39F2A20086500E779ED /* SearchTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTaskView.swift; sourceTree = "<group>"; };
+		57D5D3A02A20086500E779ED /* TasksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		57D5D3A12A20086500E779ED /* NoSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSearchView.swift; sourceTree = "<group>"; };
+		57D5D3A22A20086500E779ED /* CustomAddButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAddButtonView.swift; sourceTree = "<group>"; };
+		57D5D3A32A20086500E779ED /* EditTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		57D5D3A42A20086500E779ED /* AddProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
+		57D5D3A62A20086500E779ED /* OffsetsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetsViewModel.swift; sourceTree = "<group>"; };
+		57D5D3A72A20086500E779ED /* ProjectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		57D5D3A92A20086500E779ED /* SwipeBackExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeBackExtension.swift; sourceTree = "<group>"; };
+		57D5D3AA2A20086500E779ED /* HapticFeedBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HapticFeedBack.swift; sourceTree = "<group>"; };
+		57D5D3AC2A20086500E779ED /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		57D5D3AD2A20086500E779ED /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
+		57D5D3AE2A20086500E779ED /* someFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = someFuncs.swift; sourceTree = "<group>"; };
+		57D5D3AF2A20086500E779ED /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		57D5D3CD2A200D9700E779ED /* InitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitView.swift; sourceTree = "<group>"; };
+		57D5D3CF2A200DAD00E779ED /* ProjectsModuleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsModuleApp.swift; sourceTree = "<group>"; };
+		57D5D3D12A201B2B00E779ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57D5D3D32A201B9E00E779ED /* ProjectCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		57F0FB7C2A20A83C0050C35C /* Frameworks */ = {
+		57D5D3712A2006EB00E779ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		57F0FB862A20A83C0050C35C /* Frameworks */ = {
+		57D5D37B2A2006EC00E779ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F0FB8A2A20A83C0050C35C /* ProjectsModule.framework in Frameworks */,
+				57D5D37F2A2006EC00E779ED /* ProjectsModule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		57F0FB752A20A83C0050C35C = {
+		57D5D36A2A2006EB00E779ED = {
 			isa = PBXGroup;
 			children = (
-				57F0FB812A20A83C0050C35C /* ProjectsModule */,
-				57F0FB8D2A20A83C0050C35C /* ProjectsModuleTests */,
-				57F0FB802A20A83C0050C35C /* Products */,
+				57D5D3762A2006EB00E779ED /* ProjectsModule */,
+				57D5D3822A2006EC00E779ED /* ProjectsModuleTests */,
+				57D5D3752A2006EB00E779ED /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		57F0FB802A20A83C0050C35C /* Products */ = {
+		57D5D3752A2006EB00E779ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				57F0FB7F2A20A83C0050C35C /* ProjectsModule.framework */,
-				57F0FB892A20A83C0050C35C /* ProjectsModuleTests.xctest */,
+				57D5D3742A2006EB00E779ED /* ProjectsModule.framework */,
+				57D5D37E2A2006EC00E779ED /* ProjectsModuleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		57F0FB812A20A83C0050C35C /* ProjectsModule */ = {
+		57D5D3762A2006EB00E779ED /* ProjectsModule */ = {
 			isa = PBXGroup;
 			children = (
-				57F0FBDC2A20A9400050C35C /* Assets.xcassets */,
-				57F0FBDB2A20A9400050C35C /* InitView.swift */,
-				57F0FBDD2A20A9400050C35C /* Model */,
-				57F0FBE22A20A9400050C35C /* ProjectsModuleApp.swift */,
-				57F0FBE32A20A9410050C35C /* View */,
-				57F0FBD52A20A9400050C35C /* ViewModel */,
-				57F0FB822A20A83C0050C35C /* ProjectsModule.h */,
-				57F0FB832A20A83C0050C35C /* ProjectsModule.docc */,
+				57D5D3D12A201B2B00E779ED /* Assets.xcassets */,
+				57D5D3CD2A200D9700E779ED /* InitView.swift */,
+				57D5D3CF2A200DAD00E779ED /* ProjectsModuleApp.swift */,
+				57D5D3AB2A20086500E779ED /* Model */,
+				57D5D3922A20086500E779ED /* View */,
+				57D5D3A52A20086500E779ED /* ViewModel */,
+				57D5D3772A2006EB00E779ED /* ProjectsModule.h */,
+				57D5D3782A2006EB00E779ED /* ProjectsModule.docc */,
 			);
 			path = ProjectsModule;
 			sourceTree = "<group>";
 		};
-		57F0FB8D2A20A83C0050C35C /* ProjectsModuleTests */ = {
+		57D5D3822A2006EC00E779ED /* ProjectsModuleTests */ = {
 			isa = PBXGroup;
 			children = (
-				57F0FB8E2A20A83C0050C35C /* ProjectsModuleTests.swift */,
+				57D5D3832A2006EC00E779ED /* ProjectsModuleTests.swift */,
 			);
 			path = ProjectsModuleTests;
 			sourceTree = "<group>";
 		};
-		57F0FBD52A20A9400050C35C /* ViewModel */ = {
+		57D5D3922A20086500E779ED /* View */ = {
 			isa = PBXGroup;
 			children = (
-				57F0FBD62A20A9400050C35C /* OffsetsViewModel.swift */,
-				57F0FBD72A20A9400050C35C /* ProjectViewModel.swift */,
-				57F0FBD82A20A9400050C35C /* Extensions */,
-				57F0FBDA2A20A9400050C35C /* HapticFeedBack.swift */,
+				57D5D3942A20086500E779ED /* AddTaskView.swift */,
+				57D5D3952A20086500E779ED /* SearchView.swift */,
+				57D5D3962A20086500E779ED /* ProfileView.swift */,
+				57D5D3972A20086500E779ED /* AddStatusView.swift */,
+				57D5D3982A20086500E779ED /* TaskCardView.swift */,
+				57D5D3992A20086500E779ED /* TaskManagmentView.swift */,
+				57D5D39A2A20086500E779ED /* BottomSheetView.swift */,
+				57D5D39B2A20086500E779ED /* AnimationView.swift */,
+				57D5D39C2A20086500E779ED /* EditProjectView.swift */,
+				57D5D39D2A20086500E779ED /* CustomButtonView.swift */,
+				57D5D3D32A201B9E00E779ED /* ProjectCardView.swift */,
+				57D5D39E2A20086500E779ED /* ProjectsView.swift */,
+				57D5D39F2A20086500E779ED /* SearchTaskView.swift */,
+				57D5D3A02A20086500E779ED /* TasksView.swift */,
+				57D5D3A12A20086500E779ED /* NoSearchView.swift */,
+				57D5D3A22A20086500E779ED /* CustomAddButtonView.swift */,
+				57D5D3A32A20086500E779ED /* EditTaskView.swift */,
+				57D5D3A42A20086500E779ED /* AddProjectView.swift */,
 			);
-			name = ViewModel;
-			path = ../../../../ProjectsModule/ProjectsModule/ViewModel;
+			path = View;
 			sourceTree = "<group>";
 		};
-		57F0FBD82A20A9400050C35C /* Extensions */ = {
+		57D5D3A52A20086500E779ED /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				57F0FBD92A20A9400050C35C /* SwipeBackExtension.swift */,
+				57D5D3A62A20086500E779ED /* OffsetsViewModel.swift */,
+				57D5D3A72A20086500E779ED /* ProjectViewModel.swift */,
+				57D5D3A82A20086500E779ED /* Extensions */,
+				57D5D3AA2A20086500E779ED /* HapticFeedBack.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		57D5D3A82A20086500E779ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57D5D3A92A20086500E779ED /* SwipeBackExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		57F0FBDD2A20A9400050C35C /* Model */ = {
+		57D5D3AB2A20086500E779ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				57F0FBDE2A20A9400050C35C /* StatusModel.swift */,
-				57F0FBDF2A20A9400050C35C /* ProjectModel.swift */,
-				57F0FBE02A20A9400050C35C /* someFuncs.swift */,
-				57F0FBE12A20A9400050C35C /* UserModel.swift */,
+				57D5D3AC2A20086500E779ED /* StatusModel.swift */,
+				57D5D3AD2A20086500E779ED /* ProjectModel.swift */,
+				57D5D3AE2A20086500E779ED /* someFuncs.swift */,
+				57D5D3AF2A20086500E779ED /* UserModel.swift */,
 			);
-			name = Model;
-			path = ../../../../ProjectsModule/ProjectsModule/Model;
-			sourceTree = "<group>";
-		};
-		57F0FBE32A20A9410050C35C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				57F0FBE42A20A9410050C35C /* ProjectCardView.swift */,
-				57F0FBE52A20A9410050C35C /* AddTaskView.swift */,
-				57F0FBE62A20A9410050C35C /* SearchView.swift */,
-				57F0FBE72A20A9410050C35C /* ProfileView.swift */,
-				57F0FBE82A20A9410050C35C /* AddStatusView.swift */,
-				57F0FBE92A20A9410050C35C /* TaskCardView.swift */,
-				57F0FBEA2A20A9410050C35C /* TaskManagmentView.swift */,
-				57F0FBEB2A20A9410050C35C /* BottomSheetView.swift */,
-				57F0FBEC2A20A9410050C35C /* AnimationView.swift */,
-				57F0FBED2A20A9410050C35C /* EditProjectView.swift */,
-				57F0FBEE2A20A9410050C35C /* CustomButtonView.swift */,
-				57F0FBEF2A20A9410050C35C /* ProjectsView.swift */,
-				57F0FBF02A20A9410050C35C /* SearchTaskView.swift */,
-				57F0FBF12A20A9410050C35C /* TasksView.swift */,
-				57F0FBF22A20A9410050C35C /* NoSearchView.swift */,
-				57F0FBF32A20A9410050C35C /* CustomAddButtonView.swift */,
-				57F0FBF42A20A9410050C35C /* EditTaskView.swift */,
-				57F0FBF52A20A9410050C35C /* AddProjectView.swift */,
-			);
-			name = View;
-			path = ../../../../ProjectsModule/ProjectsModule/View;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		57F0FB7A2A20A83C0050C35C /* Headers */ = {
+		57D5D36F2A2006EB00E779ED /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F0FB902A20A83C0050C35C /* ProjectsModule.h in Headers */,
+				57D5D3852A2006EC00E779ED /* ProjectsModule.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		57F0FB7E2A20A83C0050C35C /* ProjectsModule */ = {
+		57D5D3732A2006EB00E779ED /* ProjectsModule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57F0FB932A20A83C0050C35C /* Build configuration list for PBXNativeTarget "ProjectsModule" */;
+			buildConfigurationList = 57D5D3882A2006EC00E779ED /* Build configuration list for PBXNativeTarget "ProjectsModule" */;
 			buildPhases = (
-				57F0FB7A2A20A83C0050C35C /* Headers */,
-				57F0FB7B2A20A83C0050C35C /* Sources */,
-				57F0FB7C2A20A83C0050C35C /* Frameworks */,
-				57F0FB7D2A20A83C0050C35C /* Resources */,
+				57D5D36F2A2006EB00E779ED /* Headers */,
+				57D5D3702A2006EB00E779ED /* Sources */,
+				57D5D3712A2006EB00E779ED /* Frameworks */,
+				57D5D3722A2006EB00E779ED /* Resources */,
 			);
 			buildRules = (
 			);
@@ -236,46 +233,46 @@
 			);
 			name = ProjectsModule;
 			productName = ProjectsModule;
-			productReference = 57F0FB7F2A20A83C0050C35C /* ProjectsModule.framework */;
+			productReference = 57D5D3742A2006EB00E779ED /* ProjectsModule.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		57F0FB882A20A83C0050C35C /* ProjectsModuleTests */ = {
+		57D5D37D2A2006EC00E779ED /* ProjectsModuleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57F0FB962A20A83C0050C35C /* Build configuration list for PBXNativeTarget "ProjectsModuleTests" */;
+			buildConfigurationList = 57D5D38B2A2006EC00E779ED /* Build configuration list for PBXNativeTarget "ProjectsModuleTests" */;
 			buildPhases = (
-				57F0FB852A20A83C0050C35C /* Sources */,
-				57F0FB862A20A83C0050C35C /* Frameworks */,
-				57F0FB872A20A83C0050C35C /* Resources */,
+				57D5D37A2A2006EC00E779ED /* Sources */,
+				57D5D37B2A2006EC00E779ED /* Frameworks */,
+				57D5D37C2A2006EC00E779ED /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				57F0FB8C2A20A83C0050C35C /* PBXTargetDependency */,
+				57D5D3812A2006EC00E779ED /* PBXTargetDependency */,
 			);
 			name = ProjectsModuleTests;
 			productName = ProjectsModuleTests;
-			productReference = 57F0FB892A20A83C0050C35C /* ProjectsModuleTests.xctest */;
+			productReference = 57D5D37E2A2006EC00E779ED /* ProjectsModuleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		57F0FB762A20A83C0050C35C /* Project object */ = {
+		57D5D36B2A2006EB00E779ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					57F0FB7E2A20A83C0050C35C = {
+					57D5D3732A2006EB00E779ED = {
 						CreatedOnToolsVersion = 14.3;
 					};
-					57F0FB882A20A83C0050C35C = {
+					57D5D37D2A2006EC00E779ED = {
 						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
-			buildConfigurationList = 57F0FB792A20A83C0050C35C /* Build configuration list for PBXProject "ProjectsModule" */;
+			buildConfigurationList = 57D5D36E2A2006EB00E779ED /* Build configuration list for PBXProject "ProjectsModule" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -283,27 +280,27 @@
 				en,
 				Base,
 			);
-			mainGroup = 57F0FB752A20A83C0050C35C;
-			productRefGroup = 57F0FB802A20A83C0050C35C /* Products */;
+			mainGroup = 57D5D36A2A2006EB00E779ED;
+			productRefGroup = 57D5D3752A2006EB00E779ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				57F0FB7E2A20A83C0050C35C /* ProjectsModule */,
-				57F0FB882A20A83C0050C35C /* ProjectsModuleTests */,
+				57D5D3732A2006EB00E779ED /* ProjectsModule */,
+				57D5D37D2A2006EC00E779ED /* ProjectsModuleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		57F0FB7D2A20A83C0050C35C /* Resources */ = {
+		57D5D3722A2006EB00E779ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F0FBFB2A20A9410050C35C /* Assets.xcassets in Resources */,
+				57D5D3D22A201B2B00E779ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		57F0FB872A20A83C0050C35C /* Resources */ = {
+		57D5D37C2A2006EC00E779ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,62 +310,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		57F0FB7B2A20A83C0050C35C /* Sources */ = {
+		57D5D3702A2006EB00E779ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F0FB842A20A83C0050C35C /* ProjectsModule.docc in Sources */,
-				57F0FC092A20A9410050C35C /* AnimationView.swift in Sources */,
-				57F0FC002A20A9410050C35C /* ProjectsModuleApp.swift in Sources */,
-				57F0FC0D2A20A9410050C35C /* SearchTaskView.swift in Sources */,
-				57F0FC0B2A20A9410050C35C /* CustomButtonView.swift in Sources */,
-				57F0FC0F2A20A9410050C35C /* NoSearchView.swift in Sources */,
-				57F0FC072A20A9410050C35C /* TaskManagmentView.swift in Sources */,
-				57F0FC102A20A9410050C35C /* CustomAddButtonView.swift in Sources */,
-				57F0FC122A20A9410050C35C /* AddProjectView.swift in Sources */,
-				57F0FBF82A20A9410050C35C /* SwipeBackExtension.swift in Sources */,
-				57F0FBF92A20A9410050C35C /* HapticFeedBack.swift in Sources */,
-				57F0FC062A20A9410050C35C /* TaskCardView.swift in Sources */,
-				57F0FC0C2A20A9410050C35C /* ProjectsView.swift in Sources */,
-				57F0FBFC2A20A9410050C35C /* StatusModel.swift in Sources */,
-				57F0FBFE2A20A9410050C35C /* someFuncs.swift in Sources */,
-				57F0FC052A20A9410050C35C /* AddStatusView.swift in Sources */,
-				57F0FBF72A20A9410050C35C /* ProjectViewModel.swift in Sources */,
-				57F0FC082A20A9410050C35C /* BottomSheetView.swift in Sources */,
-				57F0FC112A20A9410050C35C /* EditTaskView.swift in Sources */,
-				57F0FC042A20A9410050C35C /* ProfileView.swift in Sources */,
-				57F0FBFD2A20A9410050C35C /* ProjectModel.swift in Sources */,
-				57F0FC0A2A20A9410050C35C /* EditProjectView.swift in Sources */,
-				57F0FC012A20A9410050C35C /* ProjectCardView.swift in Sources */,
-				57F0FBFA2A20A9410050C35C /* InitView.swift in Sources */,
-				57F0FC032A20A9410050C35C /* SearchView.swift in Sources */,
-				57F0FBFF2A20A9410050C35C /* UserModel.swift in Sources */,
-				57F0FBF62A20A9410050C35C /* OffsetsViewModel.swift in Sources */,
-				57F0FC022A20A9410050C35C /* AddTaskView.swift in Sources */,
-				57F0FC0E2A20A9410050C35C /* TasksView.swift in Sources */,
+				57D5D3CE2A200D9700E779ED /* InitView.swift in Sources */,
+				57D5D3B22A20086500E779ED /* SearchView.swift in Sources */,
+				57D5D3C02A20086500E779ED /* EditTaskView.swift in Sources */,
+				57D5D3B72A20086500E779ED /* BottomSheetView.swift in Sources */,
+				57D5D3792A2006EB00E779ED /* ProjectsModule.docc in Sources */,
+				57D5D3C42A20086500E779ED /* SwipeBackExtension.swift in Sources */,
+				57D5D3C62A20086500E779ED /* StatusModel.swift in Sources */,
+				57D5D3BC2A20086500E779ED /* SearchTaskView.swift in Sources */,
+				57D5D3B62A20086500E779ED /* TaskManagmentView.swift in Sources */,
+				57D5D3BB2A20086500E779ED /* ProjectsView.swift in Sources */,
+				57D5D3BF2A20086500E779ED /* CustomAddButtonView.swift in Sources */,
+				57D5D3C32A20086500E779ED /* ProjectViewModel.swift in Sources */,
+				57D5D3C72A20086500E779ED /* ProjectModel.swift in Sources */,
+				57D5D3C12A20086500E779ED /* AddProjectView.swift in Sources */,
+				57D5D3C52A20086500E779ED /* HapticFeedBack.swift in Sources */,
+				57D5D3B32A20086500E779ED /* ProfileView.swift in Sources */,
+				57D5D3C22A20086500E779ED /* OffsetsViewModel.swift in Sources */,
+				57D5D3B52A20086500E779ED /* TaskCardView.swift in Sources */,
+				57D5D3B92A20086500E779ED /* EditProjectView.swift in Sources */,
+				57D5D3BD2A20086500E779ED /* TasksView.swift in Sources */,
+				57D5D3D42A201B9E00E779ED /* ProjectCardView.swift in Sources */,
+				57D5D3B82A20086500E779ED /* AnimationView.swift in Sources */,
+				57D5D3C92A20086500E779ED /* UserModel.swift in Sources */,
+				57D5D3C82A20086500E779ED /* someFuncs.swift in Sources */,
+				57D5D3BA2A20086500E779ED /* CustomButtonView.swift in Sources */,
+				57D5D3BE2A20086500E779ED /* NoSearchView.swift in Sources */,
+				57D5D3B42A20086500E779ED /* AddStatusView.swift in Sources */,
+				57D5D3B12A20086500E779ED /* AddTaskView.swift in Sources */,
+				57D5D3D02A200DAD00E779ED /* ProjectsModuleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		57F0FB852A20A83C0050C35C /* Sources */ = {
+		57D5D37A2A2006EC00E779ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F0FB8F2A20A83C0050C35C /* ProjectsModuleTests.swift in Sources */,
+				57D5D3842A2006EC00E779ED /* ProjectsModuleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		57F0FB8C2A20A83C0050C35C /* PBXTargetDependency */ = {
+		57D5D3812A2006EC00E779ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 57F0FB7E2A20A83C0050C35C /* ProjectsModule */;
-			targetProxy = 57F0FB8B2A20A83C0050C35C /* PBXContainerItemProxy */;
+			target = 57D5D3732A2006EB00E779ED /* ProjectsModule */;
+			targetProxy = 57D5D3802A2006EC00E779ED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		57F0FB912A20A83C0050C35C /* Debug */ = {
+		57D5D3862A2006EC00E779ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -431,7 +428,7 @@
 			};
 			name = Debug;
 		};
-		57F0FB922A20A83C0050C35C /* Release */ = {
+		57D5D3872A2006EC00E779ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -488,7 +485,7 @@
 			};
 			name = Release;
 		};
-		57F0FB942A20A83C0050C35C /* Debug */ = {
+		57D5D3892A2006EC00E779ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -502,6 +499,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +517,7 @@
 			};
 			name = Debug;
 		};
-		57F0FB952A20A83C0050C35C /* Release */ = {
+		57D5D38A2A2006EC00E779ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -533,6 +531,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,7 +549,7 @@
 			};
 			name = Release;
 		};
-		57F0FB972A20A83C0050C35C /* Debug */ = {
+		57D5D38C2A2006EC00E779ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -567,7 +566,7 @@
 			};
 			name = Debug;
 		};
-		57F0FB982A20A83C0050C35C /* Release */ = {
+		57D5D38D2A2006EC00E779ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -587,34 +586,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		57F0FB792A20A83C0050C35C /* Build configuration list for PBXProject "ProjectsModule" */ = {
+		57D5D36E2A2006EB00E779ED /* Build configuration list for PBXProject "ProjectsModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				57F0FB912A20A83C0050C35C /* Debug */,
-				57F0FB922A20A83C0050C35C /* Release */,
+				57D5D3862A2006EC00E779ED /* Debug */,
+				57D5D3872A2006EC00E779ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57F0FB932A20A83C0050C35C /* Build configuration list for PBXNativeTarget "ProjectsModule" */ = {
+		57D5D3882A2006EC00E779ED /* Build configuration list for PBXNativeTarget "ProjectsModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				57F0FB942A20A83C0050C35C /* Debug */,
-				57F0FB952A20A83C0050C35C /* Release */,
+				57D5D3892A2006EC00E779ED /* Debug */,
+				57D5D38A2A2006EC00E779ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57F0FB962A20A83C0050C35C /* Build configuration list for PBXNativeTarget "ProjectsModuleTests" */ = {
+		57D5D38B2A2006EC00E779ED /* Build configuration list for PBXNativeTarget "ProjectsModuleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				57F0FB972A20A83C0050C35C /* Debug */,
-				57F0FB982A20A83C0050C35C /* Release */,
+				57D5D38C2A2006EC00E779ED /* Debug */,
+				57D5D38D2A2006EC00E779ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 57F0FB762A20A83C0050C35C /* Project object */;
+	rootObject = 57D5D36B2A2006EB00E779ED /* Project object */;
 }
