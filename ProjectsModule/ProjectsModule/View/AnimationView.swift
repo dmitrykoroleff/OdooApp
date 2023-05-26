@@ -34,9 +34,9 @@ struct AnimatableGradientModifier: AnimatableModifier {
     func body(content: Content) -> some View {
         var gradientColors = [Color]()
         
-        for i in 0..<fromGradient.stops.count {
-            let fromColor =  UIColor(fromGradient.stops[i].color)
-            let toColor = UIColor(toGradient.stops[i].color)
+        for iii in 0..<fromGradient.stops.count {
+            let fromColor =  UIColor(fromGradient.stops[iii].color)
+            let toColor = UIColor(toGradient.stops[iii].color)
             
             gradientColors.append(colorMixer(fromColor: fromColor, toColor: toColor, progress: progress))
         }
@@ -48,11 +48,11 @@ struct AnimatableGradientModifier: AnimatableModifier {
         guard let fromColor = fromColor.cgColor.components else {return Color(fromColor)}
         guard let toColor = toColor.cgColor.components else {return Color(toColor)}
         
-        let r = fromColor[0] + (toColor[0] - fromColor[0]) * progress
-        let g = fromColor[1] + (toColor[1] - fromColor[1]) * progress
-        let b = fromColor[2] + (toColor[2] - fromColor[2]) * progress
+        let red = fromColor[0] + (toColor[0] - fromColor[0]) * progress
+        let green = fromColor[1] + (toColor[1] - fromColor[1]) * progress
+        let blue = fromColor[2] + (toColor[2] - fromColor[2]) * progress
         
-        return Color(red: Double(r), green: Double(g), blue: Double(b))
+        return Color(red: Double(red), green: Double(green), blue: Double(blue))
         
     }
     

@@ -168,7 +168,7 @@ struct ProjectsView: View {
                     }
                     
                     if searchProject(projects: projects, searchQuery: searchQuery) != [] || searchIsActive && searchQuery.isEmpty{
-                        SearchView(projects_: projects, searchQuery: $searchQuery, task: $task)
+                        SearchView(projectss: projects, searchQuery: $searchQuery, task: $task)
                             .offset(y: searchIsActive ? height > 600 && height < 700 ? (height / 4.8) : height > 700 && height < 800 ? (height / 4.6) : height > 800 && height < 900 ? (height / 5.7) : (height / 5) : height)
                     } else if !searchQuery.isEmpty {
                         NoResultsView(searchQuery: $searchQuery)

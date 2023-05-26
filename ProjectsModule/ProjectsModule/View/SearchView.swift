@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    var projects_: [Project]
+    var projectss: [Project]
     @State var currProjects = projects
     @Binding var searchQuery: String
     @Binding var task: Task
@@ -35,7 +35,7 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(projects_: projects, searchQuery: .constant(""), task: .constant(projects[0].statuses[0].tasks[0]))
+        SearchView(projectss: projects, searchQuery: .constant(""), task: .constant(projects[0].statuses[0].tasks[0]))
     }
 }
 

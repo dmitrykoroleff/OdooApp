@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct InitView: View {
     
-    var initdata = initData()
+    var initdata = InitData()
     public init() {}
     public var body: some View {
         ProjectsView(project: .constant(projects[0]), task: .constant(projects[0].statuses[0].tasks[0]))
