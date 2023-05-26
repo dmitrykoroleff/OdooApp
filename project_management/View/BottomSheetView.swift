@@ -55,9 +55,10 @@ struct BottomSheetView: View {
                                 Button(action: {
                                     if changingStatus {
                                         print("Working")
-                                        let currTask = projects[currentProjectIdx].statuses[onStatus].tasks[currentTask]
+                                        var currTask = projects[currentProjectIdx].statuses[onStatus].tasks[currentTask]
                                         projects[currentProjectIdx].statuses[onStatus].tasks.remove(at: currentTask)
                                         reindex(source: &projects[currentProjectIdx].statuses[onStatus].tasks, count:  projects[currentProjectIdx].statuses[onStatus].tasks.count)
+                                        currTask.idx = projects[currentProjectIdx].statuses[status.idx!].tasks.count
                                         projects[currentProjectIdx].statuses[status.idx!].tasks.append(currTask)
                                         changingStatus.toggle()
                                     }

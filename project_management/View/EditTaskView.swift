@@ -134,8 +134,10 @@ struct EditTaskView: View {
             
         }
         .onAppear {
-            text = projects[currentProject].statuses[currentStatus].tasks[currentTask].text
-            companyName = projects[currentProject].statuses[currentStatus].tasks[currentTask].company ?? ""
+            if !projects[currentProject].statuses[currentStatus].tasks.isEmpty {
+                text = projects[currentProject].statuses[currentStatus].tasks[currentTask].text
+                companyName = projects[currentProject].statuses[currentStatus].tasks[currentTask].company ?? ""
+            }
         }
     }
 }
