@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../ProjectsModule/ProjectsModule.xcodeproj">
+      location = "group:ProjectsModule/ProjectsModule.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:CRMModule/CRMModule/CRMModule.xcodeproj">
