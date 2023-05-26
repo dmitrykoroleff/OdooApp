@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseRemoteConfig
 import CRMModule
 import RecruitmentModule
+import ProjectsModule
 import Profile
 import FirebaseRemoteConfig
 //import YandexMobileMetrica
@@ -69,6 +70,10 @@ public struct ChooseModuleView: View {
                     { EmptyView() }
                     NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: name, userEmail: email),
                                    tag: "Recruitment",
+                                   selection: $openModule)
+                    { EmptyView() }
+                    NavigationLink(destination: ProjectsModule.InitView(),
+                                   tag: "Projects",
                                    selection: $openModule)
                     { EmptyView() }
                     VStack {

@@ -27,7 +27,7 @@ public class Auth {
         var database: String
 
         switch parsedUrl.lowercased() {
-        case "odoo":
+        case "odoo", "erp":
             database = "crm"
         default:
             database = String(parsedUrl)

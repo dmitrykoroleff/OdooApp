@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57D5D3CB2A200A6A00E779ED /* ProjectsModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5D3CA2A200A6A00E779ED /* ProjectsModule.framework */; };
+		57D5D3CC2A200A6A00E779ED /* ProjectsModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57D5D3CA2A200A6A00E779ED /* ProjectsModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57F616682A0D144D004711EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57F616672A0D144D004711EC /* GoogleService-Info.plist */; };
 		57F6166B2A0D15C5004711EC /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 57F6166A2A0D15C5004711EC /* FirebaseDatabase */; };
 		57F6166D2A0D15C5004711EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 57F6166C2A0D15C5004711EC /* FirebaseFirestore */; };
@@ -52,6 +54,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				57D5D3CC2A200A6A00E779ED /* ProjectsModule.framework in Embed Frameworks */,
 				6158A69B29E31BD50049A7AE /* Profile.framework in Embed Frameworks */,
 				611422D829D0387F00DDE6E0 /* CRMModule.framework in Embed Frameworks */,
 				611422DC29D0388400DDE6E0 /* RecruitmentModule.framework in Embed Frameworks */,
@@ -62,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		57D5D3CA2A200A6A00E779ED /* ProjectsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProjectsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F616672A0D144D004711EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		611422D629D0387F00DDE6E0 /* CRMModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CRMModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		611422DA29D0388400DDE6E0 /* RecruitmentModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RecruitmentModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +97,7 @@
 				611422D729D0387F00DDE6E0 /* CRMModule.framework in Frameworks */,
 				57F6166B2A0D15C5004711EC /* FirebaseDatabase in Frameworks */,
 				57F6166F2A0D15C5004711EC /* FirebaseRemoteConfig in Frameworks */,
+				57D5D3CB2A200A6A00E779ED /* ProjectsModule.framework in Frameworks */,
 				57F616712A0D15C5004711EC /* FirebaseStorage in Frameworks */,
 				57F6166D2A0D15C5004711EC /* FirebaseFirestore in Frameworks */,
 				611422DB29D0388400DDE6E0 /* RecruitmentModule.framework in Frameworks */,
@@ -113,6 +118,7 @@
 		611422D529D0387F00DDE6E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57D5D3CA2A200A6A00E779ED /* ProjectsModule.framework */,
 				6158A69929E31BD50049A7AE /* Profile.framework */,
 				611422DA29D0388400DDE6E0 /* RecruitmentModule.framework */,
 				611422D629D0387F00DDE6E0 /* CRMModule.framework */,

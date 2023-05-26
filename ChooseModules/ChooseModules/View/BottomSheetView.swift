@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CRMModule
+import ProjectsModule
 import RecruitmentModule
 struct BottomSheetView: View {
     let bundle = Bundle(identifier: "chooseModules.ChooseModules")
@@ -22,6 +23,10 @@ struct BottomSheetView: View {
             { EmptyView() }
             NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: "", userEmail: ""),
                            tag: "Recruitment",
+                           selection: $openModule)
+            { EmptyView() }
+            NavigationLink(destination: ProjectsModule.InitView(),
+                           tag: "Projects",
                            selection: $openModule)
             { EmptyView() }
             Spacer()
