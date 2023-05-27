@@ -16,11 +16,11 @@ struct BottomSheetView: View {
     var body: some View {
         
         VStack {
-            NavigationLink(destination: CRMModule.StatusView(name: " ", email: " "),
+            NavigationLink(destination: CRMModule.StatusView(name: " ", email: " ", auth: false, shared: CRMLogic()),
                            tag: "CRM",
                            selection: $openModule)
             { EmptyView() }
-            NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: "", userEmail: ""),
+            NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: "", userEmail: "", auth: false),
                            tag: "Recruitment",
                            selection: $openModule)
             { EmptyView() }

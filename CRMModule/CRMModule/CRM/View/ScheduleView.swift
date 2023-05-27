@@ -10,6 +10,7 @@ import SwiftUI
 struct ScheduleView: View {
     let bundle = Bundle(identifier: "CRM.CRMModule")
     var scheduleTask: Schedule
+    var shared: CRMLogic
     var body: some View {
         HStack(spacing: 20) {
             ZStack {
@@ -18,7 +19,7 @@ struct ScheduleView: View {
                     .foregroundColor(Color("MainColor", bundle: bundle))
                     .frame(width: 40, height: 40)
                 
-                Text("A") // Хардкод
+                Text("\(shared.getFirstLetter(str: scheduleTask.user))") // Хардкод
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -40,7 +41,7 @@ struct ScheduleView: View {
                         .font(.system(size: 12))
                         .foregroundColor(Color(hex: 0x282F33))
                 }
-                Text("for \(scheduleTask.user.name)")
+                Text("for \(scheduleTask.user)")
                     .font(.system(size: 10))
                     .foregroundColor(Color(hex: 0x6B6D70))
                     .offset(y:2)
@@ -50,8 +51,8 @@ struct ScheduleView: View {
     }
 }
 
-struct ScheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScheduleView(scheduleTask: Schedule(user: testUser, text: "Someting", dueTime: "Due in 4 days", type: "ToDo"))
-    }
-}
+//struct ScheduleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScheduleView(scheduleTask: Schedule(user: "testUser", text: "Someting", dueTime: "Due in 4 days", type: "ToDo"))
+//    }
+//}

@@ -14,9 +14,8 @@ public class CookieFile: ObservableObject {
     public init() { }
     
     @AppStorage("auth") var authenticated = false {
-        willSet { objectWillChange.send() }
+        willSet { self.objectWillChange.send() }
     }
-    
     @AppStorage("url") var urlGet = "" {
         willSet { objectWillChange.send() }
     }
@@ -30,10 +29,11 @@ public class CookieFile: ObservableObject {
         willSet { objectWillChange.send() }
     }
     
-    
+    @Published var authProfile: Bool = true
     @Published var isPresent: Bool = false
     @Published var goodAuth: Bool = false
     @Published var sessionID: String = ""
+    @Published var prod = "erp.miem.hse.ru"
     func setSessionID(sid: String) {
         if self.sessionID.isEmpty {
             DispatchQueue.main.async {
@@ -43,6 +43,13 @@ public class CookieFile: ObservableObject {
                 self.validUrl = true
             }
         }
+    }
+    
+    public func logOutProfile(bool: Bool) {
+        if bool {
+            self.authenticated.toggle()
+        }
+        
     }
     
     func show() {
@@ -67,7 +74,7 @@ public class CookieFile: ObservableObject {
     }
     func logOut() {
         deleteCookies(forURL: URL(string: urlGet)!)
-        self.authenticated.toggle()
+        
     }
     
     func getUrl(url: String) {
@@ -82,12 +89,7 @@ public class CookieFile: ObservableObject {
                                     "domain": [],
                                     "fields": ["id", "name", "child_id", "parent_id", "groups_id"],
                                     "model": "ir.ui.menu"]]
-//        let url = URL(string: self.urlGet)
-//        let jsonData = try? JSONSerialization.data(withJSONObject: json)
-//        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-//            guard let data = data else { return }
-//            print(data)
-            let ur1 = "https://crm.auditory.ru/"
+            let ur1 = "https://\(CookieFile().prod)/"
             let ur2 = "web/dataset/search_read"
             AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
                 switch response.result {
@@ -106,7 +108,7 @@ public class CookieFile: ObservableObject {
                             print("Error: Could print JSON in String")
                             return
                         }
-//                        print(jsonObject)
+
                         if jsonObject["error"] != nil  {
                             self.validUrl = false
                         }

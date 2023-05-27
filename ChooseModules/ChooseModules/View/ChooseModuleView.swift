@@ -27,6 +27,7 @@ public struct ChooseModuleView: View {
     var gradient2: Gradient
     var email: String
     var name: String
+    var auth: Bool
     @State private var progression: CGFloat = 0
     
     let colors: [Color] = [Color("CardColor1", bundle: bundle),
@@ -41,7 +42,7 @@ public struct ChooseModuleView: View {
     //    let modules: [Modules]
     let modules: [Modules]
     
-    public init(email: String, name: String) {
+    public init(email: String, name: String, auth: Bool) {
         
         modules = Modules.sampleData
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
@@ -56,17 +57,18 @@ public struct ChooseModuleView: View {
                                          Color("GradientColor4", bundle: bundle)])
         self.email = email
         self.name = name
+        self.auth = auth
     }
     
     public var body: some View {
         NavigationView{
             GeometryReader { geometry in
                 ZStack {
-                    NavigationLink(destination: CRMModule.StatusView(name: name, email: email).onAppear { CRMLogic().mainRequestCRM() },
+                    NavigationLink(destination: CRMModule.StatusView(name: name, email: email, auth: auth, shared: CRMLogic()),
                                    tag: "CRM",
                                    selection: $openModule)
                     { EmptyView() }
-                    NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: name, userEmail: email),
+                    NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: name, userEmail: email, auth: auth),
                                    tag: "Recruitment",
                                    selection: $openModule)
                     { EmptyView() }
@@ -117,7 +119,7 @@ public struct ChooseModuleView: View {
                         }
                         .padding(.horizontal, 30)
                         .background(
-                            NavigationLink(destination: Profile.ProfileView(name: name, email: email), isActive: $openProfile) {
+                            NavigationLink(destination: Profile.ProfileView(name: name, email: email, auth: auth), isActive: $openProfile) {
                                 
                             }
                                 .hidden()

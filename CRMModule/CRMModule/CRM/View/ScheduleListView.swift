@@ -16,6 +16,7 @@ struct ScheduleListView: View {
     @Binding var curruntAddScheduleOffset: CGFloat
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
+    var shared: CRMLogic
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -24,7 +25,7 @@ struct ScheduleListView: View {
                     .foregroundColor(Color("MainColor", bundle: bundle))
                 List {
                     ForEach(scheduleTasks) { scheduleTask in
-                        ScheduleView(scheduleTask: scheduleTask)
+                        ScheduleView(scheduleTask: scheduleTask, shared: shared)
                             .swipeActions {
                                 Button(role: .destructive) {
                                     
@@ -77,9 +78,9 @@ struct ScheduleListView: View {
     
 }
 
-struct ScheduleListView_Previews: PreviewProvider {
-    @State static var flag = false
-    static var previews: some View {
-        ScheduleListView(scheduleTasks: scheduleTasks, showAddSchedule: .constant(false), curruntAddScheduleOffset: .constant(0))
-    }
-}
+//struct ScheduleListView_Previews: PreviewProvider {
+//    @State static var flag = false
+//    static var previews: some View {
+//        ScheduleListView(scheduleTasks: scheduleTasks, showAddSchedule: .constant(false), curruntAddScheduleOffset: .constant(0))
+//    }
+//}

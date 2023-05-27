@@ -105,7 +105,9 @@ struct JobView: View {
                                     Text(hireDate[index]!)
                                 }
                                 else if jobss == "Person's group" {
-                                    Text(group[index]!)
+                                    if group.count != 0 {
+                                        Text(group[index] ?? " ")
+                                    }
                                 }
                                 else {
                                     Text(" ")

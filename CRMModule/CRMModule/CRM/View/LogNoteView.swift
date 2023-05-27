@@ -16,6 +16,8 @@ struct LogNoteView: View {
     var notes: [Note]
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
+    var index: Int
+    var shared: CRMLogic
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -24,7 +26,7 @@ struct LogNoteView: View {
                     .foregroundColor(Color("MainColor", bundle: bundle))
                 List {
                     ForEach(notes) { note in
-                        NoteView(note: note)
+                        NoteView(note: note, shared: shared)
                             .swipeActions {
                                 Button(role: .destructive) {
                                     
@@ -64,18 +66,18 @@ struct LogNoteView: View {
                 
             }
             
-            AddLogNoteView(showAddLogNoteSheet: $showAddLogNoteSheet, currentOffset: $offSet)
+            AddLogNoteView(showAddLogNoteSheet: $showAddLogNoteSheet, currentOffset: $offSet, index: index, shared: shared)
             
         }
     }
     
 }
-
-struct LogNoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        LogNoteView(task: testTask, notes: notes)
-    }
-}
+//
+//struct LogNoteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LogNoteView(task: testTask, notes: notes)
+//    }
+//}
 
 
 struct VerticalLabelStyle: LabelStyle {

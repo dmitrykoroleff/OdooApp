@@ -80,16 +80,16 @@ var testTask = Task(id: UUID(),name: "Arina Shoshina", email: "aashoshina@miem.h
 
 struct Schedule: Identifiable {
     var id: UUID = UUID()
-    var user: User
+    var user: String
     var text: String
     var dueTime: String
     var type: String
 }
 
 var scheduleTasks: [Schedule] = [
-    Schedule(user: testUser, text: "Someting", dueTime: "Due in 4 days", type: "ToDo"),
-    Schedule(user: testUser, text: "Someting", dueTime: "Due in 4 days", type: "Call"),
-    Schedule(user: testUser, text: "Someting", dueTime: "Due in 4 days", type: "Call"),
+    Schedule(user: " ", text: "Someting", dueTime: "Due in 4 days", type: "ToDo"),
+    Schedule(user: " ", text: "Someting", dueTime: "Due in 4 days", type: "Call"),
+    Schedule(user: " ", text: "Someting", dueTime: "Due in 4 days", type: "Call"),
 ]
 
 var activityTypes: [String] = ["Email", "Call", "Meeting", "To Do", "Reminder", "Upload document"]

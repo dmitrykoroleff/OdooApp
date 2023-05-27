@@ -12,7 +12,7 @@ public struct ProfileApp: App {
     public init() {}
     public var body: some Scene {
         WindowGroup {
-            ProfileView(name: "", email: "")
+            ProfileView(name: "", email: "", auth: false)
         }
     }
 }

@@ -13,7 +13,7 @@ public struct CRMApp: App {
     public var body: some Scene {
         WindowGroup {
 //            StatusView(currentIndex: 0, taskCards: TaskCard.sampleWebsiteRequest)
-            StatusView(name: " ", email: " ")
+            StatusView(name: " ", email: " ", auth: false, shared: CRMLogic())
         }
     }
 }

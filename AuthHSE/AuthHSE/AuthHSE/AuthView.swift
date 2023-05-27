@@ -16,7 +16,6 @@ public struct AuthView: View {
     public var body: some View {
         if !auth.authenticated {
             UnauthenticatedView(model: observed.getUnauthenticatedViewModel())
-            
         } else {
             AuthenticatedView(model: observed.getAuthenticatedViewModel())
         }

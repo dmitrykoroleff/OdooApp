@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct ProfileView: View {
     let bundle = Bundle(identifier: "Profile.Profile")
+    @AppStorage("auth") var authenticated = true
     @State var shouldShowImagePicker = false
     @State var image: UIImage?
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -16,10 +17,13 @@ public struct ProfileView: View {
     var height = UIScreen.main.bounds.height
     var name: String
     var email: String
-    public init(name: String, email: String) {
+    var auth: Bool
+    public init(name: String, email: String, auth: Bool) {
         self.name = name
         self.email = email
+        self.auth = auth
     }
+    
     public var body: some View {
         VStack {
             Button {
@@ -76,7 +80,6 @@ public struct ProfileView: View {
                     .underline()
                 
             }
-            
             Spacer()
             
             //                VStack(spacing: 15) {
@@ -118,7 +121,7 @@ public struct ProfileView: View {
             VStack(spacing: 15) {
                 
                 Button {
-                    
+                    self.authenticated.toggle()
                 } label: {
                     
                     ZStack {
@@ -131,7 +134,6 @@ public struct ProfileView: View {
                             .foregroundColor(.white)
                             .font(.title2)
                             .fontWeight(.medium)
-                        
                     }
                 }
                 NavigationLink(destination: AboutAppView()) {
@@ -141,7 +143,6 @@ public struct ProfileView: View {
                 .foregroundColor(.gray)
             }
             .padding(.bottom, 70)
-            
         }
         .padding(.top, 20)
         .navigationBarBackButtonHidden(true)

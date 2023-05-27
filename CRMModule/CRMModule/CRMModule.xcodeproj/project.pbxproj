@@ -44,6 +44,7 @@
 		61FABEBD29E30A2200ED6059 /* CRMModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FABE4B29E3096F00ED6059 /* CRMModule.framework */; platformFilter = ios; };
 		61FABECA29E30A8200ED6059 /* CRMModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABEC929E30A8200ED6059 /* CRMModuleTest.swift */; };
 		61FABECC29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABECB29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift */; };
+		7E4B824F2A2280D100D5D6C6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B824E2A2280D100D5D6C6 /* Extension.swift */; };
 		7E75A5142A1B637A0088D8CA /* LogicCRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E75A5132A1B637A0088D8CA /* LogicCRM.swift */; };
 		7E75A5162A1B65D80088D8CA /* JsonRquestCRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E75A5152A1B65D80088D8CA /* JsonRquestCRM.swift */; };
 		7E75A5192A1B6AB30088D8CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E75A5182A1B6AB30088D8CA /* Alamofire */; };
@@ -98,6 +99,7 @@
 		61FABEC729E30A8200ED6059 /* CRMModuleTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRMModuleTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FABEC929E30A8200ED6059 /* CRMModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMModuleTest.swift; sourceTree = "<group>"; };
 		61FABECB29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMModuleTestLaunchTests.swift; sourceTree = "<group>"; };
+		7E4B824E2A2280D100D5D6C6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		7E75A5132A1B637A0088D8CA /* LogicCRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicCRM.swift; sourceTree = "<group>"; };
 		7E75A5152A1B65D80088D8CA /* JsonRquestCRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRquestCRM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +183,7 @@
 				6158A66329E314F70049A7AE /* UserModel.swift */,
 				7E75A5132A1B637A0088D8CA /* LogicCRM.swift */,
 				7E75A5152A1B65D80088D8CA /* JsonRquestCRM.swift */,
+				7E4B824E2A2280D100D5D6C6 /* Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				6158A68C29E314F70049A7AE /* ScheduleView.swift in Sources */,
 				6158A69529E314F70049A7AE /* CustomProgressbarView.swift in Sources */,
 				7E75A5162A1B65D80088D8CA /* JsonRquestCRM.swift in Sources */,
+				7E4B824F2A2280D100D5D6C6 /* Extension.swift in Sources */,
 				6158A68129E314F70049A7AE /* NoteModel.swift in Sources */,
 				6158A68D29E314F70049A7AE /* AddScheduleView.swift in Sources */,
 				6158A68029E314F70049A7AE /* StatusModel.swift in Sources */,

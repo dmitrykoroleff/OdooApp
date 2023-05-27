@@ -27,6 +27,7 @@ public struct StatusView: View {
     var jobID: Int
     var nameUser: String
     var emailUser: String
+    var auth: Bool
     var height = UIScreen.main.bounds.height
     @State var statusRecr: String = "👔Manager"
     @ObservedObject var shared: LogicR
@@ -39,7 +40,7 @@ public struct StatusView: View {
     var gradient2: Gradient
     @State private var progression: CGFloat = 0
     @State private var scrollViewContentOffset = CGFloat(0)
-    public init(jobId: Int, shared: LogicR, stageId: Array<Int>, stageName: Array<String>, userName: String, userEmail: String) {
+    public init(jobId: Int, shared: LogicR, stageId: Array<Int>, stageName: Array<String>, userName: String, userEmail: String, auth: Bool) {
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
                                         Color("GradientColor2", bundle: bundle),
                                         Color("GradientColor3", bundle: bundle),
@@ -56,6 +57,7 @@ public struct StatusView: View {
         self.stageName = stageName
         self.nameUser = userName
         self.emailUser = userEmail
+        self.auth = auth
     }
     public var body: some View {
         
@@ -90,7 +92,7 @@ public struct StatusView: View {
                                 Spacer()
                                 
                                 // Link to profile 
-                                NavigationLink(destination: Profile.ProfileView(name: nameUser, email: emailUser)) {
+                                NavigationLink(destination: Profile.ProfileView(name: nameUser, email: emailUser, auth: auth)) {
                                     ZStack {
                                         
                                         Circle()
@@ -200,7 +202,12 @@ public struct StatusView: View {
                                                     ForEach(0..<shared.getCountStatus(status: statusesRecr[currentIndex].name), id: \.self) { user in
                                                         let id = shared.jobInt[shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0]
                                                         if shared.currentJobID(jobID: jobID, id: id ?? -1) {
-                                                            NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, email: shared.email, group: shared.group, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, deadline: shared.deadline, summary: shared.activeSummary, index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)) {
+                                                            NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, email: shared.email, group: shared.group, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, deadline: shared.deadline, summary: shared.activeSummary, index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, shared: shared).onAppear {
+
+                                                                shared.getNotes(thread: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)
+                                                                shared.getSheduleActivity(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)
+                                                            })
+                                                            {
                                                                 UserTestCard(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, array: shared.names, appreciation: shared.appreciation, shared: LogicR(), curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image).environmentObject(LogicR())
                                                             }
                                                             .foregroundColor(.black)
@@ -236,13 +243,10 @@ public struct StatusView: View {
                                         
                                         animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
                                             .onAppear{
-                                                
                                                 withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
                                                     self.progression = 1
                                                 }
-                                                
                                             }
-                                        
                                     }
                                     .frame(width: width / 1.05, height: height / 2)
                                     .foregroundColor(Color("MainColor", bundle: bundle))

@@ -19,10 +19,12 @@ public struct ViewOfJobs: View {
     @State var searchQuery = ""
     var userName: String
     var userEmail: String
-    public init(shared: LogicR, userName: String, userEmail: String) {
+    var auth: Bool
+    public init(shared: LogicR, userName: String, userEmail: String, auth: Bool) {
         self.shared = shared
         self.userName = userName
         self.userEmail = userEmail
+        self.auth = auth
     }
     public var body: some View {
         VStack {
@@ -51,7 +53,7 @@ public struct ViewOfJobs: View {
                     Spacer()
                     
                     // Link to profile
-                    NavigationLink(destination: Profile.ProfileView(name: userName, email: userEmail)) {
+                    NavigationLink(destination: Profile.ProfileView(name: userName, email: userEmail, auth: auth)) {
                         ZStack {
                             
                             Circle()
@@ -133,7 +135,7 @@ public struct ViewOfJobs: View {
         
         ScrollView(.vertical) {
             ForEach(Array(shared.jobIdSet), id: \.self) { id in
-                NavigationLink(destination: StatusView(jobId: id, shared: self.shared, stageId: shared.stageOfJob[id] ?? [], stageName: shared.stageOfJobName[id] ?? [], userName: userName, userEmail: userEmail).onAppear {
+                NavigationLink(destination: StatusView(jobId: id, shared: self.shared, stageId: shared.stageOfJob[id] ?? [], stageName: shared.stageOfJobName[id] ?? [], userName: userName, userEmail: userEmail, auth: false).onAppear {
                         statusesRecr.removeAll()
                         for item in shared.stageOfJobName[id] ?? [] {
                             statusesRecr.append(Status(id: UUID(), image: "globe", name: item))

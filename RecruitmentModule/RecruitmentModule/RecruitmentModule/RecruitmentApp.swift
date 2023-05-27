@@ -13,7 +13,7 @@ public struct RecruitmentApp: App {
     public var body: some Scene {
         WindowGroup {
 //            StatusView(currentIndex: 0, taskCards: TaskCard.sampleWebsiteRequest)
-            ViewOfJobs(shared: LogicR(), userName: " ", userEmail: " ")
+            ViewOfJobs(shared: LogicR(), userName: " ", userEmail: " ", auth: false)
         }
     }
 }

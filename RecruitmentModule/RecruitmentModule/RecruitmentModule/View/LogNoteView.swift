@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LogNoteView: View {
     let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
-    @State var task: Task
     @State var text: String = ""
     @State var offSet: CGFloat = 0
     @State var showAddLogNoteSheet = false
@@ -24,7 +23,7 @@ struct LogNoteView: View {
                     .foregroundColor(Color("MainColor", bundle: bundle))
                 List {
                     ForEach(notes) { note in
-                        NoteView(note: note)
+                        NoteView(note: note, shared: LogicR())
                             .swipeActions {
                                 Button(role: .destructive) {
                                     
@@ -52,6 +51,7 @@ struct LogNoteView: View {
                 .listStyle(.plain)
                 .frame(height: height*0.55)
                 Button(action: {
+                    print("Log")
                     withAnimation(Animation.easeIn(duration: 0.2)){
                         showAddLogNoteSheet = true
                     }
@@ -71,11 +71,11 @@ struct LogNoteView: View {
     
 }
 
-struct LogNoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        LogNoteView(task: testTask, notes: notes)
-    }
-}
+//struct LogNoteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LogNoteView(task: testTask, notes: notes)
+//    }
+//}
 
 
 struct VerticalLabelStyle: LabelStyle {
