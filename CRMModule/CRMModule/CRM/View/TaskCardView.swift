@@ -40,8 +40,8 @@ struct TaskCardView: View {
                     Spacer()
                     HStack {
                         ForEach(1..<4, id: \.self) { number in
-                            image(for: number, rating: priority[index]!)
-                                .foregroundColor(number > priority[index]! ? Color.black : Color.yellow)
+                            image(for: number, rating: priority[index] ?? 0)
+                                .foregroundColor(number > priority[index] ?? 0 ? Color.black : Color.yellow)
                         }
                         Image(systemName: "clock")
                     }
