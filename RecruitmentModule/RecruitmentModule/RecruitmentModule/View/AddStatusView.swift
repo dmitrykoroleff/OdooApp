@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct AddStatusView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     @State var text: String = ""
     @State var activeStatus: String = "plus"
     @Binding var showView: Bool

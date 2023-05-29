@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LogNoteView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+   
     @State var task: Task
     @State var text: String = ""
     @State var offSet: CGFloat = 0

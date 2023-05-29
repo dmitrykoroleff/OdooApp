@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CustomBottomButton: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     var body: some View {
         HStack {
             VStack {

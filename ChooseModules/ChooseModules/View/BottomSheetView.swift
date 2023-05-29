@@ -7,9 +7,12 @@
 
 import SwiftUI
 import CRMModule
+import ProjectsModule
 import RecruitmentModule
 struct BottomSheetView: View {
-    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
+//    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
+    let bundle = Bundle(identifier: "odoo.miem.ios.ChooseModules")
+    
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @State var liked = false
     @State var openModule: String? = nil
@@ -22,6 +25,10 @@ struct BottomSheetView: View {
             { EmptyView() }
             NavigationLink(destination: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: "", userEmail: ""),
                            tag: "Recruitment",
+                           selection: $openModule)
+            { EmptyView() }
+            NavigationLink(destination: ProjectsModule.InitView(),
+                           tag: "Projects",
                            selection: $openModule)
             { EmptyView() }
             Spacer()

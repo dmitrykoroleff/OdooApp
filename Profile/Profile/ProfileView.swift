@@ -8,7 +8,12 @@
 import SwiftUI
 
 public struct ProfileView: View {
-    let bundle = Bundle(identifier: "Profile.Profile")
+//    let bundle = Bundle(identifier: "Profile.Profile")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Profile")
+//    let bundle =  Bundle.main.bundlePath
+   
+    
+    @AppStorage("auth") var authenticated = true
     @State var shouldShowImagePicker = false
     @State var image: UIImage?
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -118,7 +123,7 @@ public struct ProfileView: View {
             VStack(spacing: 15) {
                 
                 Button {
-                    
+                    self.authenticated.toggle()
                 } label: {
                     
                     ZStack {

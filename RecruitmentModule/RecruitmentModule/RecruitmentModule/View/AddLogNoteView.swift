@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct AddLogNoteView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State private var currentIndex = 0
     var height = UIScreen.main.bounds.height

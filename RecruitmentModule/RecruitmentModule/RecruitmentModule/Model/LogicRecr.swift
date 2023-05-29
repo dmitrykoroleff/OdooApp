@@ -47,7 +47,6 @@ public class LogicR: ObservableObject {
     
     public func getStages() {
         let json = Json().jsonStageId
-//        let ur1 = "https://crm.auditory.ru/"
         let ur1 = "https://erp.miem.hse.ru/"
         let ur2 = "web/dataset/search_read"
         AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
@@ -82,9 +81,7 @@ public class LogicR: ObservableObject {
     public func getData() {
         getStages()
         let json = Json().jsonRecruitment
-//        let ur1 = "https://crm.auditory.ru/"
         let ur1 = "https://erp.miem.hse.ru/"
-        
         let ur2 = "web/dataset/search_read"
         AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {
@@ -215,9 +212,7 @@ public class LogicR: ObservableObject {
         self.stageOfJobName = [:]
         for indexId in Array(jobIdSet) {
             let json = Json().jsonJobId(jobId: indexId)
-//            let ur1 = "https://crm.auditory.ru/"
-            let ur1 = "https:// erp.miem.hse.ru/"
-           
+            let ur1 = "https://erp.miem.hse.ru/"
             let ur2 = "web/dataset/call_kw/web_read_group"
             AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
                 switch response.result {
@@ -263,9 +258,7 @@ public class LogicR: ObservableObject {
     
     func createStatus(id: Int, name: String) {
         let json = Json().createStatusJson(jobId: id, name: name)
-//        let ur1 = "https://crm.auditory.ru/"
         let ur1 = "https://erp.miem.hse.ru/"
-        
         let ur2 = "web/dataset/call_kw/name_create"
         AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {
@@ -290,9 +283,7 @@ public class LogicR: ObservableObject {
     
     public func getNotes(thread: Int) {
         let json = Json().getLogNotes(thread: thread)
-//        let ur1 = "https://crm.auditory.ru/"
         let ur1 = "https://erp.miem.hse.ru/"
-        
         let ur2 = "mail/thread/messages"
         AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {

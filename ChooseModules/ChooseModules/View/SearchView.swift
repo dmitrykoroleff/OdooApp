@@ -5,7 +5,9 @@
 //  Created by Dmitry Korolev on 9/1/2023.
 //
 import SwiftUI
-let bundle = Bundle(identifier: "chooseModules.ChooseModules")
+//let bundle = Bundle(identifier: "chooseModules.ChooseModules")
+let bundle = Bundle(identifier: "odoo.miem.ios.ChooseModules")
+
 struct SearchView: View {
     var modules: [Modules]
     @Binding var searchQuery: String

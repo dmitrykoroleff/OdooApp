@@ -8,6 +8,7 @@ struct UnauthenticatedView: View {
     @State private var hseButtonToggle: Bool = false
     @State var showMainView: Bool = false
     
+//    let bundle = Bundle(identifier: "odoo.miem.authhse")
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     @ObservedObject private var model: UnauthenticatedViewModel
     @ObservedObject private var modelCookie = CookieFile()

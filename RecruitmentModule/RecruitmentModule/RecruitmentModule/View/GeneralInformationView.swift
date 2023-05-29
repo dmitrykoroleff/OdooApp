@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct GeneralInformationView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     @State var user: Task
 //    @State var user: User
     var height = UIScreen.main.bounds.height

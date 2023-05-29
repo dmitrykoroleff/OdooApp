@@ -13,7 +13,9 @@ struct CarouselModulesView <Content: View, T: Identifiable>: View {
     @State private var progression: CGFloat = 0
     @Binding var currentOffset: CGFloat
     @Binding var addFavModule: Bool
-    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
+//    let bundle = Bundle(identifier: "chooseModules.ChooseModules")
+    let bundle = Bundle(identifier: "odoo.miem.ios.ChooseModules")
+    
     var gradient1: Gradient
     
     var gradient2: Gradient

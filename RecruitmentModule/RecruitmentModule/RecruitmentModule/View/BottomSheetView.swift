@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct BottomSheetView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     @Binding var curruntAddStatusOffset: CGFloat

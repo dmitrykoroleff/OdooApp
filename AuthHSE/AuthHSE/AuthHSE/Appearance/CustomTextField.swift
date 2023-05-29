@@ -3,6 +3,7 @@ import SwiftUI
 // MARK: remove available
 // @available(iOS 15.0, *)
 struct CustomTextField: View {
+//    let bundle = Bundle(identifier: "odoo.miem.authhse")
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     var hint: String
     @Binding var text: String
@@ -51,6 +52,7 @@ struct CustomTextField: View {
 // MARK: remove available
 
 struct CustomSecureTextField: View {
+//    let bundle = Bundle(identifier: "odoo.miem.authhse")
     let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
     var hint: String
     @Binding var text: String

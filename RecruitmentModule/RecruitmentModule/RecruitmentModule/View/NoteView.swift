@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct NoteView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     var note: Note
     var body: some View {
         HStack(spacing: 20) {

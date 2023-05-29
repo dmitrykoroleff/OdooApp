@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CustomProgressBarView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     @State private var value = 60
     @State private var inputState: String = ""
 

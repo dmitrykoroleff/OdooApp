@@ -10,7 +10,9 @@ import SwiftUITrackableScrollView
 import Profile
 
 public struct StatusView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0

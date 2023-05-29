@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct NoResultsView: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     @Binding var searchQuery: String
     var body: some View {
         ZStack {

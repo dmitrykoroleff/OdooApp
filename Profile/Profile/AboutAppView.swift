@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct AboutAppView: View {
-    let bundle = Bundle(identifier: "Profile.Profile")
+//    let bundle = Bundle(identifier: "Profile.Profile")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Profile")
+//    let bundle =  Bundle.main.bundlePath
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     var body: some View {
         NavigationView {

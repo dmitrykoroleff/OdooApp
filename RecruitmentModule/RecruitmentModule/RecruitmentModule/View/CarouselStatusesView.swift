@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CarouselStatusesView <Content: View, T: Identifiable>: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     @State private var progress: CGFloat = 0
     @State private var progression: CGFloat = 0
     @Binding var curruntAddStatusOffset: CGFloat

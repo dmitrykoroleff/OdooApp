@@ -43,8 +43,6 @@
 		61FABEB429E309FE00ED6059 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 61FABEB329E309FE00ED6059 /* SwiftUITrackableScrollView */; };
 		61FABEBC29E30A2200ED6059 /* CRMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABEBB29E30A2200ED6059 /* CRMTests.swift */; };
 		61FABEBD29E30A2200ED6059 /* CRMModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FABE4B29E3096F00ED6059 /* CRMModule.framework */; platformFilter = ios; };
-		61FABECA29E30A8200ED6059 /* CRMModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABEC929E30A8200ED6059 /* CRMModuleTest.swift */; };
-		61FABECC29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FABECB29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift */; };
 		7E75A5142A1B637A0088D8CA /* LogicCRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E75A5132A1B637A0088D8CA /* LogicCRM.swift */; };
 		7E75A5192A1B6AB30088D8CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E75A5182A1B6AB30088D8CA /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -96,7 +94,6 @@
 		61FABE4B29E3096F00ED6059 /* CRMModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CRMModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FABEB929E30A2200ED6059 /* CRMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FABEBB29E30A2200ED6059 /* CRMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMTests.swift; sourceTree = "<group>"; };
-		61FABEC729E30A8200ED6059 /* CRMModuleTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRMModuleTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61FABEC929E30A8200ED6059 /* CRMModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMModuleTest.swift; sourceTree = "<group>"; };
 		61FABECB29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMModuleTestLaunchTests.swift; sourceTree = "<group>"; };
 		7E75A5132A1B637A0088D8CA /* LogicCRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicCRM.swift; sourceTree = "<group>"; };
@@ -117,13 +114,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				61FABEBD29E30A2200ED6059 /* CRMModule.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		61FABEC429E30A8200ED6059 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +216,6 @@
 			children = (
 				61FABE4B29E3096F00ED6059 /* CRMModule.framework */,
 				61FABEB929E30A2200ED6059 /* CRMTests.xctest */,
-				61FABEC729E30A8200ED6059 /* CRMModuleTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -301,23 +290,6 @@
 			productReference = 61FABEB929E30A2200ED6059 /* CRMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		61FABEC629E30A8200ED6059 /* CRMModuleTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 61FABECD29E30A8200ED6059 /* Build configuration list for PBXNativeTarget "CRMModuleTest" */;
-			buildPhases = (
-				61FABEC329E30A8200ED6059 /* Sources */,
-				61FABEC429E30A8200ED6059 /* Frameworks */,
-				61FABEC529E30A8200ED6059 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CRMModuleTest;
-			productName = CRMModuleTest;
-			productReference = 61FABEC729E30A8200ED6059 /* CRMModuleTest.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -332,9 +304,6 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					61FABEB829E30A2200ED6059 = {
-						CreatedOnToolsVersion = 14.2;
-					};
-					61FABEC629E30A8200ED6059 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
@@ -358,7 +327,6 @@
 			targets = (
 				61FABE4A29E3096F00ED6059 /* CRMModule */,
 				61FABEB829E30A2200ED6059 /* CRMTests */,
-				61FABEC629E30A8200ED6059 /* CRMModuleTest */,
 			);
 		};
 /* End PBXProject section */
@@ -374,13 +342,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		61FABEB729E30A2200ED6059 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		61FABEC529E30A8200ED6059 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -434,15 +395,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				61FABEBC29E30A2200ED6059 /* CRMTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		61FABEC329E30A8200ED6059 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61FABECA29E30A8200ED6059 /* CRMModuleTest.swift in Sources */,
-				61FABECC29E30A8200ED6059 /* CRMModuleTestLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -566,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -581,10 +533,13 @@
 		61FABE5E29E3097000ED6059 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 328QJG8DC6;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7B342J95CS;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -600,23 +555,27 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = CRM.CRMModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		61FABE5F29E3097000ED6059 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 328QJG8DC6;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7B342J95CS;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -632,13 +591,14 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = CRM.CRMModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -648,7 +608,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YN4CY38HR3;
+				DEVELOPMENT_TEAM = 7B342J95CS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
@@ -656,10 +616,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -669,7 +629,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YN4CY38HR3;
+				DEVELOPMENT_TEAM = 7B342J95CS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
@@ -677,52 +637,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		61FABECE29E30A8200ED6059 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 328QJG8DC6;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CRM.CRMModuleTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		61FABECF29E30A8200ED6059 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 328QJG8DC6;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CRM.CRMModuleTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -752,15 +670,6 @@
 			buildConfigurations = (
 				61FABEC129E30A2200ED6059 /* Debug */,
 				61FABEC229E30A2200ED6059 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		61FABECD29E30A8200ED6059 /* Build configuration list for PBXNativeTarget "CRMModuleTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				61FABECE29E30A8200ED6059 /* Debug */,
-				61FABECF29E30A8200ED6059 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

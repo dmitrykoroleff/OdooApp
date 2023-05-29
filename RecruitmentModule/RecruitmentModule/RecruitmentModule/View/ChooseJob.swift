@@ -10,7 +10,9 @@ import Profile
 
 
 public struct ViewOfJobs: View {
-    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
+    let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
+    
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @ObservedObject var shared: LogicR
     @State private var scrollViewContentOffset = CGFloat(0)
