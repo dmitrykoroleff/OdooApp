@@ -18,6 +18,7 @@ struct UserView: View {
     @State var offSet: CGFloat = 0
     @State var showBottomSheet = false
     @State var showAddSchedule = false
+    @State var curruntAddScheduleOffset: CGFloat = 0
     var name: [Int: String] = [:]
     var job: [Int: String] = [:]
     var phone: [Int: String] = [:]
@@ -33,6 +34,7 @@ struct UserView: View {
     var deadline: [Int: String] = [:]
     var summary: [Int: String] = [:]
     var index: Int = 0
+    @ObservedObject var shared = LogicR()
     
     
     
@@ -67,9 +69,13 @@ struct UserView: View {
                 .frame(height: height/6)
                 Spacer()
                 TabView {
-                    JobView(user: user, job: job, group: group, department: department, recruiter: recruiter, hireDate: hireDate, eSalary: eSalary, pSalary: pSalary, appreciation: appreciation, index: index)
+                    JobView(user: user, job: job, group: group, department: department, recruiter: recruiter, hireDate: hireDate, eSalary: eSalary, pSalary: pSalary, appreciation: appreciation, index: index).onAppear {
+//                        notes = []
+//                        for index in 0..<shared.nameLog.count {
+//                            notes.append(Note(id: UUID(), task: shared.nameLog[index], text: shared.textLog[index], editTime: shared.dateLog[index]))
+//                        }
+                    }
                     SummaryView(user: testUser, description: description, index: index)
-//                    LogNoteView(user: testUser, notes: notes)
                     //LogNoteView
                     VStack(alignment: .center) {
                         Text("Log note")
@@ -77,7 +83,7 @@ struct UserView: View {
                             .foregroundColor(Color("MainColor"))
                         List {
                             ForEach(notes) { note in
-                                NoteView(note: note)
+                                NoteView(note: note, shared: shared)
                                     .swipeActions {
                                         Button(role: .destructive) {
                                             
@@ -95,22 +101,12 @@ struct UserView: View {
                                                 Image(systemName: "trash")
                                             }
                                             .labelStyle(VerticalLabelStyle())
-                                            //Does't work :(
-                                            
+
                                         }
                                         .tint(Color("MainColor"))
                                         Button(role: .cancel) {
                                             
                                         } label: {
-                                            //                                ZStack {
-                                            //                                    Color("MainColor")
-                                            //                                    VStack {
-                                            //                                        Image(systemName: "square.and.pencil")
-                                            //                                        Text("Edit")
-                                            //                                            .font(.system(size: 6))
-                                            //                                    }
-                                            //                                    .foregroundColor(.white)
-                                            //                                }
                                             Label("Edit", systemImage: "square.and.pencil")
                                         }
                                         
@@ -132,7 +128,8 @@ struct UserView: View {
                         
                     }
                     //LogNoteView ends
-                    ScheduleView(user: user, showAddSchedule: $showAddSchedule, deadline: deadline, summary: summary, recruiter: recruiter, index: index)
+                    ScheduleListView(scheduleTasks: scheduleTasks, showAddSchedule: $showAddSchedule, curruntAddScheduleOffset: $curruntAddScheduleOffset, shared: shared)
+//                    ScheduleView(scheduleTask: Schedule(user: "adcsdc", text: "Someting", dueTime: "Due in 4 days", type: "ToDo"))
                     
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -173,10 +170,17 @@ struct UserView: View {
                                 })
                                 Spacer()
                                 Button(action: {
-                                    withAnimation(Animation.easeOut(duration: 0.2)){
-//                                        notes.append(Note(id: UUID(), user: testUser, text: text, editTime: "Now"))
-                                        showBottomSheet.toggle()
+                                    if text != "" {
+                                        shared.setLogNotes(thread: index, message: text)
+                                        withAnimation(Animation.easeOut(duration: 0.2)){
+    //                                        notes.append(Note(id: UUID(), task: " ", text: text, editTime: "Now"))
+                                            showBottomSheet.toggle()
+                                        }
                                     }
+//                                    withAnimation(Animation.easeOut(duration: 0.2)){
+////                                        notes.append(Note(id: UUID(), task: " ", text: text, editTime: "Now"))
+//                                        showBottomSheet.toggle()
+//                                    }
                                 }, label: {
                                     Text("Done")
                                         .foregroundColor(.gray)
@@ -260,11 +264,11 @@ struct UserView: View {
 //                .foregroundColor(Color(hex: 0x282F33))
 //                //.font(Font.custom("Inter", size: 16))
 //                .font(.system(size: 18, weight: .semibold))
-//                
-//                
-//                
-//                
-//                
+//
+//
+//
+//
+//
 //                Spacer()
 //                if appreciation[index]! == "1" {
 //                    HStack {
@@ -299,7 +303,7 @@ struct UserView: View {
 //                Spacer()
 //            }
 //            .frame(height: 60)
-//            
+//
 //            Spacer()
 //            VStack {
 //                ZStack {

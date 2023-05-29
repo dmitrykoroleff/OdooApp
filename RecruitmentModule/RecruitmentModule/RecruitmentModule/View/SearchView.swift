@@ -21,7 +21,7 @@ struct SearchView: View {
        NavigationView {
            if currentIndex < statusesRecr.count {
                ForEach(0..<shared.getCountStatus(status: statusesRecr[currentIndex].name), id: \.self) { user in
-                   NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, deadline: shared.deadline, summary: shared.activeSummary, index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)) {
+                   NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, deadline: shared.deadline, summary: shared.activeSummary, index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, shared: shared)) {
                        UserTestCard(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, array: shared.names, appreciation: shared.appreciation, shared: LogicR(), curruntOffset: $off, showBottomBar: $bott, statusImage: element.image).environmentObject(LogicR())
                    }
                    .foregroundColor(.black)

@@ -6,7 +6,20 @@
 //
 
 import Foundation
-public class Auth {
+import Alamofire
+import SwiftUI
+public class Auth: ObservableObject {
+    
+    @AppStorage("prod") var prod = "" {
+        willSet { objectWillChange.send() }
+    }
+    @AppStorage("name") var nameUser = "" {
+        willSet { objectWillChange.send() }
+    }
+    @AppStorage("email") var emailuser = "" {
+        willSet { objectWillChange.send() }
+    }
+    
     public init() {
 
     }
@@ -27,7 +40,7 @@ public class Auth {
         var database: String
 
         switch parsedUrl.lowercased() {
-        case "odoo", "erp":
+        case "odoo":
             database = "crm"
         default:
             database = String(parsedUrl)
@@ -39,8 +52,12 @@ public class Auth {
         ]
 
         let session = URLSession.shared
+        self.authSessionId(serverUrl: serverUrl)
+        self.prod = serverUrl
+        self.nameUser = "Admin"
+        self.emailuser = "Admin"
         let url = URL(string: "https://\(serverUrl)/web/session/authenticate")!
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json-rpc", forHTTPHeaderField: "Content-Type")
@@ -111,4 +128,27 @@ public class Auth {
         semaphore.wait()
         return resultLogIn
     }
+    
+    
+    func authSessionId(serverUrl: String) {
+        let ur1 = "https://\(serverUrl)/"
+        let ur2 = "web/dataset/search_read"
+        AF.request("\(ur1)\(ur2)", method: .get, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
+            switch response.result {
+                case .success(let data):
+                    do {
+                        guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                            print("Error: Cannot convert data to JSON object")
+                            return
+                        }
+                    } catch {
+                        print("Error: Trying to convert JSON data to string")
+                        return
+                    }
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+    
 }

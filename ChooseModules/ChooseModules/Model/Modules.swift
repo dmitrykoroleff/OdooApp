@@ -41,7 +41,7 @@ struct ImplementedModules: Decodable {
 extension Modules { // Хардкор
     
     static let sampleData: [Modules] = [
-        Modules(name: "CRM", notifications: 0, view: CRMModule.StatusView(name: " ", email: " ")),
+        Modules(name: "CRM", notifications: 0, view: CRMModule.StatusView(name: " ", email: " ", shared: CRMLogic())),
         Modules(name: "Recruitment", notifications: 1, view: RecruitmentModule.ViewOfJobs(shared: LogicR(), userName: "", userEmail: "")),
     ]
     

@@ -15,7 +15,7 @@ struct SearchView: View {
        NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                     ForEach(searchQuery.isEmpty ? getAllTasks() ?? [] : search(tasks: getAllTasks(), searchQuery: searchQuery)) { task in
-                        NavigationLink(destination: TaskView(task: testTask)) {
+                        NavigationLink(destination: TaskView(task: testTask, shared: CRMLogic())) {
                             TaskCardView(taskCard: task,curruntOffset: .constant(0), showBottomBar: .constant(false), statusImage: statuses[0].image)
                         }
                         .foregroundColor(.black)

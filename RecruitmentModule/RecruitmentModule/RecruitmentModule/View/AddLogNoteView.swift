@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct AddLogNoteView: View {
-//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
-    
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State private var currentIndex = 0
     var height = UIScreen.main.bounds.height
@@ -19,6 +17,7 @@ struct AddLogNoteView: View {
     @State var offSet: CGFloat = 0
     @Binding var showAddLogNoteSheet: Bool
     @Binding var currentOffset: CGFloat
+//    var shared: LogicR
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 35)
@@ -42,10 +41,11 @@ struct AddLogNoteView: View {
                     Spacer()
                     Button(action: {
                         withAnimation(Animation.easeOut(duration: 0.2)){
-                            notes.append(Note(id: UUID(), task: testTask, text: text, editTime: "Now"))
+                            notes.append(Note(id: UUID(), task: " ", text: text, editTime: "Now"))
                             currentOffset = 0
                             showAddLogNoteSheet = false
                         }
+                        
                     }, label: {
                         Text("Done")
                             .fontWeight(.medium)

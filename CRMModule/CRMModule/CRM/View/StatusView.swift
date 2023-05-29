@@ -24,7 +24,7 @@ public struct StatusView: View {
     @State var status: Int = 0
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
-    @State var currentStatus: Status = statuses[0]
+    @State var currentStatus: Status = statuses.count > 0 ? statuses[0] : Status(id: UUID(), image: "globe", name: "1")
     let taskCards: [TaskCard] = TaskCard.sampleWebsiteRequest
     @State var showBottomBar = false
     @State var showAdditionalStatuses = false
@@ -32,9 +32,10 @@ public struct StatusView: View {
     var gradient2: Gradient
     var name: String
     var email: String
+    @ObservedObject var shared: CRMLogic
     @State private var progression: CGFloat = 0
     @State private var scrollViewContentOffset = CGFloat(0)
-    public init(name: String, email: String) {
+    public init(name: String, email: String, shared: CRMLogic) {
         self.gradient1 = Gradient(colors:[Color("GradientColor1", bundle: bundle),
                                         Color("GradientColor2", bundle: bundle),
                                         Color("GradientColor3", bundle: bundle),
@@ -47,10 +48,11 @@ public struct StatusView: View {
                                          Color("GradientColor4", bundle: bundle)])
         self.name = name
         self.email = email
+        self.shared = shared
     }
     public var body: some View {
         
-            GeometryReader {_ in 
+            GeometryReader {_ in
                 ZStack {
                     
                     VStack {
@@ -181,21 +183,29 @@ public struct StatusView: View {
                             ForEach(Array(statuses.enumerated()), id: \.offset) { offset, element in
                                 VStack {
                                     if scrollViewContentOffset < 30 {
-                                        CustomProgressBarView()
-                                            .offset(y: scrollViewContentOffset < 30 && scrollViewContentOffset > 0 ? -scrollViewContentOffset : 0)
+                                        if currentIndex < statuses.count {
+                                            CustomProgressBarView(total: shared.total[statuses[currentIndex].name] ?? 0)
+                                                .offset(y: scrollViewContentOffset < 30 && scrollViewContentOffset > 0 ? -scrollViewContentOffset : 0)
+                                        }
                                     }
                             
                                     TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
                                         VStack {
-                                            ForEach(someDict[element.name] ?? []) { task in
-                                                NavigationLink(destination: TaskView(task: testTask)) {
-                                                    TaskCardView(taskCard: task, curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image)
-                                                }
-                                                .foregroundColor(.black)
-                                                
-                                                
+                                            if currentIndex < statuses.count {
+                                                let count = shared.getCountStatus(status: statuses[currentIndex].name)
+                                                ForEach(0..<count, id: \.self) { task in
+                                                    NavigationLink(destination: TaskView(task: testTask, index: shared.getIndex(status: statuses[currentIndex].name, index: task), name: shared.name, priority: shared.priority, partnerName: shared.partnerName, email: shared.email, phone: shared.phone, salesPerson: shared.salesPerson, salesTeam: shared.salesTeam, dateClose: shared.dateClose, description: shared.description, expected: shared.expected, prorated: shared.prorated, shared: shared).onAppear {
+                                                        shared.getNotes(thread: shared.getIndex(status: statuses[currentIndex].name, index: task))
+                                                        shared.getSheduleActivity(index: shared.getIndex(status: statuses[currentIndex].name, index: task))
+                                                    }) {
+                                                        TaskCardView(curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image, index: shared.getIndex(status: statuses[currentIndex].name, index: task), name: shared.name, priority: shared.priority).environmentObject(CRMLogic())
+                                                    }
+                                                    .foregroundColor(.black)
+                                                    
+                                                    
+                                                }.onAppear {  }
+                                                    .padding(.top, 5)
                                             }
-                                            .padding(.top, 5)
                                         }
                                         .padding(.bottom, height / 2)
                                         
@@ -205,7 +215,7 @@ public struct StatusView: View {
                                     
                                 }
                                 .tag(offset)
-                            }
+                            }.onAppear { shared.mainRequestCRM() }
                             
                             HStack {
                                 VStack {

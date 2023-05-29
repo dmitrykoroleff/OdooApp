@@ -20,6 +20,7 @@ struct AppView: View {
         AuthHSE.AuthView().onAppear {
             Thread.sleep(forTimeInterval: 1.0)
             CookieFile().getError()
+            CookieFile().prod = "erp.miem.hse.ru"
 //            RCValues().fetchCloudValues()
         }
     }

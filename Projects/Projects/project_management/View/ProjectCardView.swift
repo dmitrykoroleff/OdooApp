@@ -133,8 +133,8 @@ struct ProjectCardView: View {
     }
     
     func rearrangeIdx() {
-        for i in 0..<projects.count {
-            projects[i].idx = i
+        for index in 0..<projects.count {
+            projects[index].idx = index
         }
     }
     

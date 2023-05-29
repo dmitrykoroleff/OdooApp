@@ -15,7 +15,7 @@ public struct AuthView: View {
     public init() { }
     public var body: some View {
         if !auth.authenticated {
-            UnauthenticatedView(model: observed.getUnauthenticatedViewModel())
+            UnauthenticatedView(model: observed.getUnauthenticatedViewModel()).onAppear { CookieFile().prod = "erp.miem.hse.ru" }
             
         } else {
             AuthenticatedView(model: observed.getAuthenticatedViewModel())

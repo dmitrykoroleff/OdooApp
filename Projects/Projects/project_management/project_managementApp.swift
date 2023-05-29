@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct project_managementApp: App {
+struct ProjectManagementApp: App {
     var body: some Scene {
         WindowGroup {
             InitView()

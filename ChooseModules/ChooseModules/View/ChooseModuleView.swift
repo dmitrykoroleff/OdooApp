@@ -64,7 +64,7 @@ public struct ChooseModuleView: View {
         NavigationView{
             GeometryReader { geometry in
                 ZStack {
-                    NavigationLink(destination: CRMModule.StatusView(name: name, email: email).onAppear { CRMLogic().mainRequestCRM() },
+                    NavigationLink(destination: CRMModule.StatusView(name: name, email: email, shared: CRMLogic()),
                                    tag: "CRM",
                                    selection: $openModule)
                     { EmptyView() }

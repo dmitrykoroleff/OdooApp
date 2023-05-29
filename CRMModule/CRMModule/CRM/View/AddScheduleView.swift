@@ -52,7 +52,7 @@ struct AddScheduleView: View {
                         Spacer()
                         Button(action: {
                             withAnimation(Animation.easeOut(duration: 0.2)) {
-                                scheduleTasks.append(Schedule(user: testUser, text: text, dueTime: dueDate, type: activityType))
+                                scheduleTasks.append(Schedule(user: "testUser", text: text, dueTime: dueDate, type: activityType))
                                 currentOffset = 0
                                 showAddSchedule = false
                             }

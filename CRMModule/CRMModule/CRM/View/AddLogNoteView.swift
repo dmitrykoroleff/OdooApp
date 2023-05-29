@@ -17,6 +17,8 @@ struct AddLogNoteView: View {
     @State var offSet: CGFloat = 0
     @Binding var showAddLogNoteSheet: Bool
     @Binding var currentOffset: CGFloat
+    var index: Int
+    var shared: CRMLogic
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 35)
@@ -39,10 +41,13 @@ struct AddLogNoteView: View {
                     })
                     Spacer()
                     Button(action: {
-                        withAnimation(Animation.easeOut(duration: 0.2)){
-                            notes.append(Note(id: UUID(), task: testTask, text: text, editTime: "Now"))
-                            currentOffset = 0
-                            showAddLogNoteSheet = false
+                        if text != "" {
+                            shared.setLogNotes(thread: index, message: text)
+                            withAnimation(Animation.easeOut(duration: 0.2)){
+                                notes.append(Note(id: UUID(), task: "testTask", text: text, editTime: "Now"))
+                                currentOffset = 0
+                                showAddLogNoteSheet = false
+                            }
                         }
                     }, label: {
                         Text("Done")
@@ -96,8 +101,8 @@ struct AddLogNoteView: View {
     }
 }
 
-struct AddLogNoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddLogNoteView(showAddLogNoteSheet: .constant(false), currentOffset: .constant(0))
-    }
-}
+//struct AddLogNoteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddLogNoteView(showAddLogNoteSheet: .constant(false), currentOffset: .constant(0))
+//    }
+//}

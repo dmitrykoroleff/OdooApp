@@ -29,7 +29,9 @@ public class CookieFile: ObservableObject {
     @AppStorage("email") var emailuser = "" {
         willSet { objectWillChange.send() }
     }
-    
+    @AppStorage("prod") public var prod = "erp.miem.hse.ru" {
+        willSet { objectWillChange.send() }
+    }
     
     @Published var isPresent: Bool = false
     @Published var goodAuth: Bool = false

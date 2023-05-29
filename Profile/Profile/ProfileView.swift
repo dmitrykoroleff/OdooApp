@@ -39,7 +39,7 @@ public struct ProfileView: View {
                             .cornerRadius(80)
                     } else {
                         ZStack {
-                            Color("MainColor", bundle: bundle)
+                            Color("MainColor")
                                 .frame(width: 80, height: 80)
                                 .cornerRadius(80)
                             Text("\(ModelProfile().getInitials(str: name))") // хардкод
@@ -51,14 +51,14 @@ public struct ProfileView: View {
                 }
                 .overlay(
                     RoundedRectangle(cornerRadius: 80)
-                        .stroke(Color("MainColor", bundle: bundle), lineWidth: 3)
+                        .stroke(Color("MainColor"), lineWidth: 3)
                         .overlay(
                             ZStack {
                                 Circle()
                                     .foregroundColor(.white)
                                     .frame(width: 22, height: 22)
                                 Circle()
-                                    .foregroundColor(Color("Primary Dark", bundle: bundle))
+                                    .foregroundColor(Color("Primary Dark"))
                                     .frame(width: 18, height: 18)
                                 Image(systemName: "plus")
                                     .resizable()
@@ -73,7 +73,7 @@ public struct ProfileView: View {
                 Text("\(name)") // хардкод
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(Color("MainColor", bundle: bundle))
+                    .foregroundColor(Color("MainColor"))
                     .padding(.top, 35)
                 
                 Text(verbatim: "\(email)") // хардкод
@@ -129,7 +129,7 @@ public struct ProfileView: View {
                     ZStack {
                         
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(Color("Primary Dark", bundle: bundle))
+                            .fill(Color("Primary Dark"))
                             .frame(width: width - 50, height: 55)
                         
                         Text("Log out")
@@ -160,7 +160,7 @@ public struct ProfileView: View {
         .toolbar {
             
             ToolbarItem(placement: .principal) {
-                Image("logo", bundle: bundle)
+                Image("logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 64, height: 22)

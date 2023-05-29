@@ -71,7 +71,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
     }
 
     func URLWeb(webView: WKWebView) -> String {
-        if (webView.url?.host)! == "erp.miem.hse.ru" && modelCookie.sessionID.isEmpty{
+        if (webView.url?.host)! == "\(CookieFile().prod)" && modelCookie.sessionID.isEmpty{
             webView
             let aString = webview.url!.absoluteString
             let newUrl = aString.replacingOccurrences(of: "#", with: "?", options: .literal, range: nil)
@@ -109,7 +109,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
                     var request = URLRequest(url: url!)
                     request.httpMethod = "POST"
                     request.httpBody = jsonData
-                    let ur1 = "https://erp.miem.hse.ru/"
+                    let ur1 = "https://\(CookieFile().prod)/"
                     let ur2 = "web/dataset/search_read"
                     AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
                         switch response.result {
@@ -183,7 +183,7 @@ class WebviewController: UIViewController, WKNavigationDelegate {
 //            }
             if let response = response as? HTTPURLResponse,
                 let data = data {
-                if response.url!.absoluteString == "https://erp.miem.hse.ru/ru/web/login?oauth_error=2" {
+                if response.url!.absoluteString == "https://\(CookieFile().prod)/ru/web/login?oauth_error=2" {
                     return
                 }
                 completion(.success(response, data))

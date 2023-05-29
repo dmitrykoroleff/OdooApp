@@ -90,7 +90,7 @@ func createTestData() {
     ]
 }
 
-struct initData {
+struct InitData {
     init() {
         createTestData()
     }

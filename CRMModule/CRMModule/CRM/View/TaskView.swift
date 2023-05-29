@@ -24,6 +24,20 @@ struct TaskView: View {
     @State var curruntAddLogNoteOffset: CGFloat = 0
     @State var lastAddLogNoteOffset: CGFloat = 0
     @GestureState var gestureAddLogNoteOffset: CGFloat = 0
+    var index: Int = 0
+    var name: [Int: String] = [:]
+    var priority: [Int: Int] = [:]
+    
+    var partnerName: [Int: String] = [:]
+    var email: [Int: String] = [:]
+    var phone: [Int: String] = [:]
+    var salesPerson: [Int: String] = [:]
+    var salesTeam: [Int: String] = [:]
+    var dateClose: [Int: String] = [:]
+    var description: [Int: String] = [:]
+    var expected: [Int: Float] = [:]
+    var prorated: [Int: Float] = [:]
+    var shared: CRMLogic
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -31,9 +45,9 @@ struct TaskView: View {
 
                     Spacer()
                     
-                    Text(task.name)
+                    Text(name[index] ?? " ")
                         .font(.system(size: 20, weight: .bold))
-                    Text(task.price)
+                    Text("\(String(format: "%.1f", (expected[index] ?? 0.0))) at \(String(format: "%.1f", (prorated[index] ?? 0.0)))")
                         .font(.system(size: 14))
                         .foregroundColor(.gray)
                         .underline()
@@ -54,9 +68,9 @@ struct TaskView: View {
                 .offset(y: height < 700 ? -10 : -20)
                 
                 TabView(selection: $currentIndex) {
-                    GeneralInformationView(task: task)
+                    GeneralInformationView(task: task, index: index, partnerName: partnerName, email: email, phone: phone, salesPerson: salesPerson, salesTeam: salesTeam, dateClose: dateClose)
                         .tag(0)
-                    SummaryView(task: testTask)
+                    SummaryView(task: testTask, index: index, description: description, shared: shared)
                         .tag(1)
                     
                     VStack(alignment: .center) {
@@ -65,7 +79,7 @@ struct TaskView: View {
                             .foregroundColor(Color("MainColor", bundle: bundle))
                         List {
                             ForEach(notes) { note in
-                                NoteView(note: note)
+                                NoteView(note: note, shared: shared)
                                     .swipeActions {
                                         Button(role: .destructive) {
                                             
@@ -78,8 +92,6 @@ struct TaskView: View {
                                                 Image(systemName: "trash")
                                             }
                                             .labelStyle(VerticalLabelStyle())
-                                            //Does't work :(
-                                            
                                         }
                                         .tint(Color("MainColor", bundle: bundle))
                                         Button(role: .cancel) {
@@ -109,7 +121,7 @@ struct TaskView: View {
                     }
                     .tag(2)
                     
-                    ScheduleListView(scheduleTasks: scheduleTasks, showAddSchedule: $showAddSchedule, curruntAddScheduleOffset: $curruntAddScheduleOffset)
+                    ScheduleListView(scheduleTasks: scheduleTasks, showAddSchedule: $showAddSchedule, curruntAddScheduleOffset: $curruntAddScheduleOffset, shared: shared)
                         .tag(3)
                     
                 }
@@ -117,7 +129,7 @@ struct TaskView: View {
             }
             .padding(.vertical, 60)
             
-            AddLogNoteView(showAddLogNoteSheet: $showAddLogNoteSheet, currentOffset: $curruntAddLogNoteOffset)
+            AddLogNoteView(showAddLogNoteSheet: $showAddLogNoteSheet, currentOffset: $curruntAddLogNoteOffset, index: index, shared: shared)
                 .offset(y: height)
                 .offset(y: -curruntAddLogNoteOffset > 0 ? -curruntAddLogNoteOffset <= (height - 50) ? curruntAddLogNoteOffset : -(height - 50) : 0)
                 .gesture(DragGesture().updating($gestureAddLogNoteOffset, body: { value, out, _ in
@@ -199,8 +211,8 @@ struct TaskView: View {
     
 }
 
-struct TaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskView(task: testTask)
-    }
-}
+//struct TaskView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskView(task: testTask)
+//    }
+//}

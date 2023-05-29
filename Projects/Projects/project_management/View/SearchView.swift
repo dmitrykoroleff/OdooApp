@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    var projects_: [Project]
+    var projects: [Project]
     @State var currProjects = projects
     @Binding var searchQuery: String
     @Binding var task: Task

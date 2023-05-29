@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct TaskCardView: View {
-    @State var taskCard: TaskCard
+    @State var taskCard: TaskCard = TaskCard(fullName: "a", taskStatus: "ac")
     @Binding var curruntOffset: CGFloat
     @Binding var showBottomBar: Bool
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
     var statusImage: String
+    var index: Int = 0
+    var name: [Int: String] = [:]
+    var priority: [Int: Int] = [:]
     var body: some View {
         ZStack {
             Color.white
@@ -25,7 +28,7 @@ struct TaskCardView: View {
             HStack {
                 VStack(alignment: .center) {
                     
-                    Text(taskCard.fullName)
+                    Text(name[index] ?? "")
                         .foregroundColor(Color(hex: 0x282F33))
                     //.font(Font.custom("Inter", size: 16))
                         .font(.system(size: 18, weight: .semibold))
@@ -37,16 +40,8 @@ struct TaskCardView: View {
                     Spacer()
                     HStack {
                         ForEach(1..<4, id: \.self) { number in
-                            image(for: number, rating: taskCard.rating)
-                                .foregroundColor(number > taskCard.rating ? Color.black : Color.yellow)
-                                .onTapGesture {
-                                    if taskCard.rating == number {
-                                        taskCard.rating = 0
-                                    } else {
-                                        taskCard.rating = number
-                                    }
-                                }
-                                .animation(.easeIn(duration: 0.15))
+                            image(for: number, rating: priority[index] ?? 0)
+                                .foregroundColor(number > priority[index] ?? 0 ? Color.black : Color.yellow)
                         }
                         Image(systemName: "clock")
                     }

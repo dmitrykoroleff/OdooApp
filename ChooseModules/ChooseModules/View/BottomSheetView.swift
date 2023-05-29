@@ -19,7 +19,7 @@ struct BottomSheetView: View {
     var body: some View {
         
         VStack {
-            NavigationLink(destination: CRMModule.StatusView(name: " ", email: " "),
+            NavigationLink(destination: CRMModule.StatusView(name: " ", email: " ", shared: CRMLogic()),
                            tag: "CRM",
                            selection: $openModule)
             { EmptyView() }

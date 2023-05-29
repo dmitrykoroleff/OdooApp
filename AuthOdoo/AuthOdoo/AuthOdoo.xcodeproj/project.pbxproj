@@ -12,6 +12,7 @@
 		6190B48C29256C5E009CD969 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B48129256C5E009CD969 /* AuthOdoo.framework */; };
 		6190B49129256C5E009CD969 /* AuthOdooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6190B49029256C5E009CD969 /* AuthOdooTests.swift */; };
 		6190B49229256C5E009CD969 /* AuthOdoo.h in Headers */ = {isa = PBXBuildFile; fileRef = 6190B48429256C5E009CD969 /* AuthOdoo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E5834932A24C9D100D9AE47 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E5834922A24C9D100D9AE47 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E5834932A24C9D100D9AE47 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +118,9 @@
 			dependencies = (
 			);
 			name = AuthOdoo;
+			packageProductDependencies = (
+				7E5834922A24C9D100D9AE47 /* Alamofire */,
+			);
 			productName = AuthOdoo;
 			productReference = 6190B48129256C5E009CD969 /* AuthOdoo.framework */;
 			productType = "com.apple.product-type.framework";
@@ -166,6 +171,9 @@
 				ru,
 			);
 			mainGroup = 6190B47729256C5E009CD969;
+			packageReferences = (
+				7E5834912A24C9D100D9AE47 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 6190B48229256C5E009CD969 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -348,12 +356,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7B342J95CS;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 328QJG8DC6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -383,12 +391,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7B342J95CS;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 328QJG8DC6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -485,6 +493,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7E5834912A24C9D100D9AE47 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7E5834922A24C9D100D9AE47 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E5834912A24C9D100D9AE47 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6190B47829256C5E009CD969 /* Project object */;
 }

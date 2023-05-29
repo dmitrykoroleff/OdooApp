@@ -12,6 +12,13 @@ struct GeneralInformationView: View {
     @State var task: Task
     var height = UIScreen.main.bounds.height
     var width = UIScreen.main.bounds.width
+    var index: Int = 0
+    var partnerName: [Int: String] = [:]
+    var email: [Int: String] = [:]
+    var phone: [Int: String] = [:]
+    var salesPerson: [Int: String] = [:]
+    var salesTeam: [Int: String] = [:]
+    var dateClose: [Int: String] = [:]
     var body: some View {
         VStack {
 
@@ -38,9 +45,19 @@ struct GeneralInformationView: View {
                                         .foregroundColor(.black)
                                 }
                                 .foregroundColor(.yellow)
-                            } else {
-                                Text(task.generalInformation[generalInformation] ?? "")
-                            }
+                            } else if generalInformation == "Custumer" {
+                                Text(partnerName[index] ?? "")
+                            } else if generalInformation == "Email" {
+                                Text(email[index] ?? "")
+                            } else if generalInformation == "Phone" {
+                                Text(phone[index] ?? "")
+                            } else if generalInformation == "Sales person" {
+                                Text(salesPerson[index] ?? "")
+                            } else if generalInformation == "Sales team" {
+                                Text(salesTeam[index] ?? "")
+                            } else if generalInformation == "Expected closing" {
+                                Text(dateClose[index] ?? "")
+                            } else { Text(" ") }
                         }
                     }
                     Spacer()

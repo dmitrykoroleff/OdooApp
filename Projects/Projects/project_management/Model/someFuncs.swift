@@ -13,13 +13,13 @@ protocol Indexable {
 }
 
 func reindex (source: inout [Project], count: Int) {
-    for i in 0..<count {
-        source[i].idx = i
+    for index in 0..<count {
+        source[index].idx = index
     }
 }
 
 func reindex (source: inout [Task], count: Int) {
-    for i in 0..<count {
-        source[i].idx = i
+    for index in 0..<count {
+        source[index].idx = index
     }
 }

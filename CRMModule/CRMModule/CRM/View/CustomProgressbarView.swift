@@ -11,7 +11,7 @@ struct CustomProgressBarView: View {
     let bundle = Bundle(identifier: "CRM.CRMModule")
     @State private var value = 60
     @State private var inputState: String = ""
-
+    var total: Float
     var body: some View {
         
         HStack(spacing: 15) {
@@ -21,7 +21,7 @@ struct CustomProgressBarView: View {
                 .scaleEffect(x: 1, y: 2, anchor: .center)
             
             
-            Text("\(value) руб")
+            Text("\(String(format: "%.1f", total)) руб")
         }
         .padding(.horizontal)
            
@@ -30,11 +30,11 @@ struct CustomProgressBarView: View {
 
 
 
-struct CustomProgressBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomProgressBarView()
-    }
-}
+//struct CustomProgressBarView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CustomProgressBarView()
+//    }
+//}
 
 
 

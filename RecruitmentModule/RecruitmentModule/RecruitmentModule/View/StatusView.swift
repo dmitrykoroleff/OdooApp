@@ -10,9 +10,7 @@ import SwiftUITrackableScrollView
 import Profile
 
 public struct StatusView: View {
-//    let bundle = Bundle(identifier: "Recruitment.RecruitmentModule")
     let bundle = Bundle(identifier: "odoo.miem.ios.Recruitment")
-    
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
@@ -61,7 +59,7 @@ public struct StatusView: View {
     }
     public var body: some View {
         
-            GeometryReader {_ in 
+            GeometryReader {_ in
                 ZStack {
                     
                     VStack {
@@ -91,7 +89,7 @@ public struct StatusView: View {
                                 
                                 Spacer()
                                 
-                                // Link to profile 
+                                // Link to profile
                                 NavigationLink(destination: Profile.ProfileView(name: nameUser, email: emailUser)) {
                                     ZStack {
                                         
@@ -202,7 +200,12 @@ public struct StatusView: View {
                                                     ForEach(0..<shared.getCountStatus(status: statusesRecr[currentIndex].name), id: \.self) { user in
                                                         let id = shared.jobInt[shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0]
                                                         if shared.currentJobID(jobID: jobID, id: id ?? -1) {
-                                                            NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, email: shared.email, group: shared.group, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, deadline: shared.deadline, summary: shared.activeSummary, index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)) {
+                                                            NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, email: shared.email, group: shared.group, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, deadline: shared.deadline, summary: shared.activeSummary, index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, shared: shared).onAppear {
+
+                                                                shared.getNotes(thread: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)
+                                                                shared.getSheduleActivity(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)
+                                                            })
+                                                            {
                                                                 UserTestCard(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, array: shared.names, appreciation: shared.appreciation, shared: LogicR(), curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image).environmentObject(LogicR())
                                                             }
                                                             .foregroundColor(.black)
@@ -238,13 +241,10 @@ public struct StatusView: View {
                                         
                                         animatebleGradient(fromGradient: gradient1, toGradient: gradient2, progress: progression)
                                             .onAppear{
-                                                
                                                 withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses:true)) {
                                                     self.progression = 1
                                                 }
-                                                
                                             }
-                                        
                                     }
                                     .frame(width: width / 1.05, height: height / 2)
                                     .foregroundColor(Color("MainColor", bundle: bundle))
