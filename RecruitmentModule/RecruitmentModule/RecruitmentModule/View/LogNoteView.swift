@@ -51,7 +51,7 @@ struct LogNoteView: View {
                 .listStyle(.plain)
                 .frame(height: height*0.55)
                 Button(action: {
-                    print("Log")
+                    
                     withAnimation(Animation.easeIn(duration: 0.2)){
                         showAddLogNoteSheet = true
                     }

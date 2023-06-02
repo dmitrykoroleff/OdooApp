@@ -50,7 +50,7 @@ struct AddStatusView: View {
                                 someDict[text] = [TaskCard(fullName: "Закупка оборудования", taskStatus: text)]
                                 currentStatus = statusesRecr[statusesRecr.count - 1]
                                 currentOffset = 0
-                                print(id, text)
+                                
                                 if text != "" {
                                     shared.createStatus(id: id, name: text)
                                 }

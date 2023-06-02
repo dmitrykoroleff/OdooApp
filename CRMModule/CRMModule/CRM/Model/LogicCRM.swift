@@ -51,6 +51,7 @@ public class CRMLogic: ObservableObject {
     
     
     public func mainRequestCRM() {
+        
         self.getStageCRM()
         let json = JsonCRM().jsonCRM
         let ur1 = "https://\(prod)/"
@@ -122,6 +123,7 @@ public class CRMLogic: ObservableObject {
     
     
     func getDataFromRequest(jsb: [String: Any]) {
+        
         name[jsb["id"] as? Int ?? 0] = jsb["name"] as? String ?? ""
         priority[jsb["id"] as? Int ?? 0] = Int(jsb["priority"] as? String ?? "0")
         partnerName[jsb["id"] as? Int ?? 0] = jsb["partner_name"] as? String ?? ""

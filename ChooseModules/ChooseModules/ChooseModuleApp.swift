@@ -15,7 +15,7 @@ public struct ChooseModuleApp: App {
     public var body: some Scene {
         WindowGroup {
 //            ChooseModuleView(modules: Modules.sampleData)
-            ChooseModuleView(email: " ", name: " ").onAppear{ LogicR().getData() }
+            ChooseModuleView(email: " ", name: " ")
             
            
 

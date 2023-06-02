@@ -55,7 +55,7 @@ struct BottomSheetView: View {
                         ForEach(Array(projects[currentProjectIdx].statuses.enumerated()), id: \.offset) { offset, status in
                                 Button(action: {
                                     if changingStatus {
-                                        print("Working")
+                                        
                                         var currTask = projects[currentProjectIdx].statuses[onStatus].tasks[currentTask]
                                         projects[currentProjectIdx].statuses[onStatus].tasks.remove(at: currentTask)
                                         reindex(source: &projects[currentProjectIdx].statuses[onStatus].tasks, count:  projects[currentProjectIdx].statuses[onStatus].tasks.count)

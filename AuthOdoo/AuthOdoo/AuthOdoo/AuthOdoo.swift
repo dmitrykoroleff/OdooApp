@@ -131,9 +131,16 @@ public class Auth: ObservableObject {
     
     
     func authSessionId(serverUrl: String) {
+        let json: [String: Any] = ["id": 100,
+                                   "jsonrpc": "2.0",
+                                   "method": "call",
+                                   "params": [
+                                    "domain": [],
+                                    "fields": ["id", "name", "child_id", "parent_id", "groups_id"],
+                                    "model": "ir.ui.menu"]]
         let ur1 = "https://\(serverUrl)/"
         let ur2 = "web/dataset/search_read"
-        AF.request("\(ur1)\(ur2)", method: .get, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
+        AF.request("\(ur1)\(ur2)", method: .post, parameters: json, encoding: JSONEncoding.default).validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {
                 case .success(let data):
                     do {
@@ -141,6 +148,7 @@ public class Auth: ObservableObject {
                             print("Error: Cannot convert data to JSON object")
                             return
                         }
+                        print(jsonObject, "OBJECT")
                     } catch {
                         print("Error: Trying to convert JSON data to string")
                         return

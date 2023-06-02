@@ -110,7 +110,6 @@ func getAllTasks() -> [TaskCard] {
     for key in someDict.keys {
         res += someDict[key]!
     }
-    print(res)
     return res
     
 }

@@ -189,24 +189,24 @@ public struct StatusView: View {
                             
                             ForEach(Array(statusesRecr.enumerated()), id: \.offset) { offset, element in
                                 VStack {
-                                    if scrollViewContentOffset < 30 {
-                                        CustomProgressBarView()
-                                            .offset(y: scrollViewContentOffset < 30 && scrollViewContentOffset > 0 ? -scrollViewContentOffset : 0)
-                                    }
-                                    TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
+//                                    if scrollViewContentOffset < 30 {
+////                                        CustomProgressBarView()
+//                                            .offset(y: scrollViewContentOffset < 30 && scrollViewContentOffset > 0 ? -scrollViewContentOffset : 0)
+//                                    }
+                                    ScrollView(.vertical) {
                                         VStack {
                                             if currentIndex < statusesRecr.count {
-                                                if shared.getCountStatus(status: statusesRecr[currentIndex].name) > 0 {
-                                                    ForEach(0..<shared.getCountStatus(status: statusesRecr[currentIndex].name), id: \.self) { user in
+                                                let count = shared.getCountStatus(status: statusesRecr[currentIndex].name)
+                                                if count > 0 {
+                                                    ForEach(0..<count, id: \.self) { user in
                                                         let id = shared.jobInt[shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0]
                                                         if shared.currentJobID(jobID: jobID, id: id ?? -1) {
                                                             NavigationLink(destination: UserView(user: testUser, name: shared.names, job: shared.job, phone: shared.phone, email: shared.email, group: shared.group, department: shared.department, recruiter: shared.recruiter, hireDate: shared.hireDate, eSalary: shared.eSalary, pSalary: shared.pSalary, description: shared.descrip, appreciation: shared.appreciation, deadline: shared.deadline, summary: shared.activeSummary, index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, shared: shared).onAppear {
-
                                                                 shared.getNotes(thread: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)
                                                                 shared.getSheduleActivity(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0)
                                                             })
                                                             {
-                                                                UserTestCard(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, array: shared.names, appreciation: shared.appreciation, shared: LogicR(), curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image).environmentObject(LogicR())
+                                                                UserTestCard(index: shared.stageId[statusesRecr[currentIndex].name]?[user] ?? 0, array: shared.names, appreciation: shared.appreciation, shared: LogicR(), curruntOffset: $curruntOffset, showBottomBar: $showBottomBar, statusImage: element.image)
                                                             }
                                                             .foregroundColor(.black)
                                                         }

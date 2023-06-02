@@ -4,7 +4,7 @@ import SwiftUI
 // @available(iOS 15.0, *)
 struct CustomTextField: View {
 //    let bundle = Bundle(identifier: "odoo.miem.authhse")
-    let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
+    let bundle = Bundle(identifier: "odoo.miem.ios.AuthHSE")
     var hint: String
     @Binding var text: String
     @State var tapped: Bool = false

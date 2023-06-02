@@ -14,6 +14,7 @@ import Profile
 import FirebaseRemoteConfig
 //import YandexMobileMetrica
 //let bundle = Bundle(identifier: "chooseModules.ChooseModules")
+//let bundle = Bundle(identifier: "odoo.miem.ios.ChooseModules")
 public struct ChooseModuleView: View {
     @State var curruntOffset: CGFloat = 0
     @State var lastOffset: CGFloat = 0

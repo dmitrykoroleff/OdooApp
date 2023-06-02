@@ -71,6 +71,7 @@ public class LogicR: ObservableObject {
                         DispatchQueue.main.async {
                             var jsonRes = jsonObject["result"] as? [String: Any]
                             var jsonRecords = jsonRes?["records"] as? Array<Any>
+                            print(jsonObject)
                             for index in 0..<(jsonRecords?.count ?? 0) {
                                 var js = jsonRecords?[index] as? [String: Any]
                                 self.allStages.append(js?["name"] as? String ?? "")

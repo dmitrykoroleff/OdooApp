@@ -33,16 +33,16 @@
 		6162A90F291ED65A008B32A6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A90E291ED65A008B32A6 /* CustomTextField.swift */; };
 		6162A912291ED877008B32A6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A911291ED877008B32A6 /* LoginViewModel.swift */; };
 		6162A92E291EFE71008B32A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162A92D291EFE71008B32A6 /* Assets.xcassets */; };
-		617FDEA429C7454800B89D68 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617FDEA329C7454800B89D68 /* ChooseModules.framework */; };
-		617FDEA529C7454800B89D68 /* ChooseModules.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 617FDEA329C7454800B89D68 /* ChooseModules.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6183891129BE51E100FF2157 /* GetModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183891029BE51E100FF2157 /* GetModules.swift */; };
-		6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; };
-		6190B4C729265AB1009CD969 /* AuthOdoo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61A735352947774C008E3A3E /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A735342947774C008E3A3E /* Token.swift */; };
 		7E1A452429476F4E00FC55DE /* DecodeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A452329476F4E00FC55DE /* DecodeToken.swift */; };
 		7E6E8F712986AB5900710224 /* CookieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E8F702986AB5900710224 /* CookieFile.swift */; };
 		7E6E8F732986AB5F00710224 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E8F722986AB5F00710224 /* WebView.swift */; };
 		7E6E8F772986AC6600710224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E6E8F762986AC6600710224 /* Alamofire */; };
+		7EF585532A25283000C90E97 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617FDEA329C7454800B89D68 /* ChooseModules.framework */; };
+		7EF585542A25283000C90E97 /* ChooseModules.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 617FDEA329C7454800B89D68 /* ChooseModules.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EF585552A25288100C90E97 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; };
+		7EF585562A25288100C90E97 /* AuthOdoo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6190B4C529265AB1009CD969 /* AuthOdoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,17 +53,31 @@
 			remoteGlobalIDString = 6162A8C5291EA0B1008B32A6;
 			remoteInfo = AuthHSE;
 		};
+		7EF585632A25290B00C90E97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EF5855E2A25290B00C90E97 /* AuthOdoo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6190B48129256C5E009CD969;
+			remoteInfo = AuthOdoo;
+		};
+		7EF585652A25290B00C90E97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EF5855E2A25290B00C90E97 /* AuthOdoo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6190B48B29256C5E009CD969;
+			remoteInfo = AuthOdooTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6190B4C829265AB1009CD969 /* Embed Frameworks */ = {
+		7EF585522A25282F00C90E97 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6190B4C729265AB1009CD969 /* AuthOdoo.framework in Embed Frameworks */,
-				617FDEA529C7454800B89D68 /* ChooseModules.framework in Embed Frameworks */,
+				7EF585542A25283000C90E97 /* ChooseModules.framework in Embed Frameworks */,
+				7EF585562A25288100C90E97 /* AuthOdoo.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +117,11 @@
 		7E1A452329476F4E00FC55DE /* DecodeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeToken.swift; sourceTree = "<group>"; };
 		7E6E8F702986AB5900710224 /* CookieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieFile.swift; sourceTree = "<group>"; };
 		7E6E8F722986AB5F00710224 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		7EF585592A25290B00C90E97 /* AuthOdoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOdoo.swift; sourceTree = "<group>"; };
+		7EF5855A2A25290B00C90E97 /* AuthOdoo.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AuthOdoo.docc; sourceTree = "<group>"; };
+		7EF5855B2A25290B00C90E97 /* AuthOdoo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthOdoo.h; sourceTree = "<group>"; };
+		7EF5855D2A25290B00C90E97 /* AuthOdooTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOdooTests.swift; sourceTree = "<group>"; };
+		7EF5855E2A25290B00C90E97 /* AuthOdoo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AuthOdoo.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +130,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6E8F772986AC6600710224 /* Alamofire in Frameworks */,
+				7EF585552A25288100C90E97 /* AuthOdoo.framework in Frameworks */,
 				6162A8F9291ECE31008B32A6 /* AppAuth in Frameworks */,
-				6190B4C629265AB1009CD969 /* AuthOdoo.framework in Frameworks */,
 				6162A901291ED27A008B32A6 /* SwiftCoroutine in Frameworks */,
 				6162A90B291ED3E8008B32A6 /* SwiftJWT in Frameworks */,
-				617FDEA429C7454800B89D68 /* ChooseModules.framework in Frameworks */,
+				7EF585532A25283000C90E97 /* ChooseModules.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +259,7 @@
 		6190B4C429265AB1009CD969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EF585572A25290B00C90E97 /* AuthOdoo */,
 				617FDEA329C7454800B89D68 /* ChooseModules.framework */,
 				61BB927029BDE4C0006AFDF4 /* ChooseModules.framework */,
 				6190B4C529265AB1009CD969 /* AuthOdoo.framework */,
@@ -254,6 +274,44 @@
 				7E6E8F722986AB5F00710224 /* WebView.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		7EF585572A25290B00C90E97 /* AuthOdoo */ = {
+			isa = PBXGroup;
+			children = (
+				7EF585582A25290B00C90E97 /* AuthOdoo */,
+				7EF5855C2A25290B00C90E97 /* AuthOdooTests */,
+				7EF5855E2A25290B00C90E97 /* AuthOdoo.xcodeproj */,
+			);
+			name = AuthOdoo;
+			path = ../../AuthOdoo/AuthOdoo;
+			sourceTree = "<group>";
+		};
+		7EF585582A25290B00C90E97 /* AuthOdoo */ = {
+			isa = PBXGroup;
+			children = (
+				7EF585592A25290B00C90E97 /* AuthOdoo.swift */,
+				7EF5855A2A25290B00C90E97 /* AuthOdoo.docc */,
+				7EF5855B2A25290B00C90E97 /* AuthOdoo.h */,
+			);
+			path = AuthOdoo;
+			sourceTree = "<group>";
+		};
+		7EF5855C2A25290B00C90E97 /* AuthOdooTests */ = {
+			isa = PBXGroup;
+			children = (
+				7EF5855D2A25290B00C90E97 /* AuthOdooTests.swift */,
+			);
+			path = AuthOdooTests;
+			sourceTree = "<group>";
+		};
+		7EF5855F2A25290B00C90E97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EF585642A25290B00C90E97 /* AuthOdoo.framework */,
+				7EF585662A25290B00C90E97 /* AuthOdooTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +336,7 @@
 				6162A8C2291EA0B1008B32A6 /* Sources */,
 				6162A8C3291EA0B1008B32A6 /* Frameworks */,
 				6162A8C4291EA0B1008B32A6 /* Resources */,
-				6190B4C829265AB1009CD969 /* Embed Frameworks */,
+				7EF585522A25282F00C90E97 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -349,6 +407,12 @@
 			);
 			productRefGroup = 6162A8C7291EA0B1008B32A6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7EF5855F2A25290B00C90E97 /* Products */;
+					ProjectRef = 7EF5855E2A25290B00C90E97 /* AuthOdoo.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6162A8C5291EA0B1008B32A6 /* AuthHSE */,
@@ -356,6 +420,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7EF585642A25290B00C90E97 /* AuthOdoo.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AuthOdoo.framework;
+			remoteRef = 7EF585632A25290B00C90E97 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EF585662A25290B00C90E97 /* AuthOdooTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AuthOdooTests.xctest;
+			remoteRef = 7EF585652A25290B00C90E97 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6162A8C4291EA0B1008B32A6 /* Resources */ = {
@@ -554,11 +635,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 328QJG8DC6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -573,7 +653,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.ios.authhse;
+				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.ios.AuthHSE;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -590,11 +670,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 328QJG8DC6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -609,7 +688,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.ios.authhse;
+				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.iosm.AuthHse;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -628,7 +707,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B342J95CS;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AuthHSETests;

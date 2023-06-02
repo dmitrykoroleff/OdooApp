@@ -13,6 +13,8 @@
 		6190B49129256C5E009CD969 /* AuthOdooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6190B49029256C5E009CD969 /* AuthOdooTests.swift */; };
 		6190B49229256C5E009CD969 /* AuthOdoo.h in Headers */ = {isa = PBXBuildFile; fileRef = 6190B48429256C5E009CD969 /* AuthOdoo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E5834932A24C9D100D9AE47 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E5834922A24C9D100D9AE47 /* Alamofire */; };
+		7EF5854D2A25225E00C90E97 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5854C2A25225E00C90E97 /* ChooseModules.framework */; };
+		7EF5854E2A25225E00C90E97 /* ChooseModules.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5854C2A25225E00C90E97 /* ChooseModules.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7EF5854F2A25225F00C90E97 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7EF5854E2A25225E00C90E97 /* ChooseModules.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1421938D293B402F00812218 /* AuthOdoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOdoo.swift; sourceTree = "<group>"; };
 		6190B48129256C5E009CD969 /* AuthOdoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthOdoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +48,7 @@
 		6190B48529256C5E009CD969 /* AuthOdoo.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AuthOdoo.docc; sourceTree = "<group>"; };
 		6190B48B29256C5E009CD969 /* AuthOdooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthOdooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6190B49029256C5E009CD969 /* AuthOdooTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOdooTests.swift; sourceTree = "<group>"; };
+		7EF5854C2A25225E00C90E97 /* ChooseModules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChooseModules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E5834932A24C9D100D9AE47 /* Alamofire in Frameworks */,
+				7EF5854D2A25225E00C90E97 /* ChooseModules.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +78,7 @@
 				6190B48329256C5E009CD969 /* AuthOdoo */,
 				6190B48F29256C5E009CD969 /* AuthOdooTests */,
 				6190B48229256C5E009CD969 /* Products */,
+				7EF5854B2A25225E00C90E97 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +109,14 @@
 			path = AuthOdooTests;
 			sourceTree = "<group>";
 		};
+		7EF5854B2A25225E00C90E97 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7EF5854C2A25225E00C90E97 /* ChooseModules.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -112,6 +139,7 @@
 				6190B47D29256C5E009CD969 /* Sources */,
 				6190B47E29256C5E009CD969 /* Frameworks */,
 				6190B47F29256C5E009CD969 /* Resources */,
+				7EF5854F2A25225F00C90E97 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -356,15 +384,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 328QJG8DC6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -391,15 +418,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 328QJG8DC6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -428,10 +454,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B342J95CS;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AuthOdooTests;
+				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.ios.AuthOdooTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -448,10 +474,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B342J95CS;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AuthOdooTests;
+				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.ios.AuthOdooTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -14,17 +14,19 @@ struct SummaryView: View {
     var description: [Int: String] = [:]
     var index: Int
     var body: some View {
-        VStack {
-            Text("Application Summary")
-                .font(.system(size: 14))
-                .foregroundColor(Color("MainColor"))
-            Spacer()
-                .frame(height: height/50)
-            Text("\(description[index]!)") // hardcode
-                .font(.system(size: 12))
-                .foregroundColor(.gray)
-                .frame(width: width * 0.78)
-            Spacer()
+        ScrollView(.vertical) {
+            VStack {
+                Text("Application Summary")
+                    .font(.system(size: 14))
+                    .foregroundColor(Color("MainColor"))
+                Spacer()
+                    .frame(height: height/50)
+                Text("\(description[index]!)") // hardcode
+                    .font(.system(size: 12))
+                    .foregroundColor(.gray)
+                    .frame(width: width * 0.78)
+                Spacer()
+            }
         }
     }
 }

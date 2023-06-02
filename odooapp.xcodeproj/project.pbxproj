@@ -12,10 +12,45 @@
 		6162A88D291E9A2D008B32A6 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162A88C291E9A2D008B32A6 /* AppView.swift */; };
 		6162A88F291E9A2F008B32A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162A88E291E9A2F008B32A6 /* Assets.xcassets */; };
 		6162A892291E9A2F008B32A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6162A891291E9A2F008B32A6 /* Preview Assets.xcassets */; };
-		6162A8E6291EC3F1008B32A6 /* AuthHSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6162A8E5291EC3F1008B32A6 /* AuthHSE.framework */; };
 		61946CA2291FBB0500BE2004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61946CA1291FBB0500BE2004 /* LaunchScreen.storyboard */; };
-		EDEEE6F3FB5F517A5424A4D8 /* Pods_odooapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0765863D5609C847FD13CD /* Pods_odooapp.framework */; };
+		7EF5853D2A251EE700C90E97 /* AuthHSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6162A8E5291EC3F1008B32A6 /* AuthHSE.framework */; };
+		7EF5853E2A251EE700C90E97 /* AuthHSE.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6162A8E5291EC3F1008B32A6 /* AuthHSE.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EF585402A251F1A00C90E97 /* ChooseModules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF585292A250C2A00C90E97 /* ChooseModules.framework */; };
+		7EF585412A251F1A00C90E97 /* ChooseModules.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF585292A250C2A00C90E97 /* ChooseModules.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EF5854A2A2520C700C90E97 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF585492A2520C700C90E97 /* Alamofire */; };
+		7EF585672A25292E00C90E97 /* Pods_odooapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0765863D5609C847FD13CD /* Pods_odooapp.framework */; };
+		7EF5856A2A2529B300C90E97 /* AuthOdoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF585692A2529B300C90E97 /* AuthOdoo.framework */; };
+		7EF5856B2A2529B300C90E97 /* AuthOdoo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF585692A2529B300C90E97 /* AuthOdoo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EF5856D2A2529FD00C90E97 /* CRMModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5856C2A2529FD00C90E97 /* CRMModule.framework */; };
+		7EF5856E2A2529FD00C90E97 /* CRMModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5856C2A2529FD00C90E97 /* CRMModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EF585702A252B0100C90E97 /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5856F2A252B0100C90E97 /* Profile.framework */; };
+		7EF585712A252B0200C90E97 /* Profile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5856F2A252B0100C90E97 /* Profile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EF585732A252B0800C90E97 /* RecruitmentModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF585722A252B0800C90E97 /* RecruitmentModule.framework */; };
+		7EF585742A252B0800C90E97 /* RecruitmentModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF585722A252B0800C90E97 /* RecruitmentModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EF585772A252B9E00C90E97 /* SwiftUITrackableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 7EF585762A252B9E00C90E97 /* SwiftUITrackableScrollView */; };
+		7EF585792A252C0B00C90E97 /* ProjectsModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF585782A252C0B00C90E97 /* ProjectsModule.framework */; };
+		7EF5857A2A252C0B00C90E97 /* ProjectsModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF585782A252C0B00C90E97 /* ProjectsModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7EF5853F2A251EE700C90E97 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7EF5857A2A252C0B00C90E97 /* ProjectsModule.framework in Embed Frameworks */,
+				7EF5853E2A251EE700C90E97 /* AuthHSE.framework in Embed Frameworks */,
+				7EF5856B2A2529B300C90E97 /* AuthOdoo.framework in Embed Frameworks */,
+				7EF585412A251F1A00C90E97 /* ChooseModules.framework in Embed Frameworks */,
+				7EF585742A252B0800C90E97 /* RecruitmentModule.framework in Embed Frameworks */,
+				7EF585712A252B0200C90E97 /* Profile.framework in Embed Frameworks */,
+				7EF5856E2A2529FD00C90E97 /* CRMModule.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		14415273295CB7AE00EC03D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -30,6 +65,14 @@
 		6162A92A291EF597008B32A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		61946CA1291FBB0500BE2004 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C0765863D5609C847FD13CD /* Pods_odooapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_odooapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF585292A250C2A00C90E97 /* ChooseModules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChooseModules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF585422A25203A00C90E97 /* YandexMobileMetrica.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = YandexMobileMetrica.xcframework; path = Pods/YandexMobileMetrica/dynamic/YandexMobileMetrica.xcframework; sourceTree = "<group>"; };
+		7EF585452A25203F00C90E97 /* YandexMobileMetricaCrashes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = YandexMobileMetricaCrashes.xcframework; path = Pods/YandexMobileMetrica/dynamic/YandexMobileMetricaCrashes.xcframework; sourceTree = "<group>"; };
+		7EF585692A2529B300C90E97 /* AuthOdoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthOdoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF5856C2A2529FD00C90E97 /* CRMModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CRMModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF5856F2A252B0100C90E97 /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF585722A252B0800C90E97 /* RecruitmentModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RecruitmentModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF585782A252C0B00C90E97 /* ProjectsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProjectsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58682DA8DDE1CFEDC3F8BAD /* Pods-odooapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-odooapp.debug.xcconfig"; path = "Target Support Files/Pods-odooapp/Pods-odooapp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,8 +81,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6162A8E6291EC3F1008B32A6 /* AuthHSE.framework in Frameworks */,
-				EDEEE6F3FB5F517A5424A4D8 /* Pods_odooapp.framework in Frameworks */,
+				7EF585702A252B0100C90E97 /* Profile.framework in Frameworks */,
+				7EF5854A2A2520C700C90E97 /* Alamofire in Frameworks */,
+				7EF5856D2A2529FD00C90E97 /* CRMModule.framework in Frameworks */,
+				7EF585672A25292E00C90E97 /* Pods_odooapp.framework in Frameworks */,
+				7EF5856A2A2529B300C90E97 /* AuthOdoo.framework in Frameworks */,
+				7EF5853D2A251EE700C90E97 /* AuthHSE.framework in Frameworks */,
+				7EF585792A252C0B00C90E97 /* ProjectsModule.framework in Frameworks */,
+				7EF585772A252B9E00C90E97 /* SwiftUITrackableScrollView in Frameworks */,
+				7EF585402A251F1A00C90E97 /* ChooseModules.framework in Frameworks */,
+				7EF585732A252B0800C90E97 /* RecruitmentModule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +140,14 @@
 		6162A8E4291EC3F1008B32A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EF585782A252C0B00C90E97 /* ProjectsModule.framework */,
+				7EF585722A252B0800C90E97 /* RecruitmentModule.framework */,
+				7EF5856F2A252B0100C90E97 /* Profile.framework */,
+				7EF5856C2A2529FD00C90E97 /* CRMModule.framework */,
+				7EF585692A2529B300C90E97 /* AuthOdoo.framework */,
+				7EF585452A25203F00C90E97 /* YandexMobileMetricaCrashes.xcframework */,
+				7EF585422A25203A00C90E97 /* YandexMobileMetrica.xcframework */,
+				7EF585292A250C2A00C90E97 /* ChooseModules.framework */,
 				6162A8E5291EC3F1008B32A6 /* AuthHSE.framework */,
 				7C0765863D5609C847FD13CD /* Pods_odooapp.framework */,
 			);
@@ -117,12 +176,17 @@
 				6162A884291E9A2D008B32A6 /* Frameworks */,
 				6162A885291E9A2D008B32A6 /* Resources */,
 				6AE3FD756E11E5946287925E /* [CP] Embed Pods Frameworks */,
+				7EF5853F2A251EE700C90E97 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = odooapp;
+			packageProductDependencies = (
+				7EF585492A2520C700C90E97 /* Alamofire */,
+				7EF585762A252B9E00C90E97 /* SwiftUITrackableScrollView */,
+			);
 			productName = odooapp;
 			productReference = 6162A887291E9A2D008B32A6 /* odooapp.app */;
 			productType = "com.apple.product-type.application";
@@ -152,6 +216,10 @@
 				ru,
 			);
 			mainGroup = 6162A87E291E9A2D008B32A6;
+			packageReferences = (
+				7EF585482A2520C700C90E97 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7EF585752A252B9E00C90E97 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */,
+			);
 			productRefGroup = 6162A888291E9A2D008B32A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -382,12 +450,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Mikhail Vorozhtcov (7B342J95CS)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"odooapp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7B342J95CS;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = odooapp/Info.plist;
@@ -402,10 +469,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.iosm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = odoo.miem.ios;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -422,12 +488,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Mikhail Vorozhtcov (7B342J95CS)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"odooapp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7B342J95CS;
+				DEVELOPMENT_TEAM = 328QJG8DC6;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = odooapp/Info.plist;
@@ -442,10 +507,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = odoo.miem.iosm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = odoo.miem.ios;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -477,6 +541,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7EF585482A2520C700C90E97 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		7EF585752A252B9E00C90E97 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxnatchanon/trackable-scroll-view";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7EF585492A2520C700C90E97 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EF585482A2520C700C90E97 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		7EF585762A252B9E00C90E97 /* SwiftUITrackableScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EF585752A252B9E00C90E97 /* XCRemoteSwiftPackageReference "trackable-scroll-view" */;
+			productName = SwiftUITrackableScrollView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6162A87F291E9A2D008B32A6 /* Project object */;
 }

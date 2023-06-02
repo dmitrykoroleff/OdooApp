@@ -189,7 +189,7 @@ public struct StatusView: View {
                                         }
                                     }
                             
-                                    TrackableScrollView(.vertical, showIndicators: false, contentOffset: $scrollViewContentOffset) {
+                                    ScrollView(.vertical) {
                                         VStack {
                                             if currentIndex < statuses.count {
                                                 let count = shared.getCountStatus(status: statuses[currentIndex].name)

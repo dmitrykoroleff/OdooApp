@@ -9,7 +9,7 @@ struct UnauthenticatedView: View {
     @State var showMainView: Bool = false
     
 //    let bundle = Bundle(identifier: "odoo.miem.authhse")
-    let bundle = Bundle(identifier: "odoo.miem.ios.authhse")
+    let bundle = Bundle(identifier: "odoo.miem.ios.AuthHSE")
     @ObservedObject private var model: UnauthenticatedViewModel
     @ObservedObject private var modelCookie = CookieFile()
     @StateObject private var loginModel: LoginViewModel = .init()
